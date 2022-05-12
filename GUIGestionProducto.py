@@ -6,8 +6,6 @@ from PIL import Image, ImageTk
 
 # ****** Metodos de otros archivos ******#
 
-from GestionProducto import *
-
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
