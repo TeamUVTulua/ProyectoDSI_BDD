@@ -5,12 +5,12 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
+
+# ****** Metodos de otros archivos ******#
 from Usuario import *
 from gestionUsuario import *
 import gestionUsuario as gu
 usuario=Usuario("","","","","","","","")
-
-# ****** Metodos de otros archivos ******#
 
 # ******Ventanas de dialogo ******#
 
@@ -40,7 +40,7 @@ class GUIAdministrador:
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoAdmin, text="Bienvenido", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
+        Label(frameDerechoAdmin, text="Bienvenido, Administrador", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
 
         # ****** Datos del perfil ****** #
 
@@ -124,9 +124,6 @@ class GUIAdministrador:
                 showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_direccion(aux2, self.id_usu)
-
-                # usuario2=gestionUsuarios.login_usuario(self.email,self.contraseña)
-                # usuario=usuario2
                 print(aux2)
 
         if (self.listboxUsuario.selection_includes(1)):
