@@ -58,10 +58,14 @@ class registroUsuario:
         self.dir = Entry(miFrame1, font=("times new roman", 16))
         self.dir.place(x=50, y=270)
 
-        Label(miFrame1, text="Cargo ", font=("times new roman", 16, "bold"), bg="saddlebrown",
-              fg="gainsboro").place(x=350, y=230)
-        self.carg = Entry(miFrame1, font=("times new roman", 16))
-        self.carg.place(x=350, y=270)
+        Label(miFrame1, text="Cargo ", font=("times new roman", 16, "bold"), bg="saddlebrown", fg="gainsboro").place(x=350, y=230)
+        self.rolPass = ttk.Combobox(miFrame1, font=("times new roman",13), state="readonly", justify=CENTER)
+        self.rolPass["values"] = ["vendedor","bodega","contador", "administrador"]
+        self.rolPass.place(x=350,y=270)
+
+        self.carg = self.rolPass
+        #self.carg = Entry(miFrame1, font=("times new roman", 16))
+        #self.carg.place(x=350, y=270)
 
         # ------Row 4---
 
