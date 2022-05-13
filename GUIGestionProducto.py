@@ -87,19 +87,25 @@ class GUIGestionProducto:
 
 def ventanaConsultarProd(self):
 
-            frameGUIRegProd2= Frame(self.rootGUIRegProd,bg="#18344A")
+            self.rootGUIRegProd2=Tk()
+            self.rootGUIRegProd2.title("Sistema de inventario y Ventas MotoSocios")
+            self.rootGUIRegProd2.geometry("1360x768+560+312")
+            self.rootGUIRegProd2.resizable(1, 1)
+
+            frameGUIRegProd2= Frame(self.rootGUIRegProd2,bg="#18344A")
             frameGUIRegProd2.place(x=600,y=85,width=700,height=530)
+
             Label(frameGUIRegProd2,text="Lista Productos", font=("times new roman",24, "bold"), bg="#18344A",fg="white").place(x=220,y=20)
 
         #****** Cargue de datos en el Side der ******#
         # Carga lista de productos
-"""
+
         fder=ttk.Treeview(frameGUIRegProd2, columns=(1,2,3,4,5,6,7),show="headings",height="18")
         fder.place(x=45,width=600,y=80)
         treeScrollBary=ttk.Scrollbar(frameGUIRegProd2, orient="vertical",command=fder.yview)
         treeScrollBarx=ttk.Scrollbar(frameGUIRegProd2, orient="horizontal",command=fder.xview)
         fder.configure(xscrollcommand=treeScrollBarx.set,yscrollcommand=treeScrollBary.set)
-
+"""
         treeScrollBarx.pack(side="bottom", fill="x")
         treeScrollBary.pack(side="right", fill="y")
 
