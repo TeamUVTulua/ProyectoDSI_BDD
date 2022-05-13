@@ -72,17 +72,6 @@ class GUIGestionProducto:
         # ******* Titulo Frame Bienvenido ****** #
         Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
               fg="white").place(x=320, y=20)
-
-        Label(frameInicio, text="Hola, ", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=60)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=120)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=180)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=240)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=300)
     """
 
 def ventanaConsultarProd(self):
@@ -97,100 +86,101 @@ def ventanaConsultarProd(self):
 
             Label(frameGUIRegProd2,text="Lista Productos", font=("times new roman",24, "bold"), bg="#18344A",fg="white").place(x=220,y=20)
 
-        #****** Cargue de datos en el Side der ******#
-        # Carga lista de productos
+            #****** Cargue de datos en el Side der ******#
+            # Carga lista de productos
 
-""""
-        fder=Tk.Treeview(frameGUIRegProd2, columns=(1,2,3,4,5,6,7),show="headings",height="18")
-        fder.place(x=45,width=600,y=80)
-        treeScrollBary=ttk.Scrollbar(frameGUIRegProd2, orient="vertical",command=fder.yview)
-        treeScrollBarx=ttk.Scrollbar(frameGUIRegProd2, orient="horizontal",command=fder.xview)
-        fder.configure(xscrollcommand=treeScrollBarx.set,yscrollcommand=treeScrollBary.set)
+            fder=ttk.Treeview(frameGUIRegProd2, columns=(1,2,3,4,5,6,7),show="headings",height="18")
+            fder.place(x=45,width=600,y=80)
+            treeScrollBary=ttk.Scrollbar(frameGUIRegProd2, orient="vertical",command=fder.yview)
+            treeScrollBarx=ttk.Scrollbar(frameGUIRegProd2, orient="horizontal",command=fder.xview)
+            fder.configure(xscrollcommand=treeScrollBarx.set,yscrollcommand=treeScrollBary.set)
 
-        treeScrollBarx.pack(side="bottom", fill="x")
-        treeScrollBary.pack(side="right", fill="y")
+            treeScrollBarx.pack(side="bottom", fill="x")
+            treeScrollBary.pack(side="right", fill="y")
 
-        fder.heading(1, text ="Codigo")
-        fder.heading(2, text ="Nombre")
-        fder.heading(3, text ="Cantidad")
-        fder.heading(4, text ="Categoria")
-        fder.heading(5, text ="P. Compra")
-        fder.heading(6, text ="P. Venta")
-        fder.heading(7, text ="Prov")
+            fder.heading(1, text ="Codigo")
+            fder.heading(2, text ="Nombre")
+            fder.heading(3, text ="Cantidad")
+            fder.heading(4, text ="Categoria")
+            fder.heading(5, text ="P. Compra")
+            fder.heading(6, text ="P. Venta")
+            fder.heading(7, text ="Prov")
 
-        BotonAgregarProducto=Button(frameGUIRegProd2, text="+ Agregar ",font=("times new roman", 15), bg="gray",fg="white",bd=5,cursor="hand2")
-        BotonAgregarProducto.place(x=560,y=26,width=100)
+            BotonAgregarProducto=Button(frameGUIRegProd2, text="+ Agregar ",font=("times new roman", 15), bg="gray",fg="white",bd=5,cursor="hand2")
+            BotonAgregarProducto.place(x=560,y=26,width=100)
+
+            self.rootGUIRegProd2.mainloop()
             
 
     #****** Ventana Registro Producto ******#
 
-    def ventanaRegistroProducto(self):
+def ventanaRegistroProducto(self):
 
         self.rootGUIRegProd2=Tk()
-        self.rootGUIRegProd2.title("")
-        self.rootGUIRegProd2.geometry("750x400+400+50")
+        self.rootGUIRegProd2.title("Sistema de Inventario y Ventas MotoSocios")
+        self.rootGUIRegProd2.geometry("1360x768+560+312")
         self.rootGUIRegProd2.resizable(1,1)
 
-        # ******Frame Derecho******#
+            # ******Frame Derecho******#
 
-        frameGUIRegProd2= Frame(self.rootGUIRegProd2,bg="#18344A")
-        frameGUIRegProd2.place(x=0,y=0,relwidth=1,relheight=1)
-      
-        Label(frameGUIRegProd2,text="Agregar Producto ", font=("times new roman",25, "bold"), bg="DarkOliveGreen4",fg="white").place(x=50,y=20)
+        frameGUIRegProd3= Frame(self.rootGUIRegProd2,bg="#18344A")
+        frameGUIRegProd3.place(x=600,y=85,relwidth=1,relheight=1)
+
+        Label(frameGUIRegProd3,text="Agregar Producto ", font=("times new roman",25, "bold"), bg="#18344A",fg="white").place(x=50,y=20)
 
         #****** Frame Derecho ******#
 
-        Label(frameGUIRegProd2,text="CODIGO:", font=("times new roman",13), bg="DarkOliveGreen4",fg="black").place(x=50,y=86)
-        Label(frameGUIRegProd2,text="NOMBRE:", font=("times new roman",13), bg="DarkOliveGreen4",fg="black").place(x=50,y=126)
-        Label(frameGUIRegProd2,text="VALOR VENTA:", font=("times new roman",13), bg="DarkOliveGreen4",fg="black").place(x=50,y=166)
-        Label(frameGUIRegProd2,text="DESCRIPCIÓN:", font=("times new roman",13), bg="DarkOliveGreen4",fg="black").place(x=50,y=206)
+        Label(frameGUIRegProd3,text="CODIGO:", font=("times new roman",13), bg="#18344A",fg="black").place(x=50,y=86)
+        Label(frameGUIRegProd3,text="NOMBRE:", font=("times new roman",13), bg="#18344A",fg="black").place(x=50,y=126)
+        Label(frameGUIRegProd3,text="VALOR VENTA:", font=("times new roman",13), bg="#18344A",fg="black").place(x=50,y=166)
+        Label(frameGUIRegProd3,text="DESCRIPCIÓN:", font=("times new roman",13), bg="#18344A",fg="black").place(x=50,y=206)
 
         #****** Entradas de texto ******#
-        
-        self.cuadroCodigo=Entry(frameGUIRegProd2,font=("times new roman",13), bg="cornsilk2",fg="black")
+
+        self.cuadroCodigo=Entry(frameGUIRegProd3,font=("times new roman",13), bg="#18344A",fg="black")
         self.cuadroCodigo.place(x=235,y=86)
 
-        self.cuadroNombre=Entry(frameGUIRegProd2,font=("times new roman",13), bg="cornsilk2",fg="black")
+        self.cuadroNombre=Entry(frameGUIRegProd3,font=("times new roman",13), bg="#18344A",fg="black")
         self.cuadroNombre.place(x=235,y=126)
 
-        self.cuadroValorVenta=Entry(frameGUIRegProd2,font=("times new roman",13), bg="cornsilk2",fg="black")
+        self.cuadroValorVenta=Entry(frameGUIRegProd3,font=("times new roman",13), bg="#18344A",fg="black")
         self.cuadroValorVenta.place(x=235,y=166)
 
-        self.cuadrotexto=Entry(frameGUIRegProd2,font=("times new roman",13), bg="cornsilk2",fg="black")
+        self.cuadrotexto=Entry(frameGUIRegProd3,font=("times new roman",13), bg="#18344A",fg="black")
         self.cuadrotexto.place(x=235,y=206)
 
         #___---------cOLUMNA 2
 
-        Label(frameGUIRegProd2,text="INSUMO:", font=("times new roman",13), bg="DarkOliveGreen4",fg="black").place(x=450,y=86)
+        Label(frameGUIRegProd3,text="INSUMO:", font=("times new roman",13), bg="#18344A",fg="black").place(x=450,y=86)
 
-        self.insumo = Entry(frameGUIRegProd2, font=("times new roman",13), bg="cornsilk2",fg="black")
+        self.insumo = Entry(frameGUIRegProd3, font=("times new roman",13), bg="#18344A",fg="black")
         self.insumo.place(x=550,y=86,width=150)
 
 
-        Label(frameGUIRegProd2,text="CANTIDAD:", font=("times new roman",13), bg="DarkOliveGreen4",fg="black").place(x=450,y=126)
+        Label(frameGUIRegProd3,text="CANTIDAD:", font=("times new roman",13), bg="#18344A",fg="black").place(x=450,y=126)
 
-        self.cuadroCantidad=Entry(frameGUIRegProd2,font=("times new roman",13), bg="cornsilk2",fg="black")
+        self.cuadroCantidad=Entry(frameGUIRegProd3,font=("times new roman",13), bg="#18344A",fg="black")
         self.cuadroCantidad.place(x=550,y=126,width=50)
 
         # ****** Botones Producto ******#
-        BotonAgregar=Button(frameGUIRegProd2, text="Agregar",font=("times new roman", 13), bg="gray",fg="cornsilk2",bd=0,cursor="hand2")
+        BotonAgregar=Button(frameGUIRegProd3, text="Agregar",font=("times new roman", 13), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonAgregar.place(x=450,y=166,width=110)
 
-        BotonQuitar=Button(frameGUIRegProd2, text="Quitar",font=("times new roman", 13), bg="gray",fg="cornsilk2",bd=0,cursor="hand2")
+        BotonQuitar=Button(frameGUIRegProd3, text="Quitar",font=("times new roman", 13), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonQuitar.place(x=600,y=166,width=110)
 
         #Lisbox que muestra insumo seleccionado
-        self.listboxinsumo=Listbox(frameGUIRegProd2,width=25,height=5, bg="DarkOliveGreen4",font=("times new roman",13))
-        
+        self.listboxinsumo=Listbox(frameGUIRegProd3,width=25,height=5, bg="#18344A",font=("times new roman",13))
+
         self.listboxinsumo.place(x=465,y=206)
 
         #----final---
 
-        BotonRegistrar=Button(frameGUIRegProd2, text="Finalizar Registro",command=self.registrarPP,font=("times new roman", 15), bg="gray",fg="cornsilk2",bd=0,cursor="hand2")
+        BotonRegistrar=Button(frameGUIRegProd3, text="Finalizar Registro",command=self.registrarPP,font=("times new roman", 15), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonRegistrar.place(x=225,y=340,width=300)
 
         self.rootGUIRegProd2.mainloop()
-
+""""
     def validacionPP(self):
         return (len(self.cuadroCodigo.get())==0 or len(self.cuadroNombre.get())==0)
 
