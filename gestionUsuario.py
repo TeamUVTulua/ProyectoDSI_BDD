@@ -71,7 +71,7 @@ class gestionUsuario:
     def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):
         self.base = BaseDatos()
 
-        self.query = "update empleado set contra  = %s where usuario.contraseña = %s and usuario.id_usu = %s" #<----
+        self.query = "update empleado set contra  = %s where contra = %s and id_usu = %s" #<----
         self.cur = self.base.crear_cursor(self.query, (contraseña, contraseñaActual, identificacion))
         messagebox.showinfo("Cambiada", "La contraseña ha sido cambiada con exito")
         self.base.cerrar_conexion()

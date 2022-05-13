@@ -71,7 +71,7 @@ class GUIMenuInicial:
         Label(frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-def Menuinicio():
+def iniciar():
     rootGestEmp = Tk()
     obj = GUIMenuInicial(rootGestEmp)
     rootGestEmp.mainloop()
