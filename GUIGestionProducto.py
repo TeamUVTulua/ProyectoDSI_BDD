@@ -1,5 +1,5 @@
 # ****** Librerias Usadas ****** #
-
+import tkinter
 from tkinter import *
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
@@ -68,6 +68,7 @@ class GUIGestionProducto:
         frameInicio = Frame(self.rootGUIRegProd, bg="#18344A")
         frameInicio.place(x=600, y=85, width=700, height=530)
 
+    """
         # ******* Titulo Frame Bienvenido ****** #
         Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
               fg="white").place(x=320, y=20)
@@ -82,6 +83,7 @@ class GUIGestionProducto:
               fg="white").place(x=120, y=240)
         Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
               fg="white").place(x=120, y=300)
+    """
 
 def ventanaConsultarProd(self):
 
@@ -98,12 +100,13 @@ def ventanaConsultarProd(self):
         #****** Cargue de datos en el Side der ******#
         # Carga lista de productos
 
-        fder=ttk.Treeview(, columns=(1,2,3,4,5,6,7),show="headings",height="18")
+""""
+        fder=Tk.Treeview(frameGUIRegProd2, columns=(1,2,3,4,5,6,7),show="headings",height="18")
         fder.place(x=45,width=600,y=80)
         treeScrollBary=ttk.Scrollbar(frameGUIRegProd2, orient="vertical",command=fder.yview)
         treeScrollBarx=ttk.Scrollbar(frameGUIRegProd2, orient="horizontal",command=fder.xview)
         fder.configure(xscrollcommand=treeScrollBarx.set,yscrollcommand=treeScrollBary.set)
-"""
+
         treeScrollBarx.pack(side="bottom", fill="x")
         treeScrollBary.pack(side="right", fill="y")
 
@@ -115,7 +118,7 @@ def ventanaConsultarProd(self):
         fder.heading(6, text ="P. Venta")
         fder.heading(7, text ="Prov")
 
-        BotonAgregarProducto=Button(frameGUIRegProd, text="+ Agregar ",font=("times new roman", 15), bg="gray",fg="white",bd=5,cursor="hand2")
+        BotonAgregarProducto=Button(frameGUIRegProd2, text="+ Agregar ",font=("times new roman", 15), bg="gray",fg="white",bd=5,cursor="hand2")
         BotonAgregarProducto.place(x=560,y=26,width=100)
             
 
