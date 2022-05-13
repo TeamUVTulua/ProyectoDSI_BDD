@@ -51,12 +51,12 @@ class GUIGestionProducto:
 
         # ******Boton Listar Productos ****** #
 
-        BotonListarProductos = Button(frameGUIRegProd, text="Listado de Productos", font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonListarProductos = Button(frameGUIRegProd, text="Listado de Productos",font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonListarProductos.place(x=120, y=300, width=240)
 
         # ******Boton Eliminar Producto ****** #
 
-        BotonEliminarProducto = Button(frameGUIRegProd, text="Eliminar Producto", font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProducto = Button(frameGUIRegProd, text="Eliminar Producto",font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProducto.place(x=120, y=360, width=240)
 
         # ******Boton Salir ****** #
