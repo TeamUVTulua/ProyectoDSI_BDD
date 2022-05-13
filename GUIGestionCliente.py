@@ -29,46 +29,46 @@ class GUIGestCli:
 
         # ****** Frame Botones Opciones Side Izq ****** #
 
-        frameGUIGestCli = Frame(self.rootGestCli, bg="#18344A")
-        frameGUIGestCli.place(x=85, y=85, width=480, height=530)
-        Label(frameGUIGestCli, text="Gestion Cliente", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=125, y=30)
+        frameIzquierdoCli = Frame(self.rootGestCli, bg="#18344A")
+        frameIzquierdoCli.place(x=85, y=85, width=480, height=530)
+        Label(frameIzquierdoCli, text="Gestion Cliente", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=125, y=30)
 
         # ****** Boton Consultar Clientes ****** #
 
-        BotonConsultarCliente = Button(frameGUIGestCli, text="Consultar Clientes", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarCliente = Button(frameIzquierdoCli, text="Consultar Clientes", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarCliente.place(x=120, y=120, width=240)
 
         # ****** Boton Crear Clientes ****** #
 
-        BotonCrearCliente = Button(frameGUIGestCli, text="Crear Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCrearCliente = Button(frameIzquierdoCli, text="Crear Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCrearCliente.place(x=120, y=180, width=240)
 
         # ****** Boton Modificar Clientes ****** #
 
-        BotonListarEmpleados = Button(frameGUIGestCli, text="Modificar Cliente",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonListarEmpleados = Button(frameIzquierdoCli, text="Modificar Cliente",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonListarEmpleados.place(x=120, y=240, width=240)
 
         # ******Boton Listar Clientes ****** #
 
-        BotonListarCliente = Button(frameGUIGestCli, text="Listar Clientes",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonListarCliente = Button(frameIzquierdoCli, text="Listar Clientes",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonListarCliente.place(x=120, y=300, width=240)
 
         # ******Boton Eliminar Cliente ****** #
 
-        BotonEliminarCliente = Button(frameGUIGestCli, text="Eliminar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarCliente = Button(frameIzquierdoCli, text="Eliminar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarCliente.place(x=120, y=360, width=240)
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameGUIGestCli, text="Cerrar Sesión", command=self.rootGestCli.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoCli, text="Cerrar Sesión", command=self.rootGestCli.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
-        frameInicio = Frame(self.rootGestCli, bg="#18344A")
-        frameInicio.place(x=600, y=85, width=700, height=530)
+        frameDerechoCli = Frame(self.rootGestCli, bg="#18344A")
+        frameDerechoCli.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Cliente ****** #
-        Label(frameInicio, text="Clientes", font=("comic sans MS", 24, "bold"), bg="#18344A",
+        Label(frameDerechoCli, text="Clientes", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
         # ******  ****** #
