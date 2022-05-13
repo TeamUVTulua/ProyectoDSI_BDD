@@ -2,7 +2,7 @@
 
 from tkinter import *
 from tkinter import ttk
-from PIL import Image, ImageTk
+from PIL import *
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 
@@ -26,7 +26,7 @@ class GUIGestVenta:
 
         # ******logo de Fondo****** #
 
-        self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
+        self.bg = PIL.ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
         Label(self.rootGUIGestVenta, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
         # ****** Frame inicio Productos Side Der ****** #
