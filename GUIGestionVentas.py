@@ -4,7 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
-
+from PIL import ImageTk, Image, ImageFile
 # ****** Metodos de otros archivos ******#
 
 # ******Ventanas de dialogo ******#
@@ -25,8 +25,8 @@ class GUIGestVenta:
 
         # ******logo de Fondo****** #
 
-        #self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
-        #Label(self.rootGUIGestVenta, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+        self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
+        Label(self.rootGUIGestVenta, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
         # ****** Frame inicio Productos Side Der ****** #
 
@@ -36,59 +36,59 @@ class GUIGestVenta:
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoVentas, text="Ventas", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
-"""
+
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=60)
-        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=100)
-        Label(frameDerechoAdmin,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=140)
-        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=260)
-        Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
-        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=180)
+        Label(frameDerechoVentas, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=60)
+        Label(frameDerechoVentas, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=100)
+        Label(frameDerechoVentas,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=140)
+        Label(frameDerechoVentas, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=260)
+        Label(frameDerechoVentas, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
+        Label(frameDerechoVentas, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=180)
 
-"""
+
         # ****** Botones Perfil Propio ****** #
 
         BotonModificarDatos = Button(frameDerechoVentas, text="Modificar datos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarDatos.place(x=80, y=400, width=240)
 
-        BotonCambiarContraseña = Button(frameDerechoAdmin, text="Cambiar Contraseña", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCambiarContraseña = Button(frameDerechoVentas, text="Cambiar Contraseña", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCambiarContraseña.place(x=380,y=400, width=240)
 
         # ******Frame Botones Opciones Side Izq ****** #
 
-        frameIzquierdoVentas = Frame(sel.rootGUIGestVenta, bg="#18344A")
+        frameIzquierdoVentas = Frame(self.rootGUIGestVenta, bg="#18344A")
         frameIzquierdoVentas.place(x=85, y=85, width=480, height=530)
         Label(frameIzquierdoVentas, text="Inicio Administrador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=100, y=30)
 
         # ****** Boton Gestiones Empleados ****** #
 
-        BotonGestionarEmpleados = Button(frameIzquierdoAdmin, text="Gestionar Empleados", command=self.gesEmpleado, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonGestionarEmpleados = Button(frameIzquierdoVentas, text="Gestionar Empleados", command=self.gesEmpleado, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonGestionarEmpleados.place(x=120, y=120, width=240)
 
         # ****** Boton Gestionar Clientes ******#
 
-        BotonGestionarClientes = Button(frameIzquierdoAdmin, text="Gestionar Clientes", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonGestionarClientes = Button(frameIzquierdoVentas, text="Gestionar Clientes", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonGestionarClientes.place(x=120, y=180, width=240)
 
         # ******Boton Gestionar Inventario****** #
 
-        BotonConsultarProducto = Button(frameIzquierdoAdmin, text="Gestionar Inventario",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarProducto = Button(frameIzquierdoVentas, text="Gestionar Inventario",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarProducto.place(x=120, y=240, width=240)
 
         # ******Boton Gestionar Proveedores ****** #
 
-        BotonListarProductos = Button(frameIzquierdoAdmin, text="Gestionar Proveedores",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonListarProductos = Button(frameIzquierdoVentas, text="Gestionar Proveedores",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonListarProductos.place(x=120, y=300, width=240)
 
         # ******Boton Consultar Historicos ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoAdmin, text="Consultar Historicos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProducto = Button(frameIzquierdoVentas, text="Consultar Historicos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProducto.place(x=120, y=360, width=240)
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameIzquierdoAdmin, text="Cerrar Sesión", command=self.login_window, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoVentas, text="Cerrar Sesión", command=self.login_window, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 """
     #****** Cargar Información en la Base de Datos ******#
