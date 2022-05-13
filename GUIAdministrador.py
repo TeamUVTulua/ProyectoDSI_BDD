@@ -34,19 +34,26 @@ class GUIAdministrador:
 
         # ****** Frame inicio Productos Side Der ****** #
 
-        frameAdministrador = Frame(self.rootGUIAdministrador, bg="#18344A")
-        frameAdministrador.place(x=600, y=85, width=700, height=530)
+
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameAdministrador, text="Bienvenido", font=("comic sans MS", 24, "bold"), bg="#18344A", fg="white").place(x=320, y=20)
 
         # ****** Datos del perfil ****** #
 
-        Label(frameAdministrador, text="Hola, Administrador", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=70)
-        Label(frameAdministrador, text="Correo: Administrador@motosocios.com", font=("comic sans MS", 24), bg="#18344A", fg="white").place(x=80, y=130)
-        Label(frameAdministrador, text="Telefono: ", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=190)
-        Label(frameAdministrador, text="Direccion:", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=250)
+        #--- UserInformationFrame
+
+        frameAdministrador = Frame(self.rootGUIAdministrador, bg="#18344A")
+        frameAdministrador.place(x=600, y=85, width=700, height=530)
+
+        Label(frameAdministrador, text="Bienvenido", font=("comic sans MS", 20, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
+
+        Label(frameAdministrador, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=60)
+        Label(frameAdministrador, text="Nombre: Administrador@motosocios.com", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=100)
+        Label(frameAdministrador, text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=140)
+        Label(frameAdministrador, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
+        Label(frameAdministrador, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
+        Label(frameAdministrador, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
 
         # ****** Botones Perfil Propio ****** #
 
@@ -91,6 +98,19 @@ class GUIAdministrador:
 
         BotonSalir = Button(frameGUIAdministrador, text="Cerrar Sesión", command=self.rootGUIAdministrador.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
+
+    #-- CARGAR INFORMACIO DE LA BD
+    def CargarInfoUsuarioEnLabels(self):
+        self.id_usu = usuario.get_email()
+        self.id_rol = usuario.get_id_rol()
+        self.contraseña = usuario.get_contraseña()
+        self.id_usuario = usuario.get_id_usuario()
+        self.fecha_registro = usuario.get_fecha_ingreso()
+        self.nombres_usuario = usuario.get_nombre()
+        self.apellidos_usuarios = usuario.get_apellido()
+        self.direccion_usuario = usuario.get_direccion()
+        self.tel_usuario = usuario.get_telefono()
+        self.estado_usuario = usuario.get_estado()
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 def iniciar():
