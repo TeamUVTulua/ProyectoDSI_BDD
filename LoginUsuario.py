@@ -25,14 +25,14 @@ class loginUsuario:
         Label(frameLogin, text="INICIO SESIÓN", font=("times new roman", 25, "bold"), bg="#18344A",fg="white").place(x=50, y=20)
 
         # ****** Label ID ****** #
-        Label(frameLogin, text="Identificación: ", font=("times new roman", 16, "bold"), bg="#18344A", fg="white").place( x=50, y=70)
+        Label(frameLogin, text="Identificación: ", font=("times new roman", 16, "bold"), bg="#18344A", fg="white").place( x=50, y=80)
         self.cuadroID = Entry(frameLogin, font=("times new roman", 16))
-        self.cuadroID.place(x=50, y=110)
+        self.cuadroID.place(x=50, y=120)
 
         # ****** Label contraseña ****** #
-        Label(frameLogin, text="Contraseña: ", font=("times new roman", 16, "bold"), bg="#18344A", fg="white").place(x=50, y=150)
+        Label(frameLogin, text="Contraseña: ", font=("times new roman", 16, "bold"), bg="#18344A", fg="white").place(x=50, y=160)
         self.cuadroPass = Entry(frameLogin, show="*", font=("times new roman", 16))
-        self.cuadroPass.place(x=50, y=190)
+        self.cuadroPass.place(x=50, y=200)
 
         # ****** Boton Ingresar ****** #
         BotonOlvidePass = Button(frameLogin, text="Ingresar ", font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
