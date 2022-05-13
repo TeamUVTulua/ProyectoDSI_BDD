@@ -27,25 +27,6 @@ class GUIGestionProducto:
         self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
         Label(self.rootGUIRegProd, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
-        # ****** Frame inicio Productos Side Der ****** #
-        frameInicio = Frame(self.rootGUIRegProd, bg="#18344A")
-        frameInicio.place(x=600, y=85, width=700, height=530)
-        # ******* Titulo Frame Bienvenido ****** #
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=320, y=20)
-
-        Label(frameInicio, text="Hola, ", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=60)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=120)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=180)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=240)
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=120, y=300)
-
-
         # ******Frame Botones Opciones Side Izq ****** #
 
         frameGUIRegProd = Frame(self.rootGUIRegProd, bg="#18344A")
@@ -83,7 +64,23 @@ class GUIGestionProducto:
         BotonSalir = Button(frameGUIRegProd, text="Cerrar Sesión", command=self.rootGUIRegProd.quit,font=("times new roman", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
-        # ****** Frame Consultar Productos Side Der ****** #
+        # ****** Frame inicio Productos Side Der ****** #
+        frameInicio = Frame(self.rootGUIRegProd, bg="#18344A")
+        frameInicio.place(x=600, y=85, width=700, height=530)
+        # ******* Titulo Frame Bienvenido ****** #
+        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=320, y=20)
+
+        Label(frameInicio, text="Hola, ", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=120, y=60)
+        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=120, y=120)
+        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=120, y=180)
+        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=120, y=240)
+        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=120, y=300)
 
 def ventanaConsultarProd(self):
 
