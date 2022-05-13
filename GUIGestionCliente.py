@@ -74,13 +74,13 @@ class GUIGestCli:
               fg="white").place(x=280, y=20)
 
         # ****** Datos del perfil ****** #
-        Label(frameDerechoCli, text="ID:", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80,y=70)
-        Label(frameDerechoCli, text="Nombre:", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=130)
-        Label(frameDerechoCli, text="Apellido1:", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=190)
-        Label(frameDerechoCli, text="Apellido2:", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=250)
-        Label(frameDerechoCli, text="Correo: ", font=("comic sans MS", 24), bg="#18344A",fg="white").place(x=80, y=310)
-        Label(frameDerechoCli, text="Telefono: ", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=370)
-        Label(frameDerechoCli, text="Direccion.", font=("comic sans MS", 24,), bg="#18344A", fg="white").place(x=80, y=430)
+        Label(frameDerechoCli, text="ID:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,y=70)
+        Label(frameDerechoCli, text="Nombre:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=110)
+        Label(frameDerechoCli, text="Apellido1:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=150)
+        Label(frameDerechoCli, text="Apellido2:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=190)
+        Label(frameDerechoCli, text="Correo: ", font=("comic sans MS", 20), bg="#18344A",fg="white").place(x=80, y=280)
+        Label(frameDerechoCli, text="Telefono: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=340)
+        Label(frameDerechoCli, text="Direccion.", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=400)
 
         # ****** Boton Modificar Datos ****** #
 
