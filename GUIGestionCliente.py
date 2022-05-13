@@ -75,17 +75,17 @@ class GUIGestCli:
 
         # ****** Datos del perfil ****** #
         Label(frameDerechoCli, text="ID:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,y=70)
-        Label(frameDerechoCli, text="Nombre:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=120)
-        Label(frameDerechoCli, text="Apellido1:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=170)
-        Label(frameDerechoCli, text="Apellido2:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=220)
-        Label(frameDerechoCli, text="Correo: ", font=("comic sans MS", 20), bg="#18344A",fg="white").place(x=80, y=270)
-        Label(frameDerechoCli, text="Telefono: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=320)
-        Label(frameDerechoCli, text="Direccion:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=370)
+        Label(frameDerechoCli, text="Nombre:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=110)
+        Label(frameDerechoCli, text="Apellido1:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=160)
+        Label(frameDerechoCli, text="Apellido2:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=210)
+        Label(frameDerechoCli, text="Correo: ", font=("comic sans MS", 20), bg="#18344A",fg="white").place(x=80, y=260)
+        Label(frameDerechoCli, text="Telefono: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=310)
+        Label(frameDerechoCli, text="Direccion:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=360)
 
         # ****** Boton Modificar Datos ****** #
 
         BotonModificarDatos = Button(frameDerechoCli, text="Modificar datos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonModificarDatos.place(x=210, y=400, width=240)
+        BotonModificarDatos.place(x=210, y=430, width=240)
 
 def gestionProducto(self):
     self.rootGestCli.destroy()
