@@ -37,13 +37,13 @@ class GUIContador:
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoContador, text="Bienvenido, Vendedor", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=180, y=20)
+        Label(frameDerechoContador, text="Bienvenido, Contador", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=180, y=20)
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoContador, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=100)
+        Label(frameDerechoContador, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place( x=80, y=100)
         Label(frameDerechoContador, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=140)
-        Label(frameDerechoContador,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
+        Label(frameDerechoContador, text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
         Label(frameDerechoContador, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=220)
         Label(frameDerechoContador, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
         Label(frameDerechoContador, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=300)
@@ -61,37 +61,37 @@ class GUIContador:
 
         frameIzquierdoContador = Frame(self.rootGUIContador, bg="#18344A")
         frameIzquierdoContador.place(x=85, y=85, width=480, height=530)
-        Label(frameIzquierdoContador, text="Vendedor", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
+        Label(frameIzquierdoContador, text="Contador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
 
-        # ****** Boton Gestiones Empleados ****** #
+        # ****** Boton Consultar Historico de Ventas ****** #
 
-        BotonGestionarEmpleados = Button(frameIzquierdoContador, text="Crear Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonGestionarEmpleados.place(x=120, y=120, width=240)
+        BotonConsultarHV = Button(frameIzquierdoContador, text="Consultar Historico de Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHV.place(x=90, y=120, width=320)
 
-        # ****** Boton Gestionar Clientes ******#
+        # ****** Boton Consultar Historico de Compras ******#
 
-        BotonGestionarClientes = Button(frameIzquierdoContador, text="Consultar Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonGestionarClientes.place(x=120, y=180, width=240)
+        BotonConsultarHC = Button(frameIzquierdoContador, text="Consultar Historico de Compras", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHC.place(x=90, y=180, width=320)
 
-        # ******Boton Gestionar Inventario****** #
+        # ****** Boton Consultar Datos Empleados ****** #
 
-        BotonConsultarProducto = Button(frameIzquierdoContador, text="Modificar Venta",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarProducto.place(x=120, y=240, width=240)
+        BotonConsultarDatosEmp = Button(frameIzquierdoContador, text="Consultar Datos  Empleados",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarDatosEmp.place(x=90, y=240, width=320)
 
-        # ******Boton Gestionar Proveedores ****** #
+        # ******Boton Crear Pago a Empleados ****** #
 
-        BotonListarProductos = Button(frameIzquierdoContador, text="Listar Ventas",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonListarProductos.place(x=120, y=300, width=240)
+        BotonCrearPagoEmp = Button(frameIzquierdoContador, text="Crear Pago a Empleados",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCrearPagoEmp.place(x=90, y=300, width=320)
 
-        # ******Boton Consultar Historicos ****** #
+        # ******Boton Crear Pago a Proveedores ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoContador, text="Modificar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarProducto.place(x=120, y=360, width=240)
+        BotonCrearPagoProv = Button(frameIzquierdoContador, text="Crear Pago a Proveedores", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCrearPagoProv.place(x=90, y=360, width=320)
 
         # ******Boton Salir ****** #
 
         BotonSalir = Button(frameIzquierdoContador, text="Cerrar Sesión", command=self.rootGUIContador.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalir.place(x=120, y=420, width=240)
+        BotonSalir.place(x=90, y=420, width=320)
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 
