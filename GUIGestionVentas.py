@@ -4,7 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
-from PIL import ImageTk, Image, ImageFile
+from PIL import Image,ImageTk,ImageFile
 # ****** Metodos de otros archivos ******#
 
 # ******Ventanas de dialogo ******#
