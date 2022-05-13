@@ -38,7 +38,7 @@ class GUIAdministrador:
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoAdmin, text="Bienvenido", font=("comic sans MS", 20, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
+        Label(frameDerechoAdmin, text="Bienvenido", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
 
         # ****** Datos del perfil ****** #
 
