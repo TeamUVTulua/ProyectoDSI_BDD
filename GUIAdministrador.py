@@ -3,6 +3,11 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
+from tkinter.simpledialog import askstring
+from tkinter.messagebox import showinfo
+from Usuario import Usuario
+import Usuario as us
+usuario=us.Usuario("","","","","","","","")
 
 # ****** Metodos de otros archivos ******#
 
@@ -88,13 +93,9 @@ class GUIAdministrador:
         BotonSalir.place(x=120, y=420, width=240)
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
-        def Menuinicio():
-            rootGUIAdministrador = Tk()
-            obj = GUIAdministrador(rootGUIAdministrador)
-            rootGUIAdministrador.mainloop()
+def iniciar():
+     rootGUIAdministrador = Tk()
+     obj = GUIAdministrador(rootGUIAdministrador)
+     rootGUIAdministrador.mainloop()
 
 # ****** Inicio de la Interfaz ****** #
-
-rootGUIAdministrador = Tk()
-obj = GUIAdministrador(rootGUIAdministrador)
-rootGUIAdministrador.mainloop()

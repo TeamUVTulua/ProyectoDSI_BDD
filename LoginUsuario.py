@@ -1,6 +1,11 @@
 from tkinter import *
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
+from gestionUsuario import *
+from BaseDatos import *
+from Usuario import *
+
+user = Usuario("", "", "", "", "", "", "", "")
 
 class loginUsuario:
     def __init__(self, rootLogin):
@@ -45,18 +50,20 @@ class loginUsuario:
 
     def abrirUsuarioSegunRol(self):
 
-        gestionUsuarios = GestionUsuarios()
-        user2 = gestionUsuarios.login_usuario(self.cuadroTextoCorreo.get(), self.TextoPass.get())
-        print(user2.get_nombre())
-        user = user2
-        print(user.get_id_rol())
+        gestionUsuarios = gestionUsuario()
+        user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())
 
-        if (user.get_id_rol() == 1):
+        #print(user2.get_nombre())
+        user = user2
+
+        #print(user.get_id_rol())
+
+        if (user2.get_cargo() == 'administrador'):
             print("ventana adminCC")
             self.rootLogin.destroy()
-            import GUIAdminCentroC as cc
+            import GUIAdministrador as cc
             cc.usuario = user2
-            cc.inicio()
+            cc.iniciar()
 
         elif (user.get_id_rol() == 2):
             print("ventana adminRR")
