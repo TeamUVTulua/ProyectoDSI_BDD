@@ -3,7 +3,10 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
-
+from Usuario import *
+import Usuario as us
+from gestionUsuario import *
+usuario=us.Usuario("","","","","","","","")
 # ****** Metodos de otros archivos ******#
 
 # ******Ventanas de dialogo ******#
@@ -40,7 +43,7 @@ class GUIMenuInicial:
 
         # ****** Boton Crear Empleados ******#
 
-        BotonCrearEmpleados = Button(frameIzquierdoEmp, text="Crear Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCrearEmpleados = Button(frameIzquierdoEmp, text="Crear Empleado", command=self.crear,  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCrearEmpleados.place(x=120, y=180, width=240)
 
         # ******Boton Listar Empleados****** #
@@ -71,12 +74,31 @@ class GUIMenuInicial:
         Label(frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
+        self.listboxUsuario = Listbox(frameDerechoEmp, width=40, heigh=9, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 20))
+
+        self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+
+        self.listboxUsuario.place(x=50, y=86)
+
+    def CargarInfoUsuarioEnLabels(self, listboxUsuario):
+        #print(usuario.get_nombre())
+        gestionUsuarios =gestionUsuario()
+        listaDatos = gestionUsuarios.obtenerTodos()
+
+        for x in listaDatos:
+            listboxUsuario.insert(END, x)
+
+
+
+    def crear(self):
+        self.rootGestEmp.destroy()
+        mensaje="cucucucu"
+        print (mensaje)
+        import registroUsuario as reg
+        reg.iniciar()
+
 def iniciar():
     rootGestEmp = Tk()
     obj = GUIMenuInicial(rootGestEmp)
     rootGestEmp.mainloop()
-
-
-rootGestEmp = Tk()
-obj = GUIMenuInicial(rootGestEmp)
-rootGestEmp.mainloop()
