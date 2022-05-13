@@ -31,7 +31,7 @@ class GUIGestCli:
 
         frameGUIGestCli = Frame(self.rootGestCli, bg="#18344A")
         frameGUIGestCli.place(x=85, y=85, width=480, height=530)
-        Label(frameGUIGestCli, text="Gestion Cliente", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=100, y=30)
+        Label(frameGUIGestCli, text="Gestion Cliente", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=125, y=30)
 
         # ****** Boton Consultar Clientes ****** #
 
@@ -62,6 +62,14 @@ class GUIGestCli:
 
         BotonSalir = Button(frameGUIGestCli, text="Cerrar Sesión", command=self.rootGestCli.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
+
+        # ****** Frame inicio Productos Side Der ****** #
+        frameInicio = Frame(self.rootGestCli, bg="#18344A")
+        frameInicio.place(x=600, y=85, width=700, height=530)
+
+        # ******* Titulo Frame Cliente ****** #
+        Label(frameInicio, text="Clientes", font=("comic sans MS", 24, "bold"), bg="#18344A",
+              fg="white").place(x=280, y=20)
 
         # ******  ****** #
 def modificarEmpleado(self):

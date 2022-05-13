@@ -68,11 +68,11 @@ class GUIGestionProducto:
         frameInicio = Frame(self.rootGUIRegProd, bg="#18344A")
         frameInicio.place(x=600, y=85, width=700, height=530)
 
-    """
-        # ******* Titulo Frame Bienvenido ****** #
-        Label(frameInicio, text="Bienvenido", font=("times new roman", 24, "bold"), bg="#18344A",
-              fg="white").place(x=320, y=20)
-    """
+
+        # ******* Titulo Frame Producto ****** #
+        Label(frameInicio, text="Productos", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=280, y=20)
+
 
 def ventanaConsultarProd(self):
 

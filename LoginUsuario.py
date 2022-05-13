@@ -36,17 +36,17 @@ class loginUsuario:
 
         # ****** Boton Ingresar ****** #
         BotonOlvidePass = Button(frameLogin, text="Ingresar ", font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonOlvidePass.place(x=60,y=280, width=200)
+        BotonOlvidePass.place(x=75,y=280, width=200)
 
         # ****** Boton Salir ****** #
 
         BotonIngresar = Button(frameLogin, text="Salir", command=self.abrirUsuarioSegunRol, font=("times new roman", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonIngresar.place(x=60, y=330, width=200)
+        BotonIngresar.place(x=75, y=330, width=200)
 
         # ****** Boton Olvide mi contraseña ****** #
 
         BotonSalirR = Button(frameLogin, text="Olvide mi contraseña", command=self.rootLogin.quit, font=("times new roman", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalirR.place(x=60, y=380, width=200)
+        BotonSalirR.place(x=75, y=380, width=200)
 
     def abrirUsuarioSegunRol(self):
 
