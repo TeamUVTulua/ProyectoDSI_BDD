@@ -63,6 +63,14 @@ class GUIMenuInicial:
         BotonSalir = Button(frameMenuInicial, text="Cerrar Sesión", command=self.rootGestEmp.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
+        # ****** Frame inicio Productos Side Der ****** #
+        frameDerecho = Frame(self.rootGestEmp, bg="#18344A")
+        frameDerecho.place(x=600, y=85, width=700, height=530)
+
+        # ******* Titulo Frame Producto ****** #
+        Label(frameDerecho, text="Productos", font=("times new roman", 24, "bold"), bg="#18344A",
+              fg="white").place(x=280, y=20)
+
         # ******  ****** #
 def modificarEmpleado(self):
     # ****** Frame inicio Productos Side Der ****** #
