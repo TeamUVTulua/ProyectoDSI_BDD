@@ -14,25 +14,25 @@ from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 
-# ****** Clase GUIGestVendedor ****** #
+# ****** Clase GUIContador ****** #
 
-class GUIGestVendedor:
+class GUIContador:
 
-    def __init__(self, rootGUIGestVendedor):
-        self.rootGUIGestVendedor = rootGUIGestVendedor
-        self.rootGUIGestVendedor.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIGestVendedor.geometry("1360x768+560+312")
-        self.rootGUIGestVendedor.resizable(1, 1)
-        self.rootGUIGestVendedor.iconbitmap("Imagenes\iconoInterfaz.ico")
+    def __init__(self, rootGUIContador):
+        self.rootGUIContador = rootGUIContador
+        self.rootGUIContador.title("Sistema de Inventario y Ventas MotoSocios")
+        self.rootGUIContador.geometry("1360x768+560+312")
+        self.rootGUIContador.resizable(1, 1)
+        self.rootGUIContador.iconbitmap("Imagenes\iconoInterfaz.ico")
 
         # ******logo de Fondo****** #
 
         #self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
-        #Label(self.rootGUIGestVendedor, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+        #Label(self.rootGUIContador, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
         # ****** Frame inicio Productos Side Der ****** #
 
-        frameDerechoVendedor = Frame(self.rootGUIGestVendedor, bg="#18344A")
+        frameDerechoVendedor = Frame(self.rootGUIContador, bg="#18344A")
         frameDerechoVendedor.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Bienvenido ****** #
@@ -59,7 +59,7 @@ class GUIGestVendedor:
 
         # ******Frame Botones Opciones Side Izq ****** #
 
-        frameIzquierdoVendedor = Frame(self.rootGUIGestVendedor, bg="#18344A")
+        frameIzquierdoVendedor = Frame(self.rootGUIContador, bg="#18344A")
         frameIzquierdoVendedor.place(x=85, y=85, width=480, height=530)
         Label(frameIzquierdoVendedor, text="Vendedor", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
 
@@ -90,16 +90,16 @@ class GUIGestVendedor:
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameIzquierdoVendedor, text="Cerrar Sesión", command=self.rootGUIGestVendedor.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoVendedor, text="Cerrar Sesión", command=self.rootGUIContador.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 
 def iniciar():
-     rootGUIGestVendedor = Tk()
-     obj = GUIGestVendedor(rootGUIGestVendedor)
-     rootGUIGestVendedor.mainloop()
+     rootGUIContador = Tk()
+     obj = GUIContador(rootGUIContador)
+     rootGUIContador.mainloop()
 
-rootGUIGestVendedor = Tk()
-obj = GUIGestVendedor(rootGUIGestVendedor)
-rootGUIGestVendedor.mainloop()
+rootGUIContador = Tk()
+obj = GUIContador(rootGUIContador)
+rootGUIContador.mainloop()
