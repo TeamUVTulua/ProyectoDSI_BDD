@@ -5,9 +5,8 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
-from Usuario import Usuario
-import Usuario as us
-usuario=us.Usuario("","","","","","","","")
+from Usuario import *
+usuario=Usuario("","","","","","","","")
 
 # ****** Metodos de otros archivos ******#
 
@@ -50,6 +49,12 @@ class GUIAdministrador:
         Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
         Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
 
+        self.CargarInfoUsuarioEnLabels()
+        # INFORMACIO CARGADA QUE NO SE MODIFICA
+        Label(frameAdministrador, text=self.iid, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
+        Label(frameAdministrador, text=self.nnn, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
+        #Label(frameAdministrador, text=self.ape, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=140)
+        #Label(frameAdministrador, text=self.carg, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=180)
         # ****** Botones Perfil Propio ****** #
 
         BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -97,16 +102,11 @@ class GUIAdministrador:
     #****** Cargar Información en la Base de Datos ******#
 
     def CargarInfoUsuarioEnLabels(self):
-        self.id_usu = usuario.get_email()
-        self.id_rol = usuario.get_id_rol()
-        self.contraseña = usuario.get_contraseña()
-        self.id_usuario = usuario.get_id_usuario()
-        self.fecha_registro = usuario.get_fecha_ingreso()
-        self.nombres_usuario = usuario.get_nombre()
-        self.apellidos_usuarios = usuario.get_apellido()
-        self.direccion_usuario = usuario.get_direccion()
-        self.tel_usuario = usuario.get_telefono()
-        self.estado_usuario = usuario.get_estado()
+        #print(usuario.get_nombre())
+
+        self.iid = usuario.get_id_usu()
+        #self.nnn = usuario.get_nombre()
+
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 def iniciar():
