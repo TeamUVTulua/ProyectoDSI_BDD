@@ -51,8 +51,8 @@ class GUIAdministrador:
 
         self.CargarInfoUsuarioEnLabels()
         # INFORMACIO CARGADA QUE NO SE MODIFICA
-        Label(frameAdministrador, text=self.iid, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
-        Label(frameAdministrador, text=self.nnn, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
+        Label(frameDerechoAdmin, text=self.iid, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
+        Label(frameDerechoAdmin, text=self.nnn, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
         #Label(frameAdministrador, text=self.ape, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=140)
         #Label(frameAdministrador, text=self.carg, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=180)
         # ****** Botones Perfil Propio ****** #
