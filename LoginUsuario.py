@@ -26,12 +26,12 @@ class loginUsuario:
 
         # ****** Label ID ****** #
         Label(frameLogin, text="Identificación: ", font=("times new roman", 16, "bold"), bg="#18344A", fg="white").place( x=50, y=80)
-        self.cuadroID = Entry(frameLogin, font=("times new roman", 16))
+        self.cuadroID = Entry(frameLogin, font=("times new roman", 16),width=22)
         self.cuadroID.place(x=50, y=120)
 
         # ****** Label contraseña ****** #
         Label(frameLogin, text="Contraseña: ", font=("times new roman", 16, "bold"), bg="#18344A", fg="white").place(x=50, y=160)
-        self.cuadroPass = Entry(frameLogin, show="*", font=("times new roman", 16))
+        self.cuadroPass = Entry(frameLogin, show="*", font=("times new roman", 16,),width=22)
         self.cuadroPass.place(x=50, y=200)
 
         # ****** Boton Ingresar ****** #
