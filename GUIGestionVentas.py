@@ -2,7 +2,6 @@
 
 from tkinter import *
 from tkinter import ttk
-from PIL import *
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 
@@ -26,18 +25,18 @@ class GUIGestVenta:
 
         # ******logo de Fondo****** #
 
-        self.bg = PIL.ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
-        Label(self.rootGUIGestVenta, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+        #self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
+        #Label(self.rootGUIGestVenta, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
         # ****** Frame inicio Productos Side Der ****** #
 
-        frameDerechoAdmin = Frame(self.rootGUIGestVenta, bg="#18344A")
-        frameDerechoAdmin.place(x=600, y=85, width=700, height=530)
+        frameDerechoVentas = Frame(self.rootGUIGestVenta, bg="#18344A")
+        frameDerechoVentas.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoAdmin, text="Bienvenido", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
-
+        Label(frameDerechoVentas, text="Ventas", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
+"""
         # ****** Datos del perfil ****** #
 
         Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=60)
@@ -47,33 +46,20 @@ class GUIGestVenta:
         Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
         Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=180)
 
-        self.CargarInfoUsuarioEnLabels()
-        # INFORMACIO CARGADA QUE NO SE MODIFICA
-        Label(frameDerechoAdmin, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
-        Label(frameDerechoAdmin, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
-        Label(frameDerechoAdmin, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=140)
-        Label(frameDerechoAdmin, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=180)
-
-        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=2, bg="#18344A", fg="white", font=("comic sans MS", 20,))
-
-        self.listboxUsuario.insert(0, self.dir_usu)
-        self.listboxUsuario.insert(1, self.tel_usu)
-
-        self.listboxUsuario.place(x=270, y=220)
-
+"""
         # ****** Botones Perfil Propio ****** #
 
-        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos", command=self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonModificarDatos = Button(frameDerechoVentas, text="Modificar datos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarDatos.place(x=80, y=400, width=240)
 
-        BotonCambiarContraseña = Button(frameDerechoAdmin, text="Cambiar Contraseña", command=self.modContraseña, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCambiarContraseña = Button(frameDerechoAdmin, text="Cambiar Contraseña", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCambiarContraseña.place(x=380,y=400, width=240)
 
         # ******Frame Botones Opciones Side Izq ****** #
 
-        frameIzquierdoAdmin = Frame(self.rootGUIGestVenta, bg="#18344A")
-        frameIzquierdoAdmin.place(x=85, y=85, width=480, height=530)
-        Label(frameIzquierdoAdmin, text="Inicio Administrador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=100, y=30)
+        frameIzquierdoVentas = Frame(sel.rootGUIGestVenta, bg="#18344A")
+        frameIzquierdoVentas.place(x=85, y=85, width=480, height=530)
+        Label(frameIzquierdoVentas, text="Inicio Administrador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=100, y=30)
 
         # ****** Boton Gestiones Empleados ****** #
 
@@ -104,7 +90,7 @@ class GUIGestVenta:
 
         BotonSalir = Button(frameIzquierdoAdmin, text="Cerrar Sesión", command=self.login_window, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
-
+"""
     #****** Cargar Información en la Base de Datos ******#
 
     def retornarSelecListBoxUsuario(self):
@@ -176,10 +162,14 @@ class GUIGestVenta:
         self.rootGUIGestVenta.destroy()
         import GUIGestionEmpleado as emp
         emp.iniciar()
-
+"""
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 def iniciar():
      rootGUIGestVenta = Tk()
      obj = GUIGestVenta(rootGUIGestVenta)
      rootGUIGestVenta.mainloop()
+
+rootGUIGestVenta = Tk()
+obj = GUIGestVenta(rootGUIGestVenta)
+rootGUIGestVenta.mainloopp()
