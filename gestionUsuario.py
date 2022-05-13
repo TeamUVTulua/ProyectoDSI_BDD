@@ -71,7 +71,7 @@ class gestionUsuario:
     def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):
         self.base = BaseDatos()
 
-        self.query = "update Empleado set contra  = %s where usuario.contraseña = %s and usuario.id_usu = %s" #<----
+        self.query = "update empleado set contra  = %s where usuario.contraseña = %s and usuario.id_usu = %s" #<----
         self.cur = self.base.crear_cursor(self.query, (contraseña, contraseñaActual, identificacion))
         messagebox.showinfo("Cambiada", "La contraseña ha sido cambiada con exito")
         self.base.cerrar_conexion()
@@ -86,22 +86,22 @@ class gestionUsuario:
 
     def modificar_apellido(self, apellido, identificacion):
         self.base = BaseDatos()
-        self.query = "update Usuario set apellido  = %s where usuario.id_usu = %s"
+        self.query = "update empleado set apellido  = %s where usuario.id_usu = %s"
         self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))
         messagebox.showinfo("modificado", "El apellido ha sido modificado con exito")
         self.base.cerrar_conexion()
 
-    def modificar_direccion(self, direccion, identificacion):
+    def modificar_direccion(self, direccion_usu, identificacion):
         self.base = BaseDatos()
-        self.query = "update Usuario set direccion  = %s where usuario.id_usu = %s"
-        self.cur = self.base.crear_cursor(self.query, (direccion, identificacion))
+        self.query = "update empleado set direccion  = %s where id_usu = %s"
+        self.cur = self.base.crear_cursor(self.query, (direccion_usu, identificacion))
         messagebox.showinfo("Cambiada", "La direccion ha sido cambiada con exito")
         self.base.cerrar_conexion()
 
-    def modificar_telefono(self, telefono, identificacion):
+    def modificar_telefono(self, telefono_usu, identificacion):
         self.base = BaseDatos()
-        self.query = "update Usuario set contacto  = %s where usuario.id_usu = %s"
-        self.cur = self.base.crear_cursor(self.query, (telefono, identificacion))
+        self.query = "update empleado set contacto  = %s where id_usu = %s"
+        self.cur = self.base.crear_cursor(self.query, (telefono_usu, identificacion))
         messagebox.showinfo("modificado", "El telefono ha sido modificado con exito")
         self.base.cerrar_conexion()
 ##---------------------------------------------

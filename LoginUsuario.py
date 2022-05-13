@@ -35,7 +35,7 @@ class loginUsuario:
         self.cuadroPass.place(x=50, y=200)
 
         # ****** Boton Ingresar ****** #
-        BotonOlvidePass = Button(frameLogin, text="Ingresar ", font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonOlvidePass = Button(frameLogin, text="Ingresar ", command=self.abrirUsuarioSegunRol, font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonOlvidePass.place(x=75,y=280, width=200)
 
         # ****** Boton Salir ****** #

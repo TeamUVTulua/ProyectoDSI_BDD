@@ -24,7 +24,7 @@ class Usuario:
         return self.cargo
 
     def get_nombre(self):
-        return self.getNombre
+        return self.nombre
 
     def get_apellido(self):
         return self.apellido

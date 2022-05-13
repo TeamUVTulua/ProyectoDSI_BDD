@@ -6,6 +6,8 @@ from PIL import Image, ImageTk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 from Usuario import *
+from gestionUsuario import *
+import gestionUsuario as gu
 usuario=Usuario("","","","","","","","")
 
 # ****** Metodos de otros archivos ******#
@@ -45,19 +47,27 @@ class GUIAdministrador:
         Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=60)
         Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=100)
         Label(frameDerechoAdmin,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=140)
-        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
+        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=260)
         Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
-        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
+        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=180)
 
         self.CargarInfoUsuarioEnLabels()
         # INFORMACIO CARGADA QUE NO SE MODIFICA
-        Label(frameDerechoAdmin, text=self.iid, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
-        Label(frameDerechoAdmin, text=self.nnn, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
-        #Label(frameAdministrador, text=self.ape, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=140)
-        #Label(frameAdministrador, text=self.carg, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=180)
+        Label(frameDerechoAdmin, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
+        Label(frameDerechoAdmin, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
+        Label(frameDerechoAdmin, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=140)
+        Label(frameDerechoAdmin, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=180)
+
+        self.listboxUsuario = Listbox(frameDerechoAdmin, width=30, heigh=2, bg="#18344A", fg="white", font=("comic sans MS", 20,))
+
+        self.listboxUsuario.insert(0, self.dir_usu)
+        self.listboxUsuario.insert(1, self.tel_usu)
+
+        self.listboxUsuario.place(x=270, y=220)
+
         # ****** Botones Perfil Propio ****** #
 
-        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos", command=self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarDatos.place(x=80, y=400, width=240)
 
         BotonCambiarContraseña = Button(frameDerechoAdmin, text="Cambiar Contraseña", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -101,11 +111,46 @@ class GUIAdministrador:
 
     #****** Cargar Información en la Base de Datos ******#
 
+    def retornarSelecListBoxUsuario(self):
+        gestionUsuarios = gestionUsuario()
+        aux = self.listboxUsuario.curselection()
+        if (self.listboxUsuario.selection_includes(0)):
+            print(aux)
+            aux2 = askstring('Modificación de información', 'Ingrese la nueva direccion de usuario')
+
+            if (aux2 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
+
+                gestionUsuarios.modificar_direccion(aux2, self.id_usu)
+
+                # usuario2=gestionUsuarios.login_usuario(self.email,self.contraseña)
+                # usuario=usuario2
+                print(aux2)
+
+        if (self.listboxUsuario.selection_includes(1)):
+            print(aux)
+            aux2 = askstring('Modificación de información', 'Ingrese la nueva telefono de usuario')
+            if (aux2 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
+                gestionUsuarios.modificar_telefono(aux2, usuario.get_id_usu())
+            print(aux2)
+
     def CargarInfoUsuarioEnLabels(self):
         #print(usuario.get_nombre())
 
-        self.iid = usuario.get_id_usu()
-        #self.nnn = usuario.get_nombre()
+        self.id_usu = usuario.get_id_usu()
+        self.nombre_usu = usuario.get_nombre()
+        self.apellido_usu = usuario.get_apellido()
+        self.cargo_usu = usuario.get_cargo()
+        self.dir_usu = usuario.get_direccion()
+        self.tel_usu = usuario.get_telefono()
+
+
+
 
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
