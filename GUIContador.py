@@ -15,6 +15,8 @@ from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 
 # ****** Clase GUIContador ****** #
+from PIL import ImageTk
+
 
 class GUIContador:
 
@@ -27,8 +29,8 @@ class GUIContador:
 
         # ******logo de Fondo****** #
 
-        #self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
-        #Label(self.rootGUIContador, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+        self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
+        Label(self.rootGUIContador, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
         # ****** Frame inicio Productos Side Der ****** #
 
@@ -66,32 +68,32 @@ class GUIContador:
         # ****** Boton Consultar Historico de Ventas ****** #
 
         BotonConsultarHV = Button(frameIzquierdoContador, text="Consultar Historico de Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarHV.place(x=90, y=120, width=320)
+        BotonConsultarHV.place(x=80, y=120, width=320)
 
         # ****** Boton Consultar Historico de Compras ******#
 
         BotonConsultarHC = Button(frameIzquierdoContador, text="Consultar Historico de Compras", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarHC.place(x=90, y=180, width=320)
+        BotonConsultarHC.place(x=80, y=180, width=320)
 
         # ****** Boton Consultar Datos Empleados ****** #
 
         BotonConsultarDatosEmp = Button(frameIzquierdoContador, text="Consultar Datos  Empleados",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarDatosEmp.place(x=90, y=240, width=320)
+        BotonConsultarDatosEmp.place(x=80, y=240, width=320)
 
         # ******Boton Crear Pago a Empleados ****** #
 
         BotonCrearPagoEmp = Button(frameIzquierdoContador, text="Crear Pago a Empleados",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonCrearPagoEmp.place(x=90, y=300, width=320)
+        BotonCrearPagoEmp.place(x=80, y=300, width=320)
 
         # ******Boton Crear Pago a Proveedores ****** #
 
         BotonCrearPagoProv = Button(frameIzquierdoContador, text="Crear Pago a Proveedores", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonCrearPagoProv.place(x=90, y=360, width=320)
+        BotonCrearPagoProv.place(x=80, y=360, width=320)
 
         # ******Boton Salir ****** #
 
         BotonSalir = Button(frameIzquierdoContador, text="Cerrar Sesión", command=self.rootGUIContador.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalir.place(x=90, y=420, width=320)
+        BotonSalir.place(x=80, y=420, width=320)
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 

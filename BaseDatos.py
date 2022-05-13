@@ -8,7 +8,7 @@ class BaseDatos:
             host="localhost",
             database="MotoSocios",
             user="postgres",
-            password="12345"
+            password="smr6134"
         )
 
         self.cursor = self.conexion.cursor()
