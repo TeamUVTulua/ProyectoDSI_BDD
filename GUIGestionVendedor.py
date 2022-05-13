@@ -94,6 +94,7 @@ class GUIGestVendedor:
         BotonSalir.place(x=120, y=420, width=240)
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
+
 def iniciar():
      rootGUIGestVendedor = Tk()
      obj = GUIGestVendedor(rootGUIGestVendedor)
