@@ -68,7 +68,7 @@ class GUIMenuInicial:
         frameDerechoEmp.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Producto ****** #
-        Label(frameDerechoEmp, text="Productos", font=("comic sans MS", 24, "bold"), bg="#18344A",
+        Label(frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
 def Menuinicio():
