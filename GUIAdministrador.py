@@ -99,7 +99,8 @@ class GUIAdministrador:
         BotonSalir = Button(frameGUIAdministrador, text="Cerrar Sesión", command=self.rootGUIAdministrador.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
-    #-- CARGAR INFORMACIO DE LA BD
+    #****** Cargar Información en la Base de Datos ******#
+
     def CargarInfoUsuarioEnLabels(self):
         self.id_usu = usuario.get_email()
         self.id_rol = usuario.get_id_rol()
@@ -117,5 +118,3 @@ def iniciar():
      rootGUIAdministrador = Tk()
      obj = GUIAdministrador(rootGUIAdministrador)
      rootGUIAdministrador.mainloop()
-
-# ****** Inicio de la Interfaz ****** #
