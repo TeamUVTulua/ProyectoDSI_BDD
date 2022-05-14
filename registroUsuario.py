@@ -6,18 +6,21 @@ from gestionUsuario import *
 
 class registroUsuario:
 
-    def __init__(self, raiz1):
-        self.raiz1 = raiz1
-        self.raiz1.title("Registro Usuario")
-        self.raiz1.geometry("1360x768+560+312")
-        self.raiz1.resizable(1, 1)
-        # self.raiz1.configure(background="black")
+    def __init__(self, rootRegistroUsuario)
+        self.rootRegistroUsuario = rootRegistroUsuario
+        self.rootRegistroUsuario.title("Registro Usuario")
+        self.rootRegistroUsuario.geometry("1360x768+560+312")
+        self.rootRegistroUsuario.resizable(1, 1)
+
         # --------imagen background------
+
         self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
-        Label(self.raiz1, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+        Label(self.rootRegistroUsuario, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+
+
         # -------registrerFrame--------
 
-        miFrame1 = Frame(self.raiz1, bg="saddlebrown")
+        miFrame1 = Frame(self.rootRegistroUsuario bg="saddlebrown")
         miFrame1.place(x=160, y=0, width=650, height=600)
 
         Label(miFrame1, text="REGISTRAR USUARIO", font=("times new roman", 25, "bold"), bg="saddlebrown",
@@ -99,12 +102,12 @@ class registroUsuario:
 
     # Para ir al Login
     def volver(self):
-        self.raiz1.destroy()
+        self.rootRegistroUsuario.destroy()
         import GUIGestionEmpleado as ges
         ges.iniciar()
 
 
 def iniciar():
-    raiz1 = Tk()
-    obj = registroUsuario(raiz1)
-    raiz1.mainloop()
+    rootRegistroUsua = Tk()
+    obj = registroUsuario(rootRegistroUsuario)
+    rootRegistroUsua.mainloop()
