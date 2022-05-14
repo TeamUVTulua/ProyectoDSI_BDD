@@ -110,7 +110,7 @@ class registroUsuario:
 
             # ****** Metodo para iniciar la interfaz desde otra ****** #
 
-        def iniciar():
-            rootRegistroUsuario = Tk()
-            obj = registroUsuario(rootRegistroUsuario)
-            rootRegistroUsuario.mainloop()
+    def iniciar():
+       rootRegistroUsuario = Tk()
+        obj = registroUsuario(rootRegistroUsuario)
+        rootRegistroUsuario.mainloop()

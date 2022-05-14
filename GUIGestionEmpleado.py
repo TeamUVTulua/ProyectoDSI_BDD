@@ -79,7 +79,7 @@ class GUIMenuInicial:
 
 
     def modificarEmpleado(self):
-        print(self.listboxUsuario.)
+        print(self.listboxUsuario.):
         #aux = self.listboxUsuario.curselection()
         #print(aux)
         aux =askstring('Modificación de información','Ingrese el identificador de un empleado')
