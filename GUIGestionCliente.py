@@ -23,6 +23,7 @@ class GUIGestCli:
         self.rootGestCli.geometry("1360x768+560+312")
         self.rootGestCli.resizable(1, 1)
         self.rootGestCli.iconbitmap("Imagenes\iconoInterfaz.ico")
+        self.rootGestCli.attributes('-fullscreen', True)
 
         # ****** Logo de Fondo ****** #
 
@@ -62,7 +63,7 @@ class GUIGestCli:
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameIzquierdoCli, text="Cerrar Sesión", command=self.rootGestCli.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoCli, text="Cerrar Sesión", command=self.rootGestCli.destroy, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
@@ -91,6 +92,10 @@ def gestionProducto(self):
     self.rootGestCli.destroy()
     import GUIGestionProducto as GesProd
     GesProd.GesProdInicio()
+
+def login_window(self):
+    self.rootGUIAdministrador.destroy()
+    import LoginUsuario
 
 def Menuinicio():
     rootGestCli = Tk()

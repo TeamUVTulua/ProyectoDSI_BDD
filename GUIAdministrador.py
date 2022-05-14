@@ -28,6 +28,7 @@ class GUIAdministrador:
         self.rootGUIAdministrador.geometry("1360x768+560+312")
         self.rootGUIAdministrador.resizable(1, 1)
         self.rootGUIAdministrador.iconbitmap("Imagenes\iconoInterfaz.ico")
+        self.rootGUIAdministrador.attributes('-fullscreen', True)
 
         # ******logo de Fondo****** #
 

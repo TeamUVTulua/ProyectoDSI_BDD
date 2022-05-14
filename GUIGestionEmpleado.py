@@ -24,6 +24,7 @@ class GUIMenuInicial:
         self.rootGestEmp.geometry("1360x768+560+312")
         self.rootGestEmp.resizable(1, 1)
         self.rootGestEmp.iconbitmap("Imagenes\iconoInterfaz.ico")
+        self.rootGestEmp.attributes('-fullscreen', True)
 
         # ******logo de Fondo****** #
 

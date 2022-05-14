@@ -22,6 +22,7 @@ class loginUsuario:
         self.rootLogin.geometry("1360x768+560+312")
         self.rootLogin.resizable(1, 1)
         self.rootLogin.iconbitmap("Imagenes\iconoInterfaz.ico")
+        self.rootLogin.attributes('-fullscreen',True)
 
         # ****** Imagen de fondo ****** #
         self.bg = ImageTk.PhotoImage(file="Imagenes/FondoInterfaz2.png")
@@ -43,18 +44,18 @@ class loginUsuario:
         self.cuadroPass.place(x=50, y=200)
 
         # ****** Boton Ingresar ****** #
-        BotonOlvidePass = Button(frameLogin, text="Ingresar ", command=self.abrirUsuarioSegunRol, font=("comic sass MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonOlvidePass.place(x=75,y=280, width=200)
+        BotonIngresar = Button(frameLogin, text="Ingresar ", command=self.abrirUsuarioSegunRol, font=("comic sass MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonIngresar.place(x=75,y=280, width=200)
 
         # ****** Boton Salir ****** #
 
-        BotonIngresar = Button(frameLogin, text="Salir", command=self.rootLogin.quit,font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonIngresar.place(x=75, y=330, width=200)
+        BotonSalir = Button(frameLogin, text="Salir", command=self.rootLogin.destroy,font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir.place(x=75, y=330, width=200)
 
         # ****** Boton Olvide mi contraseña ****** #
 
-        BotonSalirR = Button(frameLogin, text="Olvide mi contraseña", font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalirR.place(x=75, y=380, width=200)
+        BotonOlvidePass = Button(frameLogin, text="Olvide mi contraseña", font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonOlvidePass.place(x=75, y=380, width=200)
 
     def abrirUsuarioSegunRol(self):
 

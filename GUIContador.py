@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
+from PIL import Image,ImageTk
 
 # ****** Metodos de otros archivos ******#
 
@@ -15,7 +16,6 @@ from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 
 # ****** Clase GUIContador ****** #
-from PIL import ImageTk
 
 
 class GUIContador:
@@ -26,6 +26,8 @@ class GUIContador:
         self.rootGUIContador.geometry("1360x768+560+312")
         self.rootGUIContador.resizable(1, 1)
         self.rootGUIContador.iconbitmap("Imagenes\iconoInterfaz.ico")
+        self.rootGUIContador.attributes('-fullscreen', True)
+
 
         # ******logo de Fondo****** #
 
@@ -65,6 +67,11 @@ class GUIContador:
         frameIzquierdoContador.place(x=85, y=85, width=480, height=530)
         Label(frameIzquierdoContador, text="Contador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
 
+        Home = ImageTk.PhotoImage(file='Imagenes\iconoInterfazinicio.png')
+        HomeTamaño = P.subsample(3,3)
+        BotonHome = Button(frameIzquierdoContador, text="inicio" , image=HomeTamaño)
+        BotonHome.place(x=40, y=40)
+
         # ****** Boton Consultar Historico de Ventas ****** #
 
         BotonConsultarHV = Button(frameIzquierdoContador, text="Consultar Historico de Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -92,7 +99,7 @@ class GUIContador:
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameIzquierdoContador, text="Cerrar Sesión", command=self.rootGUIContador.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoContador, text="Cerrar Sesión", command=self.rootGUIContador.destroy, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=80, y=420, width=320)
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
@@ -101,6 +108,7 @@ def iniciar():
      rootGUIContador = Tk()
      obj = GUIContador(rootGUIContador)
      rootGUIContador.mainloop()
+
 
 rootGUIContador = Tk()
 obj = GUIContador(rootGUIContador)

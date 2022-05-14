@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
+from PIL import Image, ImageTk
 
 # ****** Metodos de otros archivos ******#
 
@@ -24,11 +25,12 @@ class GUIVendedor:
         self.rootGUIVendedor.geometry("1360x768+560+312")
         self.rootGUIVendedor.resizable(1, 1)
         self.rootGUIVendedor.iconbitmap("Imagenes\iconoInterfaz.ico")
+        self.rootGUIVendedor.attributes('-fullscreen',True)
 
         # ******logo de Fondo****** #
 
-        #self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
-        #Label(self.rootGUIVendedor, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+        self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
+        Label(self.rootGUIVendedor, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
         # ****** Frame inicio Productos Side Der ****** #
 

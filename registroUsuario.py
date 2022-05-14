@@ -3,11 +3,6 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from Usuario import *
 from gestionUsuario import *
-# import LoginUsuario as l
-mimi = "Perro"
-
-
-# mimi=l.mensaje
 
 class registroUsuario:
 
