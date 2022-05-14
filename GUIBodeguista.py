@@ -39,7 +39,6 @@ class GUIBodeguista:
 
         frameDerechoBodeguista = Frame(self.rootGUIBodeguista, bg="#18344A")
         frameDerechoBodeguista.place(x=600, y=85, width=700, height=530)
-        BotonHome = Button(self.rootGUIBodeguista, text="inicio", image="iconoInterfazinicio.png")
 
         # ******* Titulo Frame Bienvenido ****** #
 

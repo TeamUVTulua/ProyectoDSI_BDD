@@ -40,22 +40,22 @@ class GUIMenuInicial:
         # ****** Boton Consultar Empleados ****** #
 
         BotonConsultarEmpleados = Button(frameIzquierdoEmp, text="Consultar Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarEmpleados.place(x=120, y=120, width=240)
+        BotonConsultarEmpleados.place(x=120, y=130, width=240)
 
         # ****** Boton Crear Empleados ******#
 
         BotonCrearEmpleados = Button(frameIzquierdoEmp, text="Crear Empleado", command=self.crear,  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonCrearEmpleados.place(x=120, y=180, width=240)
+        BotonCrearEmpleados.place(x=120, y=190, width=240)
 
-        # ******Boton Listar Empleados****** #
+        # ******Boton Modificar Empleados ****** #
 
-        BotonListarEmpleados = Button(frameIzquierdoEmp, text="Listar Empleados",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonListarEmpleados.place(x=120, y=240, width=240)
+        BotonModificarEmpleados = Button(frameIzquierdoEmp, text="Modificar Empleado",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonModificarEmpleados.place(x=120, y=250, width=240)
 
         # ******Boton Eliminar Empleado ****** #
 
         BotonEliminarProducto = Button(frameIzquierdoEmp, text="Eliminar Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarProducto.place(x=120, y=300, width=240)
+        BotonEliminarProducto.place(x=120, y=310, width=240)
 
         # ******Boton Salir ****** #
 
@@ -98,6 +98,7 @@ def iniciar():
     rootGestEmp = Tk()
     obj = GUIMenuInicial(rootGestEmp)
     rootGestEmp.mainloop()
+
 
 rootGestEmp = Tk()
 obj = GUIMenuInicial(rootGestEmp)
