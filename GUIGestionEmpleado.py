@@ -96,8 +96,3 @@ def iniciar():
     rootGestEmp = Tk()
     obj = GUIMenuInicial(rootGestEmp)
     rootGestEmp.mainloop()
-
-
-rootGestEmp = Tk()
-obj = GUIMenuInicial(rootGestEmp)
-rootGestEmp.mainloop()
