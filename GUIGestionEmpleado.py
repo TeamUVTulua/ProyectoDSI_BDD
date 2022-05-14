@@ -59,7 +59,7 @@ class GUIMenuInicial:
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameIzquierdoEmp, text="Cerrar Sesión", command=self.rootGestEmp.destroy, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoEmp, text="Cerrar Sesión", command=self.login_window, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame Productos Side Der ****** #
@@ -77,22 +77,40 @@ class GUIMenuInicial:
 
         self.listboxUsuario.place(x=50, y=86)
 
+    def login_window(self):
+
+        self.rootGUIAdministrador.destroy()
+        import LoginUsuario
 
     def modificarEmpleado(self):
-        print(self.listboxUsuario.):
+        print(self.listboxUsuario)
         #aux = self.listboxUsuario.curselection()
         #print(aux)
-        aux =askstring('Modificación de información','Ingrese el identificador de un empleado')
-        print(not aux.isnumeric())
-        if (aux.isidentifier() or not aux.isnumeric()):
+        auxId =askstring('Modificación de información','Ingrese el identificador de un empleado')
+        if (auxId.isidentifier() or not auxId.isnumeric()):
             showinfo('Error', 'Ingrese un identificador valido')
         else:
+            auxNombre = askstring('Modificación de información', 'Ingrese el nuevo nombre del restaurante')
+            gestionUsuario.modificar_nombre(self, auxNombre, auxId)
 
-            aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre del restaurante')
-            # if()
-            # showinfo('Modificación de información','No se realizó ningun cambio')
-            showinfo('Modificación de información', 'El nombre quedó:  {}'.format(aux2))
-            gestionUsuario.modificar_nombre(aux2, aux)
+            auxApellido = askstring('Modificación de información', 'Ingrese el nuevo apellido del restaurante')
+            gestionUsuario.modificar_apellido(self, auxApellido, auxId)
+
+            auxTel = askstring('Modificación de información', 'Ingrese el nuevo telefono del restaurante')
+            gestionUsuario.modificar_telefono(self, auxTel, auxId)
+
+            auxDir = askstring('Modificación de información', 'Ingrese el nuevo direccion del restaurante')
+            gestionUsuario.modificar_direccion(self, auxDir, auxId)
+
+            auxSueldo = askstring('Modificación de información', 'Ingrese el nuevo sueldo del restaurante')
+            gestionUsuario.modificar_sueldo(self, auxSueldo, auxId)
+
+            auxCargo = askstring('Modificación de información', 'Ingrese el nuevo sueldo del restaurante')
+            gestionUsuario.modificar_cargo(self, auxCargo, auxId)
+
+            self.rootGestEmp.destroy() ## <------------ REVISAR
+            iniciar()
+
 
 
 

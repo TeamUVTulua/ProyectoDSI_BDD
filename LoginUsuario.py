@@ -71,23 +71,35 @@ class loginUsuario:
             cc.usuario = user2
             cc.iniciar()
 
-        elif (user.get_id_rol() == 2):
+        elif (user2.get_cargo() == 'vendedor'):
             print("ventana adminRR")
             self.rootLogin.destroy()
-            import GUIAdminRestaurante as cc
+            import GUIVendedor as cc
             cc.usuario = user2
-            cc.inicio()
+            cc.iniciar()
 
 
-        elif (user.get_id_rol() == 3):
+        elif (user2.get_cargo() == 'bodega'):
             print("ventana OperarioRR")
             self.rootLogin.destroy()
-            import GUIOperarioRestau as cc
+            import GUIBodeguista as cc
             cc.usuario = user2
-            cc.inicio()
+            cc.iniciar()
+
+        elif (user2.get_cargo() == 'contador'):
+            print("ventana OperarioRR")
+            self.rootLogin.destroy()
+            import GUIContador as cc
+            cc.usuario = user2
+            cc.iniciar()
         else:
             messagebox.showinfo("Aviso", "El email o contraseña son incorrectos")
 
+
+def iniciar():
+    rootLogin = Tk()
+    obj = loginUsuario(rootLogin)
+    rootLogin.mainloop()
 
 rootLogin = Tk()
 obj = loginUsuario(rootLogin)

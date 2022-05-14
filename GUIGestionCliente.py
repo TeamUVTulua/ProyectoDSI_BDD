@@ -97,12 +97,8 @@ def login_window(self):
     self.rootGUIAdministrador.destroy()
     import LoginUsuario
 
-def Menuinicio():
+def iniciar():
     rootGestCli = Tk()
     obj = GUIGestCli(rootGestCli)
     rootGestCli.mainloop()
 
-
-rootGestCli = Tk()
-obj = GUIGestCli(rootGestCli)
-rootGestCli.mainloop()

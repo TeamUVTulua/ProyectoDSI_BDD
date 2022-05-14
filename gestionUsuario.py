@@ -9,32 +9,15 @@ class gestionUsuario:
 
     def registrar_usuario(self, identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu):
         self.base = BaseDatos()
-
-        # registrar    nuevo    usuario
         self.query = "insert    into    empleado    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)"
-
         self.base.crear_cursor(self.query, (identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu))
-        msj = "registrooooo"
-        print(msj)
         messagebox.showinfo("Registrado", "El    usuario    ha    sido    registrado    con    exito")
-        # cerrar conexion
         self.base.cerrar_conexion()
 
     def login_usuario(self, identificacion, contraseña):
-
         self.base = BaseDatos()
-
-        msj = "ingresar 2"
-        print(msj)
-
         self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
-
-        msj = "ingresar 3"
-        print(msj)
-
         self.cur = self.base.ObtenerDatos(self.query)
-        msj = "ingresar 4"
-        print(msj)
 
         # auxUser=Usuario(email_usuario,id_rol,contraseña,num_id_usu,fecha_ingreso,nom_usu,apellido,direcc_usu,tel_usu,activo)
 
@@ -70,7 +53,6 @@ class gestionUsuario:
 
     def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):
         self.base = BaseDatos()
-
         self.query = "update empleado set contra  = %s where contra = %s and id_usu = %s" #<----
         self.cur = self.base.crear_cursor(self.query, (contraseña, contraseñaActual, identificacion))
         messagebox.showinfo("Cambiada", "La contraseña ha sido cambiada con exito")
@@ -83,11 +65,26 @@ class gestionUsuario:
         self.cur = self.base.crear_cursor(self.query, (nombre, identificacion))
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
+    def modificar_cargo(self, cargo, identificacion):
+        print("aquí")
+        self.base = BaseDatos()
+        self.query = "update empleado set cargo  = %s where id_usu = %s"  # <----
+        self.cur = self.base.crear_cursor(self.query, (cargo, identificacion))
+        messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
+
+        self.base.cerrar_conexion()
+    def modificar_sueldo(self, sueldo, identificacion):
+        print("aquí")
+        self.base = BaseDatos()
+        self.query = "update empleado set sueldo  = %s where id_usu = %s" # <----
+        self.cur = self.base.crear_cursor(self.query, (sueldo, identificacion))
+        messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
+
         self.base.cerrar_conexion()
 
     def modificar_apellido(self, apellido, identificacion):
         self.base = BaseDatos()
-        self.query = "update empleado set apellido  = %s where usuario.id_usu = %s"
+        self.query = "update empleado set apellido  = %s where id_usu = %s"
         self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))
         messagebox.showinfo("modificado", "El apellido ha sido modificado con exito")
         self.base.cerrar_conexion()

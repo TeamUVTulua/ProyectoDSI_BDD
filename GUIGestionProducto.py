@@ -213,12 +213,8 @@ def ventanaRegistroProducto(self):
         
 """
 
-def GesProdInicio():
+def iniciar():
     rootGUIRegProd = Tk()
     obj = GUIGestionProducto(rootGUIRegProd)
     rootGUIRegProd.mainloop()
 
-
-rootGUIRegProd = Tk()
-obj = GUIGestionProducto(rootGUIRegProd)
-rootGUIRegProd.mainloop()

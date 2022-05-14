@@ -88,12 +88,12 @@ class GUIAdministrador:
 
         # ****** Boton Gestionar Clientes ******#
 
-        BotonGestionarClientes = Button(frameIzquierdoAdmin, text="Gestionar Clientes", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonGestionarClientes = Button(frameIzquierdoAdmin, text="Gestionar Clientes",command=self.gesCliente, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonGestionarClientes.place(x=120, y=180, width=240)
 
         # ******Boton Gestionar Inventario****** #
 
-        BotonConsultarProducto = Button(frameIzquierdoAdmin, text="Gestionar Inventario",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarProducto = Button(frameIzquierdoAdmin, text="Gestionar Inventario",command=self.gesInventario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarProducto.place(x=120, y=240, width=240)
 
         # ******Boton Gestionar Proveedores ****** #
@@ -108,7 +108,7 @@ class GUIAdministrador:
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameIzquierdoAdmin, text="Cerrar Sesión", command=self.login_window, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoAdmin, text="Cerrar Sesión", command=self.login, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
     #****** Cargar Información en la Base de Datos ******#
@@ -152,7 +152,7 @@ class GUIAdministrador:
                 if(nuevaContraseña==confirNuevaContra):
                     showinfo('Cambiar contraseña','Cambio exitoso, vuelve a hacer login')
                     gestionUsuarios.cambiar_contraseña(confirNuevaContra, usuario.get_contraseña(),usuario.get_id_usu())
-                    self.login_window()
+                    self.login()
                 else:
                     showinfo('Cambiar contraseña','Las contraseñas no coinciden')
         if(contraseñaActual==None):
@@ -181,6 +181,20 @@ class GUIAdministrador:
         import GUIGestionEmpleado as emp
         emp.iniciar()
 
+    def gesInventario(self):
+        self.rootGUIAdministrador.destroy()
+        import GUIGestionProducto as emp
+        emp.iniciar()
+
+    def gesCliente(self):
+        self.rootGUIAdministrador.destroy()
+        import GUIGestionProducto as emp
+        emp.iniciar()
+
+    def login(self):
+        self.rootGUIAdministrador.destroy()
+        import LoginUsuario as l
+        l.iniciar()
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 def iniciar():
