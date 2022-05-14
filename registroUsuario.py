@@ -1,6 +1,11 @@
+# ****** Librerias Usadas ****** #
+
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
+
+# ****** Metodos de otros archivos ****** #
+
 from Usuario import *
 from gestionUsuario import *
 

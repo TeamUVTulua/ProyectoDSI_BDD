@@ -59,14 +59,14 @@ class GUIMenuInicial:
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameIzquierdoEmp, text="Cerrar Sesión", command=self.rootGestEmp.quit, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameIzquierdoEmp, text="Cerrar Sesión", command=self.rootGestEmp.destroy, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
-        # ****** Frame inicio Productos Side Der ****** #
+        # ****** Frame Productos Side Der ****** #
         frameDerechoEmp = Frame(self.rootGestEmp, bg="#18344A")
         frameDerechoEmp.place(x=600, y=85, width=700, height=530)
 
-        # ******* Titulo Frame Producto ****** #
+        # ******* Titulo Frame Derecho ****** #
         Label(frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
@@ -89,8 +89,6 @@ class GUIMenuInicial:
 
     def crear(self):
         self.rootGestEmp.destroy()
-        mensaje="cucucucu"
-        print (mensaje)
         import registroUsuario as reg
         reg.iniciar()
 
