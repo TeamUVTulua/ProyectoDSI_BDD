@@ -49,7 +49,7 @@ class GUIMenuInicial:
 
         # ******Boton Modificar Empleados ****** #
 
-        BotonModificarEmpleados = Button(frameIzquierdoEmp, text="Modificar Empleado",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonModificarEmpleados = Button(frameIzquierdoEmp, text="Modificar Empleado", command=self.modificarEmpleado,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarEmpleados.place(x=120, y=250, width=240)
 
         # ******Boton Eliminar Empleado ****** #
@@ -76,6 +76,25 @@ class GUIMenuInicial:
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
         self.listboxUsuario.place(x=50, y=86)
+
+
+    def modificarEmpleado(self):
+        print(self.listboxUsuario.)
+        #aux = self.listboxUsuario.curselection()
+        #print(aux)
+        aux =askstring('Modificación de información','Ingrese el identificador de un empleado')
+        print(not aux.isnumeric())
+        if (aux.isidentifier() or not aux.isnumeric()):
+            showinfo('Error', 'Ingrese un identificador valido')
+        else:
+
+            aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre del restaurante')
+            # if()
+            # showinfo('Modificación de información','No se realizó ningun cambio')
+            showinfo('Modificación de información', 'El nombre quedó:  {}'.format(aux2))
+            gestionUsuario.modificar_nombre(aux2, aux)
+
+
 
     def CargarInfoUsuarioEnLabels(self, listboxUsuario):
         #print(usuario.get_nombre())

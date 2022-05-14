@@ -161,6 +161,7 @@ class GUIAdministrador:
             showinfo('Cambiar contraseña','Contraseña incorrecta')
 
     def login_window(self):
+
         self.rootGUIAdministrador.destroy()
         import LoginUsuario
 

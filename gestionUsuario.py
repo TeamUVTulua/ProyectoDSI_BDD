@@ -77,8 +77,9 @@ class gestionUsuario:
         self.base.cerrar_conexion()
 
     def modificar_nombre(self, nombre, identificacion):
+        print("aquí")
         self.base = BaseDatos()
-        self.query = "update Usuario set nombre  = %s where usuario.id_usu = %s" # <----
+        self.query = "update empleado set nombre  = %s where id_usu = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (nombre, identificacion))
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 

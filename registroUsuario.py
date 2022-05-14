@@ -88,7 +88,7 @@ class registroUsuario:
 
         # ****** Label Volver Crear Usuario ****** #
 
-        BotonLogin = Button(frameCrearUsuario, text="Volver", command=self.volver, font=("comic sans MS", 15),bd=0, cursor="hand2")
+        BotonLogin = Button(frameCrearUsuario, text="Volver", command=self.volver , font=("comic sans MS", 15),bd=0, cursor="hand2")
         BotonLogin.place(x=350, y=500, width=200)
 
     def validacion(self):
@@ -103,10 +103,10 @@ class registroUsuario:
             self.volver()
 
         # ****** Para volver al login desde Crear Usuario ****** #
-        def volver(self):
-            self.rootRegistroUsuario.destroy()
-            import GUIGestionEmpleado as ges
-            ges.iniciar()
+    def volver(self):
+        self.rootRegistroUsuario.destroy()
+        import GUIGestionEmpleado as ges
+        ges.iniciar()
 
             # ****** Metodo para iniciar la interfaz desde otra ****** #
 
@@ -114,7 +114,3 @@ class registroUsuario:
             rootRegistroUsuario = Tk()
             obj = registroUsuario(rootRegistroUsuario)
             rootRegistroUsuario.mainloop()
-
-rootRegistroUsuario = Tk()
-obj = registroUsuario(rootRegistroUsuario)
-rootRegistroUsuario.mainloop()
