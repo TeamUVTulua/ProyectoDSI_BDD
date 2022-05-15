@@ -39,7 +39,7 @@ class GUIMenuInicial:
 
         # ****** Boton Consultar Empleados ****** #
 
-        BotonConsultarEmpleados = Button(frameIzquierdoEmp, text="Consultar Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarEmpleados = Button(frameIzquierdoEmp, text="Consultar Empleado", command=self.consultarEmp , font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarEmpleados.place(x=120, y=130, width=240)
 
         # ****** Boton Crear Empleados ******#
@@ -63,36 +63,160 @@ class GUIMenuInicial:
         BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame Productos Side Der ****** #
-        frameDerechoEmp = Frame(self.rootGestEmp, bg="#18344A")
-        frameDerechoEmp.place(x=600, y=85, width=700, height=530)
+
+
+        self.frameDerechoEmp = Frame(self.rootGestEmp, bg="#18344A")
+        self.frameDerechoEmp.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Derecho ****** #
-        Label(frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
+        Label(self.frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-        self.listboxUsuario = Listbox(frameDerechoEmp, width=40, heigh=9, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, heigh=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
         self.listboxUsuario.place(x=50, y=86)
 
-    def login_window(self):
+    def consultarEmp(self):
+        self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un empleado')
+        self.frameDerechoEmp.place_forget()
+        self.mostrarEmp()
 
-        self.rootGUIAdministrador.destroy()
+    def mostrarEmp(self):
+        frameDerechoAdmin = Frame(self.rootGestEmp, bg="#18344A")
+        frameDerechoAdmin.place(x=600, y=85, width=700, height=530)
+
+        # ******* Titulo Frame Bienvenido ****** #
+
+        Label(frameDerechoAdmin, text=" Modificar", font=("comic sans MS", 24, "bold"), bg="#18344A",
+              fg="white").place(x=320, y=20)
+
+        # ****** Datos del perfil ****** #
+
+        Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+            x=80, y=60)
+        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
+                                                                                                              y=100)
+        Label(frameDerechoAdmin, text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+                                                                                                                 y=140)
+        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+                                                                                                                y=260)
+        Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+                                                                                                                 y=220)
+        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+                                                                                                             y=180)
+
+        self.CargarInfoUsuarioEnLabels2()
+
+        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 20,))
+
+        self.listboxUsuario.insert(0, self.id_emp)
+        self.listboxUsuario.insert(1, self.nom_emp)
+        self.listboxUsuario.insert(2, self.ape_emp)
+        self.listboxUsuario.insert(3, self.cargo_emp)
+        self.listboxUsuario.insert(4, self.dir_emp)
+        self.listboxUsuario.insert(5, self.tel_emp)
+
+        self.listboxUsuario.place(x=270, y=60)
+
+        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos",
+                                     command=self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray",
+                                     fg="white", bd=5, cursor="hand2")
+        BotonModificarDatos.place(x=80, y=400, width=240)
+
+    def retornarSelecListBoxUsuario(self):
+        gestionUsuarios = gestionUsuario()
+        aux = self.listboxUsuario.curselection()
+        if (self.listboxUsuario.selection_includes(0)):
+            print(aux)
+            aux2 = askstring('Modificación de información', 'Ingrese el identificador de usuario')
+
+            if (aux2 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
+
+                gestionUsuarios.modificar_direccion(aux2, self.id_emp)
+                print(aux2)
+
+        if (self.listboxUsuario.selection_includes(1)):
+            print(aux)
+            aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre de usuario')
+            if (aux2 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
+                gestionUsuarios.modificar_nombre(aux2, self.id_emp)
+            print(aux2)
+
+        if (self.listboxUsuario.selection_includes(2)):
+            print(aux)
+            aux3 = askstring('Modificación de información', 'Ingrese el nuevo apellido de usuario')
+            if (aux3 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux3))
+                gestionUsuarios.modificar_apellido(aux3, self.id_emp)
+            print(aux3)
+
+        if (self.listboxUsuario.selection_includes(3)):
+            print(aux)
+            aux4 = askstring('Modificación de información', 'Ingrese el nuevo cargo de usuario')
+            if (aux4 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
+                gestionUsuarios.modificar_cargo(aux4, self.id_emp)
+            print(aux4)
+
+        if (self.listboxUsuario.selection_includes(4)):
+            print(aux)
+            aux5 = askstring('Modificación de información', 'Ingrese la nueva direccion de usuario')
+            if (aux5 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux5))
+                gestionUsuarios.modificar_telefono(aux5, self.id_emp)
+            print(aux5)
+
+        if (self.listboxUsuario.selection_includes(5)):
+            print(aux)
+            aux6 = askstring('Modificación de información', 'Ingrese el nuevo telefono de usuario')
+            if (aux6 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux6))
+                gestionUsuarios.modificar_telefono(aux6, self.id_emp)
+            print(aux6)
+
+
+    def CargarInfoUsuarioEnLabels2(self):
+        gestionUsuarios = gestionUsuario()
+        self.id_emp = gestionUsuarios.obtener_id(self.auxId)
+        self.nom_emp = gestionUsuarios.obtener_nombre(self.auxId)
+        self.ape_emp = gestionUsuarios.obtener_apellido(self.auxId)
+        self.cargo_emp = gestionUsuarios.obtener_cargo(self.auxId)
+        self.dir_emp = gestionUsuarios.obtener_direccion(self.auxId)
+        self.tel_emp = gestionUsuarios.obtener_telefono(self.auxId)
+        #self.contraseña_usu = usuario.get_contraseña()
+
+    def login_window(self):
+        self.rootGestEmp.destroy()
         import LoginUsuario
 
     def modificarEmpleado(self):
-        print(self.listboxUsuario)
+        #self.frameDerechoEmp.place_forget()
         #aux = self.listboxUsuario.curselection()
-        #print(aux)
         auxId =askstring('Modificación de información','Ingrese el identificador de un empleado')
         if (auxId.isidentifier() or not auxId.isnumeric()):
             showinfo('Error', 'Ingrese un identificador valido')
         else:
             auxNombre = askstring('Modificación de información', 'Ingrese el nuevo nombre del restaurante')
             gestionUsuario.modificar_nombre(self, auxNombre, auxId)
-
+            # self.frameDerechoEmp.place(x=600, y=85, width=700, height=530)
             auxApellido = askstring('Modificación de información', 'Ingrese el nuevo apellido del restaurante')
             gestionUsuario.modificar_apellido(self, auxApellido, auxId)
 
@@ -115,14 +239,11 @@ class GUIMenuInicial:
 
 
     def CargarInfoUsuarioEnLabels(self, listboxUsuario):
-        #print(usuario.get_nombre())
         gestionUsuarios =gestionUsuario()
         listaDatos = gestionUsuarios.obtenerTodos()
 
         for x in listaDatos:
             listboxUsuario.insert(END, x)
-
-
 
     def crear(self):
         self.rootGestEmp.destroy()

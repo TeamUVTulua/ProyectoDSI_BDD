@@ -1,11 +1,12 @@
 # ****** Librerias Usadas ****** #
-import tkinter
 from tkinter import *
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
 
 # ****** Metodos de otros archivos ******#
-
+import Producto as us
+from gestionProducto import *
+producto=us.Producto("","","","")
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
@@ -37,17 +38,17 @@ class GUIGestionProducto:
 
         # ****** Boton Agregar Producto ****** #
 
-        BotonAgregarProducto = Button(frameGUIRegProd, text="Agregar Producto", font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
+        BotonAgregarProducto = Button(frameGUIRegProd, text="Agregar Producto", command=self.crear, font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
         BotonAgregarProducto.place(x=120, y=120, width=240)
 
         # ****** Boton Modificar Producto ******#
 
-        BotonReportes = Button(frameGUIRegProd, text="Modificar Producto", font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
+        BotonReportes = Button(frameGUIRegProd, text="Modificar Producto",font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
         BotonReportes.place(x=120, y=180, width=240)
 
         # ******Boton Consultar Producto****** #
 
-        BotonConsultarProducto = Button(frameGUIRegProd, text="Consultar Producto", font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarProducto = Button(frameGUIRegProd, text="Consultar Producto",command=self.consultarEmp, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarProducto.place(x=120, y=240, width=240)
 
         # ******Boton Listar Productos ****** #
@@ -66,13 +67,126 @@ class GUIGestionProducto:
         BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
-        frameInicio = Frame(self.rootGUIRegProd, bg="#18344A")
-        frameInicio.place(x=600, y=85, width=700, height=530)
+        self.frameDerechoEmp = Frame(self.rootGUIRegProd, bg="#18344A")
+        self.frameDerechoEmp.place(x=600, y=85, width=700, height=530)
 
 
         # ******* Titulo Frame Producto ****** #
-        Label(frameInicio, text="Productos", font=("comic sans MS", 24, "bold"), bg="#18344A",
+        Label(self.frameDerechoEmp, text="Productos", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
+
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, heigh=9, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 20))
+
+        self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+
+        self.listboxUsuario.place(x=50, y=86)
+
+    def consultarEmp(self):
+        self.auxId = askstring('Modificación de información', 'Ingrese el codigo de un producto')
+        self.frameDerechoEmp.place_forget()
+        self.mostrarEmp()
+
+    def mostrarEmp(self):
+        frameDerechoAdmin = Frame(self.rootGUIRegProd, bg="#18344A")
+        frameDerechoAdmin.place(x=600, y=85, width=700, height=530)
+
+        # ******* Titulo Frame Bienvenido ****** #
+
+        Label(frameDerechoAdmin, text=" Modificar", font=("comic sans MS", 24, "bold"), bg="#18344A",
+              fg="white").place(x=320, y=20)
+
+        # ****** Datos del perfil ****** #
+
+        Label(frameDerechoAdmin, text="Codigo: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+            x=80, y=60)
+        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
+                                                                                                              y=100)
+        Label(frameDerechoAdmin, text="Categoria: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+                                                                                                                 y=140)
+        Label(frameDerechoAdmin, text="Cantidad:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+                                                                                                                y=180)
+
+        self.CargarInfoUsuarioEnLabels2()
+
+        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 20,))
+
+        self.listboxUsuario.insert(0, self.codigo)
+        self.listboxUsuario.insert(1, self.nombre)
+        self.listboxUsuario.insert(2, self.categoria)
+        self.listboxUsuario.insert(3, self.cantidad)
+
+        self.listboxUsuario.place(x=270, y=60)
+
+        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos",
+                                     command=self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray",
+                                     fg="white", bd=5, cursor="hand2")
+        BotonModificarDatos.place(x=80, y=400, width=240)
+
+    def retornarSelecListBoxUsuario(self):
+        gestionUsuarios = gestionProducto()
+        aux = self.listboxUsuario.curselection()
+        if (self.listboxUsuario.selection_includes(0)):
+            print(aux)
+            aux2 = askstring('Modificación de información', 'Ingrese el Codigo de usuario')
+
+            if (aux2 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
+
+                gestionUsuarios.modificar_codigo(aux2, self.codigo)
+                print(aux2)
+
+        if (self.listboxUsuario.selection_includes(1)):
+            print(aux)
+            aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre de usuario')
+            if (aux2 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
+                gestionUsuarios.modificar_nombre(aux2, self.codigo)
+            print(aux2)
+
+        if (self.listboxUsuario.selection_includes(2)):
+            print(aux)
+            aux3 = askstring('Modificación de información', 'Ingrese la nueva categoria de usuario')
+            if (aux3 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux3))
+                gestionUsuarios.modificar_categoria(aux3, self.codigo)
+            print(aux3)
+
+        if (self.listboxUsuario.selection_includes(3)):
+            print(aux)
+            aux4 = askstring('Modificación de información', 'Ingrese la nueva cantidad de usuario')
+            if (aux4 == None):
+                showinfo('Modificación de información', 'No se realizó ningun cambio')
+            else:
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
+                gestionUsuarios.modificar_cantidad( self.codigo)
+            print(aux4)
+
+    def CargarInfoUsuarioEnLabels2(self):
+        gestionUsuarios = gestionProducto()
+        self.codigo = gestionUsuarios.obtener_codigo(self.auxId)
+        self.nombre = gestionUsuarios.obtener_nombre(self.auxId)
+        self.categoria = gestionUsuarios.obtener_categoria(self.auxId)
+        self.cantidad = gestionUsuarios.obtener_cantidadTotal(self.auxId)
+
+    def crear(self):
+        self.rootGUIRegProd.destroy()
+        import registroProducto as reg
+        reg.iniciar()
+
+    def CargarInfoUsuarioEnLabels(self, listboxUsuario):
+        gestionUsuarios = gestionProducto()
+        listaDatos = gestionUsuarios.obtenerTodos()
+
+        for x in listaDatos:
+            listboxUsuario.insert(END, x)
 
 
 def ventanaConsultarProd(self):

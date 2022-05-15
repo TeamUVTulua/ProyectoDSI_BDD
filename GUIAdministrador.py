@@ -188,7 +188,7 @@ class GUIAdministrador:
 
     def gesCliente(self):
         self.rootGUIAdministrador.destroy()
-        import GUIGestionProducto as emp
+        import GUIGestionCliente as emp
         emp.iniciar()
 
     def login(self):

@@ -50,6 +50,67 @@ class gestionUsuario:
 
         return user
 
+    def obtener_id (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT id_usu FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (usu_id) in self.cur:
+            print(usu_id)
+        return usu_id
+
+    def obtener_nombre (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT nombre FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (nom_id) in self.cur:
+            print(nom_id)
+        return nom_id
+
+    def obtener_apellido (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT apellido FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (ape_usu) in self.cur:
+            print(ape_usu)
+        return ape_usu
+
+    def obtener_cargo (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT cargo FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (cargo_usu) in self.cur:
+            print(cargo_usu)
+        return cargo_usu
+
+    def obtener_direccion (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT direccion FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (dir_usu) in self.cur:
+            print(dir_usu)
+        return dir_usu
+
+    def obtener_telefono (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT contacto FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (tel_usu) in self.cur:
+            print(tel_usu)
+        return tel_usu
+
+
 
     def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):
         self.base = BaseDatos()
