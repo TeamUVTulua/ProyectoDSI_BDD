@@ -85,33 +85,41 @@ class GUIVendedor:
 
         # ****** Boton Crear Venta ****** #
 
-        BotonCrearVenta = Button(frameIzquierdoVendedor, text="Crear Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCrearVenta = Button(frameIzquierdoVendedor, text="Gestion de Clientes",command=self.gesCliente, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCrearVenta.place(x=120, y=120, width=240)
 
         # ****** Boton Consultar Venta ******#
 
-        BotonConsultarVenta = Button(frameIzquierdoVendedor, text="Consultar Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarVenta = Button(frameIzquierdoVendedor, text="Lista de Productos", comamnd=self.lisProductos, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarVenta.place(x=120, y=180, width=240)
 
         # ****** Boton Modificar Venta ****** #
 
-        BotonModificarVenta = Button(frameIzquierdoVendedor, text="Modificar Venta",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonModificarVenta = Button(frameIzquierdoVendedor, text="Lista de Usuarios", comamnd=self.lisUsuarios,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarVenta.place(x=120, y=240, width=240)
 
         # ******Boton Listar Ventas ****** #
 
-        BotonListarVentas = Button(frameIzquierdoVendedor, text="Listar Ventas",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonListarVentas.place(x=120, y=300, width=240)
+        #BotonListarVentas = Button(frameIzquierdoVendedor, text="Listar Ventas",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        #BotonListarVentas.place(x=120, y=300, width=240)
 
         # ******Boton Modificar Cliente ****** #
 
-        BotonModificarClientes = Button(frameIzquierdoVendedor, text="Modificar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonModificarClientes.place(x=120, y=360, width=240)
+        #BotonModificarClientes = Button(frameIzquierdoVendedor, text="Modificar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        #BotonModificarClientes.place(x=120, y=360, width=240)
 
         # ******Boton Salir ****** #
 
         BotonSalir = Button(frameIzquierdoVendedor, text="Cerrar Sesión", command=self.login2, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
+
+    def lisProductos(self):
+
+
+    def gesCliente(self):
+        self.rootGUIVendedor.destroy()
+        import GUIGestionCliente as emp
+        emp.iniciar()
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
     def CargarInfoUsuarioEnLabels(self):
@@ -174,8 +182,7 @@ class GUIVendedor:
 
     def login2(self):
         self.rootGUIVendedor.destroy()
-        import LoginUsuario as l
-        l.iniciar()
+        import LoginUsuario
 
 
 def iniciar():

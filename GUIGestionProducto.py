@@ -63,7 +63,7 @@ class GUIGestionProducto:
 
         # ******Boton Salir ****** #
 
-        BotonSalir = Button(frameGUIRegProd, text="Cerrar Sesión", command=self.rootGUIRegProd.quit,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir = Button(frameGUIRegProd, text="Cerrar Sesión", command=self.login_window,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
@@ -187,6 +187,10 @@ class GUIGestionProducto:
 
         for x in listaDatos:
             listboxUsuario.insert(END, x)
+
+    def login_window(self):
+        self.rootGUIRegProd.destroy()
+        import LoginUsuario
 
 
 def ventanaConsultarProd(self):

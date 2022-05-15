@@ -81,7 +81,7 @@ class gestionProducto:
     def modificar_codigo(self, cod, codigo):
         print("aquí")
         self.base = BaseDatos()
-        self.query = "update producto set nombre  = %s where codigo = %s" # <----
+        self.query = "update producto set codigo  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, codigo))
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 

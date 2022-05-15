@@ -93,33 +93,30 @@ class GUIBodeguista:
 
         # ****** Boton Consultar Historico de Ventas ****** #
 
-        BotonConsultarHV = Button(frameIzquierdoBodeguista, text="Consultar Historico de Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHV = Button(frameIzquierdoBodeguista, text="Gestionar Productos",command=self.gesInventario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarHV.place(x=80, y=120, width=320)
 
         # ****** Boton Consultar Historico de Compras ******#
 
-        BotonConsultarHC = Button(frameIzquierdoBodeguista, text="Consultar Historico de Compras", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarHC.place(x=80, y=180, width=320)
 
         # ****** Boton Consultar Datos Empleados ****** #
 
-        BotonConsultarDatosEmp = Button(frameIzquierdoBodeguista, text="Consultar Datos  Empleados",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarDatosEmp.place(x=80, y=240, width=320)
 
         # ******Boton Crear Pago a Empleados ****** #
 
-        BotonCrearPagoEmp = Button(frameIzquierdoBodeguista, text="Crear Pago a Empleados",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonCrearPagoEmp.place(x=80, y=300, width=320)
 
         # ******Boton Crear Pago a Proveedores ****** #
 
-        BotonCrearPagoProv = Button(frameIzquierdoBodeguista, text="Crear Pago a Proveedores", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonCrearPagoProv.place(x=80, y=360, width=320)
 
         # ******Boton Salir ****** #
 
         BotonSalir = Button(frameIzquierdoBodeguista, text="Cerrar Sesión", command=self.login, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=80, y=420, width=320)
+
+    def gesInventario(self):
+        self.rootGUIBodeguista.destroy()
+        import GUIGestionProducto as emp
+        emp.iniciar()
 
     def CargarInfoUsuarioEnLabels(self):
         # print(usuario.get_nombre())
