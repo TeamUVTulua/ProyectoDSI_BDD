@@ -139,7 +139,7 @@ class GUIMenuInicial:
             else:
                 showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
 
-                gestionUsuarios.modificar_direccion(aux2, self.id_emp)
+                gestionUsuarios.modificar_identificacion(aux2, self.id_emp)
                 print(aux2)
 
         if (self.listboxUsuario.selection_includes(1)):

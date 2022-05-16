@@ -1,6 +1,7 @@
 from tkinter import messagebox
 from BaseDatos import *
 from Usuario import *
+from tkinter.messagebox import showinfo
 
 user = Usuario("", "", "", "", "", "", "", "")
 
@@ -15,17 +16,19 @@ class gestionUsuario:
         self.base.cerrar_conexion()
 
     def login_usuario(self, identificacion, contraseña):
-        self.base = BaseDatos()
-        self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
-        self.cur = self.base.ObtenerDatos(self.query)
+        try:
+            self.base = BaseDatos()
+            self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
+            self.cur = self.base.ObtenerDatos(self.query)
 
-        # auxUser=Usuario(email_usuario,id_rol,contraseña,num_id_usu,fecha_ingreso,nom_usu,apellido,direcc_usu,tel_usu,activo)
+            for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu) in self.cur:
+                self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu)
+                user = self.auxUser
 
-        for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu) in self.cur:
-            self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu)
-            user = self.auxUser
+            return user
+        except:
+            showinfo('Error Inicio de Sesión', 'Usuario o Contraseña Incorrectas')
 
-        return user
 
     def obtenerTodos(self):
         self.base = BaseDatos()
@@ -118,6 +121,13 @@ class gestionUsuario:
         self.cur = self.base.crear_cursor(self.query, (contraseña, contraseñaActual, identificacion))
         messagebox.showinfo("Cambiada", "La contraseña ha sido cambiada con exito")
         self.base.cerrar_conexion()
+
+    def modificar_identificacion(self, nombre, identificacion):
+        print("aquí")
+        self.base = BaseDatos()
+        self.query = "update empleado set id_usu  = %s where id_usu = %s"  # <----
+        self.cur = self.base.crear_cursor(self.query, (nombre, identificacion))
+        messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
     def modificar_nombre(self, nombre, identificacion):
         print("aquí")

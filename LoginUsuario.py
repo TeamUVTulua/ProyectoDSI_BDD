@@ -3,6 +3,8 @@
 from tkinter import *
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
+from tkinter.simpledialog import askstring
+from tkinter.messagebox import showinfo
 
 # ****** Metodos de otros archivos ******#
 
@@ -59,41 +61,48 @@ class loginUsuario:
 
     def abrirUsuarioSegunRol(self):
 
-        gestionUsuarios = gestionUsuario()
-        user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())
+        print(self.cuadroID.get())
 
-        user = user2
+        if (self.cuadroID.get() == '' or self.cuadroPass.get() == ''):
+            showinfo('Error Inicio de Sesión', 'Campos Obligatorios')
 
-        if (user2.get_cargo() == 'administrador'):
-            print("ventana adminCC")
-            self.rootLogin.destroy()
-            import GUIAdministrador as cc
-            cc.usuario = user2
-            cc.iniciar()
-
-        elif (user2.get_cargo() == 'vendedor'):
-            print("ventana adminRR")
-            self.rootLogin.destroy()
-            import GUIVendedor as cc
-            cc.usuario = user2
-            cc.iniciar()
-
-
-        elif (user2.get_cargo() == 'bodega'):
-            print("ventana OperarioRR")
-            self.rootLogin.destroy()
-            import GUIBodeguista as cc
-            cc.usuario = user2
-            cc.iniciar()
-
-        elif (user2.get_cargo() == 'contador'):
-            print("ventana OperarioRR")
-            self.rootLogin.destroy()
-            import GUIContador as cc
-            cc.usuario = user2
-            cc.iniciar()
         else:
-            messagebox.showinfo("Aviso", "El email o contraseña son incorrectos")
+
+            gestionUsuarios = gestionUsuario()
+            user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())
+
+            user = user2
+
+            if (user2.get_cargo() == 'administrador'):
+                print("ventana adminCC")
+                self.rootLogin.destroy()
+                import GUIAdministrador as cc
+                cc.usuario = user2
+                cc.iniciar()
+
+            elif (user2.get_cargo() == 'vendedor'):
+                print("ventana adminRR")
+                self.rootLogin.destroy()
+                import GUIVendedor as cc
+                cc.usuario = user2
+                cc.iniciar()
+
+
+            elif (user2.get_cargo() == 'bodega'):
+                print("ventana OperarioRR")
+                self.rootLogin.destroy()
+                import GUIBodeguista as cc
+                cc.usuario = user2
+                cc.iniciar()
+
+            elif (user2.get_cargo() == 'contador'):
+                print("ventana OperarioRR")
+                self.rootLogin.destroy()
+                import GUIContador as cc
+                cc.usuario = user2
+                cc.iniciar()
+            else:
+                messagebox.showinfo("Aviso", "El email o contraseña son incorrectos")
 
 
 def iniciar():

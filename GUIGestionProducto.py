@@ -83,9 +83,10 @@ class GUIGestionProducto:
         self.listboxUsuario = Listbox(self.frameDerechoEmp, width=33, heigh=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
         self.listboxUsuario.pack()
-        for i in range(100):
-            self.listboxUsuario.insert(END,i)
-        #self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+        #for i in range(100):
+         #   self.listboxUsuario.insert(END,i)
+
+        self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
         self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listboxUsuario.yview)
