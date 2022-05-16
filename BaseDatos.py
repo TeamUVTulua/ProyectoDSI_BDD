@@ -1,9 +1,14 @@
+# ****** Librerias importadas ******#
+
 import psycopg2
 from tkinter import messagebox
 
-
+# ****** Clase BaseDeDatos  ******#
 class BaseDatos:
     def __init__(self):
+
+        # ****** Conexion con la base de datos ******#
+
         self.conexion = psycopg2.connect(
             host="localhost",
             database="MotoSocios",
