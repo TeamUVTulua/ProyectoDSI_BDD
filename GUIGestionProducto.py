@@ -75,10 +75,21 @@ class GUIGestionProducto:
         Label(self.frameDerechoEmp, text="Productos", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, heigh=9, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20))
+        self.scrollbar =Scrollbar(self.frameDerechoEmp)
+        self.scrollbar.pack(side=RIGHT, fill=Y)
 
-        self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+
+
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=33, heigh=9, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 20))
+        self.listboxUsuario.pack()
+        for i in range(100):
+            self.listboxUsuario.insert(END,i)
+        #self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+
+        self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxUsuario.yview)
+
 
         self.listboxUsuario.place(x=50, y=86)
 

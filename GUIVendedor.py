@@ -9,6 +9,7 @@ from PIL import Image, ImageTk
 # ****** Metodos de otros archivos ******#
 
 from gestionUsuario import *
+from gestionProducto import *
 import gestionUsuario as gu
 usuario=Usuario("","","","","","","","")
 
@@ -36,31 +37,31 @@ class GUIVendedor:
 
         # ****** Frame inicio Productos Side Der ****** #
 
-        frameDerechoVendedor = Frame(self.rootGUIVendedor, bg="#18344A")
-        frameDerechoVendedor.place(x=600, y=85, width=700, height=530)
+        self.frameDerechoVendedor = Frame(self.rootGUIVendedor, bg="#18344A")
+        self.frameDerechoVendedor.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoVendedor, text="Bienvenido, Vendedor", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=180, y=20)
+        Label(self.frameDerechoVendedor, text="Bienvenido, Vendedor", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=180, y=20)
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoVendedor, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=100)
-        Label(frameDerechoVendedor, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=140)
-        Label(frameDerechoVendedor,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
-        Label(frameDerechoVendedor, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=300)
-        Label(frameDerechoVendedor, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
-        Label(frameDerechoVendedor, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
+        Label(self.frameDerechoVendedor, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=100)
+        Label(self.frameDerechoVendedor, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=140)
+        Label(self.frameDerechoVendedor,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
+        Label(self.frameDerechoVendedor, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=300)
+        Label(self.frameDerechoVendedor, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
+        Label(self.frameDerechoVendedor, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
         
         #-------- CARGAR DATOS DEL VENDEDOR EN EL FRAME
         self.CargarInfoUsuarioEnLabels()
         # INFORMACIO CARGADA QUE NO SE MODIFICA
-        Label(frameDerechoVendedor, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270,y=100)
-        Label(frameDerechoVendedor, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=140)
-        Label(frameDerechoVendedor, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=180)
-        Label(frameDerechoVendedor, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=220)
+        Label(self.frameDerechoVendedor, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270,y=100)
+        Label(self.frameDerechoVendedor, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=140)
+        Label(self.frameDerechoVendedor, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=180)
+        Label(self.frameDerechoVendedor, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=220)
 
-        self.listboxUsuario = Listbox(frameDerechoVendedor, width=25, heigh=2, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(self.frameDerechoVendedor, width=25, heigh=2, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20,))
 
         self.listboxUsuario.insert(0, self.dir_usu)
@@ -71,10 +72,10 @@ class GUIVendedor:
 
         # ****** Botones Perfil Propio ****** #
 
-        BotonModificarDatos = Button(frameDerechoVendedor, text="Modificar datos", command=self.retornarSelecListBoxUsuario,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonModificarDatos = Button(self.frameDerechoVendedor, text="Modificar datos", command=self.retornarSelecListBoxUsuario,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarDatos.place(x=80, y=400, width=240)
 
-        BotonCambiarContraseña = Button(frameDerechoVendedor, text="Cambiar Contraseña", command=self.modContraseña,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCambiarContraseña = Button(self.frameDerechoVendedor, text="Cambiar Contraseña", command=self.modContraseña,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCambiarContraseña.place(x=380,y=400, width=240)
 
         # ******Frame Botones Opciones Side Izq ****** #
@@ -90,12 +91,12 @@ class GUIVendedor:
 
         # ****** Boton Consultar Venta ******#
 
-        BotonConsultarVenta = Button(frameIzquierdoVendedor, text="Lista de Productos", comamnd=self.lisProductos, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarVenta = Button(frameIzquierdoVendedor, text="Lista de Productos", command=self.lisProductos, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarVenta.place(x=120, y=180, width=240)
 
         # ****** Boton Modificar Venta ****** #
 
-        BotonModificarVenta = Button(frameIzquierdoVendedor, text="Lista de Usuarios", comamnd=self.lisUsuarios,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonModificarVenta = Button(frameIzquierdoVendedor, text="Lista de Usuarios",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarVenta.place(x=120, y=240, width=240)
 
         # ******Boton Listar Ventas ****** #
@@ -114,6 +115,34 @@ class GUIVendedor:
         BotonSalir.place(x=120, y=420, width=240)
 
     def lisProductos(self):
+        self.frameDerechoVendedor.place_forget()
+        self.mostrarProd()
+
+    def  mostrarProd(self):
+        self.frameDerechoEmp = Frame(self.rootGUIVendedor, bg="#18344A")
+        self.frameDerechoEmp.place(x=600, y=85, width=700, height=530)
+
+        self.scrollbar = Scrollbar(self.frameDerechoEmp)
+        self.scrollbar.pack(side=RIGHT, fill=Y)
+
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=33, heigh=9, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 20))
+        self.listboxUsuario.pack()
+
+
+        self.CargarInfoUsuarioEnLabels3(self.listboxUsuario)
+
+        self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxUsuario.yview)
+
+        self.listboxUsuario.place(x=50, y=86)
+
+    def CargarInfoUsuarioEnLabels3(self, listboxUsuario):
+        gestionUsuarios = gestionProducto()
+        listaDatos = gestionUsuarios.obtenerTodos()
+
+        for x in listaDatos:
+            listboxUsuario.insert(END, x)
 
 
     def gesCliente(self):
