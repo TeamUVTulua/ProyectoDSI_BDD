@@ -38,7 +38,7 @@ class GUIGestionProducto:
 
         # ****** Boton Home ******#
 
-        BotonHome = Button(frameIzquierdoProd, text="Inicio", font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
+        BotonHome = Button(frameIzquierdoProd, text="Inicio", command=self.volver,font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
                            cursor="hand2")
         BotonHome.place(x=30, y=30, width=70, height=35)
 
@@ -190,6 +190,11 @@ class GUIGestionProducto:
     def login_window(self):
         self.rootGUIRegProd.destroy()
         import LoginUsuario
+
+    def volver(self):
+        self.rootGUIRegProd.destroy()
+        import  GUIAdministrador as adm
+        adm.iniciar()
 
 
 def ventanaConsultarProd(self):

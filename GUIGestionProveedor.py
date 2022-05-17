@@ -38,7 +38,7 @@ class GUIProveedor:
 
         # ****** Boton Home ******#
 
-        BotonHome = Button(frameIzquierdoProv, text="Inicio", command=self.rootGUIProveedor.destroy,font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
+        BotonHome = Button(frameIzquierdoProv, text="Inicio",command=self.volver,font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
                            cursor="hand2")
         BotonHome.place(x=20, y=20, width=70, height=35)
 
@@ -182,6 +182,11 @@ class GUIProveedor:
 
         self.rootGUIProveedor.destroy()
         import LoginUsuario
+
+    def volver(self):
+        self.rootGUIProveedor.destroy()
+        import  GUIAdministrador as adm
+        adm.iniciar()
         
 def iniciar():
     rootGUIProveedor = Tk()

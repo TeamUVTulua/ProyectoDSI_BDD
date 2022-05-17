@@ -39,7 +39,7 @@ class GUIMenuInicial:
 
         # ****** Boton Home ******#
 
-        BotonHome = Button(frameIzquierdoEmp, text="Inicio", font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
+        BotonHome = Button(frameIzquierdoEmp, text="Inicio", command=self.volver,font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
                            cursor="hand2")
         BotonHome.place(x=30, y=30, width=70, height=35)
 
@@ -202,6 +202,11 @@ class GUIMenuInicial:
     def login_window(self):
         self.rootGestEmp.destroy()
         import LoginUsuario
+
+    def volver(self):
+        self.rootGestEmp.destroy()
+        import  GUIAdministrador as adm
+        adm.iniciar()
 
     def modificarEmpleado(self):
         #self.frameDerechoEmp.place_forget()
