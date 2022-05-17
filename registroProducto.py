@@ -47,8 +47,9 @@ class resgistroProducto:
 
         Label(frameCrearUsuario, text="Categoria: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=150) # REVIDAR CON UN BOX SELECT
-        self.categoria = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.categoria.place(x=50, y=190)
+        self.rolPass = ttk.Combobox(frameCrearUsuario, font=("comic sans MS", 13), state="readonly", justify=CENTER)
+        self.rolPass["values"] = ["electrica", "mecanica", "estetica", "varias"]
+        self.rolPass.place(x=50, y=190)
 
         # ****** Label cantidadefono Crear Usuario ****** #
 
@@ -56,6 +57,28 @@ class resgistroProducto:
               fg="white").place(x=350, y=150)
         self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
         self.cantidad.place(x=350, y=190)
+
+        Label(frameCrearUsuario, text="NIT Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=230)
+        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.cantidad.place(x=50, y=270)
+
+        Label(frameCrearUsuario, text="Nombre Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=350, y=230)
+        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.cantidad.place(x=350, y=270)
+
+        Label(frameCrearUsuario, text="Contacto Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=310)
+        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.cantidad.place(x=50, y=350)
+
+        Label(frameCrearUsuario, text="Direccion Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=350, y=310)
+        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.cantidad.place(x=350, y=350)
+
+
 
         # ****** Boton Guardar Crear Usuario ****** #
 

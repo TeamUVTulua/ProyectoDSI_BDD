@@ -1,5 +1,4 @@
 
-
 class Producto:
 
     def __init__(self,codigo,nombre,categoria,cantidadTotal):
@@ -10,7 +9,7 @@ class Producto:
 
 
     def get_codigo(self):
-        return self.codgo
+        return self.codigo
 
     def get_nombre(self):
         return self.nombre
