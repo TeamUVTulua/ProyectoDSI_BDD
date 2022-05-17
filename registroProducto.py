@@ -7,6 +7,7 @@ from PIL import Image, ImageTk
 
 from Producto import *
 from gestionProducto import *
+from gestionProveedor import *
 
 class resgistroProducto:
 
@@ -51,6 +52,8 @@ class resgistroProducto:
         self.rolPass["values"] = ["electrica", "mecanica", "estetica", "varias"]
         self.rolPass.place(x=50, y=190)
 
+        self.categoria = self.rolPass
+
         # ****** Label cantidadefono Crear Usuario ****** #
 
         Label(frameCrearUsuario, text="Cantidad Total: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
@@ -60,23 +63,23 @@ class resgistroProducto:
 
         Label(frameCrearUsuario, text="NIT Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=230)
-        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.cantidad.place(x=50, y=270)
+        self.nit_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.nit_prov.place(x=50, y=270)
 
         Label(frameCrearUsuario, text="Nombre Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=350, y=230)
-        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.cantidad.place(x=350, y=270)
+        self.nom_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.nom_prov.place(x=350, y=270)
 
         Label(frameCrearUsuario, text="Contacto Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=310)
-        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.cantidad.place(x=50, y=350)
+        self.cont_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.cont_prov.place(x=50, y=350)
 
         Label(frameCrearUsuario, text="Direccion Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=350, y=310)
-        self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.cantidad.place(x=350, y=350)
+        self.dir_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
+        self.dir_prov.place(x=350, y=350)
 
 
 
@@ -91,14 +94,17 @@ class resgistroProducto:
         BotonLogin.place(x=350, y=500, width=200)
 
     def validacion(self):
-        return (len(self.codigo.get()) == 0 or len(self.categoria.get()) == 0)
+        return (len(self.codigo.get()) == 0 or len(self.categoria.get()) == 0
+                or len(self.nit_prov.get()) == 0)
 
     def registrar(self):
         if self.validacion():
             messagebox.showinfo("error!", "Los datos son obligatorios")
         else:
             self.gestionUsuario = gestionProducto()
+            self.gestionProveedor = gestionProveedor()
             self.gestionUsuario.registrar_producto(self.codigo.get(), self.nombre.get(),self.categoria.get(),self.cantidad.get())
+            self.gestionProveedor.registrar_proveedor(self.nit_prov.get(), self.nom_prov.get(), self.cont_prov.get(), self.dir_prov.get())
             self.volver()
 
         # ****** Para volver al login desde Crear Usuario ****** #

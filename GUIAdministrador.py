@@ -98,12 +98,12 @@ class GUIAdministrador:
 
         # ******Boton Gestionar Proveedores ****** #
 
-        BotonListarProductos = Button(frameIzquierdoAdmin, text="Gestionar Proveedores",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonListarProductos = Button(frameIzquierdoAdmin, text="Proveedores",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonListarProductos.place(x=120, y=300, width=240)
 
         # ******Boton Consultar Historicos ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoAdmin, text="Consultar Historicos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProducto = Button(frameIzquierdoAdmin, text="Consultar Historicos", command=self.gesProveedor,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProducto.place(x=120, y=360, width=240)
 
         # ******Boton Salir ****** #
@@ -189,6 +189,11 @@ class GUIAdministrador:
     def gesCliente(self):
         self.rootGUIAdministrador.destroy()
         import GUIGestionCliente as emp
+        emp.iniciar()
+
+    def gesProveedor(self):
+        self.rootGUIAdministrador.destroy()
+        import GUIGestionProveedor as emp
         emp.iniciar()
 
     def login(self):
