@@ -13,7 +13,7 @@ class BaseDatos:
             host="localhost",
             database="MotoSocios",
             user="postgres",
-            password="12345"
+            password="smr6134"
         )
 
         # ****** Comandos ejecutados en la base de datos ******#

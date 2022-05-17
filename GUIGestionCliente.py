@@ -41,9 +41,9 @@ class GUIGestCli:
 
         # ****** Boton Home ******#
 
-        Home = PhotoImage("Imagenes\iconoInterfazinicio.png")
-        BotonHome = Button(frameIzquierdoCli, text="Home", font=("comic sans MS", 15), bg="#18344A", fg="white", width=120,heigh=120,image=Home)
-        BotonHome.place(x=100, y=90)
+        ImagenHome = PhotoImage("Imagenes\iconoInterfazinicio.png")
+        BotonHome = Button(frameIzquierdoCli, text="Home", image=ImagenHome,bg="#18344A",bd=2)
+        BotonHome.place(x=30, y=20,width=35,heigh=35)
 
         # ****** Boton Consultar Clientes ****** #
 
@@ -92,15 +92,6 @@ class GUIGestCli:
 
         self.listboxUsuario.place(x=50, y=86)
 
-        """
-        Label(frameDerechoCli, text="ID:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,y=70)
-        Label(frameDerechoCli, text="Nombre:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=110)
-        Label(frameDerechoCli, text="Apellido1:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=160)
-        Label(frameDerechoCli, text="Apellido2:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=210)
-        Label(frameDerechoCli, text="Correo: ", font=("comic sans MS", 20), bg="#18344A",fg="white").place(x=80, y=260)
-        Label(frameDerechoCli, text="Telefono: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=310)
-        Label(frameDerechoCli, text="Direccion:", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=360)
-        """
         # ****** Boton Modificar Datos ****** #
 
     def consultarCliente(self):
