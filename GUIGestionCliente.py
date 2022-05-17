@@ -38,6 +38,12 @@ class GUIGestCli:
         frameIzquierdoCli.place(x=85, y=85, width=480, height=530)
         Label(frameIzquierdoCli, text="Gestion Cliente", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=125, y=30)
 
+        # ****** Boton Home ******#
+
+        Home = PhotoImage("Imagenes\iconoInterfazinicio.png")
+        BotonHome = Button(frameIzquierdoCli, text="Home", font=("comic sans MS", 15), bg="#18344A", fg="white", width=120,heigh=120,image=Home)
+        BotonHome.place(x=100, y=90)
+
         # ****** Boton Consultar Clientes ****** #
 
         BotonConsultarCliente = Button(frameIzquierdoCli, text="Consultar Clientes",command=self.consultarCliente, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -259,4 +265,3 @@ def iniciar():
     rootGestCli = Tk()
     obj = GUIGestCli(rootGestCli)
     rootGestCli.mainloop()
-
