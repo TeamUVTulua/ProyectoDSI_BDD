@@ -3,12 +3,13 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
+
+# ****** Metodos de otros archivos ******#
+
 from Usuario import *
 import Cliente as us
 from gestionCliente import *
 cliente=us.Cliente("","","","","","","")
-
-# ****** Metodos de otros archivos ******#
 
 # ****** Ventanas de dialogo ******#
 
