@@ -12,6 +12,7 @@ class gestionUsuario:
         self.base = BaseDatos()
         self.query = "insert    into    empleado    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)"
         self.base.crear_cursor(self.query, (identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Registrado", "El    usuario    ha    sido    registrado    con    exito")
         self.base.cerrar_conexion()
 
@@ -27,6 +28,7 @@ class gestionUsuario:
 
             return user
         except:
+            showinfo.iconbitmap("Imagenes\iconoInterfaz.ico")
             showinfo('Error Inicio de Sesión', 'Usuario o Contraseña Incorrectas')
 
 
@@ -171,6 +173,7 @@ class gestionUsuario:
         self.base = BaseDatos()
         self.query = "update empleado set contacto  = %s where id_usu = %s"
         self.cur = self.base.crear_cursor(self.query, (telefono_usu, identificacion))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El telefono ha sido modificado con exito")
         self.base.cerrar_conexion()
 ##---------------------------------------------

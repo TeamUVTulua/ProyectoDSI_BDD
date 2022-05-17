@@ -89,29 +89,12 @@ class GUIBodeguista:
 
         frameIzquierdoBodeguista = Frame(self.rootGUIBodeguista, bg="#18344A")
         frameIzquierdoBodeguista.place(x=85, y=85, width=480, height=530)
-        Label(frameIzquierdoBodeguista, text="Contador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
+        Label(frameIzquierdoBodeguista, text="Bodeguista", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
 
         # ****** Boton Consultar Historico de Ventas ****** #
 
         BotonConsultarHV = Button(frameIzquierdoBodeguista, text="Gestionar Productos",command=self.gesInventario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarHV.place(x=80, y=120, width=320)
-
-        # ****** Boton Consultar Historico de Compras ******#
-
-
-        # ****** Boton Consultar Datos Empleados ****** #
-
-
-        # ******Boton Crear Pago a Empleados ****** #
-
-
-        # ******Boton Crear Pago a Proveedores ****** #
-
-
-        # ******Boton Salir ****** #
-
-        BotonSalir = Button(frameIzquierdoBodeguista, text="Cerrar Sesión", command=self.login, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalir.place(x=80, y=420, width=320)
 
     def gesInventario(self):
         self.rootGUIBodeguista.destroy()
@@ -119,7 +102,6 @@ class GUIBodeguista:
         emp.iniciar()
 
     def CargarInfoUsuarioEnLabels(self):
-        # print(usuario.get_nombre())
 
         self.id_usu = usuario.get_id_usu()
         self.nombre_usu = usuario.get_nombre()

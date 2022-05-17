@@ -134,6 +134,7 @@ class GUIGestCli:
         aux = self.listboxUsuario.curselection()
         if (self.listboxUsuario.selection_includes(0)):
             print(aux)
+            askstring.iconbitmap("Imagenes\iconoInterfas.ico")
             aux2 = askstring('Modificación de información', 'Ingrese el NIT de cliente')
 
             if (aux2 == None):

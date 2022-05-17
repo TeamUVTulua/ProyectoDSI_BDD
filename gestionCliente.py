@@ -156,7 +156,9 @@ class gestionCliente:
         messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Cambiada", "La direccion numero ha sido cambiada con exito")
         self.base.cerrar_conexion()
-##---------------------------------------------
+
+    # ****** Metodo para deshabilitar usuarios ******#
+
     def deshabilitar_usuario(self, email):
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
@@ -164,6 +166,8 @@ class gestionCliente:
         messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
+
+    # ****** Metodo para habilitar usuarios ******#
 
     def habilitar_usuario(self, email):
         self.base = BaseDatos()

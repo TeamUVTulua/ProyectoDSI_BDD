@@ -131,6 +131,6 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
-        messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
+        mensajeHabilitar = messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
+        mensajeHabilitar.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.base.cerrar_conexion()
