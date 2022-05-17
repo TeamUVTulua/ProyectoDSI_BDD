@@ -104,6 +104,7 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "update cliente set nit  = %s where nit = %s"
         self.cur = self.base.crear_cursor(self.query, (nit, identificacion))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nit ha sido modificado con exito")
 
     def modificar_nombre(self, nombre, identificacion):
@@ -111,6 +112,7 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "update cliente set nombre  = %s where nit = %s"
         self.cur = self.base.crear_cursor(self.query, (nombre, identificacion))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nit ha sido modificado con exito")
 
     def modificar_apellido1(self, apellido, identificacion):
@@ -118,6 +120,7 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "update cliente set apellidopaterno  = %s where nit = %s"
         self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El apellido Paterno ha sido modificado con exito")
 
     def modificar_apellido2(self, apellido, identificacion):
@@ -125,6 +128,7 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "update cliente set apellidomaterno  = %s where nit = %s"
         self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El apellido matenro ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -149,6 +153,7 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "update cliente set dirnumero  = %s where nir = %s"
         self.cur = self.base.crear_cursor(self.query, (dirNum, identificacion))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Cambiada", "La direccion numero ha sido cambiada con exito")
         self.base.cerrar_conexion()
 ##---------------------------------------------
@@ -156,6 +161,7 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 
@@ -163,5 +169,6 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
         self.base.cerrar_conexion()
