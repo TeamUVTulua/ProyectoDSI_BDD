@@ -41,7 +41,7 @@ class GUIGestCli:
 
         # ****** Boton Home ******#
 
-        BotonHome = Button(frameIzquierdoCli, text="Inicio", font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5, cursor="hand2")
+        BotonHome = Button(frameIzquierdoCli, text="Inicio", command=self.volver ,font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5, cursor="hand2")
         BotonHome.place(x=30, y=30, width=70,height=35)
 
         # ****** Boton Consultar Clientes ****** #
@@ -226,7 +226,10 @@ class GUIGestCli:
         for x in listaDatos:
             listboxUsuario.insert(END, x)
 
-
+    def volver(self):
+        self.rootGestCli.destroy()
+        import  GUIAdministrador as adm
+        adm.iniciar()
 def gestionProducto(self):
     self.rootGestCli.destroy()
     import GUIGestionProducto as GesProd
