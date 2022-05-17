@@ -16,6 +16,8 @@ class BaseDatos:
             password="12345"
         )
 
+        # ****** Comandos ejecutados en la base de datos ******#
+
         self.cursor = self.conexion.cursor()
         print("conexion exitosa")
 
