@@ -65,7 +65,7 @@ class GUIAdministrador:
         self.listboxUsuario.insert(0, self.dir_usu)
         self.listboxUsuario.insert(1, self.tel_usu)
 
-        self.listboxUsuario.place(x=270, y=220)
+        self.listboxUsuario.place(x=270, y=270)
 
         # ****** Botones Perfil Propio ****** #
 

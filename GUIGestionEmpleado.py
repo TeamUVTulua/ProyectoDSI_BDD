@@ -37,6 +37,12 @@ class GUIMenuInicial:
         frameIzquierdoEmp.place(x=85, y=85, width=480, height=530)
         Label(frameIzquierdoEmp, text="Gestion Empleado", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=100, y=30)
 
+        # ****** Boton Home ******#
+
+        BotonHome = Button(frameIzquierdoEmp, text="Inicio", font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
+                           cursor="hand2")
+        BotonHome.place(x=30, y=30, width=70, height=35)
+
         # ****** Boton Consultar Empleados ****** #
 
         BotonConsultarEmpleados = Button(frameIzquierdoEmp, text="Consultar Empleado", command=self.consultarEmp , font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -47,23 +53,13 @@ class GUIMenuInicial:
         BotonCrearEmpleados = Button(frameIzquierdoEmp, text="Crear Empleado", command=self.crear,  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCrearEmpleados.place(x=120, y=190, width=240)
 
-        # ******Boton Modificar Empleados ****** #
-
-        BotonModificarEmpleados = Button(frameIzquierdoEmp, text="Modificar Empleado", command=self.modificarEmpleado,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonModificarEmpleados.place(x=120, y=250, width=240)
-
         # ******Boton Eliminar Empleado ****** #
 
         BotonEliminarProducto = Button(frameIzquierdoEmp, text="Eliminar Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarProducto.place(x=120, y=310, width=240)
+        BotonEliminarProducto.place(x=120, y=250, width=240)
 
-        # ******Boton Salir ****** #
-
-        BotonSalir = Button(frameIzquierdoEmp, text="Cerrar Sesión", command=self.login_window, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame Productos Side Der ****** #
-
 
         self.frameDerechoEmp = Frame(self.rootGestEmp, bg="#18344A")
         self.frameDerechoEmp.place(x=600, y=85, width=700, height=530)
@@ -85,32 +81,32 @@ class GUIMenuInicial:
         self.mostrarEmp()
 
     def mostrarEmp(self):
-        frameDerechoAdmin = Frame(self.rootGestEmp, bg="#18344A")
-        frameDerechoAdmin.place(x=600, y=85, width=700, height=530)
+        frameDerechoEmp = Frame(self.rootGestEmp, bg="#18344A")
+        frameDerechoEmp.place(x=600, y=85, width=700, height=530)
 
-        # ******* Titulo Frame Bienvenido ****** #
+        # ******* Titulo Frame Empleado ****** #
 
-        Label(frameDerechoAdmin, text=" Modificar", font=("comic sans MS", 24, "bold"), bg="#18344A",
+        Label(frameDerechoEmp, text=" Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=320, y=20)
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoEmp, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
             x=80, y=60)
-        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
                                                                                                               y=100)
-        Label(frameDerechoAdmin, text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=140)
-        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
                                                                                                                 y=260)
-        Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=220)
-        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
                                                                                                              y=180)
 
         self.CargarInfoUsuarioEnLabels2()
 
-        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(frameDerechoEmp, width=25, heigh=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20,))
 
         self.listboxUsuario.insert(0, self.id_emp)
@@ -122,7 +118,7 @@ class GUIMenuInicial:
 
         self.listboxUsuario.place(x=270, y=60)
 
-        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos",
+        BotonModificarDatos = Button(frameDerechoEmp, text="Modificar datos",
                                      command=self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray",
                                      fg="white", bd=5, cursor="hand2")
         BotonModificarDatos.place(x=80, y=400, width=240)

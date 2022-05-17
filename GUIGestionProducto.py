@@ -31,72 +31,59 @@ class GUIGestionProducto:
 
         # ******Frame Botones Opciones Side Izq ****** #
 
-        frameGUIRegProd = Frame(self.rootGUIRegProd, bg="#18344A")
-        frameGUIRegProd.place(x=85, y=85, width=480, height=530)
-        Label(frameGUIRegProd, text="Gestion de Productos", font=("comic sans MS", 23, "bold"), bg="#18344A",
+        frameIzquierdoProd = Frame(self.rootGUIRegProd, bg="#18344A")
+        frameIzquierdoProd.place(x=85, y=85, width=480, height=530)
+        Label(frameIzquierdoProd, text="Gestion de Productos", font=("comic sans MS", 23, "bold"), bg="#18344A",
               fg="white").place(x=100, y=30)
+
+        # ****** Boton Home ******#
+
+        BotonHome = Button(frameIzquierdoProd, text="Inicio", font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
+                           cursor="hand2")
+        BotonHome.place(x=30, y=30, width=70, height=35)
 
         # ****** Boton Agregar Producto ****** #
 
-        BotonAgregarProducto = Button(frameGUIRegProd, text="Agregar Producto", command=self.crear, font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
+        BotonAgregarProducto = Button(frameIzquierdoProd, text="Agregar Producto", command=self.crear, font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
         BotonAgregarProducto.place(x=120, y=120, width=240)
-
-        # ****** Boton Modificar Producto ******#
-
-        BotonReportes = Button(frameGUIRegProd, text="Modificar Producto",font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
-        BotonReportes.place(x=120, y=180, width=240)
 
         # ******Boton Consultar Producto****** #
 
-        BotonConsultarProducto = Button(frameGUIRegProd, text="Consultar Producto",command=self.consultarEmp, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarProducto.place(x=120, y=240, width=240)
-
-        # ******Boton Listar Productos ****** #
-
-        BotonListarProductos = Button(frameGUIRegProd, text="Listado de Productos",font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonListarProductos.place(x=120, y=300, width=240)
+        BotonConsultarProducto = Button(frameIzquierdoProd, text="Consultar Producto",command=self.consultarEmp, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarProducto.place(x=120, y=180, width=240)
 
         # ******Boton Eliminar Producto ****** #
 
-        BotonEliminarProducto = Button(frameGUIRegProd, text="Eliminar Producto",font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarProducto.place(x=120, y=360, width=240)
-
-        # ******Boton Salir ****** #
-
-        BotonSalir = Button(frameGUIRegProd, text="Cerrar Sesión", command=self.login_window,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalir.place(x=120, y=420, width=240)
+        BotonEliminarProducto = Button(frameIzquierdoProd, text="Eliminar Producto",font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProducto.place(x=120, y=260, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
-        self.frameDerechoEmp = Frame(self.rootGUIRegProd, bg="#18344A")
-        self.frameDerechoEmp.place(x=600, y=85, width=700, height=530)
+        self.frameDerechoProd = Frame(self.rootGUIRegProd, bg="#18344A")
+        self.frameDerechoProd.place(x=600, y=85, width=700, height=530)
 
 
         # ******* Titulo Frame Producto ****** #
-        Label(self.frameDerechoEmp, text="Productos", font=("comic sans MS", 24, "bold"), bg="#18344A",
+        Label(self.frameDerechoProd, text="Productos", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-        self.scrollbar =Scrollbar(self.frameDerechoEmp)
+        self.scrollbar =Scrollbar(self.frameDerechoProd)
         self.scrollbar.pack(side=RIGHT, fill=Y)
 
 
-
-        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=33, heigh=9, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(self.frameDerechoProd, width=33, heigh=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
         self.listboxUsuario.pack()
-        #for i in range(100):
-         #   self.listboxUsuario.insert(END,i)
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
         self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listboxUsuario.yview)
 
-
         self.listboxUsuario.place(x=50, y=86)
 
     def consultarEmp(self):
         self.auxId = askstring('Modificación de información', 'Ingrese el codigo de un producto')
-        self.frameDerechoEmp.place_forget()
+        self.frameDerechoProd.place_forget()
         self.mostrarEmp()
 
     def mostrarEmp(self):
@@ -177,7 +164,7 @@ class GUIGestionProducto:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
+                showinfo('Modificación de información', 'Tus telefonos quedaron: {}'.format(aux4))
                 gestionUsuarios.modificar_cantidad( self.codigo)
             print(aux4)
 
@@ -212,18 +199,18 @@ def ventanaConsultarProd(self):
             self.rootGUIRegProd2.geometry("1360x768+560+312")
             self.rootGUIRegProd2.resizable(1, 1)
 
-            frameGUIRegProd2 = Frame(self.rootGUIRegProd2,bg="#18344A")
-            frameGUIRegProd2.place(x=600,y=85,width=700,height=530)
+            frameIzquierdoProd2 = Frame(self.rootGUIRegProd2,bg="#18344A")
+            frameIzquierdoProd2.place(x=600,y=85,width=700,height=530)
 
-            Label(frameGUIRegProd2,text="Lista Productos", font=("comic sans MS",24, "bold"), bg="#18344A",fg="white").place(x=220,y=20)
+            Label(frameIzquierdoProd2,text="Lista Productos", font=("comic sans MS",24, "bold"), bg="#18344A",fg="white").place(x=220,y=20)
 
             #****** Cargue de datos en el Side der ******#
             # Carga lista de productos
 
-            fder=ttk.Treeview(frameGUIRegProd2, columns=(1,2,3,4,5,6,7),show="headings",height="18")
+            fder=ttk.Treeview(frameIzquierdoProd2, columns=(1,2,3,4,5,6,7),show="headings",height="18")
             fder.place(x=45,width=600,y=80)
-            treeScrollBary=ttk.Scrollbar(frameGUIRegProd2, orient="vertical",command=fder.yview)
-            treeScrollBarx=ttk.Scrollbar(frameGUIRegProd2, orient="horizontal",command=fder.xview)
+            treeScrollBary=ttk.Scrollbar(frameIzquierdoProd2, orient="vertical",command=fder.yview)
+            treeScrollBarx=ttk.Scrollbar(frameIzquierdoProd2, orient="horizontal",command=fder.xview)
             fder.configure(xscrollcommand=treeScrollBarx.set,yscrollcommand=treeScrollBary.set)
 
             treeScrollBarx.pack(side="bottom", fill="x")
@@ -237,7 +224,7 @@ def ventanaConsultarProd(self):
             fder.heading(6, text ="P. Venta")
             fder.heading(7, text ="Prov")
 
-            BotonAgregarProducto=Button(frameGUIRegProd2, text="+ Agregar ",font=("comic sans MS", 15), bg="gray",fg="white",bd=5,cursor="hand2")
+            BotonAgregarProducto=Button(frameIzquierdoProd2, text="+ Agregar ",font=("comic sans MS", 15), bg="gray",fg="white",bd=5,cursor="hand2")
             BotonAgregarProducto.place(x=560,y=26,width=100)
 
             self.rootGUIRegProd2.mainloop()
@@ -254,60 +241,60 @@ def ventanaRegistroProducto(self):
 
             # ******Frame Derecho******#
 
-        frameGUIRegProd3= Frame(self.rootGUIRegProd2,bg="#18344A")
-        frameGUIRegProd3.place(x=600,y=85,relwidth=1,relheight=1)
+        frameIzquierdoProd3= Frame(self.rootGUIRegProd2,bg="#18344A")
+        frameIzquierdoProd3.place(x=600,y=85,relwidth=1,relheight=1)
 
-        Label(frameGUIRegProd3,text="Agregar Producto ", font=("comic sans MS",25, "bold"), bg="#18344A",fg="white").place(x=50,y=20)
+        Label(frameIzquierdoProd3,text="Agregar Producto ", font=("comic sans MS",25, "bold"), bg="#18344A",fg="white").place(x=50,y=20)
 
         #****** Frame Derecho ******#
 
-        Label(frameGUIRegProd3,text="CODIGO:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=86)
-        Label(frameGUIRegProd3,text="NOMBRE:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=126)
-        Label(frameGUIRegProd3,text="VALOR VENTA:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=166)
-        Label(frameGUIRegProd3,text="DESCRIPCIÓN:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=206)
+        Label(frameIzquierdoProd3,text="CODIGO:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=86)
+        Label(frameIzquierdoProd3,text="NOMBRE:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=126)
+        Label(frameIzquierdoProd3,text="VALOR VENTA:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=166)
+        Label(frameIzquierdoProd3,text="DESCRIPCIÓN:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=50,y=206)
 
         #****** Entradas de texto ******#
 
-        self.cuadroCodigo=Entry(frameGUIRegProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
+        self.cuadroCodigo=Entry(frameIzquierdoProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
         self.cuadroCodigo.place(x=235,y=86)
 
-        self.cuadroNombre=Entry(frameGUIRegProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
+        self.cuadroNombre=Entry(frameIzquierdoProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
         self.cuadroNombre.place(x=235,y=126)
 
-        self.cuadroValorVenta=Entry(frameGUIRegProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
+        self.cuadroValorVenta=Entry(frameIzquierdoProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
         self.cuadroValorVenta.place(x=235,y=166)
 
-        self.cuadrotexto=Entry(frameGUIRegProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
+        self.cuadrotexto=Entry(frameIzquierdoProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
         self.cuadrotexto.place(x=235,y=206)
 
         #___---------cOLUMNA 2
 
-        Label(frameGUIRegProd3,text="INSUMO:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=450,y=86)
+        Label(frameIzquierdoProd3,text="INSUMO:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=450,y=86)
 
-        self.insumo = Entry(frameGUIRegProd3, font=("comic sans MS",13), bg="#18344A",fg="black")
+        self.insumo = Entry(frameIzquierdoProd3, font=("comic sans MS",13), bg="#18344A",fg="black")
         self.insumo.place(x=550,y=86,width=150)
 
 
-        Label(frameGUIRegProd3,text="CANTIDAD:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=450,y=126)
+        Label(frameIzquierdoProd3,text="CANTIDAD:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=450,y=126)
 
-        self.cuadroCantidad=Entry(frameGUIRegProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
+        self.cuadroCantidad=Entry(frameIzquierdoProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
         self.cuadroCantidad.place(x=550,y=126,width=50)
 
         # ****** Botones Producto ******#
-        BotonAgregar=Button(frameGUIRegProd3, text="Agregar",font=("comic sans MS", 13), bg="gray",fg="#18344A",bd=0,cursor="hand2")
+        BotonAgregar=Button(frameIzquierdoProd3, text="Agregar",font=("comic sans MS", 13), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonAgregar.place(x=450,y=166,width=110)
 
-        BotonQuitar=Button(frameGUIRegProd3, text="Quitar",font=("comic sans MS", 13), bg="gray",fg="#18344A",bd=0,cursor="hand2")
+        BotonQuitar=Button(frameIzquierdoProd3, text="Quitar",font=("comic sans MS", 13), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonQuitar.place(x=600,y=166,width=110)
 
         #Lisbox que muestra insumo seleccionado
-        self.listboxinsumo=Listbox(frameGUIRegProd3,width=25,height=5, bg="#18344A",font=("comic sans MS",13))
+        self.listboxinsumo=Listbox(frameIzquierdoProd3,width=25,height=5, bg="#18344A",font=("comic sans MS",13))
 
         self.listboxinsumo.place(x=465,y=206)
 
         #----final---
 
-        BotonRegistrar=Button(frameGUIRegProd3, text="Finalizar Registro",command=self.registrarPP,font=("comic sans MS", 15), bg="gray",fg="#18344A",bd=0,cursor="hand2")
+        BotonRegistrar=Button(frameIzquierdoProd3, text="Finalizar Registro",command=self.registrarPP,font=("comic sans MS", 15), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonRegistrar.place(x=225,y=340,width=300)
 
         self.rootGUIRegProd2.mainloop()
