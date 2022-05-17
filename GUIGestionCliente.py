@@ -41,9 +41,8 @@ class GUIGestCli:
 
         # ****** Boton Home ******#
 
-        ImagenHome = PhotoImage("Imagenes\iconoInterfazinicio.png")
-        BotonHome = Button(frameIzquierdoCli, text="Home", image=ImagenHome,bg="#18344A",bd=2)
-        BotonHome.place(x=30, y=20,width=35,heigh=35)
+        BotonHome = Button(frameIzquierdoCli, text="Inicio", font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5, cursor="hand2")
+        BotonHome.place(x=30, y=30, width=70,height=35)
 
         # ****** Boton Consultar Clientes ****** #
 
@@ -55,25 +54,10 @@ class GUIGestCli:
         BotonCrearCliente = Button(frameIzquierdoCli, text="Crear Cliente", command=self.crear,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonCrearCliente.place(x=120, y=180, width=240)
 
-        # ****** Boton Modificar Clientes ****** #
-
-        BotonListarEmpleados = Button(frameIzquierdoCli, text="Modificar Cliente",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonListarEmpleados.place(x=120, y=240, width=240)
-
-        # ******Boton Listar Clientes ****** #
-
-        BotonListarCliente = Button(frameIzquierdoCli, text="Listar Clientes",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonListarCliente.place(x=120, y=300, width=240)
-
         # ******Boton Eliminar Cliente ****** #
 
         BotonEliminarCliente = Button(frameIzquierdoCli, text="Eliminar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarCliente.place(x=120, y=360, width=240)
-
-        # ******Boton Salir ****** #
-
-        BotonSalir = Button(frameIzquierdoCli, text="Cerrar Sesión", command=self.login_window, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalir.place(x=120, y=420, width=240)
+        BotonEliminarCliente.place(x=120, y=240, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
         self.frameDerechoCli = Frame(self.rootGestCli, bg="#18344A")
@@ -242,9 +226,6 @@ class GUIGestCli:
         for x in listaDatos:
             listboxUsuario.insert(END, x)
 
-    def login_window(self):
-        self.rootGestCli.destroy()
-        import LoginUsuario
 
 def gestionProducto(self):
     self.rootGestCli.destroy()

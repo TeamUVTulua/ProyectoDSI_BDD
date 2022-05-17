@@ -36,15 +36,7 @@ class GUIProveedor:
         Label(frameGUIRegProd, text="Gestion de Proveedor", font=("comic sans MS", 23, "bold"), bg="#18344A",
               fg="white").place(x=100, y=30)
 
-        # ****** Boton Agregar Proveedor ****** #
 
-        #BotonAgregarProveedor = Button(frameGUIRegProd, text="Agregar Proveedor", command=self.crear, font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
-        #BotonAgregarProveedor.place(x=120, y=120, width=240)
-
-        # ****** Boton Modificar Proveedor ******#
-
-        #BotonReportes = Button(frameGUIRegProd, text="Modificar Proveedor",font=("comic sans MS", 15), bg="gray",fg="white", bd=5, cursor="hand2")
-        #BotonReportes.place(x=120, y=180, width=240)
 
         # ******Boton Consultar Proveedor****** #
 

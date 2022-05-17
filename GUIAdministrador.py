@@ -42,23 +42,23 @@ class GUIAdministrador:
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoAdmin, text="Bienvenido, Administrador", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=320, y=20)
+        Label(frameDerechoAdmin, text="Bienvenido, Administrador", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=280, y=20)
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=60)
-        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=100)
-        Label(frameDerechoAdmin,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=140)
-        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=260)
-        Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
-        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=180)
+        Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=70)
+        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=110)
+        Label(frameDerechoAdmin,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=150)
+        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=270)
+        Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=230)
+        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=190)
 
         self.CargarInfoUsuarioEnLabels()
         # INFORMACIO CARGADA QUE NO SE MODIFICA
-        Label(frameDerechoAdmin, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
-        Label(frameDerechoAdmin, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
-        Label(frameDerechoAdmin, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=140)
-        Label(frameDerechoAdmin, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=180)
+        Label(frameDerechoAdmin, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=70)
+        Label(frameDerechoAdmin, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=110)
+        Label(frameDerechoAdmin, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=150)
+        Label(frameDerechoAdmin, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=190)
 
         self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=2, bg="#18344A", fg="white", font=("comic sans MS", 20,))
 
