@@ -83,6 +83,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set codigo  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, codigo))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -93,6 +94,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set nombre  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (nombre, codigo))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -102,6 +104,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set categoria  = %s where codigo = %s"  # <----
         self.cur = self.base.crear_cursor(self.query, (categoria, codigo))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "La categoria se ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -110,6 +113,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set cantidad  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cantidad, codigo))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "La cantidad ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -119,6 +123,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 
@@ -126,5 +131,6 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
         self.base.cerrar_conexion()

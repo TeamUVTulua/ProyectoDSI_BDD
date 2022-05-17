@@ -31,27 +31,23 @@ class GUIProveedor:
 
         # ******Frame Botones Opciones Side Izq ****** #
 
-        frameGUIRegProd = Frame(self.rootGUIProveedor, bg="#18344A")
-        frameGUIRegProd.place(x=85, y=85, width=480, height=530)
-        Label(frameGUIRegProd, text="Gestion de Proveedor", font=("comic sans MS", 23, "bold"), bg="#18344A",
+        frameIzquierdoProv = Frame(self.rootGUIProveedor, bg="#18344A")
+        frameIzquierdoProv.place(x=85, y=85, width=480, height=530)
+        Label(frameIzquierdoProv, text="Gestion de Proveedor", font=("comic sans MS", 23, "bold"), bg="#18344A",
               fg="white").place(x=100, y=30)
 
+        # ****** Boton Home ******#
+
+        BotonHome = Button(frameIzquierdoProv, text="Inicio", command=self.rootGUIProveedor.destroy,font=("comic sans MS", 15), bg="#18344A", fg="white", bd=5,
+                           cursor="hand2")
+        BotonHome.place(x=20, y=20, width=70, height=35)
 
 
         # ******Boton Consultar Proveedor****** #
 
-        BotonConsultarProveedor = Button(frameGUIRegProd, text="Consultar Proveedor",command=self.consultarEmp, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarProveedor.place(x=120, y=240, width=240)
+        BotonConsultarProveedor = Button(frameIzquierdoProv, text="Consultar Proveedor",command=self.consultarEmp, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarProveedor.place(x=120, y=250, width=240)
 
-        # ******Boton Eliminar Proveedor ****** #
-
-        #BotonEliminarProveedor = Button(frameGUIRegProd, text="Eliminar Proveedor",font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        #BotonEliminarProveedor.place(x=120, y=360, width=240)
-
-        # ******Boton Salir ****** #
-
-        BotonSalir = Button(frameGUIRegProd, text="Cerrar Sesión", command=self.login_window,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonSalir.place(x=120, y=420, width=240)
 
         # ****** Frame inicio Proveedor Side Der ****** #
         self.frameDerechoEmp = Frame(self.rootGUIProveedor, bg="#18344A")

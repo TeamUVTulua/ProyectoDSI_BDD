@@ -42,7 +42,7 @@ class GUIAdministrador:
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoAdmin, text="Bienvenido, Administrador", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=280, y=20)
+        Label(frameDerechoAdmin, text="Bienvenido, Administrador", font=("comic sans MS", 24, "bold"), bg="#18344A",fg="white").place(x=160, y=20)
 
         # ****** Datos del perfil ****** #
 
@@ -65,7 +65,7 @@ class GUIAdministrador:
         self.listboxUsuario.insert(0, self.dir_usu)
         self.listboxUsuario.insert(1, self.tel_usu)
 
-        self.listboxUsuario.place(x=270, y=270)
+        self.listboxUsuario.place(x=270, y=230)
 
         # ****** Botones Perfil Propio ****** #
 

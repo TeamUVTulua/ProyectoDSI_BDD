@@ -11,6 +11,7 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "insert    into    proveedor    VALUES    (%s,%s,%s,%s)"
         self.base.crear_cursor(self.query, (nit_prov, nombre_prov, contacto_prov, direccion_prov))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Registrado", "El    proveedor    ha    sido    registrado    con    exito")
         self.base.cerrar_conexion()
 
@@ -83,6 +84,7 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "update proveedor set nit  = %s where nit = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, nit))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nit ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -93,6 +95,7 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "update proveedor set nombre  = %s where nit = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (nombre, nit))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -102,6 +105,7 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "update proveedor set contacto  = %s where nit = %s"  # <----
         self.cur = self.base.crear_cursor(self.query, (contacto, nit))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "La contacto se ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -110,6 +114,7 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "update proveedor set direccion  = %s where nit = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (direccion, nit))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "La direccion ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -119,6 +124,7 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 
@@ -126,5 +132,6 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
+        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
         self.base.cerrar_conexion()
