@@ -173,7 +173,7 @@ class GUIProveedor:
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
                 showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
-                gestionUsuarios.modificar_direccion( self.nit)
+                gestionUsuarios.modificar_direccion( self.nit) 
             print(aux4)
 
     def CargarInfoUsuarioEnLabels2(self):
