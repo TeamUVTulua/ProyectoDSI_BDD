@@ -98,7 +98,7 @@ class GUIAdministrador:
 
         # ******Boton Gestionar Proveedores ****** #
 
-        BotonListarProductos = Button(frameIzquierdoAdmin, text="Proveedores",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonListarProductos = Button(frameIzquierdoAdmin, text="Proveedores",command=self.gesInventario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonListarProductos.place(x=120, y=300, width=240)
 
         # ******Boton Consultar Historicos ****** #
@@ -183,7 +183,7 @@ class GUIAdministrador:
 
     def gesInventario(self):
         self.rootGUIAdministrador.destroy()
-        import GUIGestionProducto as emp
+        import GUIGestionProveedor as emp
         emp.iniciar()
 
     def gesCliente(self):
