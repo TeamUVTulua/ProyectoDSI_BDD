@@ -105,6 +105,7 @@ class loginUsuario:
                 messagebox.showinfo("Aviso", "El email o contraseña son incorrectos")
 
 
+
 def iniciar():
     rootLogin = Tk()
     obj = loginUsuario(rootLogin)

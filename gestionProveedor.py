@@ -1,11 +1,20 @@
+# ****** Librerias usadas ******#
+
 from tkinter import messagebox
+
+# ****** Metodos usados de otros archivos ******#
+
 from BaseDatos import *
 from Proveedor import *
 
 proveedor = Proveedor("", "", "", "")
 
 
+# ****** Clase gestionProveedor ******#
+
 class gestionProveedor:
+
+    # ****** Metodo para registrar los datos ******#
 
     def registrar_proveedor(self, nit_prov, nombre_prov, contacto_prov,direccion_prov):
         self.base = BaseDatos()
@@ -14,6 +23,8 @@ class gestionProveedor:
         messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Registrado", "El    proveedor    ha    sido    registrado    con    exito")
         self.base.cerrar_conexion()
+
+    # ****** Conexion con la base de datos ******#
 
     def obtenerTodos(self):
         self.base = BaseDatos()

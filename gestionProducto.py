@@ -7,6 +7,8 @@ prod = Producto("", "", "", "")
 
 class gestionProducto:
 
+    # ****** Metodos para registrar productos en la base de datos ******#
+
     def registrar_producto(self, codigo_pro, nombre_pro, categoria_pro, cantidad_pro):
         self.base = BaseDatos()
         self.query = "insert    into    producto    VALUES    (%s,%s,%s,%s)"
@@ -14,18 +16,22 @@ class gestionProducto:
         messagebox.showinfo("Registrado", "El    producto    ha    sido    registrado    con    exito")
         self.base.cerrar_conexion()
 
+    # ****** Metodo para obtener los datos ******#
+
     def obtenerTodos(self):
         self.base = BaseDatos()
         self.query = "SELECT codigo, nombre, categoria, cantidadtotal FROM producto"
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 
+    # ****** Metodo para consulta de datos ******#
 
     def consultaEspecificaEnFormaDeLista(self, query):
         self.base = BaseDatos()
         self.query = query
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
+
 
     def consultar_info(self, codigo):
         self.base = BaseDatos()
@@ -37,6 +43,9 @@ class gestionProducto:
             user = self.auxUser
 
         return user
+
+
+    # ****** Metodo para la obtencion de datos ******#
 
     def obtener_codigo (self, cod):
         self.base = BaseDatos()
@@ -83,18 +92,17 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set codigo  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, codigo))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 
+    # ****** Metodo para la modifciacion de los datos ******#
 
     def modificar_nombre(self, nombre, codigo):
         print("aquí")
         self.base = BaseDatos()
         self.query = "update producto set nombre  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (nombre, codigo))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -104,7 +112,6 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set categoria  = %s where codigo = %s"  # <----
         self.cur = self.base.crear_cursor(self.query, (categoria, codigo))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "La categoria se ha sido modificado con exito")
 
         self.base.cerrar_conexion()
@@ -113,24 +120,25 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set cantidad  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cantidad, codigo))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "La cantidad ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 
-##---------------------------------------------
+    # ****** Metodo para habilitar productos ******#
+
     def deshabilitar_usuario(self, email):
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
-        messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
+        messagebox.showinfo("deshabilitado", "El usuario ha sido producto con exito")
         self.base.cerrar_conexion()
+
+    # ****** Metodo para deshabilitar productos ******#
 
     def habilitar_usuario(self, email):
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
-        mensajeHabilitar = messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
+        mensajeHabilitar = messagebox.showinfo("habilitado", "El producto ha sido habilitado con exito")
         mensajeHabilitar.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.base.cerrar_conexion()
