@@ -28,7 +28,7 @@ class gestionUsuario:
 
             return user
         except:
-            showinfo.iconbitmap("Imagenes\iconoInterfaz.ico")
+            #showinfo.iconbitmap("imagenes\iconointerfaz.ico")
             showinfo('Error Inicio de Sesión', 'Usuario o Contraseña Incorrectas')
 
 
