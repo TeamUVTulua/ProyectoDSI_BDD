@@ -60,14 +60,6 @@ class loginUsuario:
         BotonOlvidePass.place(x=75, y=380, width=200)
 
     def abrirUsuarioSegunRol(self):
-
-        print(self.cuadroID.get())
-
-        if (self.cuadroID.get() == '' or self.cuadroPass.get() == ''):
-            showinfo('Error Inicio de Sesión', 'Campos Obligatorios')
-
-        else:
-
             gestionUsuarios = gestionUsuario()
             user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())
 
