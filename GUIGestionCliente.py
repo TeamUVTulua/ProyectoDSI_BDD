@@ -33,6 +33,8 @@ class GUIGestCli:
         self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
         Label(self.rootGestCli, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
 
+
+
         # ****** Frame Botones Opciones Side Izq ****** #
 
         frameIzquierdoCli = Frame(self.rootGestCli, bg="#18344A")
@@ -59,11 +61,15 @@ class GUIGestCli:
         BotonEliminarCliente = Button(frameIzquierdoCli, text="Eliminar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarCliente.place(x=120, y=240, width=240)
 
+
+
         # ****** Frame inicio Productos Side Der ****** #
+
         self.frameDerechoCli = Frame(self.rootGestCli, bg="#18344A")
         self.frameDerechoCli.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Cliente ****** #
+
         Label(self.frameDerechoCli, text="Clientes", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
@@ -134,8 +140,9 @@ class GUIGestCli:
         aux = self.listboxUsuario.curselection()
         if (self.listboxUsuario.selection_includes(0)):
             print(aux)
-            askstring.iconbitmap("Imagenes\iconoInterfas.ico")
+
             aux2 = askstring('Modificación de información', 'Ingrese el NIT de cliente')
+            aux2.iconbitmap("Imagenes\iconoInterfaz.ico")
 
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')

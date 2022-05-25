@@ -123,7 +123,6 @@ class GUIProveedor:
         gestionUsuarios = gestionProveedor()
         aux = self.listboxUsuario.curselection()
         if (self.listboxUsuario.selection_includes(0)):
-            print(aux)
             aux2 = askstring('Modificación de información', 'Ingrese el NIT del Proveedor')
 
             if (aux2 == None):
@@ -132,7 +131,6 @@ class GUIProveedor:
                 showinfo('Modificación de información', 'Tu NIT quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_nit(aux2, self.nit)
-                print(aux2)
 
         if (self.listboxUsuario.selection_includes(1)):
             print(aux)
@@ -142,7 +140,6 @@ class GUIProveedor:
             else:
                 showinfo('Modificación de información', 'Tu Nombre quedó: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.nit)
-            print(aux2)
 
         if (self.listboxUsuario.selection_includes(2)):
             print(aux)
@@ -152,7 +149,6 @@ class GUIProveedor:
             else:
                 showinfo('Modificación de información', 'Tu contacto quedó: {}'.format(aux3))
                 gestionUsuarios.modificar_contacto(aux3, self.nit)
-            print(aux3)
 
         if (self.listboxUsuario.selection_includes(3)):
             print(aux)
@@ -162,7 +158,6 @@ class GUIProveedor:
             else:
                 showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
                 gestionUsuarios.modificar_direccion( self.nit)
-            print(aux4)
 
     def CargarInfoUsuarioEnLabels2(self):
         gestionUsuarios = gestionProveedor()
