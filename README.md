@@ -1,7 +1,7 @@
 # PROYECTO SISTEMA DE INVENTARIO y VENTAS MS (SIV)
-Sistema de Inventario y Ventas MotoSocios
+_Sistema de Inventario y Ventas MotoSocios_
 
-DESCRIPCIÓN FUNCIONAL DEL PROYECTO   
+*DESCRIPCIÓN FUNCIONAL DEL PROYECTO*   
    Este proyecto busca dar solución al siguiente problema planteado para la materia Desarrollo de Software I 
    De la Universidad del Valle 
    Realizado en el primer semestre del año 2022
