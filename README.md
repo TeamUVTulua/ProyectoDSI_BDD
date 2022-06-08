@@ -55,9 +55,14 @@ Los clientes que cuenten con crédito en el almacén pueden consultar datos como
 Además de esto cada venta debe generar una factura la cual, puede ser de dos categorías, crédito o contado, si la factura se genera con crédito, esta factura servirá para el pago de las cuotas de este, por su número de identificación único.
 
 Perfiles de usuario y Privilegios  
+
 Por razones de seguridad en el manejo de la información se deben crear diferentes perfiles de usuario y cada perfil tiene unos privilegios asignados.  
-Perfil Vendedor: Tiene privilegios para crear clientes, visualizar la información registrada por otros usuarios.
-Perfil Bodega: Tiene permisos para registrar productos y crear nuevas entradas de productos.  
-Perfil Contador: Tiene permisos para realizar consultas de estados, crear pagos e informes.  
-Perfil Administrador: Tiene privilegios para gestionar usuarios, clientes. También tiene acceso a las tareas de los demás perfiles.
+
+*Perfil Vendedor:* Tiene privilegios para crear clientes, visualizar la información registrada por otros usuarios.
+
+*Perfil Bodega:* Tiene permisos para registrar productos y crear nuevas entradas de productos.  
+
+*Perfil Contador:* Tiene permisos para realizar consultas de estados, crear pagos e informes.  
+
+*Perfil Administrador:* Tiene privilegios para gestionar usuarios, clientes. También tiene acceso a las tareas de los demás perfiles.
 
