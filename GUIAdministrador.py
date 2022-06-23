@@ -3,8 +3,6 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
 
 # ****** Metodos de otros archivos ******#
 

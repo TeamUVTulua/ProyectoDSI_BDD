@@ -13,7 +13,7 @@ class BaseDatos:
             host="localhost",
             database="MotoSocios",
             user="postgres",
-            password="smr6134"
+            password="12345"
         )
 
         # ****** Comandos ejecutados en la base de datos ******#
@@ -33,6 +33,7 @@ class BaseDatos:
     def crear_cursor(self, dato1, dato2):
         self.cursor.execute(dato1, dato2)
         self.conexion.commit()
+
 
     def crear_cursorlogin(self, dato):
         self.cursor.execute(dato)
