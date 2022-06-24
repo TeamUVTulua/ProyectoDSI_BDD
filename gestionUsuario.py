@@ -9,11 +9,11 @@ user = Usuario("", "", "", "", "", "", "", "", "")
 class gestionUsuario:
 
     def registrar_usuario(self, identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu):
-        act = true
+        act = True
         self.base = BaseDatos()
         self.query = "insert    into    empleado    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         self.base.crear_cursor(self.query, (identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu, act))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
+        #messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Registrado", "El    usuario    ha    sido    registrado    con    exito")
         self.base.cerrar_conexion()
 
