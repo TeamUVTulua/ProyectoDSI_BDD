@@ -26,6 +26,7 @@ class BaseDatos:
         return self.cursor
 
     def ObtenerTodosLosdatos(self, dato):
+
         self.cursor.execute(dato)
         row = self.cursor.fetchall()
         return row
