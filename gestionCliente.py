@@ -8,7 +8,7 @@ from PIL.ImageTk import PhotoImage
 from BaseDatos import *
 from Cliente import *
 
-cliente = Cliente("", "", "", "", "", "", "")
+cliente = Cliente("", "", "", "", "", "", "","")
 
 
 # ****** Clase gestionCliente ******#
@@ -18,16 +18,17 @@ class gestionCliente:
     # ****** Metodo para registrar clientes en la base de datos ******#
 
     def registrar_cliente(self, nit, nombre_cli, apellidoPa_cli, apellidoMa_cli, tipo_cli, dirCa_cli, dirNu_cli):
+        act = true
         self.base = BaseDatos()
-        self.query = "insert    into    cliente    VALUES    (%s,%s,%s,%s,%s,%s,%s)"
-        self.base.crear_cursor(self.query, (nit, nombre_cli, apellidoPa_cli, apellidoMa_cli, tipo_cli, dirCa_cli, dirNu_cli))
+        self.query = "insert    into    cliente    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)"
+        self.base.crear_cursor(self.query, (nit, nombre_cli, apellidoPa_cli, apellidoMa_cli, tipo_cli, dirCa_cli, dirNu_cli,act))
         self.base.cerrar_conexion()
 
     # ****** Metodo para obtener los datos de los clientes de la base de datos ******#
 
     def obtenerTodos(self):
         self.base = BaseDatos()
-        self.query = "SELECT nit, nombre, apellidopaterno, apellidomaterno, tipocliente, dircalle, dirnumero FROM cliente"
+        self.query = "SELECT nit, nombre, apellidopaterno, apellidomaterno, tipocliente, dircalle, dirnumero FROM cliente WHERE estado = true"
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 
@@ -49,6 +50,13 @@ class gestionCliente:
             self.auxUser=Cliente(nit_cli,nombre_cli,apellido1_cli,apellido2_cli,tipo_cli,dirCa_cli,dirNu_cli)
             user = self.auxUser
         return user
+
+    def buscar_info(self, nit):
+        self.base = BaseDatos()
+        self.query = "SELECT nit, nombre, apellidopaterno, apellidomaterno, tipocliente, dircalle, dirnumero FROM cliente WHERE nit='" + nit + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        bus = self.cur.fetchone()
+        return bus
 
     # ****** Metodos para la obtencion de datos ******#
 
@@ -162,11 +170,11 @@ class gestionCliente:
 
     # ****** Metodo para deshabilitar usuarios ******#
 
-    def deshabilitar_usuario(self, email):
+    def deshabilitar_usuario(self, nit):
         self.base = BaseDatos()
-        self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
+        self.query = "update cliente set estado  = false where nit = '"+ nit + "'"
+        self.cur = self.base.crear_cursor(self.query, (nit))
+        messagebox.showinfo("deshabilitado", "El Cliente ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 
     # ****** Metodo para habilitar usuarios ******#

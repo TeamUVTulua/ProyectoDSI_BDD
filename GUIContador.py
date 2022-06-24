@@ -10,7 +10,7 @@ from PIL import Image,ImageTk
 
 from gestionUsuario import *
 import gestionUsuario as gu
-usuario=Usuario("","","","","","","","")
+usuario=Usuario("","","","","","","","","")
 
 # ******Ventanas de dialogo ******#
 

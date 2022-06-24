@@ -10,7 +10,7 @@ from PIL import Image,ImageTk
 
 from gestionUsuario import *
 import gestionUsuario as gu
-usuario=Usuario("","","","","","","","")
+usuario=Usuario("","","","","","","","", "")
 
 # ******Ventanas de dialogo ******#
 
@@ -96,10 +96,19 @@ class GUIBodeguista:
         BotonConsultarHV = Button(frameIzquierdoBodeguista, text="Gestionar Productos",command=self.gesInventario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarHV.place(x=80, y=120, width=320)
 
+        BotonSalir = Button(frameIzquierdoBodeguista, text="Cerrar Sesión", command=self.login, font=("comic sans MS", 15),
+                            bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonSalir.place(x=120, y=420, width=240)
+
     def gesInventario(self):
         self.rootGUIBodeguista.destroy()
         import GUIGestionProducto as emp
-        emp.iniciar()
+        emp.iniciar(usuario.get_cargo())
+
+    def login(self):
+        self.rootGUIBodeguista.destroy()
+        import LoginUsuario as l
+        l.iniciar()
 
     def CargarInfoUsuarioEnLabels(self):
 

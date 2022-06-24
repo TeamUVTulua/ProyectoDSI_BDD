@@ -3,7 +3,7 @@ class Cliente:
 
     # ****** Definicion de lo que compone la clase Cliente ******#
 
-    def __init__(self,nit,nombre,apellidoPaterno,apellidoMaterno,tipo,dirCalle,dirNumero):
+    def __init__(self,nit,nombre,apellidoPaterno,apellidoMaterno,tipo,dirCalle,dirNumero, estado):
         self.nit = nit
         self.nombre = nombre
         self.apellidoPaterno = apellidoPaterno
@@ -11,6 +11,7 @@ class Cliente:
         self.tipo = tipo
         self.dirCalle = dirCalle
         self.dirNumero = dirNumero
+        self.estado = estado
 
     # ****** Metodos get para la clase Cliente ******#
 
@@ -34,6 +35,9 @@ class Cliente:
 
     def get_dirNum(self):
         return self.dirNumero
+
+    def get_estado(self):
+        return self.estado
 
     # ****** Metodos set para la clase Cliente ******#
 
@@ -60,3 +64,6 @@ class Cliente:
 
     def set_dirNum(self, dirNumero):
         self.dirNumero = dirNumero
+
+    def set_estado(self, estado):
+        self.estado = estado

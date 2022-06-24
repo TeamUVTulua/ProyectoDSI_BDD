@@ -7,7 +7,7 @@ from tkinter import messagebox
 from BaseDatos import *
 from Proveedor import *
 
-proveedor = Proveedor("", "", "", "")
+proveedor = Proveedor("", "", "", "", "")
 
 
 # ****** Clase gestionProveedor ******#
@@ -17,9 +17,10 @@ class gestionProveedor:
     # ****** Metodo para registrar los datos ******#
 
     def registrar_proveedor(self, nit_prov, nombre_prov, contacto_prov,direccion_prov):
+        act = true
         self.base = BaseDatos()
-        self.query = "insert    into    proveedor    VALUES    (%s,%s,%s,%s)"
-        self.base.crear_cursor(self.query, (nit_prov, nombre_prov, contacto_prov, direccion_prov))
+        self.query = "insert    into    proveedor    VALUES    (%s,%s,%s,%s, %s)"
+        self.base.crear_cursor(self.query, (nit_prov, nombre_prov, contacto_prov, direccion_prov, act))
         messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Registrado", "El    proveedor    ha    sido    registrado    con    exito")
         self.base.cerrar_conexion()
@@ -28,9 +29,16 @@ class gestionProveedor:
 
     def obtenerTodos(self):
         self.base = BaseDatos()
-        self.query = "SELECT nit, nombre, contacto, direccion FROM proveedor"
+        self.query = "SELECT nit, nombre, contacto, direccion FROM proveedor where estado = true"
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
+
+    def buscar_info(self, nit):
+        self.base = BaseDatos()
+        self.query = "SELECT nit FROM proveedor where nit = '" + nit + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        bus = self.cur.fetchone()
+        return bus
 
 
     def consultaEspecificaEnFormaDeLista(self, query):
@@ -131,12 +139,11 @@ class gestionProveedor:
         self.base.cerrar_conexion()
 
 ##---------------------------------------------
-    def deshabilitar_usuario(self, email):
+    def deshabilitar_usuario(self, nit):
         self.base = BaseDatos()
-        self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
-        messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
+        self.query = "update proveedor set estado  = false where nit = '" + nit +"'"
+        self.cur = self.base.crear_cursor(self.query, (nit))
+        messagebox.showinfo("deshabilitado", "El proveedor ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 
     def habilitar_usuario(self, email):

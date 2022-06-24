@@ -12,7 +12,7 @@ from gestionUsuario import *
 from BaseDatos import *
 from Usuario import *
 
-user = Usuario("", "", "", "", "", "", "", "")
+user = Usuario("", "", "", "", "", "", "", "", "")
 
 
 # ****** Clase loginUsuario ****** #
@@ -64,7 +64,7 @@ class loginUsuario:
             user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())
 
             user = user2
-
+            print (user.get_cargo() )
             if (user2.get_cargo() == 'administrador'):
                 print("ventana adminCC")
                 self.rootLogin.destroy()

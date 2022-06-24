@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 from Usuario import *
 import Usuario as us
 from gestionUsuario import *
-usuario=us.Usuario("","","","","","","","")
+usuario=us.Usuario("","","","","","","","", "")
 # ****** Metodos de otros archivos ******#
 
 # ******Ventanas de dialogo ******#
@@ -55,7 +55,7 @@ class GUIMenuInicial:
 
         # ******Boton Eliminar Empleado ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoEmp, text="Eliminar Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProducto = Button(frameIzquierdoEmp, text="Eliminar Empleado", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProducto.place(x=120, y=250, width=240)
 
 
@@ -236,9 +236,6 @@ class GUIMenuInicial:
             self.rootGestEmp.destroy() ## <------------ REVISAR
             iniciar()
 
-
-
-
     def CargarInfoUsuarioEnLabels(self, listboxUsuario):
         gestionUsuarios =gestionUsuario()
         listaDatos = gestionUsuarios.obtenerTodos()
@@ -250,6 +247,13 @@ class GUIMenuInicial:
         self.rootGestEmp.destroy()
         import registroUsuario as reg
         reg.iniciar()
+
+    def eliminar(self):
+        self.auxId = askstring('Eliminar Usuario', 'Ingrese el identificador de un empleado')
+        gestionUsuarios = gestionUsuario()
+        gestionUsuarios.deshabilitar_usuario(self.auxId )
+        self.rootGestEmp.destroy()
+        iniciar()
 
 def iniciar():
     rootGestEmp = Tk()

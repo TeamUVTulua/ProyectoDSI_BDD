@@ -2,7 +2,7 @@ from tkinter import messagebox
 from BaseDatos import *
 from Producto import *
 
-prod = Producto("", "", "", "")
+prod = Producto("", "", "", "","")
 
 
 class gestionProducto:
@@ -11,9 +11,10 @@ class gestionProducto:
 
     def registrar_producto(self, codigo_pro, nombre_pro, categoria_pro, cantidad_pro):
         try:
+            act = true
             self.base = BaseDatos()
-            self.query = "insert    into    producto    VALUES    (%s,%s,%s,%s)"
-            self.base.crear_cursor(self.query, (codigo_pro, nombre_pro, categoria_pro, cantidad_pro))
+            self.query = "insert    into    producto    VALUES    (%s,%s,%s,%s,%s)"
+            self.base.crear_cursor(self.query, (codigo_pro, nombre_pro, categoria_pro, cantidad_pro, act))
             messagebox.showinfo("Registrado", "El    producto    ha    sido    registrado    con    exito")
             self.base.cerrar_conexion()
         except:
@@ -23,7 +24,7 @@ class gestionProducto:
 
     def obtenerTodos(self):
         self.base = BaseDatos()
-        self.query = "SELECT codigo, nombre, categoria, cantidadtotal FROM producto"
+        self.query = "SELECT codigo, nombre, categoria, cantidadtotal FROM producto where estado = true"
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 
@@ -46,6 +47,14 @@ class gestionProducto:
             user = self.auxUser
 
         return user
+
+    def buscar_info(self, codigo):
+        self.base = BaseDatos()
+        self.query = "SELECT codigo, nombre, categoria, cantidadtotal FROM producto WHERE codigo='" + codigo + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        bus = self.cur.fetchone()
+
+        return bus
 
 
     # ****** Metodo para la obtencion de datos ******#
@@ -129,11 +138,11 @@ class gestionProducto:
 
     # ****** Metodo para habilitar productos ******#
 
-    def deshabilitar_usuario(self, email):
+    def deshabilitar_usuario(self, codigo):
         self.base = BaseDatos()
-        self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.showinfo("deshabilitado", "El usuario ha sido producto con exito")
+        self.query = "update producto set estado  = false where codigo = '"+ codigo + "'"
+        self.cur = self.base.crear_cursor(self.query, (codigo))
+        messagebox.showinfo("deshabilitado", "El producto ha sido eliminado con exito")
         self.base.cerrar_conexion()
 
     # ****** Metodo para deshabilitar productos ******#

@@ -3,38 +3,38 @@ from BaseDatos import *
 from Usuario import *
 from tkinter.messagebox import showinfo
 
-user = Usuario("", "", "", "", "", "", "", "")
+user = Usuario("", "", "", "", "", "", "", "", "")
 
 
 class gestionUsuario:
 
     def registrar_usuario(self, identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu):
+        act = true
         self.base = BaseDatos()
-        self.query = "insert    into    empleado    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)"
-        self.base.crear_cursor(self.query, (identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu))
+        self.query = "insert    into    empleado    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        self.base.crear_cursor(self.query, (identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu, act))
         messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("Registrado", "El    usuario    ha    sido    registrado    con    exito")
         self.base.cerrar_conexion()
 
     def login_usuario(self, identificacion, contraseña):
-        try:
-            self.base = BaseDatos()
-            self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
-            self.cur = self.base.ObtenerDatos(self.query)
+        #try:
+        self.base = BaseDatos()
+        self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido, estado FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print ("aqui")
 
-            for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu) in self.cur:
-                self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu)
-                user = self.auxUser
-
-            return user
-        except:
-            #showinfo.iconbitmap("imagenes\iconointerfaz.ico")
-            showinfo('Error Inicio de Sesión', 'Usuario o Contraseña Incorrectas')
-
+        for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu,estado_usu) in self.cur:
+            self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu, estado_usu)
+            user = self.auxUser
+        return user
+        #except:
+         #   #showinfo.iconbitmap("imagenes\iconointerfaz.ico")
+          #  showinfo('Error Inicio de Sesión', 'Usuario o Contraseña Incorrectas')
 
     def obtenerTodos(self):
         self.base = BaseDatos()
-        self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado"
+        self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE estado = true"
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 
@@ -54,6 +54,14 @@ class gestionUsuario:
             user = self.auxUser
 
         return user
+
+    def buscar_info(self, identificacion):
+        self.base = BaseDatos()
+        self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu='" + identificacion + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        bus = self.cur.fetchone()
+        #print (bus)
+        return bus
 
     def obtener_id (self, identificador):
         self.base = BaseDatos()
@@ -176,11 +184,12 @@ class gestionUsuario:
         messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("modificado", "El telefono ha sido modificado con exito")
         self.base.cerrar_conexion()
+
 ##---------------------------------------------
-    def deshabilitar_usuario(self, email):
+    def deshabilitar_usuario(self, identificacion):
         self.base = BaseDatos()
-        self.query = "update Usuario set activo  = false usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
+        self.query = "update empleado set estado  = false where id_usu = '" + identificacion + "'"
+        self.cur = self.base.crear_cursor(self.query, (identificacion))
         messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 

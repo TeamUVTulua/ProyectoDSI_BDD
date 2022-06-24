@@ -8,7 +8,7 @@ from PIL import Image, ImageTk
 
 from Usuario import *
 from gestionCliente import *
-
+from tkinter.simpledialog import askstring
 class registroCliente:
 
     def __init__(self, rootRegistroCliente):
@@ -84,7 +84,15 @@ class registroCliente:
         self.sueld = Entry(frameCrearUsuario, font=("comic sans MS", 16))
         self.sueld.place(x=50, y=350)
 
-        self.contraseña = self.ident
+        Label(frameCrearUsuario, text="Buscar Cliente ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(
+            x=50, y=390)
+
+        # ****** Boton Buscar
+        photo = PhotoImage(file="Imagenes/lupa.png")
+        BotonBuscar = Button(frameCrearUsuario, text="Buscar", command=self.busc, bd=0, cursor="hand2")
+        BotonBuscar.place(x=50, y=430, width=80)
+
 
         # ****** Boton Guardar Crear Usuario ****** #
 
@@ -95,6 +103,18 @@ class registroCliente:
 
         BotonLogin = Button(frameCrearUsuario, text="Volver", command=self.volver , font=("comic sans MS", 15),bd=0, cursor="hand2")
         BotonLogin.place(x=350, y=500, width=200)
+
+    def busc(self):
+
+        self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un empleado')
+
+        gestionClientes = gestionCliente()
+        cons = gestionClientes.buscar_info(self.auxId)
+        print (cons)
+        if (cons == None):
+            messagebox.showinfo("Consultar", "El usuario no está registrado")
+        else:
+            messagebox.showinfo("Consultar", "El usuario está registrado")
 
     def validacion(self):
         return (len(self.ident.get()) == 0 or len(self.carg.get()) == 0)

@@ -7,6 +7,7 @@ from PIL import Image, ImageTk
 
 from Producto import *
 from gestionProveedor import *
+from tkinter.simpledialog import askstring
 
 class registroProveedor:
 
@@ -57,6 +58,15 @@ class registroProveedor:
         self.Direccion = Entry(frameCrearUsuario, font=("comic sans MS", 16))
         self.Direccion.place(x=350, y=190)
 
+        Label(frameCrearUsuario, text="Buscar Proveedor ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(
+            x=50, y=250)
+
+        BotonBuscar = Button(frameCrearUsuario, text="Buscar", command=self.busc, bd=0, cursor="hand2")
+        BotonBuscar.place(x=50, y=300, width=80)
+
+
+
         # ****** Boton Guardar Crear Usuario ****** #
 
         BotonGuardar = Button(frameCrearUsuario, text="Registrar", command=self.registrar, font=("comic sans MS", 15), bd=0,cursor="hand2")
@@ -78,6 +88,18 @@ class registroProveedor:
             self.gestionUsuario.registrar_producto(self.nit.get(), self.nombre.get(),self.Contacto.get(),self.Direccion.get())
             self.volver()
 
+    def busc(self):
+
+        self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un empleado')
+
+        gestionProv = gestionProveedor()
+        cons = gestionProv.buscar_info(self.auxId)
+        print(cons)
+        if (cons == None):
+            messagebox.showinfo("Consultar", "El usuario no está registrado")
+        else:
+            messagebox.showinfo("Consultar", "El usuario está registrado")
+
         # ****** Para volver al login desde Crear Usuario ****** #
     def volver(self):
         self.rootRegistroProveedor.destroy()
@@ -88,5 +110,5 @@ class registroProveedor:
 
 def iniciar():
     rootRegistroProveedor = Tk()
-    obj = resgistroProducto(rootRegistroProveedor)
+    obj = registroProveedor(rootRegistroProveedor)
     rootRegistroProveedor.mainloop()

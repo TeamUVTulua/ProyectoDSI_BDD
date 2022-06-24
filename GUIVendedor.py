@@ -11,7 +11,7 @@ from PIL import Image, ImageTk
 from gestionUsuario import *
 from gestionProducto import *
 import gestionUsuario as gu
-usuario=Usuario("","","","","","","","")
+usuario=Usuario("","","","","","","","", "")
 
 # ******Ventanas de dialogo ******#
 
@@ -148,7 +148,7 @@ class GUIVendedor:
     def gesCliente(self):
         self.rootGUIVendedor.destroy()
         import GUIGestionCliente as emp
-        emp.iniciar()
+        emp.iniciar(usuario.get_cargo())
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
     def CargarInfoUsuarioEnLabels(self):

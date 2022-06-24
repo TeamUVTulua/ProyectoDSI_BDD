@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 # ****** Metodos de otros archivos ******#
 import Producto as us
 from gestionProducto import *
-producto=us.Producto("","","","")
+producto=us.Producto("","","","", "")
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
@@ -16,8 +16,9 @@ from tkinter.messagebox import showinfo
 # ****** Clase GUIGestionProducto ****** #
 
 class GUIGestionProducto:
-    def __init__(self, rootGUIRegProd):
+    def __init__(self, rootGUIRegProd, cargo):
         self.rootGUIRegProd = rootGUIRegProd
+        self.cargo =cargo
         self.rootGUIRegProd.title("Sistema de Inventario y Ventas MotoSocios")
         self.rootGUIRegProd.geometry("1360x768+560+312")
         self.rootGUIRegProd.resizable(1, 1)
@@ -49,12 +50,13 @@ class GUIGestionProducto:
 
         # ******Boton Consultar Producto****** #
 
-        BotonConsultarProducto = Button(frameIzquierdoProd, text="Consultar Producto",command=self.consultarEmp, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarProducto = Button(frameIzquierdoProd, text="Consultar Producto",command=self.consultarEmp,
+                                        font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarProducto.place(x=120, y=180, width=240)
 
         # ******Boton Eliminar Producto ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoProd, text="Eliminar Producto",font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProducto = Button(frameIzquierdoProd, text="Eliminar Producto", command=self.eliminar, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProducto.place(x=120, y=260, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
@@ -68,7 +70,6 @@ class GUIGestionProducto:
 
         self.scrollbar =Scrollbar(self.frameDerechoProd)
         self.scrollbar.pack(side=RIGHT, fill=Y)
-
 
         self.listboxUsuario = Listbox(self.frameDerechoProd, width=33, heigh=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
@@ -193,8 +194,29 @@ class GUIGestionProducto:
 
     def volver(self):
         self.rootGUIRegProd.destroy()
-        import  GUIAdministrador as adm
-        adm.iniciar()
+        if (self.cargo == "administrador"):
+            import  GUIAdministrador as adm
+            adm.iniciar()
+
+        if (self.cargo == "vendedor"):
+            import  GUIVendedor as adm
+            adm.iniciar()
+
+        if (self.cargo == "bodega"):
+            import  GUIBodeguista as adm
+            adm.iniciar()
+
+        if (self.cargo == "contador"):
+            import  GUIContador as adm
+            adm.iniciar()
+
+
+    def eliminar(self):
+        self.auxId = askstring('Eliminar Producto', 'Ingrese el codigo de un producto')
+        gestionProductos = gestionProducto()
+        gestionProductos.deshabilitar_usuario(self.auxId )
+        self.rootGUIRegProd.destroy()
+        iniciar()
 
 
 def ventanaConsultarProd(self):
@@ -236,6 +258,8 @@ def ventanaConsultarProd(self):
             
 
     #****** Ventana Registro Producto ******#
+
+
 
 def ventanaRegistroProducto(self):
 
@@ -303,6 +327,7 @@ def ventanaRegistroProducto(self):
         BotonRegistrar.place(x=225,y=340,width=300)
 
         self.rootGUIRegProd2.mainloop()
+
 """"
     def validacionPP(self):
         return (len(self.cuadroCodigo.get())==0 or len(self.cuadroNombre.get())==0)
@@ -335,8 +360,8 @@ def ventanaRegistroProducto(self):
         
 """
 
-def iniciar():
+def iniciar(cargo):
     rootGUIRegProd = Tk()
-    obj = GUIGestionProducto(rootGUIRegProd)
+    obj = GUIGestionProducto(rootGUIRegProd, cargo)
     rootGUIRegProd.mainloop()
 

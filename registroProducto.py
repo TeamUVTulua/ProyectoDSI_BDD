@@ -8,6 +8,7 @@ from PIL import Image, ImageTk
 from Producto import *
 from gestionProducto import *
 from gestionProveedor import *
+from tkinter.simpledialog import askstring
 
 class resgistroProducto:
 
@@ -61,6 +62,10 @@ class resgistroProducto:
         self.cantidad = Entry(frameCrearUsuario, font=("comic sans MS", 16))
         self.cantidad.place(x=350, y=190)
 
+        Label(frameCrearUsuario, text="Buscar Producto ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=230)
+
+        '''
         Label(frameCrearUsuario, text="NIT Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=230)
         self.nit_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
@@ -80,8 +85,12 @@ class resgistroProducto:
               fg="white").place(x=350, y=310)
         self.dir_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
         self.dir_prov.place(x=350, y=350)
+        '''
 
-
+        # ****** Boton Buscar
+        photo = PhotoImage(file="Imagenes/lupa.png")
+        BotonBuscar = Button(frameCrearUsuario, text="Buscar", command=self.busc, bd=0, cursor="hand2")
+        BotonBuscar.place(x=50, y=430, width=80)
 
         # ****** Boton Guardar Crear Usuario ****** #
 
@@ -93,6 +102,18 @@ class resgistroProducto:
         BotonLogin = Button(frameCrearUsuario, text="Volver", command=self.volver , font=("comic sans MS", 15),bd=0, cursor="hand2")
         BotonLogin.place(x=350, y=500, width=200)
 
+    def busc(self):
+
+        self.auxId = askstring('Consultar', 'Ingrese el Codigo del Producto')
+
+        gestionProductos = gestionProducto()
+        cons = gestionProductos.buscar_info(self.auxId)
+        print (cons)
+        if (cons == None):
+            messagebox.showinfo("Consultar", "El usuario no está registrado")
+        else:
+            messagebox.showinfo("Consultar", "El usuario está registrado")
+
     def validacion(self):
         return (len(self.codigo.get()) == 0 or len(self.categoria.get()) == 0
                 or len(self.nit_prov.get()) == 0)
@@ -102,9 +123,9 @@ class resgistroProducto:
             messagebox.showinfo("error!", "Los datos son obligatorios")
         else:
             self.gestionUsuario = gestionProducto()
-            self.gestionProveedor = gestionProveedor()
+            #self.gestionProveedor = gestionProveedor()
             self.gestionUsuario.registrar_producto(self.codigo.get(), self.nombre.get(),self.categoria.get(),self.cantidad.get())
-            self.gestionProveedor.registrar_proveedor(self.nit_prov.get(), self.nom_prov.get(), self.cont_prov.get(), self.dir_prov.get())
+            #self.gestionProveedor.registrar_proveedor(self.nit_prov.get(), self.nom_prov.get(), self.cont_prov.get(), self.dir_prov.get())
             self.volver()
 
         # ****** Para volver al login desde Crear Usuario ****** #

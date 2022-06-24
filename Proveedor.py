@@ -1,11 +1,12 @@
 
 class Proveedor:
 
-    def __init__(self,nit,nombre,contacto,direccion):
+    def __init__(self,nit,nombre,contacto,direccion, estado):
         self.nit = nit
         self.nombre = nombre
         self.contacto = contacto
         self.direccion = direccion
+        self.estado = estado
 
 
     def get_nit(self):
@@ -20,6 +21,9 @@ class Proveedor:
     def get_direccion(self):
         return self.direccion
 
+    def get_estado(self):
+        return self.estado
+
     # -------------------------------------
 
     def set_nit(self, nit):
@@ -33,3 +37,6 @@ class Proveedor:
 
     def set_direccion(self, direccion):
         self.direccion = direccion
+
+    def set_estado(self, estado):
+        self.estado = estado

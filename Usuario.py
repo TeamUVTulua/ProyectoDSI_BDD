@@ -4,7 +4,7 @@ from BaseDatos import *
 
 class Usuario:
 
-    def __init__(self,id_usu,nombre,sueldo,telefono,direccion,contraseña,cargo,apellido):
+    def __init__(self,id_usu,nombre,sueldo,telefono,direccion,contraseña,cargo,apellido, estado):
         self.id_usu = id_usu
         self.nombre = nombre
         self.sueldo = sueldo
@@ -13,6 +13,7 @@ class Usuario:
         self.contraseña = contraseña
         self.cargo = cargo
         self.apellido = apellido
+        self.estado = estado
 
     def get_id_usu(self):
         return self.id_usu
@@ -37,6 +38,9 @@ class Usuario:
 
     def get_sueldo(self):
         return self.sueldo
+
+    def get_estado(self):
+        return self.estado
 
     # -------------------------------------
 
@@ -63,3 +67,6 @@ class Usuario:
 
     def set_sueldo(self, sueldo):
         self.sueldo = sueldo
+
+    def set_estado(self, estado):
+        self.estado = estado

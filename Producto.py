@@ -1,12 +1,12 @@
 
 class Producto:
 
-    def __init__(self,codigo,nombre,categoria,cantidadTotal):
+    def __init__(self,codigo,nombre,categoria,cantidadTotal,estado):
         self.codgo = codigo
         self.nombre = nombre
         self.categoria = categoria
         self.cantidadTotal = cantidadTotal
-
+        self.estado = estado
 
     def get_codigo(self):
         return self.codigo
@@ -19,6 +19,9 @@ class Producto:
 
     def get_cantidadTotal(self):
         return self.cantidadTotal
+
+    def get_estado(self):
+        return self.estado
 
     # -------------------------------------
 
@@ -33,3 +36,6 @@ class Producto:
 
     def set_cantidadTotal(self, cantidadTotal):
         self.cantidadTotal = cantidadTotal
+
+    def set_estado(self, estado):
+        self.estado = estado

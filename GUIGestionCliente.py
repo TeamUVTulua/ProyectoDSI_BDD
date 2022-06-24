@@ -9,7 +9,7 @@ from PIL import Image, ImageTk
 from Usuario import *
 import Cliente as us
 from gestionCliente import *
-cliente=us.Cliente("","","","","","","")
+cliente=us.Cliente("","","","","","","","")
 
 # ****** Ventanas de dialogo ******#
 
@@ -20,8 +20,9 @@ from tkinter.messagebox import showinfo
 # ****** Clase GUIGestCli ****** #
 
 class GUIGestCli:
-    def __init__(self, rootGestCli):
+    def __init__(self, rootGestCli, cargo):
         self.rootGestCli = rootGestCli
+        self.cargo = cargo
         self.rootGestCli.title("Sistema de Inventario y Ventas MotoSocios")
         self.rootGestCli.geometry("1360x768+560+312")
         self.rootGestCli.resizable(1, 1)
@@ -58,7 +59,7 @@ class GUIGestCli:
 
         # ******Boton Eliminar Cliente ****** #
 
-        BotonEliminarCliente = Button(frameIzquierdoCli, text="Eliminar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarCliente = Button(frameIzquierdoCli, text="Eliminar Cliente", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarCliente.place(x=120, y=240, width=240)
 
 
@@ -236,16 +237,37 @@ class GUIGestCli:
 
     def volver(self):
         self.rootGestCli.destroy()
-        import  GUIAdministrador as adm
-        adm.iniciar()
+        print (self.cargo)
+        if (self.cargo == "administrador"):
+            import  GUIAdministrador as adm
+            adm.iniciar()
+
+        if (self.cargo == "vendedor"):
+            import  GUIVendedor as adm
+            adm.iniciar()
+
+        if (self.cargo == "bodega"):
+            import  GUIBodeguista as adm
+            adm.iniciar()
+
+        if (self.cargo == "contador"):
+            import  GUIContador as adm
+            adm.iniciar()
+
+
+    def eliminar(self):
+        self.auxId = askstring('Eliminar Cliente', 'Ingrese el nit de un cliente')
+        gestionClientes = gestionCliente()
+        gestionClientes.deshabilitar_usuario(self.auxId )
+        self.rootGestCli.destroy()
+        iniciar()
+
 def gestionProducto(self):
     self.rootGestCli.destroy()
     import GUIGestionProducto as GesProd
     GesProd.GesProdInicio()
 
-
-
-def iniciar():
+def iniciar(cargo):
     rootGestCli = Tk()
-    obj = GUIGestCli(rootGestCli)
+    obj = GUIGestCli(rootGestCli,cargo)
     rootGestCli.mainloop()
