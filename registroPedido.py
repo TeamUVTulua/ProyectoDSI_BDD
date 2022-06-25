@@ -28,12 +28,6 @@ class resgistroPedido:
         self.framePedidos = Frame(self.rootRegistroPedido,bg="#18344A")
         self.framePedidos.place(x=160, y=0, width=650, height=600)
 
-        #self.frameProd = Frame(self.framePedidos, bg="white")
-        #self.frameProd.place(x=350, y=110, width=120, height=50)
-
-        #self.frameProv = Frame(self.framePedidos, bg="white")
-        #self.frameProv.place(x=50, y=220, width=120, height=50)
-
         Label(self.framePedidos, text="REGISTRAR PEDIDO", font=("comic sans MS", 25, "bold"), bg="#18344A",
               fg="white").place(x=50, y=20)
 
@@ -47,23 +41,6 @@ class resgistroPedido:
 
         Label(self.framePedidos, text="Producto: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=350, y=70)
-        '''
-        self.scrollbar = Scrollbar(self.frameProd)
-        self.scrollbar.pack(side=RIGHT, fill=Y)
-
-        self.listboxPed = Listbox(self.frameProd, width=10, heigh=2, bg="#18344A", fg="white", font=("comic sans MS", 12))
-        self.listboxPed.pack()
-
-        self.CargarInfoUsuarioEnLabels(self.listboxPed)
-
-        self.listboxPed.config(yscrollcommand=self.scrollbar.set)
-        self.scrollbar.config(command=self.listboxPed.yview)
-
-        self.listboxPed.place(x=0, y=0)
-        '''
-        #-------------------------------------------
-        # self.nombre = Entry(self.framePedidos, font=("comic sans MS", 16))
-        # self.nombre.place(x=350, y=110)
 
         self.rolPass = ttk.Combobox(self.framePedidos, font=("comic sans MS", 13), state="readonly", justify=CENTER)
 
@@ -90,21 +67,6 @@ class resgistroPedido:
         Label(self.framePedidos, text="Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=180)
 
-        '''
-        self.scrollbarProv = Scrollbar(self.frameProv)
-        self.scrollbarProv.pack(side=RIGHT, fill=Y)
-
-        self.listboxProv = Listbox(self.frameProv, width=10, heigh=2, bg="#18344A", fg="white",
-                                  font=("comic sans MS", 12))
-        self.listboxProv.pack()
-
-        self.CargarInfoUsuarioEnLabelsProv(self.listboxProv)
-
-        self.listboxProv.config(yscrollcommand=self.scrollbarProv.set)
-        self.scrollbarProv.config(command=self.listboxProv.yview)
-
-        self.listboxProv.place(x=0, y=0)
-        '''
         self.rolPassProv = ttk.Combobox(self.framePedidos, font=("comic sans MS", 13), state="readonly", justify=CENTER)
 
         self.rolPassProv["values"]
@@ -118,8 +80,6 @@ class resgistroPedido:
 
         BotonBuscar = Button(self.framePedidos, text="Buscar", command=self.busc, bd=0, cursor="hand2")
         BotonBuscar.place(x=50, y=380, width=80)
-
-
 
         # ****** Boton Guardar Crear Usuario ****** #
 

@@ -17,7 +17,7 @@ class gestionPedido:
             messagebox.showinfo("Registrado", "El pedido    ha    sido    registrado    con    exito")
             self.base.cerrar_conexion()
         except:
-            messagebox.showinfo("Aviso", "pedido ya registrado.")
+            messagebox.showinfo("Aviso", "El pedido ya se encuentra registrado.")
 
     # ****** Metodo para obtener los datos ******#
 
@@ -156,18 +156,18 @@ class gestionPedido:
 
         self.base.cerrar_conexion()
 
-    # ****** Metodo para habilitar productos ******#
+    # ****** Metodo para deshabilitar productos ******#
 
-    def deshabilitar_usuario(self, codigo):
+    def deshabilitar_producto(self, codigo):
         self.base = BaseDatos()
         self.query = "update producto set estado  = false where codigo = '"+ codigo + "'"
         self.cur = self.base.crear_cursor(self.query, (codigo))
         messagebox.showinfo("deshabilitado", "El producto ha sido eliminado con exito")
         self.base.cerrar_conexion()
 
-    # ****** Metodo para deshabilitar productos ******#
+    # ****** Metodo para habilitar productos ******#
 
-    def habilitar_usuario(self, email):
+    def habilitar_producto(self, email):
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))

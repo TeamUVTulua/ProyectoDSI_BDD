@@ -296,7 +296,7 @@ def ventanaRegistroProducto(self):
         self.cuadrotexto=Entry(frameIzquierdoProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
         self.cuadrotexto.place(x=235,y=206)
 
-        #___---------cOLUMNA 2
+        #___---------Columna 2
 
         Label(frameIzquierdoProd3,text="INSUMO:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=450,y=86)
 
@@ -327,38 +327,6 @@ def ventanaRegistroProducto(self):
         BotonRegistrar.place(x=225,y=340,width=300)
 
         self.rootGUIRegProd2.mainloop()
-
-""""
-    def validacionPP(self):
-        return (len(self.cuadroCodigo.get())==0 or len(self.cuadroNombre.get())==0)
-
-    def registrarPP(self):
-
-        if self.validacionPP():
-            messagebox.showinfo("error!","Los datos son obligatorios")
-        else:
-            self.gestionProducto=GUIGestionProducto()
-            self.gestionProducto.registrar_producto_preparado(self.cuadroCodigo.get(),self.cuadroNombre.get(),
-            self.cuadroValorVenta.get(),self.cuadrotexto.get(),self.insumo.get(),self.cuadroCantidad.get())   
-   
-
-    #Para ir al usuario
-    def usuario(self):
-        self.rootGUIRegProd.destroy()
-        import GUIAdminRestaurante as cc
-        cc.inicio()
-
-    def productoNoPreparado(self):
-        self.rootGUIRegProd.destroy()
-        import GUIRegistorProducto as cc
-        cc.inicio()
-
-    def gestionInsumo(self):
-        self.rootGUIRegProd.destroy()
-        import GUIgestionInsumo as cc
-        cc.inicio()
-        
-"""
 
 def iniciar(cargo):
     rootGUIRegProd = Tk()
