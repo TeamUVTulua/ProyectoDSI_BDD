@@ -51,7 +51,7 @@ class resgistroProducto:
         Label(frameCrearUsuario, text="Categoria: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=150) # REVIDAR CON UN BOX SELECT
         self.rolPass = ttk.Combobox(frameCrearUsuario, font=("comic sans MS", 13), state="readonly", justify=CENTER)
-        self.rolPass["values"] = ["electrica", "mecanica", "estetica", "varias"]
+        self.rolPass["values"] = ["Electrica", "Mecanica", "Estetica", "Varias"]
         self.rolPass.place(x=50, y=190)
 
         self.categoria = self.rolPass
