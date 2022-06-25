@@ -27,6 +27,18 @@ class gestionPedido:
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 
+    def obtenerTodosId(self):
+        self.base = BaseDatos()
+        self.query = "SELECT codigo FROM producto "
+        self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        return self.cur
+
+    def obtenerTodosNit(self):
+        self.base = BaseDatos()
+        self.query = "SELECT nit FROM proveedor "
+        self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        return self.cur
+
     # ****** Metodo para consulta de datos ******#
 
     def consultaEspecificaEnFormaDeLista(self, query):

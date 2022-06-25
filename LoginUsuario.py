@@ -1,5 +1,5 @@
 # ****** Librerias Usadas ****** #
-
+from datetime import datetime
 from tkinter import *
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
@@ -34,7 +34,7 @@ class loginUsuario:
         frameLogin = Frame(self.rootLogin, bg="#18344A")
         frameLogin.place(x=500, y=110, width=345, height=450)
         Label(frameLogin, text="INICIO SESIÓN", font=("comic sass MS", 25, "bold"), bg="#18344A",fg="white").place(x=50, y=20)
-
+        print(datetime.today())
         # ****** Label ID ****** #
         Label(frameLogin, text="Identificación: ", font=("comic sass MS", 16, "bold"), bg="#18344A", fg="white").place( x=50, y=80)
         self.cuadroID = Entry(frameLogin, font=("comic sass MS", 16),width=22)
@@ -99,6 +99,7 @@ class loginUsuario:
 
 
 def iniciar():
+
     rootLogin = Tk()
     obj = loginUsuario(rootLogin)
     rootLogin.mainloop()

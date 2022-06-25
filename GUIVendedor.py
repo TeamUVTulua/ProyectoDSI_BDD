@@ -99,6 +99,10 @@ class GUIVendedor:
         BotonModificarVenta = Button(frameIzquierdoVendedor, text="Lista de Usuarios",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonModificarVenta.place(x=120, y=240, width=240)
 
+        BotonFactura = Button(frameIzquierdoVendedor, text="Hacer Factura", command=self.hacerFactura, font=("comic sans MS", 15),
+                                    bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonFactura.place(x=120, y=300, width=240)
+
         # ******Boton Listar Ventas ****** #
 
         #BotonListarVentas = Button(frameIzquierdoVendedor, text="Listar Ventas",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -117,6 +121,17 @@ class GUIVendedor:
     def lisProductos(self):
         self.frameDerechoVendedor.place_forget()
         self.mostrarProd()
+
+    def hacerFactura(self):
+        self.auxId = askstring('Consulta', 'Ingrese el codigo de un pedido')
+
+        gestionClientes = gestionCliente()
+        cons = gestionClientes.buscar_info(self.auxId)
+        print(cons)
+        if (cons == None):
+            messagebox.showinfo("Consultar", "El usuario no está registrado")
+        else:
+            messagebox.showinfo("Consultar", "El usuario está registrado")
 
     def  mostrarProd(self):
         self.frameDerechoEmp = Frame(self.rootGUIVendedor, bg="#18344A")

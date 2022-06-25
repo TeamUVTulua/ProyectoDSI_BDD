@@ -28,6 +28,12 @@ class resgistroPedido:
         self.framePedidos = Frame(self.rootRegistroPedido,bg="#18344A")
         self.framePedidos.place(x=160, y=0, width=650, height=600)
 
+        #self.frameProd = Frame(self.framePedidos, bg="white")
+        #self.frameProd.place(x=350, y=110, width=120, height=50)
+
+        #self.frameProv = Frame(self.framePedidos, bg="white")
+        #self.frameProv.place(x=50, y=220, width=120, height=50)
+
         Label(self.framePedidos, text="REGISTRAR PEDIDO", font=("comic sans MS", 25, "bold"), bg="#18344A",
               fg="white").place(x=50, y=20)
 
@@ -41,42 +47,77 @@ class resgistroPedido:
 
         Label(self.framePedidos, text="Producto: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=350, y=70)
-       # self.nombre = Entry(self.framePedidos, font=("comic sans MS", 16))
-       # self.nombre.place(x=350, y=110)
-
-
-        #self.rolPass = ttk.Combobox(self.framePedidos, font=("comic sans MS", 13), state="readonly", justify=CENTER)
-        #self.rolPass["values"] = []
-
-        #self.rolPass.place(x=350, y=110)
-
-        self.scrollbar = Scrollbar(self.framePedidos)
+        '''
+        self.scrollbar = Scrollbar(self.frameProd)
         self.scrollbar.pack(side=RIGHT, fill=Y)
 
-        self.listboxPed = Listbox(self.framePedidos, width=40, heigh=1, bg="#18344A", fg="white", font=("comic sans MS", 20))
+        self.listboxPed = Listbox(self.frameProd, width=10, heigh=2, bg="#18344A", fg="white", font=("comic sans MS", 12))
         self.listboxPed.pack()
+
         self.CargarInfoUsuarioEnLabels(self.listboxPed)
-        self.listboxPed.place(x=350, y=110)
+
+        self.listboxPed.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxPed.yview)
+
+        self.listboxPed.place(x=0, y=0)
+        '''
+        #-------------------------------------------
+        # self.nombre = Entry(self.framePedidos, font=("comic sans MS", 16))
+        # self.nombre.place(x=350, y=110)
+
+        self.rolPass = ttk.Combobox(self.framePedidos, font=("comic sans MS", 13), state="readonly", justify=CENTER)
+
+        self.rolPass["values"]
+        self.CargarInfoUsuarioEnLabels(self.rolPass)
+
+        self.rolPass.place(x=350, y=110)
+
+        #--------------------------
         # ****** Label Contactoido Crear Usuario ****** #
 
-        Label(self.framePedidos, text="Contacto: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=50, y=150) # REVIDAR CON UN BOX SELECT
+        Label(self.framePedidos, text="Precio: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=350, y=280) # REVIDAR CON UN BOX SELECT
         self.Contacto = Entry(self.framePedidos, font=("comic sans MS", 16))
-        self.Contacto.place(x=50, y=190)
+        self.Contacto.place(x=350, y=320)
 
         # ****** Label Direccionefono Crear Usuario ****** #
 
-        Label(self.framePedidos, text="Direccion: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=350, y=150)
+        Label(self.framePedidos, text="Cantidad: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=350, y=180)
         self.Direccion = Entry(self.framePedidos, font=("comic sans MS", 16))
-        self.Direccion.place(x=350, y=190)
+        self.Direccion.place(x=350, y=220)
+
+        Label(self.framePedidos, text="Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=180)
+
+        '''
+        self.scrollbarProv = Scrollbar(self.frameProv)
+        self.scrollbarProv.pack(side=RIGHT, fill=Y)
+
+        self.listboxProv = Listbox(self.frameProv, width=10, heigh=2, bg="#18344A", fg="white",
+                                  font=("comic sans MS", 12))
+        self.listboxProv.pack()
+
+        self.CargarInfoUsuarioEnLabelsProv(self.listboxProv)
+
+        self.listboxProv.config(yscrollcommand=self.scrollbarProv.set)
+        self.scrollbarProv.config(command=self.listboxProv.yview)
+
+        self.listboxProv.place(x=0, y=0)
+        '''
+        self.rolPassProv = ttk.Combobox(self.framePedidos, font=("comic sans MS", 13), state="readonly", justify=CENTER)
+
+        self.rolPassProv["values"]
+        self.CargarInfoUsuarioEnLabelsProv(self.rolPass)
+        self.rolPassProv.place(x=50, y=220)
+        #-----------------
 
         Label(self.framePedidos, text="Buscar Proveedor ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(
-            x=50, y=250)
+            x=50, y=280)
 
         BotonBuscar = Button(self.framePedidos, text="Buscar", command=self.busc, bd=0, cursor="hand2")
-        BotonBuscar.place(x=50, y=300, width=80)
+        BotonBuscar.place(x=50, y=380, width=80)
 
 
 
@@ -90,11 +131,16 @@ class resgistroPedido:
         BotonLogin = Button(self.framePedidos, text="Volver", command=self.volver , font=("comic sans MS", 15),bd=0, cursor="hand2")
         BotonLogin.place(x=350, y=500, width=200)
 
-    def CargarInfoUsuarioEnLabels(self, listboxUsuario):
+    def CargarInfoUsuarioEnLabels(self, lista):
         gestionPed = gestionPedido()
-        listaDatos = gestionPed.obtenerTodos()
-        for x in listaDatos:
-            listboxUsuario.insert(END, x)
+        listaDatos = gestionPed.obtenerTodosId()
+        self.rolPass["values"] = listaDatos
+
+
+    def CargarInfoUsuarioEnLabelsProv(self, listboxUsuario):
+        gestionPed = gestionPedido()
+        listaDatos = gestionPed.obtenerTodosNit()
+        self.rolPassProv["values"] = listaDatos
 
     def validacion(self):
         return (len(self.nit.get()) == 0 or len(self.Contacto.get()) == 0)
@@ -103,16 +149,16 @@ class resgistroPedido:
         if self.validacion():
             messagebox.showinfo("error!", "Los datos son obligatorios")
         else:
-            self.gestionUsuario = gestionProducto()
-            self.gestionUsuario.registrar_producto(self.nit.get(), self.nombre.get(),self.Contacto.get(),self.Direccion.get())
+            self.gestionPed = gestionPedido()
+            self.gestionPed.registrar_pedido(self.nit.get(), self.rolPass.get(), self.rolPassProv.get(), self.Contacto.get(), self.Direccion.get())
             self.volver()
 
     def busc(self):
 
         self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un empleado')
 
-        gestionProv = gestionProveedor()
-        cons = gestionProv.buscar_info(self.auxId)
+        gestionPed = gestionPedido()
+        cons = gestionPed.buscar_info(self.auxId)
         print(cons)
         if (cons == None):
             messagebox.showinfo("Consultar", "El usuario no está registrado")
@@ -122,7 +168,7 @@ class resgistroPedido:
         # ****** Para volver al login desde Crear Usuario ****** #
     def volver(self):
         self.rootRegistroPedido.destroy()
-        import GUIGestionProducto as ges
+        import GUIGestionPedido as ges
         ges.iniciar()
 
             # ****** Metodo para iniciar la interfaz desde otra ****** #

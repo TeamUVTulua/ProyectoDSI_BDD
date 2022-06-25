@@ -179,7 +179,7 @@ class GUIGestionProducto:
     def crear(self):
         self.rootGUIRegProd.destroy()
         import registroProducto as reg
-        reg.iniciar()
+        reg.iniciar(self.cargo)
 
     def CargarInfoUsuarioEnLabels(self, listboxUsuario):
         gestionUsuarios = gestionProducto()

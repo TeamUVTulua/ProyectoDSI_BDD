@@ -11,7 +11,8 @@ from gestionCliente import *
 from tkinter.simpledialog import askstring
 class registroCliente:
 
-    def __init__(self, rootRegistroCliente):
+    def __init__(self, rootRegistroCliente, cargo):
+        self.cargo = cargo
         self.rootRegistroCliente = rootRegistroCliente
         self.rootRegistroCliente.title("Registro Usuario")
         self.rootRegistroCliente.geometry("1360x768+560+312")
@@ -131,11 +132,11 @@ class registroCliente:
     def volver(self):
         self.rootRegistroCliente.destroy()
         import GUIGestionCliente as ges
-        ges.iniciar()
+        ges.iniciar(self.cargo)
 
             # ****** Metodo para iniciar la interfaz desde otra ****** #
 
-def iniciar():
+def iniciar(cargo):
     rootRegistroCliente = Tk()
-    obj = registroCliente(rootRegistroCliente)
+    obj = registroCliente(rootRegistroCliente, cargo)
     rootRegistroCliente.mainloop()

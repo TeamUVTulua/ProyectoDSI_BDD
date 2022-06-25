@@ -18,19 +18,19 @@ class gestionUsuario:
         self.base.cerrar_conexion()
 
     def login_usuario(self, identificacion, contraseña):
-        #try:
-        self.base = BaseDatos()
-        self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido, estado FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
-        self.cur = self.base.ObtenerDatos(self.query)
-        print ("aqui")
+        try:
+            self.base = BaseDatos()
+            self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido, estado FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
+            self.cur = self.base.ObtenerDatos(self.query)
+            print ("aqui")
 
-        for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu,estado_usu) in self.cur:
-            self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu, estado_usu)
-            user = self.auxUser
-        return user
-        #except:
+            for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu,estado_usu) in self.cur:
+                self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu, estado_usu)
+                user = self.auxUser
+            return user
+        except:
          #   #showinfo.iconbitmap("imagenes\iconointerfaz.ico")
-          #  showinfo('Error Inicio de Sesión', 'Usuario o Contraseña Incorrectas')
+            showinfo('Error Inicio de Sesión', 'Usuario o Contraseña Incorrectas')
 
     def obtenerTodos(self):
         self.base = BaseDatos()

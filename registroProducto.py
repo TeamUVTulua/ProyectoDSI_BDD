@@ -12,7 +12,8 @@ from tkinter.simpledialog import askstring
 
 class resgistroProducto:
 
-    def __init__(self, rootRegistroProducto):
+    def __init__(self, rootRegistroProducto,cargo):
+        self.cargo = cargo
         self.rootRegistroProducto = rootRegistroProducto
         self.rootRegistroProducto.title("Registro Usuario")
         self.rootRegistroProducto.geometry("1360x768+560+312")
@@ -132,11 +133,11 @@ class resgistroProducto:
     def volver(self):
         self.rootRegistroProducto.destroy()
         import GUIGestionProducto as ges
-        ges.iniciar()
+        ges.iniciar(self.cargo)
 
             # ****** Metodo para iniciar la interfaz desde otra ****** #
 
-def iniciar():
+def iniciar(cargo):
     rootRegistroProducto = Tk()
-    obj = resgistroProducto(rootRegistroProducto)
+    obj = resgistroProducto(rootRegistroProducto, cargo)
     rootRegistroProducto.mainloop()

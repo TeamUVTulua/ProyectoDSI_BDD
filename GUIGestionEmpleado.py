@@ -68,7 +68,7 @@ class GUIMenuInicial:
         Label(self.frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-        self.listboxUsuario = Listbox(self.frameCrearUsuario, width=40, heigh=9, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, heigh=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
         self.listboxUsuario.get
 

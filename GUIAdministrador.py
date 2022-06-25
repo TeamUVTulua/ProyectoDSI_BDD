@@ -101,7 +101,7 @@ class GUIAdministrador:
 
         # ******Boton Consultar Historicos ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoAdmin, text="Realizar Pedido", command=self.pedido,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProducto = Button(frameIzquierdoAdmin, text="Gestionar Pedidos", command=self.pedido,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProducto.place(x=120, y=360, width=240)
 
         # ******Boton Salir ****** #
@@ -113,7 +113,7 @@ class GUIAdministrador:
 
     def pedido(self):
         self.rootGUIAdministrador.destroy()
-        import registroPedido as emp
+        import GUIGestionPedido as emp
         emp.iniciar()
 
     def retornarSelecListBoxUsuario(self):
@@ -187,7 +187,7 @@ class GUIAdministrador:
     def gesInventario(self):
         self.rootGUIAdministrador.destroy()
         import GUIGestionProducto as emp
-        emp.iniciar()
+        emp.iniciar(usuario.get_cargo())
 
     def gesCliente(self):
         self.rootGUIAdministrador.destroy()

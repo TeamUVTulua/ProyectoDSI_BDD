@@ -226,7 +226,7 @@ class GUIGestCli:
     def crear(self):
         self.rootGestCli.destroy()
         import registroCliente as reg
-        reg.iniciar()
+        reg.iniciar(self.cargo)
 
     def CargarInfoUsuarioEnLabels(self, listboxUsuario):
         gestionUsuarios =gestionCliente()

@@ -103,7 +103,7 @@ class registroProveedor:
         # ****** Para volver al login desde Crear Usuario ****** #
     def volver(self):
         self.rootRegistroProveedor.destroy()
-        import GUIGestionProducto as ges
+        import GUIGestionProveedor as ges
         ges.iniciar()
 
             # ****** Metodo para iniciar la interfaz desde otra ****** #
