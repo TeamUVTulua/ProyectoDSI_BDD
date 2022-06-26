@@ -49,11 +49,10 @@ class resgistroPedido:
 
         self.rolPass.place(x=350, y=110)
 
-        #--------------------------
         # ****** Label Contactoido Crear Usuario ****** #
 
         Label(self.framePedidos, text="Precio: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=350, y=280) # REVIDAR CON UN BOX SELECT
+              fg="white").place(x=350, y=280)
         self.Contacto = Entry(self.framePedidos, font=("comic sans MS", 16))
         self.Contacto.place(x=350, y=320)
 
@@ -115,15 +114,15 @@ class resgistroPedido:
 
     def busc(self):
 
-        self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un empleado')
+        self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un pedido')
 
         gestionPed = gestionPedido()
         cons = gestionPed.buscar_info(self.auxId)
         print(cons)
         if (cons == None):
-            messagebox.showinfo("Consultar", "El usuario no está registrado")
+            messagebox.showinfo("Consultar", "El pedido no se ha realizado ")
         else:
-            messagebox.showinfo("Consultar", "El usuario está registrado")
+            messagebox.showinfo("Consultar", "El pedido ya fue realizado")
 
         # ****** Para volver al login desde Crear Usuario ****** #
     def volver(self):
