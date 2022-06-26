@@ -46,23 +46,23 @@ class GUIVendedor:
 
         # ****** Datos del perfil ****** #
 
-        Label(self.frameDerechoVendedor, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=100)
-        Label(self.frameDerechoVendedor, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=140)
-        Label(self.frameDerechoVendedor,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
-        Label(self.frameDerechoVendedor, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=300)
-        Label(self.frameDerechoVendedor, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
-        Label(self.frameDerechoVendedor, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
+        Label(self.frameDerechoVendedor, text="Identificador: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80, y=100)
+        Label(self.frameDerechoVendedor, text="Nombre: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80, y=140)
+        Label(self.frameDerechoVendedor,text="Apellido: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80, y=180)
+        Label(self.frameDerechoVendedor, text="Telefono:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80, y=300)
+        Label(self.frameDerechoVendedor, text="Direccion:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,y=260)
+        Label(self.frameDerechoVendedor, text="Cargo:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,y=220)
         
         #-------- CARGAR DATOS DEL VENDEDOR EN EL FRAME
         self.CargarInfoUsuarioEnLabels()
         # INFORMACIO CARGADA QUE NO SE MODIFICA
-        Label(self.frameDerechoVendedor, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270,y=100)
-        Label(self.frameDerechoVendedor, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=140)
-        Label(self.frameDerechoVendedor, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=180)
-        Label(self.frameDerechoVendedor, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=220)
+        Label(self.frameDerechoVendedor, text=self.id_usu, font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=270,y=100)
+        Label(self.frameDerechoVendedor, text=self.nombre_usu, font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=270, y=140)
+        Label(self.frameDerechoVendedor, text=self.apellido_usu, font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=270, y=180)
+        Label(self.frameDerechoVendedor, text=self.cargo_usu, font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=270, y=220)
 
-        self.listboxUsuario = Listbox(self.frameDerechoVendedor, width=25, heigh=2, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20,))
+        self.listboxUsuario = Listbox(self.frameDerechoVendedor, width=25, height=2, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16))
 
         self.listboxUsuario.insert(0, self.dir_usu)
         self.listboxUsuario.insert(1, self.tel_usu)

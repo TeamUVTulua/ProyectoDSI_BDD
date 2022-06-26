@@ -92,23 +92,23 @@ class GUIMenuInicial:
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoEmp, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoEmp, text="Identificador: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
             x=80, y=60)
         Label(frameDerechoEmp, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
                                                                                                               y=100)
-        Label(frameDerechoEmp, text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Apellido: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=140)
-        Label(frameDerechoEmp, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Telefono:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                 y=260)
-        Label(frameDerechoEmp, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Direccion:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=220)
-        Label(frameDerechoEmp, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoEmp, text="Cargo:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                              y=180)
 
         self.CargarInfoUsuarioEnLabels2()
 
         self.listboxUsuario = Listbox(frameDerechoEmp, width=25, height=6, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20,))
+                                      font=("comic sans MS", 16))
 
         self.listboxUsuario.insert(0, self.id_emp)
         self.listboxUsuario.insert(1, self.nom_emp)
@@ -165,7 +165,7 @@ class GUIMenuInicial:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu cargo quedo: {}'.format(aux4))
+                showinfo('Modificación de información', 'El nuevo cargo del usuario es: '.format(aux4))
                 gestionUsuarios.modificar_cargo(aux4, self.id_emp)
             print(aux4)
 
@@ -175,7 +175,7 @@ class GUIMenuInicial:
             if (aux5 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu direccion quedo: {}'.format(aux5))
+                showinfo('Modificación de información', 'La nueva direccion del usuario quedo: '.format(aux5))
                 gestionUsuarios.modificar_telefono(aux5, self.id_emp)
             print(aux5)
 
@@ -185,7 +185,7 @@ class GUIMenuInicial:
             if (aux6 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Informacion de telefono: {}'.format(aux6))
+                showinfo('Modificación de información', 'La nueva informacion de telefono: '.format(aux6))
                 gestionUsuarios.modificar_telefono(aux6, self.id_emp)
             print(aux6)
 

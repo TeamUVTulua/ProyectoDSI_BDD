@@ -97,19 +97,19 @@ class GUIGestionProducto:
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoGestProd, text="Codigo: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoGestProd, text="Codigo: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
             x=80, y=100)
-        Label(frameDerechoGestProd, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoGestProd, text="Nombre: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                               y=140)
-        Label(frameDerechoGestProd, text="Categoria: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoGestProd, text="Categoria: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=180)
-        Label(frameDerechoGestProd, text="Cantidad:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoGestProd, text="Cantidad:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                 y=220)
 
         self.CargarInfoUsuarioEnLabels2()
 
         self.listboxProducto = Listbox(frameDerechoGestProd, width=25, height=6, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20,))
+                                      font=("comic sans MS", 16))
 
         self.listboxProducto.insert(0, self.codigo)
         self.listboxProducto.insert(1, self.nombre)

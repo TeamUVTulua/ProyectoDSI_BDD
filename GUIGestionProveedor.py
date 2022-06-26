@@ -113,19 +113,19 @@ class GUIProveedor:
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoAdmin, text="NIT: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoAdmin, text="NIT: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
             x=80, y=60)
-        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                               y=100)
-        Label(frameDerechoAdmin, text="Contacto: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Contacto: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=140)
-        Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                 y=180)
 
         self.CargarInfoUsuarioEnLabels2()
 
         self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20,))
+                                      font=("comic sans MS", 16))
 
         self.listboxUsuario.insert(0, self.nit)
         self.listboxUsuario.insert(1, self.nombre)

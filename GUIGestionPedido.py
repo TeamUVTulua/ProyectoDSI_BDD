@@ -101,19 +101,19 @@ class GUIGestionPedido:
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoAdmin, text="Codigo: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoAdmin, text="Codigo: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
             x=80, y=60)
-        Label(frameDerechoAdmin, text="Producto: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Producto: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                               y=100)
-        Label(frameDerechoAdmin, text="Proveedor: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Proveedor: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                   y=140)
-        Label(frameDerechoAdmin, text="Precio:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Precio:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                 y=180)
 
         self.CargarInfoUsuarioEnLabels2()
 
         self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20,))
+                                      font=("comic sans MS", 16))
 
         self.listboxUsuario.insert(0, gestionPed.obtener_codigo())
         self.listboxUsuario.insert(1, gestionPed.obtener_producto())
