@@ -50,7 +50,7 @@ class GUIGestionProducto:
 
         # ******Boton Consultar Producto****** #
 
-        BotonConsultarProducto = Button(frameIzquierdoProd, text="Consultar Producto",command=self.consultarEmp,
+        BotonConsultarProducto = Button(frameIzquierdoProd, text="Consultar Producto",command=self.consultarProd,
                                         font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarProducto.place(x=120, y=180, width=240)
 
@@ -71,7 +71,7 @@ class GUIGestionProducto:
         self.scrollbar =Scrollbar(self.frameDerechoProd)
         self.scrollbar.pack(side=RIGHT, fill=Y)
 
-        self.listboxUsuario = Listbox(self.frameDerechoProd, width=33, heigh=9, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(self.frameDerechoProd, width=33, height=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
         self.listboxUsuario.pack()
 
@@ -82,12 +82,12 @@ class GUIGestionProducto:
 
         self.listboxUsuario.place(x=50, y=86)
 
-    def consultarEmp(self):
+    def consultarProd(self):
         self.auxId = askstring('Modificación de información', 'Ingrese el codigo de un producto')
         self.frameDerechoProd.place_forget()
-        self.mostrarEmp()
+        self.mostrarProd()
 
-    def mostrarEmp(self):
+    def mostrarProd(self):
         frameDerechoAdmin = Frame(self.rootGUIRegProd, bg="#18344A")
         frameDerechoAdmin.place(x=600, y=85, width=700, height=530)
 
@@ -109,7 +109,7 @@ class GUIGestionProducto:
 
         self.CargarInfoUsuarioEnLabels2()
 
-        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, height=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20,))
 
         self.listboxUsuario.insert(0, self.codigo)
@@ -223,7 +223,7 @@ def ventanaConsultarProd(self):
 
             self.rootGUIRegProd2=Tk()
             self.rootGUIRegProd2.title("Sistema de inventario y Ventas MotoSocios")
-            self.rootGUIRegProd2.geometry("1360x768+560+312")
+            self.rootGUIRegProd2.geometry("1366x768")
             self.rootGUIRegProd2.resizable(1, 1)
 
             frameIzquierdoProd2 = Frame(self.rootGUIRegProd2,bg="#18344A")
@@ -232,9 +232,9 @@ def ventanaConsultarProd(self):
             Label(frameIzquierdoProd2,text="Lista Productos", font=("comic sans MS",24, "bold"), bg="#18344A",fg="white").place(x=220,y=20)
 
             #****** Cargue de datos en el Side der ******#
-            # Carga lista de productos
+            # ****** Cargar lista de productos ******#
 
-            fder=ttk.Treeview(frameIzquierdoProd2, columns=(1,2,3,4,5,6,7),show="headings",height="18")
+            fder=ttk.Treeview(frameIzquierdoProd2, columns=(1,2,3,4,5,6,7),show="headings",height=18)
             fder.place(x=45,width=600,y=80)
             treeScrollBary=ttk.Scrollbar(frameIzquierdoProd2, orient="vertical",command=fder.yview)
             treeScrollBarx=ttk.Scrollbar(frameIzquierdoProd2, orient="horizontal",command=fder.xview)
@@ -265,7 +265,7 @@ def ventanaRegistroProducto(self):
 
         self.rootGUIRegProd2=Tk()
         self.rootGUIRegProd2.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIRegProd2.geometry("1360x768+560+312")
+        self.rootGUIRegProd2.geometry("1366x768")
         self.rootGUIRegProd2.resizable(1,1)
 
             # ******Frame Derecho******#
@@ -296,7 +296,7 @@ def ventanaRegistroProducto(self):
         self.cuadrotexto=Entry(frameIzquierdoProd3,font=("comic sans MS",13), bg="#18344A",fg="black")
         self.cuadrotexto.place(x=235,y=206)
 
-        #___---------Columna 2
+    # ****** Frame derecho  ******#
 
         Label(frameIzquierdoProd3,text="INSUMO:", font=("comic sans MS",13), bg="#18344A",fg="black").place(x=450,y=86)
 
@@ -316,12 +316,12 @@ def ventanaRegistroProducto(self):
         BotonQuitar=Button(frameIzquierdoProd3, text="Quitar",font=("comic sans MS", 13), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonQuitar.place(x=600,y=166,width=110)
 
-        #Lisbox que muestra insumo seleccionado
-        self.listboxinsumo=Listbox(frameIzquierdoProd3,width=25,height=5, bg="#18344A",font=("comic sans MS",13))
+        # ****** Lixbox que nos muestra un producto ******#
 
+        self.listboxinsumo=Listbox(frameIzquierdoProd3,width=25,height=5, bg="#18344A",font=("comic sans MS",13))
         self.listboxinsumo.place(x=465,y=206)
 
-        #----final---
+        # ****** Boton registrar******#
 
         BotonRegistrar=Button(frameIzquierdoProd3, text="Finalizar Registro",command=self.registrarPP,font=("comic sans MS", 15), bg="gray",fg="#18344A",bd=0,cursor="hand2")
         BotonRegistrar.place(x=225,y=340,width=300)

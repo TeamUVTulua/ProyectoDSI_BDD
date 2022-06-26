@@ -15,7 +15,7 @@ class resgistroProducto:
     def __init__(self, rootRegistroProducto,cargo):
         self.cargo = cargo
         self.rootRegistroProducto = rootRegistroProducto
-        self.rootRegistroProducto.title("Registro Usuario")
+        self.rootRegistroProducto.title("Registro Producto")
         self.rootRegistroProducto.geometry("1366x768")
         self.rootRegistroProducto.resizable(1, 1)
 

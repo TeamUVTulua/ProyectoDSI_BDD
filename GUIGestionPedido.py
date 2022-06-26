@@ -182,7 +182,7 @@ class GUIGestionPedido:
 def ventanaConsultarProd(self):
     self.rooGUIRegPed2 = Tk()
     self.rooGUIRegPed2.title("Sistema de inventario y Ventas MotoSocios")
-    self.rooGUIRegPed2.geometry("1360x768+560+312")
+    self.rooGUIRegPed2.geometry("1366x768")
     self.rooGUIRegPed2.resizable(1, 1)
 
     frameIzquierdoProd2 = Frame(self.rooGUIRegPed2, bg="#18344A")
@@ -224,7 +224,7 @@ def ventanaConsultarProd(self):
 def ventanaRegistroProducto(self):
     self.rooGUIRegPed2 = Tk()
     self.rooGUIRegPed2.title("Sistema de Inventario y Ventas MotoSocios")
-    self.rooGUIRegPed2.geometry("1360x768+560+312")
+    self.rooGUIRegPed2.geometry("1366x768")
     self.rooGUIRegPed2.resizable(1, 1)
 
     # ******Frame Derecho******#
