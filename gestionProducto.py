@@ -26,6 +26,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "SELECT codigo, nombre, categoria, cantidadtotal FROM producto where estado = true"
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        print(self.cur)
         return self.cur
 
     # ****** Metodo para consulta de datos ******#
@@ -34,6 +35,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = query
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        print(self.cur)
         return self.cur
 
 
@@ -45,7 +47,7 @@ class gestionProducto:
         for (cod_pro, nombre_pro, cat_pro, cantTotal_pro) in self.cur:
             self.auxUser=Producto(cod_pro,nombre_pro,cat_pro,cantTotal_pro)
             user = self.auxUser
-
+            print(self.cur)
         return user
 
     def buscar_info(self, codigo):
@@ -53,7 +55,7 @@ class gestionProducto:
         self.query = "SELECT codigo, nombre, categoria, cantidadtotal FROM producto WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         bus = self.cur.fetchone()
-
+        print(self.cur)
         return bus
 
 
@@ -74,7 +76,6 @@ class gestionProducto:
         self.query = "SELECT nombre FROM producto WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
-
         for (nom_prod) in self.cur:
             print(nom_prod)
         return nom_prod

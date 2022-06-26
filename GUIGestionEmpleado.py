@@ -70,7 +70,6 @@ class GUIMenuInicial:
 
         self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, height=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
-        self.listboxUsuario.place(x=280,y=30)
 
         self.listboxUsuario.get
 
@@ -119,7 +118,7 @@ class GUIMenuInicial:
         self.listboxUsuario.insert(4, self.dir_emp)
         self.listboxUsuario.insert(5, self.tel_emp)
 
-        self.listboxUsuario.place(x=270, y=60)
+        self.listboxUsuario.place(x=270, y=70)
 
         BotonModificarDatos = Button(frameDerechoEmp, text="Modificar datos",
                                      command=self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray",
