@@ -17,7 +17,7 @@ class registroUsuario:
     def __init__(self, rootRegistroUsuario):
         self.rootRegistroUsuario = rootRegistroUsuario
         self.rootRegistroUsuario.title("Registro Usuario")
-        self.rootRegistroUsuario.geometry("1360x768+0+0")
+        self.rootRegistroUsuario.geometry("1366x768")
         self.rootRegistroUsuario.resizable(1, 1)
 
         # ******logo de Fondo****** #
