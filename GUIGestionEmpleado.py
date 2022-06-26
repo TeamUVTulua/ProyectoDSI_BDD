@@ -145,7 +145,7 @@ class GUIMenuInicial:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu nombre quedo: {}'.format(aux2))
+                showinfo('Modificación de información', 'El nuevo nombre quedo: '.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.id_emp)
             print(aux2)
 
@@ -155,7 +155,7 @@ class GUIMenuInicial:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu apellido quedo: {}'.format(aux3))
+                showinfo('Modificación de información', 'El nuevo apellido de usuario es: '.format(aux3))
                 gestionUsuarios.modificar_apellido(aux3, self.id_emp)
             print(aux3)
 

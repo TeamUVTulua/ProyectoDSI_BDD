@@ -148,7 +148,7 @@ class GUIProveedor:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu NIT quedó:  {}'.format(aux2))
+                showinfo('Modificación de información', 'El nuevo NIT quedó:  '.format(aux2))
 
                 gestionUsuarios.modificar_nit(aux2, self.nit)
 
@@ -158,7 +158,7 @@ class GUIProveedor:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu Nombre quedó: {}'.format(aux2))
+                showinfo('Modificación de información', 'El nuevo Nombre del proveedor quedo: '.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.nit)
 
         if (self.listboxUsuario.selection_includes(2)):
@@ -167,7 +167,7 @@ class GUIProveedor:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu contacto quedó: {}'.format(aux3))
+                showinfo('Modificación de información', 'El nuevo  contacto del proveedor quedó: '.format(aux3))
                 gestionUsuarios.modificar_contacto(aux3, self.nit)
 
         if (self.listboxUsuario.selection_includes(3)):
@@ -176,7 +176,7 @@ class GUIProveedor:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
+                showinfo('Modificación de información', 'La nueva direccion del proveedor es: '.format(aux4))
                 gestionUsuarios.modificar_direccion( self.nit)
 
     def CargarInfoUsuarioEnLabels2(self):
