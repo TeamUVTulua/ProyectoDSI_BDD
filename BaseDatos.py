@@ -35,6 +35,10 @@ class BaseDatos:
         self.cursor.execute(dato1, dato2)
         self.conexion.commit()
 
+    def crear_cursor2(self, dato1):
+        self.cursor.execute(dato1)
+        self.conexion.commit()
+
 
     def crear_cursorlogin(self, dato):
         self.cursor.execute(dato)

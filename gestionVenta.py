@@ -2,30 +2,38 @@ from tkinter import messagebox
 from BaseDatos import *
 from Venta import *
 
-venta = venta("", "", "", "","")
+venta = Venta("", "", "", "","", "")
 
 
 class gestionVenta:
 
     # ****** Metodos para registrar ventas en la base de datos ******#
 
-    def registrar_venta(self, codigo_ven, prod_ven, fac_ven, cant_ven, precio_ven):
+    def registrar_venta(self, codigo_ven, prod_ven, fac_ven, cant_ven, precio_ven, total_ven):
         try:
             self.base = BaseDatos()
-            self.query = "insert    into    venta    VALUES    (%s,%s,%s,%s,%s)"
-            self.base.crear_cursor(self.query, (codigo_ven, prod_ven, fac_ven, cant_ven, precio_ven))
+            self.query = "insert    into    venta    VALUES    (%s,%s,%s,%s,%s,%s)"
+            self.base.crear_cursor(self.query, (codigo_ven, prod_ven, fac_ven, cant_ven, precio_ven, total_ven))
             messagebox.showinfo("Registrado", "La   venta    ha    sido    registrada    con    exito")
+
             self.base.cerrar_conexion()
         except:
-            messagebox.showinfo("Aviso", "venta ya registrada.")
+           messagebox.showinfo("Aviso", "venta ya registrada.")
 
     # ****** Metodo para obtener los datos ******#
 
     def obtenerTodos(self):
         self.base = BaseDatos()
-        self.query = "SELECT codigo, producto, factura, cantidadventa, precioventa FROM venta "
+        self.query = "SELECT codigo, producto, factura, cantidadventa, precioventa , precioventa FROM venta "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
+
+    def total(self, numerofactura):
+        self.base = BaseDatos()
+        self.query = "SELECT SUM (preciototal) from venta where factura = '" + numerofactura +"'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        bus = self.cur.fetchone()
+        return bus
 
     # ****** Metodo para consulta de datos ******#
 
