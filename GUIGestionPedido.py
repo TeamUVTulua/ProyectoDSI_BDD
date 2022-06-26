@@ -293,40 +293,6 @@ def ventanaRegistroProducto(self):
 
     self.rooGUIRegPed2.mainloop()
 
-
-""""
-    def validacionPP(self):
-        return (len(self.cuadroCodigo.get())==0 or len(self.cuadroNombre.get())==0)
-
-    def registrarPP(self):
-
-        if self.validacionPP():
-            messagebox.showinfo("error!","Los datos son obligatorios")
-        else:
-            self.gestionProducto=GUIGestionProducto()
-            self.gestionProducto.registrar_producto_preparado(self.cuadroCodigo.get(),self.cuadroNombre.get(),
-            self.cuadroValorVenta.get(),self.cuadrotexto.get(),self.insumo.get(),self.cuadroCantidad.get())   
-
-
-    #Para ir al usuario
-    def usuario(self):
-        self.rooGUIRegPed.destroy()
-        import GUIAdminRestaurante as cc
-        cc.inicio()
-
-    def productoNoPreparado(self):
-        self.rooGUIRegPed.destroy()
-        import GUIRegistorProducto as cc
-        cc.inicio()
-
-    def gestionInsumo(self):
-        self.rooGUIRegPed.destroy()
-        import GUIgestionInsumo as cc
-        cc.inicio()
-
-"""
-
-
 def iniciar():
     rootGUIRegPed = Tk()
     obj = GUIGestionPedido(rootGUIRegPed)

@@ -66,28 +66,6 @@ class resgistroProducto:
         Label(frameCrearUsuario, text="Buscar Producto ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=230)
 
-        '''
-        Label(frameCrearUsuario, text="NIT Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=50, y=230)
-        self.nit_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.nit_prov.place(x=50, y=270)
-
-        Label(frameCrearUsuario, text="Nombre Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=350, y=230)
-        self.nom_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.nom_prov.place(x=350, y=270)
-
-        Label(frameCrearUsuario, text="Contacto Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=50, y=310)
-        self.cont_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.cont_prov.place(x=50, y=350)
-
-        Label(frameCrearUsuario, text="Direccion Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=350, y=310)
-        self.dir_prov = Entry(frameCrearUsuario, font=("comic sans MS", 16))
-        self.dir_prov.place(x=350, y=350)
-        '''
-
         # ****** Boton Buscar
         photo = PhotoImage(file="Imagenes/lupa.png")
         BotonBuscar = Button(frameCrearUsuario, text="Buscar", command=self.busc, bd=0, cursor="hand2")
