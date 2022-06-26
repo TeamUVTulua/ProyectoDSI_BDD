@@ -70,6 +70,8 @@ class GUIMenuInicial:
 
         self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, height=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
+        self.listboxUsuario.place(x=280,y=30)
+
         self.listboxUsuario.get
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
