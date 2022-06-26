@@ -134,7 +134,7 @@ class GUIMenuInicial:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
+                showinfo('Modificación de información', 'El nuevo identificador de ususario es: '.format(aux2))
 
                 gestionUsuarios.modificar_identificacion(aux2, self.id_emp)
                 print(aux2)

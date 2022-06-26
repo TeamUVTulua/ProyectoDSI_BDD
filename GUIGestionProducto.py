@@ -127,13 +127,12 @@ class GUIGestionProducto:
         gestionUsuarios = gestionProducto()
         aux = self.listboxProducto.curselection()
         if (self.listboxProducto.selection_includes(0)):
-            print(aux)
             aux2 = askstring('Modificación de información', 'Ingrese el Codigo del producto')
 
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El codigo quedó:  {}'.format(aux2))
+                showinfo('Modificación de información', 'El codigo quedó:  '.format(aux2))
 
                 gestionUsuarios.modificar_codigo(aux2, self.codigo)
                 print(aux2)
@@ -143,7 +142,7 @@ class GUIGestionProducto:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nombre del producto es: {}'.format(aux2))
+                showinfo('Modificación de información', 'El nombre del producto es: '.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.codigo)
 
         if (self.listboxProducto.selection_includes(2)):

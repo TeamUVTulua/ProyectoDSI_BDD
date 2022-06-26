@@ -148,7 +148,7 @@ class GUIGestCli:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
+                showinfo('Modificación de información', 'El nit del cliente quedó: '.format(aux2))
 
                 gestionUsuarios.modificar_nit(aux2, self.nit_cli)
                 print(aux2)
@@ -159,7 +159,7 @@ class GUIGestCli:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
+                showinfo('Modificación de información', 'El nombre del cliente es: '.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.nit_cli)
             print(aux2)
 
@@ -169,7 +169,7 @@ class GUIGestCli:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux3))
+                showinfo('Modificación de información', 'El apellido paterno es : '.format(aux3))
                 gestionUsuarios.modificar_apellido1(aux3, self.nit_cli)
             print(aux3)
 
@@ -179,37 +179,37 @@ class GUIGestCli:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
+                showinfo('Modificación de información', 'Tu apellido materno es: '.format(aux4))
                 gestionUsuarios.modificar_apellido2(aux4, self.nit_cli)
             print(aux4)
 
         if (self.listboxUsuario.selection_includes(4)):
             print(aux)
-            aux5 = askstring('Modificación de información', 'Ingrese el tipo de cliente de cliente')
+            aux5 = askstring('Modificación de información', 'Ingrese el tipo de cliente')
             if (aux5 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux5))
+                showinfo('Modificación de información', 'El tipo de cliente cambio a: '.format(aux5))
                 gestionUsuarios.modificar_telefono(aux5, self.nit_cli)
             print(aux5)
 
         if (self.listboxUsuario.selection_includes(5)):
             print(aux)
-            aux6 = askstring('Modificación de información', 'Ingrese el nuevo Direccion Calle de cliente')
+            aux6 = askstring('Modificación de información', 'Ingrese la nueva Direccion Calle de cliente')
             if (aux6 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux6))
+                showinfo('Modificación de información', 'La Direccion Calle quedo: '.format(aux6))
                 gestionUsuarios.modificar_dirCalle(aux6, self.nit_cli)
             print(aux6)
 
         if (self.listboxUsuario.selection_includes(6)):
             print(aux)
-            aux6 = askstring('Modificación de información', 'Ingrese el nuevo Direccion Numero de cliente')
+            aux6 = askstring('Modificación de información', 'Ingrese la nueva Direccion Numero de cliente')
             if (aux6 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux6))
+                showinfo('Modificación de información', 'La direccion Numero quedo: '.format(aux6))
                 gestionUsuarios.modificar_dirNum(aux6, self.nit_cli)
             print(aux6)
 
