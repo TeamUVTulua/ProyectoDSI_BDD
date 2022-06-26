@@ -23,7 +23,7 @@ class GUIAdministrador:
     def __init__(self, rootGUIAdministrador):
         self.rootGUIAdministrador = rootGUIAdministrador
         self.rootGUIAdministrador.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIAdministrador.geometry("1360x768+560+312")
+        self.rootGUIAdministrador.geometry("1366x768")
         self.rootGUIAdministrador.resizable(1, 1)
         self.rootGUIAdministrador.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIAdministrador.attributes('-fullscreen', True)

@@ -26,7 +26,7 @@ class GUIVendedor:
     def __init__(self, rootGUIVendedor):
         self.rootGUIVendedor = rootGUIVendedor
         self.rootGUIVendedor.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIVendedor.geometry("1360x768+560+312")
+        self.rootGUIVendedor.geometry("1366x768")
         self.rootGUIVendedor.resizable(1, 1)
         self.rootGUIVendedor.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIVendedor.attributes('-fullscreen',True)

@@ -25,7 +25,7 @@ class GUIBodeguista:
     def __init__(self, rootGUIBodeguista):
         self.rootGUIBodeguista = rootGUIBodeguista
         self.rootGUIBodeguista.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIBodeguista.geometry("1360x768+560+312")
+        self.rootGUIBodeguista.geometry("1366x768")
         self.rootGUIBodeguista.resizable(1, 1)
         self.rootGUIBodeguista.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIBodeguista.attributes('-fullscreen', True)

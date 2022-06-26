@@ -14,7 +14,7 @@ class resgistroPedido:
     def __init__(self, rootRegistroPedido):
         self.rootRegistroPedido = rootRegistroPedido
         self.rootRegistroPedido.title("Registro Pedido")
-        self.rootRegistroPedido.geometry("1360x768+560+312")
+        self.rootRegistroPedido.geometry("1366x768")
         self.rootRegistroPedido.resizable(1, 1)
 
         # ******logo de Fondo****** #

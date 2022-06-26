@@ -20,7 +20,7 @@ class GUIGestionProducto:
         self.rootGUIRegProd = rootGUIRegProd
         self.cargo =cargo
         self.rootGUIRegProd.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIRegProd.geometry("1360x768+560+312")
+        self.rootGUIRegProd.geometry("1366x768")
         self.rootGUIRegProd.resizable(1, 1)
         self.rootGUIRegProd.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIRegProd.attributes('-fullscreen', True)

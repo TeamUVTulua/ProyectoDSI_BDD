@@ -19,7 +19,7 @@ class GUIProveedor:
     def __init__(self, rootGUIProveedor):
         self.rootGUIProveedor = rootGUIProveedor
         self.rootGUIProveedor.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIProveedor.geometry("1360x768+560+312")
+        self.rootGUIProveedor.geometry("1366x768")
         self.rootGUIProveedor.resizable(1, 1)
         self.rootGUIProveedor.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIProveedor.attributes('-fullscreen', True)

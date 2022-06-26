@@ -17,7 +17,7 @@ class GUIFacturacion:
         self.codFac = codFac
         self.rootGUIFacturacion = rootGUIFacturacion
         self.rootGUIFacturacion.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIFacturacion.geometry("1360x768+560+312")
+        self.rootGUIFacturacion.geometry("1366x768")
         self.rootGUIFacturacion.resizable(1, 1)
         self.rootGUIFacturacion.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIFacturacion.attributes('-fullscreen', True)

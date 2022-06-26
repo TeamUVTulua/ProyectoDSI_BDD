@@ -22,7 +22,7 @@ class GUIGestionPedido:
     def __init__(self, rootGUIRegPed):
         self.rooGUIRegPed = rootGUIRegPed
         self.rooGUIRegPed.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rooGUIRegPed.geometry("1360x768+560+312")
+        self.rooGUIRegPed.geometry("1366x768")
         self.rooGUIRegPed.resizable(1, 1)
         self.rooGUIRegPed.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rooGUIRegPed.attributes('-fullscreen', True)

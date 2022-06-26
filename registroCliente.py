@@ -15,7 +15,7 @@ class registroCliente:
         self.cargo = cargo
         self.rootRegistroCliente = rootRegistroCliente
         self.rootRegistroCliente.title("Registro Usuario")
-        self.rootRegistroCliente.geometry("1360x768+560+312")
+        self.rootRegistroCliente.geometry("1366x768")
         self.rootRegistroCliente.resizable(1, 1)
 
         # ******logo de Fondo****** #

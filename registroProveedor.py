@@ -14,7 +14,7 @@ class registroProveedor:
     def __init__(self, rootRegistroProveedor):
         self.rootRegistroProveedor = rootRegistroProveedor
         self.rootRegistroProveedor.title("Registro Proveedor")
-        self.rootRegistroProveedor.geometry("1360x768+560+312")
+        self.rootRegistroProveedor.geometry("1366x768")
         self.rootRegistroProveedor.resizable(1, 1)
 
         # ******logo de Fondo****** #

@@ -24,7 +24,7 @@ class GUIGestCli:
         self.rootGestCli = rootGestCli
         self.cargo = cargo
         self.rootGestCli.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGestCli.geometry("1360x768+560+312")
+        self.rootGestCli.geometry("1366x768")
         self.rootGestCli.resizable(1, 1)
         self.rootGestCli.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGestCli.attributes('-fullscreen', True)

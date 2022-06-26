@@ -1,5 +1,5 @@
 # ****** Librerias usadas ******#
-
+from tkinter import Image
 from tkinter import messagebox
 
 # ****** Metodos usados de otros archivos ******#

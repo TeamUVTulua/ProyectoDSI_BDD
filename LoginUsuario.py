@@ -21,7 +21,7 @@ class loginUsuario:
     def __init__(self, rootLogin):
         self.rootLogin = rootLogin
         self.rootLogin.title("Sistema de inventario y Ventas MotoSocios")
-        self.rootLogin.geometry("1360x768+560+312")
+        self.rootLogin.geometry("1366x768")
         self.rootLogin.resizable(1, 1)
         self.rootLogin.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootLogin.attributes('-fullscreen',True)

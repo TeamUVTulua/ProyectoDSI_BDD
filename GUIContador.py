@@ -28,7 +28,7 @@ class GUIContador:
     def __init__(self, rootGUIContador):
         self.rootGUIContador = rootGUIContador
         self.rootGUIContador.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGUIContador.geometry("1360x768+560+312")
+        self.rootGUIContador.geometry("1366x768")
         self.rootGUIContador.resizable(1, 1)
         self.rootGUIContador.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIContador.attributes('-fullscreen', True)
