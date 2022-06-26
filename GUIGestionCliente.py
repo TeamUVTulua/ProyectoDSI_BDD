@@ -101,25 +101,25 @@ class GUIGestCli:
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoAdmin, text="NIT: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoAdmin, text="NIT: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
             x=80, y=60)
         Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
                                                                                                               y=100)
-        Label(frameDerechoAdmin, text="Apellido 1: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Apellido 1: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=140)
-        Label(frameDerechoAdmin, text="Apellido 2:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Apellido 2:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                 y=180)
-        Label(frameDerechoAdmin, text="Tipo Cliente :", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Tipo Cliente :", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=220)
-        Label(frameDerechoAdmin, text="Direccion Calle:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoAdmin, text="Direccion Calle:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,
                                                                                                              y=260)
-        Label(frameDerechoAdmin, text="Direccion Numero:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoAdmin, text="Direccion Numero:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
                                                                                                             x=80,y=300)
 
         self.CargarInfoUsuarioEnLabels2()
 
-        self.listboxUsuario = Listbox(frameDerechoAdmin, width=20, heigh=7, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20,))
+        self.listboxUsuario = Listbox(frameDerechoAdmin, width=20, height=7, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16))
 
         self.listboxUsuario.insert(0, self.nit_cli)
         self.listboxUsuario.insert(1, self.nom_cli)

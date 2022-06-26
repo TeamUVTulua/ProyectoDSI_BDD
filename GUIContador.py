@@ -49,28 +49,28 @@ class GUIContador:
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoContador, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place( x=80, y=100)
-        Label(frameDerechoContador, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=140)
-        Label(frameDerechoContador, text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
-        Label(frameDerechoContador, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=300)
-        Label(frameDerechoContador, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
-        Label(frameDerechoContador, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
+        Label(frameDerechoContador, text="Identificador: ", font=("comic sans MS", 16,), bg="#18344A", fg="white").place( x=80, y=100)
+        Label(frameDerechoContador, text="Nombre: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80, y=140)
+        Label(frameDerechoContador, text="Apellido: ", font=("comic sans MS", 16,), bg="#18344A", fg="white").place(x=80, y=180)
+        Label(frameDerechoContador, text="Telefono:", font=("comic sans MS", 16,), bg="#18344A", fg="white").place(x=80, y=300)
+        Label(frameDerechoContador, text="Direccion:", font=("comic sans MS", 16,), bg="#18344A", fg="white").place(x=80,y=260)
+        Label(frameDerechoContador, text="Cargo:", font=("comic sans MS", 16,), bg="#18344A", fg="white").place(x=80,y=220)
 
         # -------- CARGAR DATOS DEL VENDEDOR EN EL FRAME
         self.CargarInfoUsuarioEnLabels()
         # INFORMACIO CARGADA QUE NO SE MODIFICA
-        Label(frameDerechoContador, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoContador, text=self.id_usu, font=("comic sans MS", 16,), bg="#18344A", fg="white").place(
             x=270, y=100)
-        Label(frameDerechoContador, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A",
+        Label(frameDerechoContador, text=self.nombre_usu, font=("comic sans MS", 16), bg="#18344A",
               fg="white").place(
             x=270, y=140)
-        Label(frameDerechoContador, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A",
+        Label(frameDerechoContador, text=self.apellido_usu, font=("comic sans MS", 16), bg="#18344A",
               fg="white").place(x=270, y=180)
-        Label(frameDerechoContador, text=self.cargo_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoContador, text=self.cargo_usu, font=("comic sans MS", 16), bg="#18344A", fg="white").place(
             x=270, y=220)
 
-        self.listboxUsuario = Listbox(frameDerechoContador, width=25, heigh=2, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20,))
+        self.listboxUsuario = Listbox(frameDerechoContador, width=25, height=2, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16,))
 
         self.listboxUsuario.insert(0, self.dir_usu)
         self.listboxUsuario.insert(1, self.tel_usu)
