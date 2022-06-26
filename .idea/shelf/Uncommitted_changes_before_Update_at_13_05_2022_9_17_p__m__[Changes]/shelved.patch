@@ -1,0 +1,37 @@
+Index: registroUsuario.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ****** Librerias Usadas ****** #\r\n\r\nfrom tkinter import *\r\nfrom tkinter import ttk\r\nfrom PIL import Image, ImageTk\r\n\r\n# ****** Metodos de otros archivos ****** #\r\n\r\nfrom Usuario import *\r\nfrom gestionUsuario import *\r\n\r\nclass registroUsuario:\r\n\r\n    def __init__(self, rootRegistroUsuario)\r\n        self.rootRegistroUsuario = rootRegistroUsuario\r\n        self.rootRegistroUsuario.title(\"Registro Usuario\")\r\n        self.rootRegistroUsuario.geometry(\"1360x768+560+312\")\r\n        self.rootRegistroUsuario.resizable(1, 1)\r\n\r\n        # --------imagen background------\r\n\r\n        self.bg = ImageTk.PhotoImage(file=\"Imagenes\\FondoInterfaz2.png\")\r\n        Label(self.rootRegistroUsuario, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)\r\n\r\n\r\n        # -------registrerFrame--------\r\n\r\n        miFrame1 = Frame(self.rootRegistroUsuario bg=\"saddlebrown\")\r\n        miFrame1.place(x=160, y=0, width=650, height=600)\r\n\r\n        Label(miFrame1, text=\"REGISTRAR USUARIO\", font=(\"times new roman\", 25, \"bold\"), bg=\"saddlebrown\",\r\n              fg=\"white\").place(x=50, y=20)\r\n\r\n        # ------Row 1---\r\n\r\n        Label(miFrame1, text=\"Identificador: \", font=(\"times new roman\", 16, \"bold\"), bg=\"saddlebrown\", fg=\"gainsboro\").place(x=50, y=70)\r\n        self.ident = Entry(miFrame1, font=(\"times new roman\", 16))\r\n        self.ident.place(x=50, y=110)\r\n\r\n        Label(miFrame1, text=\"Nombre: \", font=(\"times new roman\", 16, \"bold\"), bg=\"saddlebrown\",\r\n              fg=\"gainsboro\").place(x=350, y=70)\r\n        self.nombre = Entry(miFrame1, font=(\"times new roman\", 16))\r\n        self.nombre.place(x=350, y=110)\r\n\r\n        # ------Row 2---\r\n\r\n        Label(miFrame1, text=\"Apellido: \", font=(\"times new roman\", 16, \"bold\"), bg=\"saddlebrown\",\r\n              fg=\"gainsboro\").place(x=50, y=150)\r\n        self.apell = Entry(miFrame1, font=(\"times new roman\", 16))\r\n        self.apell.place(x=50, y=190)\r\n\r\n        Label(miFrame1, text=\"Telefono: \", font=(\"times new roman\", 16, \"bold\"), bg=\"saddlebrown\",\r\n              fg=\"gainsboro\").place(x=350, y=150)\r\n        self.tel = Entry(miFrame1, font=(\"times new roman\", 16))\r\n        self.tel.place(x=350, y=190)\r\n\r\n        # ------Row 3---\r\n\r\n        Label(miFrame1, text=\"Direccion \", font=(\"times new roman\", 16, \"bold\"), bg=\"saddlebrown\",\r\n              fg=\"gainsboro\").place(x=50, y=230)\r\n        self.dir = Entry(miFrame1, font=(\"times new roman\", 16))\r\n        self.dir.place(x=50, y=270)\r\n\r\n        Label(miFrame1, text=\"Cargo \", font=(\"times new roman\", 16, \"bold\"), bg=\"saddlebrown\", fg=\"gainsboro\").place(x=350, y=230)\r\n        self.rolPass = ttk.Combobox(miFrame1, font=(\"times new roman\",13), state=\"readonly\", justify=CENTER)\r\n        self.rolPass[\"values\"] = [\"vendedor\",\"bodega\",\"contador\", \"administrador\"]\r\n        self.rolPass.place(x=350,y=270)\r\n\r\n        self.carg = self.rolPass\r\n        #self.carg = Entry(miFrame1, font=(\"times new roman\", 16))\r\n        #self.carg.place(x=350, y=270)\r\n\r\n        # ------Row 4---\r\n\r\n        Label(miFrame1, text=\"Sueldo \", font=(\"times new roman\", 16, \"bold\"), bg=\"saddlebrown\",\r\n              fg=\"gainsboro\").place(x=50, y=310)\r\n        self.sueld = Entry(miFrame1, font=(\"times new roman\", 16))\r\n        self.sueld.place(x=50, y=350)\r\n\r\n        self.contraseña = self.ident\r\n\r\n        # ------Row 5---\r\n\r\n\r\n\r\n        # ------Row 6---\r\n        BotonGuardar = Button(miFrame1, text=\"Registrar\", command=self.registrar, font=(\"times new roman\", 15), bd=0,\r\n                              cursor=\"hand2\")\r\n        BotonGuardar.place(x=50, y=500, width=200)\r\n        BotonLogin = Button(miFrame1, text=\"Volver\", command=self.volver, font=(\"times new roman\", 15),\r\n                            bd=0, cursor=\"hand2\")\r\n        BotonLogin.place(x=350, y=500, width=200)\r\n\r\n    def validacion(self):\r\n        return (len(self.ident.get()) == 0 or len(self.carg.get()) == 0) #<--\r\n\r\n    def registrar(self):\r\n\r\n        if self.validacion():\r\n            messagebox.showinfo(\"error!\", \"Los datos son obligatorios\")\r\n        else:\r\n            self.gestionUsuario = gestionUsuario()\r\n            self.gestionUsuario.registrar_usuario(self.ident.get(), self.nombre.get(), self.sueld.get(),self.tel.get(),\r\n                                                  self.dir.get(), self.contraseña.get(),self.carg.get(),\r\n                                                  self.apell.get())\r\n            self.volver()\r\n\r\n    # Para ir al Login\r\n    def volver(self):\r\n        self.rootRegistroUsuario.destroy()\r\n        import GUIGestionEmpleado as ges\r\n        ges.iniciar()\r\n\r\n\r\ndef iniciar():\r\n    rootRegistroUsua = Tk()\r\n    obj = registroUsuario(rootRegistroUsuario)\r\n    rootRegistroUsua.mainloop()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/registroUsuario.py b/registroUsuario.py
+--- a/registroUsuario.py	
++++ b/registroUsuario.py	
+@@ -11,7 +11,7 @@
+ 
+ class registroUsuario:
+ 
+-    def __init__(self, rootRegistroUsuario)
++    def __init__(self, rootRegistroUsuario):
+         self.rootRegistroUsuario = rootRegistroUsuario
+         self.rootRegistroUsuario.title("Registro Usuario")
+         self.rootRegistroUsuario.geometry("1360x768+560+312")
+@@ -25,7 +25,7 @@
+ 
+         # -------registrerFrame--------
+ 
+-        miFrame1 = Frame(self.rootRegistroUsuario bg="saddlebrown")
++        miFrame1 = Frame(self.rootRegistroUsuario, bg="saddlebrown")
+         miFrame1.place(x=160, y=0, width=650, height=600)
+ 
+         Label(miFrame1, text="REGISTRAR USUARIO", font=("times new roman", 25, "bold"), bg="saddlebrown",
+@@ -113,6 +113,6 @@
+ 
+ 
+ def iniciar():
+-    rootRegistroUsua = Tk()
++    rootRegistroUsuario = Tk()
+     obj = registroUsuario(rootRegistroUsuario)
+     rootRegistroUsua.mainloop()
+\ No newline at end of file
