@@ -18,7 +18,7 @@ class gestionCliente:
     # ****** Metodo para registrar clientes en la base de datos ******#
 
     def registrar_cliente(self, nit, nombre_cli, apellidoPa_cli, apellidoMa_cli, tipo_cli, dirCa_cli, dirNu_cli):
-        act = true
+        act = True
         self.base = BaseDatos()
         self.query = "insert    into    cliente    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)"
         self.base.crear_cursor(self.query, (nit, nombre_cli, apellidoPa_cli, apellidoMa_cli, tipo_cli, dirCa_cli, dirNu_cli,act))
@@ -175,13 +175,4 @@ class gestionCliente:
         self.query = "update cliente set estado  = false where nit = '"+ nit + "'"
         self.cur = self.base.crear_cursor(self.query, (nit))
         messagebox.showinfo("deshabilitado", "El Cliente ha sido deshabilitado con exito")
-        self.base.cerrar_conexion()
-
-    # ****** Metodo para habilitar usuarios ******#
-
-    def habilitar_usuario(self, email):
-        self.base = BaseDatos()
-        self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
         self.base.cerrar_conexion()

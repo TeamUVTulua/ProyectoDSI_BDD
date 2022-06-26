@@ -1,9 +1,12 @@
+# ****** Librerias usadas ******#
+
 from tkinter import messagebox
 from BaseDatos import *
 from Pedido import *
 
 pedido = Pedido("", "", "", "","")
 
+# ****** clase gestionPedido ******#
 
 class gestionPedido:
 
@@ -14,7 +17,7 @@ class gestionPedido:
             self.base = BaseDatos()
             self.query = "insert    into    surtido    VALUES    (%s,%s,%s,%s,%s)"
             self.base.crear_cursor(self.query, (codigo_ped, producto_ped, proveedor_ped, precio_ped, cantidad_ped))
-            messagebox.showinfo("Registrado", "El pedido    ha    sido    registrado    con    exito")
+            messagebox.showinfo("Registrado", "El pedido ha sido registrado con exito")
             self.base.cerrar_conexion()
         except:
             messagebox.showinfo("Aviso", "El pedido ya se encuentra registrado.")
@@ -117,9 +120,10 @@ class gestionPedido:
         for (cantidadCompra_ped) in self.cur:
             print(cantidadCompra_ped)
         return cantidadCompra_ped
-    #-------------------------------------------------------------
+
+    # ****** Metodo para la modifciacion de los datos ******#
+
     def modificar_codigo(self, cod, codigo):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update surtido set codigo  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, codigo))
@@ -127,10 +131,7 @@ class gestionPedido:
 
         self.base.cerrar_conexion()
 
-    # ****** Metodo para la modifciacion de los datos ******#
-
     def modificar_nombre(self, nombre, codigo):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update producto set nombre  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (nombre, codigo))
@@ -139,7 +140,6 @@ class gestionPedido:
         self.base.cerrar_conexion()
 
     def modificar_categoria(self, categoria, codigo):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update producto set categoria  = %s where codigo = %s"  # <----
         self.cur = self.base.crear_cursor(self.query, (categoria, codigo))
@@ -147,7 +147,6 @@ class gestionPedido:
 
         self.base.cerrar_conexion()
     def modificar_cantidad(self, cantidad, codigo):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update producto set cantidad  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cantidad, codigo))

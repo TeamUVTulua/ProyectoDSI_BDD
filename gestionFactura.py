@@ -15,7 +15,7 @@ factura = Factura("", "", "", "", "", "", "", "","")
 
 class gestionFactura:
 
-    # ****** Metodo para registrar clientes en la base de datos ******#
+    # ****** Metodo para registrar factura en la base de datos ******#
 
     def registrar_factura(self, num_fac, fecha_fac, des_fac, pago_fac, valor_fac, cambio_fac, emp_fac, cli_fac, monto_fac):
         self.base = BaseDatos()
@@ -40,7 +40,7 @@ class gestionFactura:
         print(self.query)
         self.base.crear_cursor2(self.query)
         self.base.cerrar_conexion()
-        messagebox.showinfo("modificado", "El numerofactura ha sido modificado con exito")
+        messagebox.showinfo("modificado", "El numero de factura ha sido modificado con exito")
 
     def registrar_codigo(self, num_fac):
 
@@ -52,7 +52,7 @@ class gestionFactura:
         self.base.crear_cursor2(self.query)
         self.base.cerrar_conexion()
 
-    # ****** Metodo para obtener los datos de los clientes de la base de datos ******#
+    # ****** Metodo para obtener los datos de las facturas de la base de datos ******#
 
     def obtenerTodos(self):
         self.base = BaseDatos()
@@ -166,28 +166,25 @@ class gestionFactura:
         self.base = BaseDatos()
         self.query = "update factura set numerofactura  = %s where numerofactura = %s"
         self.cur = self.base.crear_cursor(self.query, (numerofactura, identificacion))
-        messagebox.showinfo("modificado", "El numerofactura ha sido modificado con exito", )
+        messagebox.showinfo("modificado", "El numero de la factura ha sido modificado con exito", )
 
     def modificar_nombre(self, nombre, identificacion):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update cliente set nombre  = %s where numerofactura = %s"
         self.cur = self.base.crear_cursor(self.query, (nombre, identificacion))
-        messagebox.showinfo("modificado", "El numerofactura ha sido modificado con exito")
+        messagebox.showinfo("modificado", "El nombre del cliente en la factura ha sido modificado con exito")
 
     def modificar_apellido1(self, apellido, identificacion):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update cliente set apellidopaterno  = %s where numerofactura = %s"
         self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))
-        messagebox.showinfo("modificado", "El apellido Paterno ha sido modificado con exito")
+        messagebox.showinfo("modificado", "El apellido Paterno en la factura ha sido modificado con exito")
 
     def modificar_apellido2(self, apellido, identificacion):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update cliente set apellidomaterno  = %s where numerofactura = %s"
         self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))
-        messagebox.showinfo("modificado", "El apellido matenro ha sido modificado con exito")
+        messagebox.showinfo("modificado", "El apellido matenro en la factura ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 
@@ -195,7 +192,7 @@ class gestionFactura:
         self.base = BaseDatos()
         self.query = "update cliente set tipocliente  = %s where numerofactura = %s"
         self.cur = self.base.crear_cursor(self.query, (tipo, identificacion))
-        messagebox.showinfo("modificado", "El tipo de cliente ha sido modificado con exito")
+        messagebox.showinfo("modificado", "El tipo de cliente en la ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 
@@ -203,14 +200,14 @@ class gestionFactura:
         self.base = BaseDatos()
         self.query = "update cliente set dircalle  = %s where numerofactura = %s"
         self.cur = self.base.crear_cursor(self.query, (dirCalle, identificacion))
-        messagebox.showinfo("modificado", "La direccion Calle ha sido modificado con exito")
+        messagebox.showinfo("modificado", "La direccion Calle en la factura ha sido modificado con exito")
         self.base.cerrar_conexion()
 
     def modificar_dirNum(self, dirNum, identificacion):
         self.base = BaseDatos()
         self.query = "update cliente set dirnumero  = %s where nir = %s"
         self.cur = self.base.crear_cursor(self.query, (dirNum, identificacion))
-        messagebox.showinfo("Cambiada", "La direccion numero ha sido cambiada con exito")
+        messagebox.showinfo("Cambiada", "La direccion numero en la factura ha sido cambiada con exito")
         self.base.cerrar_conexion()
 
     # ****** Metodo para deshabilitar usuarios ******#
@@ -219,14 +216,5 @@ class gestionFactura:
         self.base = BaseDatos()
         self.query = "update cliente set estado  = false where numerofactura = '" + numerofactura + "'"
         self.cur = self.base.crear_cursor(self.query, (numerofactura))
-        messagebox.showinfo("deshabilitado", "El Cliente ha sido deshabilitado con exito")
-        self.base.cerrar_conexion()
-
-    # ****** Metodo para habilitar usuarios ******#
-
-    def habilitar_usuario(self, email):
-        self.base = BaseDatos()
-        self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
+        messagebox.showinfo("deshabilitado", "El Cliente en ha sido deshabilitado con exito")
         self.base.cerrar_conexion()

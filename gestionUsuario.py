@@ -22,7 +22,6 @@ class gestionUsuario:
             self.base = BaseDatos()
             self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido, estado FROM empleado WHERE id_usu =' " + identificacion + "  'and contra='" + contraseña + "'"
             self.cur = self.base.ObtenerDatos(self.query)
-            print ("aqui")
 
             for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu,estado_usu) in self.cur:
                 self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu, estado_usu)
@@ -60,7 +59,6 @@ class gestionUsuario:
         self.query = "SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu='" + identificacion + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         bus = self.cur.fetchone()
-        #print (bus)
         return bus
 
     def obtener_id (self, identificador):
@@ -185,7 +183,8 @@ class gestionUsuario:
         messagebox.showinfo("modificado", "El telefono ha sido modificado con exito")
         self.base.cerrar_conexion()
 
-##---------------------------------------------
+    # ****** Metodo para deshabilitar usuario ******#
+
     def deshabilitar_usuario(self, identificacion):
         self.base = BaseDatos()
         self.query = "update empleado set estado  = false where id_usu = '" + identificacion + "'"
@@ -193,9 +192,3 @@ class gestionUsuario:
         messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 
-    def habilitar_usuario(self, email):
-        self.base = BaseDatos()
-        self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
-        self.base.cerrar_conexion()

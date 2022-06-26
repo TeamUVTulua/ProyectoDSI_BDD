@@ -17,7 +17,7 @@ class gestionProveedor:
     # ****** Metodo para registrar los datos ******#
 
     def registrar_proveedor(self, nit_prov, nombre_prov, contacto_prov,direccion_prov):
-        act = true
+        act = True
         self.base = BaseDatos()
         self.query = "insert    into    proveedor    VALUES    (%s,%s,%s,%s, %s)"
         self.base.crear_cursor(self.query, (nit_prov, nombre_prov, contacto_prov, direccion_prov, act))
@@ -99,7 +99,6 @@ class gestionProveedor:
         return dir_prov
 
     def modificar_nit(self, cod, nit):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update proveedor set nit  = %s where nit = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, nit))
@@ -110,7 +109,6 @@ class gestionProveedor:
 
 
     def modificar_nombre(self, nombre, nit):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update proveedor set nombre  = %s where nit = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (nombre, nit))
@@ -120,7 +118,6 @@ class gestionProveedor:
         self.base.cerrar_conexion()
 
     def modificar_contacto(self, contacto, nit):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update proveedor set contacto  = %s where nit = %s"  # <----
         self.cur = self.base.crear_cursor(self.query, (contacto, nit))
@@ -129,7 +126,6 @@ class gestionProveedor:
 
         self.base.cerrar_conexion()
     def modificar_direccion(self, direccion, nit):
-        print("aquí")
         self.base = BaseDatos()
         self.query = "update proveedor set direccion  = %s where nit = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (direccion, nit))

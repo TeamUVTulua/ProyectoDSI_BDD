@@ -10,12 +10,14 @@ from Usuario import *
 from gestionUsuario import *
 from tkinter.simpledialog import askstring
 
+# ****** Clase registroUsuario ******#
+
 class registroUsuario:
 
     def __init__(self, rootRegistroUsuario):
         self.rootRegistroUsuario = rootRegistroUsuario
         self.rootRegistroUsuario.title("Registro Usuario")
-        self.rootRegistroUsuario.geometry("1360x768+560+312")
+        self.rootRegistroUsuario.geometry("1360x768+0+0")
         self.rootRegistroUsuario.resizable(1, 1)
 
         # ******logo de Fondo****** #

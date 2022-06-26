@@ -15,7 +15,7 @@ class gestionProducto:
             self.base = BaseDatos()
             self.query = "insert    into    producto    VALUES    (%s,%s,%s,%s,%s)"
             self.base.crear_cursor(self.query, (codigo_pro, nombre_pro, categoria_pro, cantidad_pro, act))
-            messagebox.showinfo("Registrado", "El    producto    ha    sido    registrado    con    exito")
+            messagebox.showinfo("Registrado", "El producto ha sido registrado con exito")
             self.base.cerrar_conexion()
         except:
             messagebox.showinfo("Aviso", "Producto ya registrado.")
@@ -111,32 +111,29 @@ class gestionProducto:
     # ****** Metodo para la modifciacion de los datos ******#
 
     def modificar_nombre(self, nombre, codigo):
-        print("aquí")
         self.base = BaseDatos()
-        self.query = "update producto set nombre  = %s where codigo = %s" # <----
+        self.query = "update producto set nombre  = %s where codigo = %s"
         self.cur = self.base.crear_cursor(self.query, (nombre, codigo))
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 
     def modificar_categoria(self, categoria, codigo):
-        print("aquí")
         self.base = BaseDatos()
-        self.query = "update producto set categoria  = %s where codigo = %s"  # <----
+        self.query = "update producto set categoria  = %s where codigo = %s"
         self.cur = self.base.crear_cursor(self.query, (categoria, codigo))
         messagebox.showinfo("modificado", "La categoria se ha sido modificado con exito")
 
         self.base.cerrar_conexion()
     def modificar_cantidad(self, cantidad, codigo):
-        print("aquí")
         self.base = BaseDatos()
-        self.query = "update producto set cantidad  = %s where codigo = %s" # <----
+        self.query = "update producto set cantidad  = %s where codigo = %s"
         self.cur = self.base.crear_cursor(self.query, (cantidad, codigo))
         messagebox.showinfo("modificado", "La cantidad ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 
-    # ****** Metodo para habilitar productos ******#
+    # ****** Metodo para deshabilitar productos ******#
 
     def deshabilitar_usuario(self, codigo):
         self.base = BaseDatos()
@@ -145,7 +142,7 @@ class gestionProducto:
         messagebox.showinfo("deshabilitado", "El producto ha sido eliminado con exito")
         self.base.cerrar_conexion()
 
-    # ****** Metodo para deshabilitar productos ******#
+    # ****** Metodo para habilitar productos ******#
 
     def habilitar_usuario(self, email):
         self.base = BaseDatos()
