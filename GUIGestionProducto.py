@@ -75,7 +75,7 @@ class GUIGestionProducto:
                                       font=("comic sans MS", 20))
         self.listboxProducto.pack()
 
-        self.CargarInfoProductoEnLabels(self.listboxProducto)
+        self.CargarInfoUsuarioEnLabels(self.listboxProducto)
 
         self.listboxProducto.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listboxProducto.yview)
@@ -89,7 +89,7 @@ class GUIGestionProducto:
 
     def mostrarProd(self):
         frameDerechoGestProd = Frame(self.rootGUIRegProd, bg="#18344A")
-        frameDerechoGestProd.place(x=600, y=85, width=700, height=530)
+        frameDerechoGestProd.place(x=600, y=20, width=700, height=530)
 
         # ******* Titulo Frame Bienvenido ****** #
 
