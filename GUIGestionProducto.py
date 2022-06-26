@@ -209,7 +209,7 @@ class GUIGestionProducto:
         gestionProductos = gestionProducto()
         gestionProductos.deshabilitar_usuario(self.auxId )
         self.rootGUIRegProd.destroy()
-        iniciar()
+        iniciar(self.cargo)
 
 
 def ventanaConsultarProd(self):

@@ -14,7 +14,7 @@ from Usuario import *
 
 user = Usuario("", "", "", "", "", "", "", "", "")
 
-
+#asd
 # ****** Clase loginUsuario ****** #
 
 class loginUsuario:
