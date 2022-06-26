@@ -1,12 +1,13 @@
 
 class Venta:
 
-    def __init__(self,codigo,producto,factura,cantidadVenta,precioVenta):
+    def __init__(self,codigo,producto,factura,cantidadVenta,precioVenta, precioTotal):
         self.codgo = codigo
         self.producto = producto
         self.factura = factura
         self.cantidadVenta = cantidadVenta
         self.precioVenta = precioVenta
+        self.precioTotal = precioTotal
 
     def get_codigo(self):
         return self.codigo
@@ -22,6 +23,9 @@ class Venta:
 
     def get_precioVenta(self):
         return self.precioVenta
+
+    def get_precioTotal(self):
+        return self.precioTotal
 
     # -------------------------------------
 
@@ -39,3 +43,6 @@ class Venta:
 
     def set_precioVenta(self, precioVenta):
         self.precioVenta = precioVenta
+
+    def set_precioTotal(self, precioTotal):
+        self.precioTotal = precioTotal

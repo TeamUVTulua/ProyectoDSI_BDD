@@ -3,7 +3,7 @@ class Factura:
 
     # ****** Definicion de lo que compone la clase Cliente ******#
 
-    def __init__(self, num, fecha, descuento, tipoPago, valoFinal, cambio, empleado, cliente):
+    def __init__(self, num, fecha, descuento, tipoPago, valoFinal, cambio, empleado, cliente, monto):
         self.num = num
         self.fecha = fecha
         self.descuento = descuento
@@ -12,7 +12,7 @@ class Factura:
         self.cambio = cambio
         self.empleado = empleado
         self.cliente = cliente
-
+        self.monto = monto
     # ****** Metodos get para la clase Cliente ******#
 
     def get_num(self):
@@ -39,6 +39,9 @@ class Factura:
     def get_cliente(self):
         return self.cliente
 
+    def get_monto(self):
+        return self.monto
+
     # ****** Metodos set para la clase Cliente ******#
 
     def set_num(self, num):
@@ -64,3 +67,6 @@ class Factura:
 
     def set_cliente(self, cliente):
         self.cliente = cliente
+
+    def set_monto(self, monto):
+        self.monto = monto

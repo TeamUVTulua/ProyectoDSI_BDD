@@ -131,9 +131,11 @@ class GUIVendedor:
         cons=gestionFacturas.buscar_info(self.auxId)
         print(cons)
         if (cons == None):
+            gesFac = gestionFactura()
+            gesFac.registrar_codigo(fact)
             self.rootGUIVendedor.destroy()
             import GUIFacturacion as emp
-            emp.iniciar(fact)
+            emp.iniciar(fact, usuario.get_id_usu())
         else:
             messagebox.showinfo("Consultar", "La factura está registrado")
 

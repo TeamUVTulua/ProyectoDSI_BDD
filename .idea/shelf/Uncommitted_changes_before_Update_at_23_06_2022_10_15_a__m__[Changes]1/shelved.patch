@@ -1,0 +1,128 @@
+Index: LoginUsuario.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ****** Librerias Usadas ****** #\r\n\r\nfrom tkinter import *\r\nfrom tkinter import ttk, messagebox\r\nfrom PIL import Image, ImageTk\r\nfrom tkinter.simpledialog import askstring\r\nfrom tkinter.messagebox import showinfo\r\n\r\n# ****** Metodos de otros archivos ******#\r\n\r\nfrom gestionUsuario import *\r\nfrom BaseDatos import *\r\nfrom Usuario import *\r\n\r\nuser = Usuario(\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\")\r\n\r\n\r\n# ****** Clase loginUsuario ****** #\r\n\r\nclass loginUsuario:\r\n    def __init__(self, rootLogin):\r\n        self.rootLogin = rootLogin\r\n        self.rootLogin.title(\"Sistema de inventario y Ventas MotoSocios\")\r\n        self.rootLogin.geometry(\"1360x768+560+312\")\r\n        self.rootLogin.resizable(1, 1)\r\n        self.rootLogin.iconbitmap(\"Imagenes\\iconoInterfaz.ico\")\r\n        self.rootLogin.attributes('-fullscreen',True)\r\n\r\n        # ****** Imagen de fondo ****** #\r\n        self.bg = ImageTk.PhotoImage(file=\"Imagenes/FondoInterfaz2.png\")\r\n        Label(self.rootLogin, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)\r\n\r\n        # ****** Frame Login ****** #\r\n        frameLogin = Frame(self.rootLogin, bg=\"#18344A\")\r\n        frameLogin.place(x=500, y=110, width=345, height=450)\r\n        Label(frameLogin, text=\"INICIO SESIÓN\", font=(\"comic sass MS\", 25, \"bold\"), bg=\"#18344A\",fg=\"white\").place(x=50, y=20)\r\n\r\n        # ****** Label ID ****** #\r\n        Label(frameLogin, text=\"Identificación: \", font=(\"comic sass MS\", 16, \"bold\"), bg=\"#18344A\", fg=\"white\").place( x=50, y=80)\r\n        self.cuadroID = Entry(frameLogin, font=(\"comic sass MS\", 16),width=22)\r\n        self.cuadroID.place(x=50, y=120)\r\n\r\n        # ****** Label contraseña ****** #\r\n        Label(frameLogin, text=\"Contraseña: \", font=(\"comic sass MS\", 16, \"bold\"), bg=\"#18344A\", fg=\"white\").place(x=50, y=160)\r\n        self.cuadroPass = Entry(frameLogin, show=\"*\", font=(\"comic sass MS\", 16,),width=22)\r\n        self.cuadroPass.place(x=50, y=200)\r\n\r\n        # ****** Boton Ingresar ****** #\r\n        BotonIngresar = Button(frameLogin, text=\"Ingresar \", command=self.abrirUsuarioSegunRol, font=(\"comic sass MS\", 15),bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonIngresar.place(x=75,y=280, width=200)\r\n\r\n        # ****** Boton Salir ****** #\r\n\r\n        BotonSalir = Button(frameLogin, text=\"Salir\", command=self.rootLogin.destroy,font=(\"comic sass MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonSalir.place(x=75, y=330, width=200)\r\n\r\n        # ****** Boton Olvide mi contraseña ****** #\r\n\r\n        BotonOlvidePass = Button(frameLogin, text=\"Olvide mi contraseña\", font=(\"comic sass MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonOlvidePass.place(x=75, y=380, width=200)\r\n\r\n    def abrirUsuarioSegunRol(self):\r\n\r\n        print(self.cuadroID.get())\r\n\r\n        if (self.cuadroID.get() == '' or self.cuadroPass.get() == ''):\r\n            showinfo('Error Inicio de Sesión', 'Campos Obligatorios')\r\n\r\n        else:\r\n\r\n            gestionUsuarios = gestionUsuario()\r\n            user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())\r\n\r\n            user = user2\r\n\r\n            if (user2.get_cargo() == 'administrador'):\r\n                print(\"ventana adminCC\")\r\n                self.rootLogin.destroy()\r\n                import GUIAdministrador as cc\r\n                cc.usuario = user2\r\n                cc.iniciar()\r\n\r\n            elif (user2.get_cargo() == 'vendedor'):\r\n                print(\"ventana adminRR\")\r\n                self.rootLogin.destroy()\r\n                import GUIVendedor as cc\r\n                cc.usuario = user2\r\n                cc.iniciar()\r\n\r\n\r\n            elif (user2.get_cargo() == 'bodega'):\r\n                print(\"ventana OperarioRR\")\r\n                self.rootLogin.destroy()\r\n                import GUIBodeguista as cc\r\n                cc.usuario = user2\r\n                cc.iniciar()\r\n\r\n            elif (user2.get_cargo() == 'contador'):\r\n                print(\"ventana OperarioRR\")\r\n                self.rootLogin.destroy()\r\n                import GUIContador as cc\r\n                cc.usuario = user2\r\n                cc.iniciar()\r\n            else:\r\n                messagebox.showinfo(\"Aviso\", \"El email o contraseña son incorrectos\")\r\n\r\n\r\n\r\ndef iniciar():\r\n    rootLogin = Tk()\r\n    obj = loginUsuario(rootLogin)\r\n    rootLogin.mainloop()\r\n\r\nrootLogin = Tk()\r\nobj = loginUsuario(rootLogin)\r\nrootLogin.mainloop()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LoginUsuario.py b/LoginUsuario.py
+--- a/LoginUsuario.py	(revision 0b6da1461b7bf0ac7446ed41fd4fe13e3cb28fe0)
++++ b/LoginUsuario.py	(date 1655997355339)
+@@ -1,116 +1,0 @@
+-# ****** Librerias Usadas ****** #
+-
+-from tkinter import *
+-from tkinter import ttk, messagebox
+-from PIL import Image, ImageTk
+-from tkinter.simpledialog import askstring
+-from tkinter.messagebox import showinfo
+-
+-# ****** Metodos de otros archivos ******#
+-
+-from gestionUsuario import *
+-from BaseDatos import *
+-from Usuario import *
+-
+-user = Usuario("", "", "", "", "", "", "", "")
+-
+-
+-# ****** Clase loginUsuario ****** #
+-
+-class loginUsuario:
+-    def __init__(self, rootLogin):
+-        self.rootLogin = rootLogin
+-        self.rootLogin.title("Sistema de inventario y Ventas MotoSocios")
+-        self.rootLogin.geometry("1360x768+560+312")
+-        self.rootLogin.resizable(1, 1)
+-        self.rootLogin.iconbitmap("Imagenes\iconoInterfaz.ico")
+-        self.rootLogin.attributes('-fullscreen',True)
+-
+-        # ****** Imagen de fondo ****** #
+-        self.bg = ImageTk.PhotoImage(file="Imagenes/FondoInterfaz2.png")
+-        Label(self.rootLogin, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
+-
+-        # ****** Frame Login ****** #
+-        frameLogin = Frame(self.rootLogin, bg="#18344A")
+-        frameLogin.place(x=500, y=110, width=345, height=450)
+-        Label(frameLogin, text="INICIO SESIÓN", font=("comic sass MS", 25, "bold"), bg="#18344A",fg="white").place(x=50, y=20)
+-
+-        # ****** Label ID ****** #
+-        Label(frameLogin, text="Identificación: ", font=("comic sass MS", 16, "bold"), bg="#18344A", fg="white").place( x=50, y=80)
+-        self.cuadroID = Entry(frameLogin, font=("comic sass MS", 16),width=22)
+-        self.cuadroID.place(x=50, y=120)
+-
+-        # ****** Label contraseña ****** #
+-        Label(frameLogin, text="Contraseña: ", font=("comic sass MS", 16, "bold"), bg="#18344A", fg="white").place(x=50, y=160)
+-        self.cuadroPass = Entry(frameLogin, show="*", font=("comic sass MS", 16,),width=22)
+-        self.cuadroPass.place(x=50, y=200)
+-
+-        # ****** Boton Ingresar ****** #
+-        BotonIngresar = Button(frameLogin, text="Ingresar ", command=self.abrirUsuarioSegunRol, font=("comic sass MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+-        BotonIngresar.place(x=75,y=280, width=200)
+-
+-        # ****** Boton Salir ****** #
+-
+-        BotonSalir = Button(frameLogin, text="Salir", command=self.rootLogin.destroy,font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+-        BotonSalir.place(x=75, y=330, width=200)
+-
+-        # ****** Boton Olvide mi contraseña ****** #
+-
+-        BotonOlvidePass = Button(frameLogin, text="Olvide mi contraseña", font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+-        BotonOlvidePass.place(x=75, y=380, width=200)
+-
+-    def abrirUsuarioSegunRol(self):
+-
+-        print(self.cuadroID.get())
+-
+-        if (self.cuadroID.get() == '' or self.cuadroPass.get() == ''):
+-            showinfo('Error Inicio de Sesión', 'Campos Obligatorios')
+-
+-        else:
+-
+-            gestionUsuarios = gestionUsuario()
+-            user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())
+-
+-            user = user2
+-
+-            if (user2.get_cargo() == 'administrador'):
+-                print("ventana adminCC")
+-                self.rootLogin.destroy()
+-                import GUIAdministrador as cc
+-                cc.usuario = user2
+-                cc.iniciar()
+-
+-            elif (user2.get_cargo() == 'vendedor'):
+-                print("ventana adminRR")
+-                self.rootLogin.destroy()
+-                import GUIVendedor as cc
+-                cc.usuario = user2
+-                cc.iniciar()
+-
+-
+-            elif (user2.get_cargo() == 'bodega'):
+-                print("ventana OperarioRR")
+-                self.rootLogin.destroy()
+-                import GUIBodeguista as cc
+-                cc.usuario = user2
+-                cc.iniciar()
+-
+-            elif (user2.get_cargo() == 'contador'):
+-                print("ventana OperarioRR")
+-                self.rootLogin.destroy()
+-                import GUIContador as cc
+-                cc.usuario = user2
+-                cc.iniciar()
+-            else:
+-                messagebox.showinfo("Aviso", "El email o contraseña son incorrectos")
+-
+-
+-
+-def iniciar():
+-    rootLogin = Tk()
+-    obj = loginUsuario(rootLogin)
+-    rootLogin.mainloop()
+-
+-rootLogin = Tk()
+-obj = loginUsuario(rootLogin)
+-rootLogin.mainloop()
+\ No newline at end of file

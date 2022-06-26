@@ -1,0 +1,57 @@
+Index: BaseDatos.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ****** Librerias importadas ******#\r\n\r\nimport psycopg2\r\nfrom tkinter import messagebox\r\n\r\n# ****** Clase BaseDeDatos  ******#\r\nclass BaseDatos:\r\n    def __init__(self):\r\n\r\n        # ****** Conexion con la base de datos ******#\r\n\r\n        self.conexion = psycopg2.connect(\r\n            host=\"localhost\",\r\n            database=\"MotoSocios\",\r\n            user=\"postgres\",\r\n            password=\"smr6134\"\r\n        )\r\n\r\n        # ****** Comandos ejecutados en la base de datos ******#\r\n\r\n        self.cursor = self.conexion.cursor()\r\n        print(\"conexion exitosa\")\r\n\r\n    def ObtenerDatos(self, dato):\r\n        self.cursor.execute(dato)\r\n        return self.cursor\r\n\r\n    def ObtenerTodosLosdatos(self, dato):\r\n        self.cursor.execute(dato)\r\n        row = self.cursor.fetchall()\r\n        return row\r\n\r\n    def crear_cursor(self, dato1, dato2):\r\n        self.cursor.execute(dato1, dato2)\r\n        self.conexion.commit()\r\n\r\n    def crear_cursorlogin(self, dato):\r\n        self.cursor.execute(dato)\r\n        self.conexion.commit()\r\n\r\n    def cursor_fetchall(self):\r\n        return self.cursor.fetchall()\r\n\r\n    def cerrar_conexion(self):\r\n        self.conexion.close()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BaseDatos.py b/BaseDatos.py
+--- a/BaseDatos.py	(revision 0b6da1461b7bf0ac7446ed41fd4fe13e3cb28fe0)
++++ b/BaseDatos.py	(date 1655996746177)
+@@ -1,45 +1,0 @@
+-# ****** Librerias importadas ******#
+-
+-import psycopg2
+-from tkinter import messagebox
+-
+-# ****** Clase BaseDeDatos  ******#
+-class BaseDatos:
+-    def __init__(self):
+-
+-        # ****** Conexion con la base de datos ******#
+-
+-        self.conexion = psycopg2.connect(
+-            host="localhost",
+-            database="MotoSocios",
+-            user="postgres",
+-            password="smr6134"
+-        )
+-
+-        # ****** Comandos ejecutados en la base de datos ******#
+-
+-        self.cursor = self.conexion.cursor()
+-        print("conexion exitosa")
+-
+-    def ObtenerDatos(self, dato):
+-        self.cursor.execute(dato)
+-        return self.cursor
+-
+-    def ObtenerTodosLosdatos(self, dato):
+-        self.cursor.execute(dato)
+-        row = self.cursor.fetchall()
+-        return row
+-
+-    def crear_cursor(self, dato1, dato2):
+-        self.cursor.execute(dato1, dato2)
+-        self.conexion.commit()
+-
+-    def crear_cursorlogin(self, dato):
+-        self.cursor.execute(dato)
+-        self.conexion.commit()
+-
+-    def cursor_fetchall(self):
+-        return self.cursor.fetchall()
+-
+-    def cerrar_conexion(self):
+-        self.conexion.close()
+\ No newline at end of file

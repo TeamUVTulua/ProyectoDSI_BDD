@@ -1,0 +1,41 @@
+Index: LoginUsuario.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from tkinter import *\r\nfrom tkinter import ttk\r\nfrom PIL import Image, ImageTk\r\n\r\nclass loginUsuario:\r\n    def __init__(self, raizLogin):\r\n        self.raizLogin = raizLogin\r\n        self.raizLogin.title(\"Sistema de inventario y Ventas MotoSocios\")\r\n        self.raizLogin.geometry(\"1360x768+560+312\")\r\n        self.raizLogin.resizable(1, 1)\r\n\r\n        # ****** Imagen de fondo ****** #\r\n        self.bg = ImageTk.PhotoImage(file=\"Imagenes/FondoInterfaz2.png\")\r\n        Label(self.raizLogin, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)\r\n\r\n        # ****** Frame Login ****** #\r\n        frameLogin = Frame(self.raizLogin, bg=\"darkgoldenrod\")\r\n        frameLogin.place(x=500, y=110, width=345, height=390)\r\n        Label(frameLogin, text=\"INICIO SESIÓN\", font=(\"times new roman\", 25, \"bold\"), fg=\"white\", bg=\"darkgoldenrod\").place(x=50, y=20)\r\n\r\n        # ---------Row 1-----------\r\n        Label(frameLogin, text=\"Correo: \", font=(\"times new roman\", 16, \"bold\"), bg=\"darkgoldenrod\", fg=\"gainsboro\").place(\r\n            x=50, y=70)\r\n        self.cuadroTextoCorreo = Entry(frameLogin, font=(\"times new roman\", 16))\r\n        self.cuadroTextoCorreo.place(x=50, y=110)\r\n\r\n        # ---------Row 2 ------------------\r\n        Label(frameLogin, text=\"Contraseña: \", font=(\"times new roman\", 16, \"bold\"), bg=\"darkgoldenrod\", fg=\"gainsboro\").place(x=50, y=150)\r\n        self.TextoPass = Entry(frameLogin, show=\"*\", font=(\"times new roman\", 16))\r\n        self.TextoPass.place(x=50, y=190)\r\n\r\n        ########Id del rol se debe autenticar con el correo##################\r\n        # ----Row #4-------------\r\n\r\n        BotonRegistrarse = Button(frameLogin, text=\"¿Eres nuevo? registrate\", command=self.RegistroUsuario_window, font=(\"times new roman\", 10), bd=0, bg=\"darkgoldenrod\", cursor=\"hand2\")\r\n        BotonRegistrarse.place(x=60, y=230, width=200)\r\n\r\n        # ---------Row 5----------\r\n\r\n        BotonIngresar = Button(frameLogin, text=\"Ingresar\", command=self.abrirUsuarioSegunRol,\r\n                               font=(\"times new roman\", 15), bg=\"dimgrey\", fg=\"white\", bd=0, cursor=\"hand2\")\r\n        BotonIngresar.place(x=60, y=270, width=200)\r\n        # -----Row 6-------------\r\n\r\n        BotonSalirR = Button(frameLogin, text=\"Salir\", command=self.raizLogin.quit, font=(\"times new roman\", 15), bg=\"dimgrey\",\r\n                             fg=\"white\", bd=0, cursor=\"hand2\")\r\n        BotonSalirR.place(x=60, y=310, width=200)\r\n\r\n    def abrirUsuarioSegunRol(self):\r\n\r\n        gestionUsuarios = GestionUsuarios()\r\n        user2 = gestionUsuarios.login_usuario(self.cuadroTextoCorreo.get(), self.TextoPass.get())\r\n        print(user2.get_nombre())\r\n        user = user2\r\n        print(user.get_id_rol())\r\n\r\n        if (user.get_id_rol() == 1):\r\n            print(\"ventana adminCC\")\r\n            self.raizLogin.destroy()\r\n            import GUIAdminCentroC as cc\r\n            cc.usuario = user2\r\n            cc.inicio()\r\n\r\n        elif (user.get_id_rol() == 2):\r\n            print(\"ventana adminRR\")\r\n            self.raizLogin.destroy()\r\n            import GUIAdminRestaurante as cc\r\n            cc.usuario = user2\r\n            cc.inicio()\r\n\r\n\r\n        elif (user.get_id_rol() == 3):\r\n            print(\"ventana OperarioRR\")\r\n            self.raizLogin.destroy()\r\n            import GUIOperarioRestau as cc\r\n            cc.usuario = user2\r\n            cc.inicio()\r\n        else:\r\n            messagebox.showinfo(\"Aviso\", \"El email o contraseña son incorrectos\")\r\n\r\n    # Para ir al RegistroUsuario\r\n    def RegistroUsuario_window(self):\r\n        self.raizLogin.destroy()\r\n        mensaje = \"cucucucu\"\r\n        print(mensaje)\r\n        import RegistroUsuario as p\r\n        p.mimi = mensaje\r\n        p.inicio()\r\n\r\nraizLogin = Tk()\r\nobj = loginUsuario(raizLogin)\r\nraizLogin.mainloop()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LoginUsuario.py b/LoginUsuario.py
+--- a/LoginUsuario.py	
++++ b/LoginUsuario.py	
+@@ -1,6 +1,9 @@
+ from tkinter import *
+ from tkinter import ttk
+ from PIL import Image, ImageTk
++from BaseDatos import *
++from Usuario import *
++from gestionUsuario import *
+ 
+ class loginUsuario:
+     def __init__(self, raizLogin):
+@@ -37,7 +40,7 @@
+ 
+         # ---------Row 5----------
+ 
+-        BotonIngresar = Button(frameLogin, text="Ingresar", command=self.abrirUsuarioSegunRol,
++        BotonIngresar = Button(frameLogin, text="Ingresar", command=self.ingresar,
+                                font=("times new roman", 15), bg="dimgrey", fg="white", bd=0, cursor="hand2")
+         BotonIngresar.place(x=60, y=270, width=200)
+         # -----Row 6-------------
+@@ -46,9 +49,9 @@
+                              fg="white", bd=0, cursor="hand2")
+         BotonSalirR.place(x=60, y=310, width=200)
+ 
+-    def abrirUsuarioSegunRol(self):
++    def ingresar(self):
+ 
+-        gestionUsuarios = GestionUsuarios()
++        gestionUsuarios = gestionUsuario()
+         user2 = gestionUsuarios.login_usuario(self.cuadroTextoCorreo.get(), self.TextoPass.get())
+         print(user2.get_nombre())
+         user = user2

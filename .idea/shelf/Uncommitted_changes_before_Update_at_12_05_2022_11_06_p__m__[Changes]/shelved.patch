@@ -1,0 +1,231 @@
+Index: LoginUsuario.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from tkinter import *\r\nfrom tkinter import ttk, messagebox\r\nfrom PIL import Image, ImageTk\r\nfrom gestionUsuario import *\r\nfrom BaseDatos import *\r\nfrom Usuario import *\r\n\r\nuser = Usuario(\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\")\r\n\r\nclass loginUsuario:\r\n    def __init__(self, rootLogin):\r\n        self.rootLogin = rootLogin\r\n        self.rootLogin.title(\"Sistema de inventario y Ventas MotoSocios\")\r\n        self.rootLogin.geometry(\"1360x768+560+312\")\r\n        self.rootLogin.resizable(1, 1)\r\n        self.rootLogin.iconbitmap(\"Imagenes\\iconoInterfaz.ico\")\r\n\r\n        # ****** Imagen de fondo ****** #\r\n        self.bg = ImageTk.PhotoImage(file=\"Imagenes/FondoInterfaz2.png\")\r\n        Label(self.rootLogin, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)\r\n\r\n        # ****** Frame Login ****** #\r\n        frameLogin = Frame(self.rootLogin, bg=\"#18344A\")\r\n        frameLogin.place(x=500, y=110, width=345, height=450)\r\n        Label(frameLogin, text=\"INICIO SESIÓN\", font=(\"times new roman\", 25, \"bold\"), bg=\"#18344A\",fg=\"white\").place(x=50, y=20)\r\n\r\n        # ****** Label ID ****** #\r\n        Label(frameLogin, text=\"Identificación: \", font=(\"times new roman\", 16, \"bold\"), bg=\"#18344A\", fg=\"white\").place( x=50, y=80)\r\n        self.cuadroID = Entry(frameLogin, font=(\"times new roman\", 16),width=22)\r\n        self.cuadroID.place(x=50, y=120)\r\n\r\n        # ****** Label contraseña ****** #\r\n        Label(frameLogin, text=\"Contraseña: \", font=(\"times new roman\", 16, \"bold\"), bg=\"#18344A\", fg=\"white\").place(x=50, y=160)\r\n        self.cuadroPass = Entry(frameLogin, show=\"*\", font=(\"times new roman\", 16,),width=22)\r\n        self.cuadroPass.place(x=50, y=200)\r\n\r\n        # ****** Boton Ingresar ****** #\r\n        BotonOlvidePass = Button(frameLogin, text=\"Ingresar \", font=(\"times new roman\", 15),bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonOlvidePass.place(x=75,y=280, width=200)\r\n\r\n        # ****** Boton Salir ****** #\r\n\r\n        BotonIngresar = Button(frameLogin, text=\"Salir\", command=self.abrirUsuarioSegunRol, font=(\"times new roman\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonIngresar.place(x=75, y=330, width=200)\r\n\r\n        # ****** Boton Olvide mi contraseña ****** #\r\n\r\n        BotonSalirR = Button(frameLogin, text=\"Olvide mi contraseña\", command=self.rootLogin.quit, font=(\"times new roman\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonSalirR.place(x=75, y=380, width=200)\r\n\r\n    def abrirUsuarioSegunRol(self):\r\n\r\n        gestionUsuarios = gestionUsuario()\r\n        user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())\r\n\r\n        #print(user2.get_nombre())\r\n        user = user2\r\n\r\n        #print(user.get_id_rol())\r\n\r\n        if (user2.get_cargo() == 'administrador'):\r\n            print(\"ventana adminCC\")\r\n            self.rootLogin.destroy()\r\n            import GUIAdministrador as cc\r\n            cc.usuario = user2\r\n            cc.iniciar()\r\n\r\n        elif (user.get_id_rol() == 2):\r\n            print(\"ventana adminRR\")\r\n            self.rootLogin.destroy()\r\n            import GUIAdminRestaurante as cc\r\n            cc.usuario = user2\r\n            cc.inicio()\r\n\r\n\r\n        elif (user.get_id_rol() == 3):\r\n            print(\"ventana OperarioRR\")\r\n            self.rootLogin.destroy()\r\n            import GUIOperarioRestau as cc\r\n            cc.usuario = user2\r\n            cc.inicio()\r\n        else:\r\n            messagebox.showinfo(\"Aviso\", \"El email o contraseña son incorrectos\")\r\n\r\n\r\nrootLogin = Tk()\r\nobj = loginUsuario(rootLogin)\r\nrootLogin.mainloop()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LoginUsuario.py b/LoginUsuario.py
+--- a/LoginUsuario.py	
++++ b/LoginUsuario.py	
+@@ -35,17 +35,17 @@
+         self.cuadroPass.place(x=50, y=200)
+ 
+         # ****** Boton Ingresar ****** #
+-        BotonOlvidePass = Button(frameLogin, text="Ingresar ", font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
++        BotonOlvidePass = Button(frameLogin, text="Ingresar ", command=self.abrirUsuarioSegunRol, font=("times new roman", 15),bg="gray", fg="white", bd=5, cursor="hand2")
+         BotonOlvidePass.place(x=75,y=280, width=200)
+ 
+         # ****** Boton Salir ****** #
+ 
+-        BotonIngresar = Button(frameLogin, text="Salir", command=self.abrirUsuarioSegunRol, font=("times new roman", 15), bg="gray", fg="white", bd=5, cursor="hand2")
++        BotonIngresar = Button(frameLogin, text="Salir", command=self.rootLogin.quit , font=("times new roman", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+         BotonIngresar.place(x=75, y=330, width=200)
+ 
+         # ****** Boton Olvide mi contraseña ****** #
+ 
+-        BotonSalirR = Button(frameLogin, text="Olvide mi contraseña", command=self.rootLogin.quit, font=("times new roman", 15), bg="gray", fg="white", bd=5, cursor="hand2")
++        BotonSalirR = Button(frameLogin, text="Olvide mi contraseña", font=("times new roman", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+         BotonSalirR.place(x=75, y=380, width=200)
+ 
+     def abrirUsuarioSegunRol(self):
+Index: gestionUsuario.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from tkinter import messagebox\r\nfrom BaseDatos import *\r\nfrom Usuario import *\r\n\r\nuser = Usuario(\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\")\r\n\r\n\r\nclass gestionUsuario:\r\n\r\n    def registrar_usuario(self, identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu):\r\n        self.base = BaseDatos()\r\n\r\n        # registrar    nuevo    usuario\r\n        self.query = \"insert    into    empleado    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)\"\r\n\r\n        self.base.crear_cursor(self.query, (identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu))\r\n        msj = \"registrooooo\"\r\n        print(msj)\r\n        messagebox.showinfo(\"Registrado\", \"El    usuario    ha    sido    registrado    con    exito\")\r\n        # cerrar conexion\r\n        self.base.cerrar_conexion()\r\n\r\n    def login_usuario(self, identificacion, contraseña):\r\n\r\n        self.base = BaseDatos()\r\n\r\n        msj = \"ingresar 2\"\r\n        print(msj)\r\n\r\n        self.query = \"SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu =' \" + identificacion + \"  'and contra='\" + contraseña + \"'\"\r\n\r\n        msj = \"ingresar 3\"\r\n        print(msj)\r\n\r\n        self.cur = self.base.ObtenerDatos(self.query)\r\n        msj = \"ingresar 4\"\r\n        print(msj)\r\n\r\n        # auxUser=Usuario(email_usuario,id_rol,contraseña,num_id_usu,fecha_ingreso,nom_usu,apellido,direcc_usu,tel_usu,activo)\r\n\r\n        for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu) in self.cur:\r\n            self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu)\r\n            user = self.auxUser\r\n\r\n        return user\r\n\r\n    def obtenerTodos(self):\r\n        self.base = BaseDatos()\r\n        self.query = \"SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado\"\r\n        self.cur = self.base.ObtenerTodosLosdatos(self.query)\r\n        return self.cur\r\n\r\n    def consultaEspecificaEnFormaDeLista(self, query):\r\n        self.base = BaseDatos()\r\n        self.query = query\r\n        self.cur = self.base.ObtenerTodosLosdatos(self.query)\r\n        return self.cur\r\n\r\n    def consultar_info(self, identificacion):\r\n        self.base = BaseDatos()\r\n        self.query = \"SELECT id_usu, nombre, sueldo, contacto, direccion, contra, cargo, apellido FROM empleado WHERE id_usu='\" + identificacion + \"'\"\r\n        self.cur = self.base.ObtenerDatos(self.query)\r\n        print(self.cur)\r\n        for (usu_id, nombre_usu, sueldo_usu, telefono_usu, direccion_usu, contraseña, cargo_usu, apellido_usu) in self.cur:\r\n            self.auxUser=Usuario(usu_id,nombre_usu,sueldo_usu,telefono_usu,direccion_usu,contraseña,cargo_usu,apellido_usu)\r\n            user = self.auxUser\r\n\r\n        return user\r\n\r\n\r\n    def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):\r\n        self.base = BaseDatos()\r\n\r\n        self.query = \"update Empleado set contra  = %s where usuario.contraseña = %s and usuario.id_usu = %s\" #<----\r\n        self.cur = self.base.crear_cursor(self.query, (contraseña, contraseñaActual, identificacion))\r\n        messagebox.showinfo(\"Cambiada\", \"La contraseña ha sido cambiada con exito\")\r\n        self.base.cerrar_conexion()\r\n\r\n    def modificar_nombre(self, nombre, identificacion):\r\n        self.base = BaseDatos()\r\n        self.query = \"update Usuario set nombre  = %s where usuario.id_usu = %s\" # <----\r\n        self.cur = self.base.crear_cursor(self.query, (nombre, identificacion))\r\n        messagebox.showinfo(\"modificado\", \"El nombre ha sido modificado con exito\")\r\n\r\n        self.base.cerrar_conexion()\r\n\r\n    def modificar_apellido(self, apellido, identificacion):\r\n        self.base = BaseDatos()\r\n        self.query = \"update Usuario set apellido  = %s where usuario.id_usu = %s\"\r\n        self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))\r\n        messagebox.showinfo(\"modificado\", \"El apellido ha sido modificado con exito\")\r\n        self.base.cerrar_conexion()\r\n\r\n    def modificar_direccion(self, direccion, identificacion):\r\n        self.base = BaseDatos()\r\n        self.query = \"update Usuario set direccion  = %s where usuario.id_usu = %s\"\r\n        self.cur = self.base.crear_cursor(self.query, (direccion, identificacion))\r\n        messagebox.showinfo(\"Cambiada\", \"La direccion ha sido cambiada con exito\")\r\n        self.base.cerrar_conexion()\r\n\r\n    def modificar_telefono(self, telefono, identificacion):\r\n        self.base = BaseDatos()\r\n        self.query = \"update Usuario set contacto  = %s where usuario.id_usu = %s\"\r\n        self.cur = self.base.crear_cursor(self.query, (telefono, identificacion))\r\n        messagebox.showinfo(\"modificado\", \"El telefono ha sido modificado con exito\")\r\n        self.base.cerrar_conexion()\r\n##---------------------------------------------\r\n    def deshabilitar_usuario(self, email):\r\n        self.base = BaseDatos()\r\n        self.query = \"update Usuario set activo  = false usuario.email_usuario = %s\"\r\n        self.cur = self.base.crear_cursor(self.query, (email))\r\n        messagebox.showinfo(\"deshabilitado\", \"El usuario ha sido deshabilitado con exito\")\r\n        self.base.cerrar_conexion()\r\n\r\n    def habilitar_usuario(self, email):\r\n        self.base = BaseDatos()\r\n        self.query = \"update Usuario set activo  = true usuario.email_usuario = %s\"\r\n        self.cur = self.base.crear_cursor(self.query, (email))\r\n        messagebox.showinfo(\"habilitado\", \"El usuario ha sido habilitado con exito\")\r\n        self.base.cerrar_conexion()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gestionUsuario.py b/gestionUsuario.py
+--- a/gestionUsuario.py	
++++ b/gestionUsuario.py	
+@@ -71,36 +71,36 @@
+     def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):
+         self.base = BaseDatos()
+ 
+-        self.query = "update Empleado set contra  = %s where usuario.contraseña = %s and usuario.id_usu = %s" #<----
++        self.query = "update empleado set contra  = %s where usuario.contraseña = %s and usuario.id_usu = %s" #<----
+         self.cur = self.base.crear_cursor(self.query, (contraseña, contraseñaActual, identificacion))
+         messagebox.showinfo("Cambiada", "La contraseña ha sido cambiada con exito")
+         self.base.cerrar_conexion()
+ 
+     def modificar_nombre(self, nombre, identificacion):
+         self.base = BaseDatos()
+-        self.query = "update Usuario set nombre  = %s where usuario.id_usu = %s" # <----
++        self.query = "update empleado set nombre  = %s where usuario.id_usu = %s" # <----
+         self.cur = self.base.crear_cursor(self.query, (nombre, identificacion))
+         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
+ 
+         self.base.cerrar_conexion()
+ 
+-    def modificar_apellido(self, apellido, identificacion):
++    def modificar_apellido(self, apellido_us, identificacion):
+         self.base = BaseDatos()
+-        self.query = "update Usuario set apellido  = %s where usuario.id_usu = %s"
+-        self.cur = self.base.crear_cursor(self.query, (apellido, identificacion))
++        self.query = "update empleado set apellido  = %s where id_usu = %s"
++        self.cur = self.base.crear_cursor(self.query, (apellido_us, identificacion))
+         messagebox.showinfo("modificado", "El apellido ha sido modificado con exito")
+         self.base.cerrar_conexion()
+ 
+-    def modificar_direccion(self, direccion, identificacion):
++    def modificar_direccion(self, direccion_usu, identificacion):
+         self.base = BaseDatos()
+-        self.query = "update Usuario set direccion  = %s where usuario.id_usu = %s"
+-        self.cur = self.base.crear_cursor(self.query, (direccion, identificacion))
++        self.query = "update empleado set direccion  = %s where id_usu = %s"
++        self.cur = self.base.crear_cursor(self.query, (direccion_usu, identificacion))
+         messagebox.showinfo("Cambiada", "La direccion ha sido cambiada con exito")
+         self.base.cerrar_conexion()
+ 
+     def modificar_telefono(self, telefono, identificacion):
+         self.base = BaseDatos()
+-        self.query = "update Usuario set contacto  = %s where usuario.id_usu = %s"
++        self.query = "update empleado set contacto  = %s where usuario.id_usu = %s"
+         self.cur = self.base.crear_cursor(self.query, (telefono, identificacion))
+         messagebox.showinfo("modificado", "El telefono ha sido modificado con exito")
+         self.base.cerrar_conexion()
+Index: Usuario.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from tkinter import messagebox\r\nfrom BaseDatos import *\r\n\r\n\r\nclass Usuario:\r\n\r\n    def __init__(self,id_usu,nombre,sueldo,telefono,direccion,contraseña,cargo,apellido):\r\n        self.id_usu = id_usu\r\n        self.nombre = nombre\r\n        self.sueldo = sueldo\r\n        self.telefono = telefono\r\n        self.direccion = direccion\r\n        self.contraseña = contraseña\r\n        self.cargo = cargo\r\n        self.apellido = apellido\r\n\r\n    def get_id_usu(self):\r\n        return self.id_usu\r\n\r\n    def get_contraseña(self):\r\n        return self.contraseña\r\n\r\n    def get_cargo(self):\r\n        return self.cargo\r\n\r\n    def get_nombre(self):\r\n        return self.getNombre\r\n\r\n    def get_apellido(self):\r\n        return self.apellido\r\n\r\n    def get_telefono(self):\r\n        return self.telefono\r\n\r\n    def get_direccion(self):\r\n        return self.direccion\r\n\r\n    def get_sueldo(self):\r\n        return self.sueldo\r\n\r\n    # -------------------------------------\r\n\r\n    def set_id_usu(self, id_usu):\r\n        self.id_usu = id_usu\r\n\r\n    def set_contraseña(self, contraseña):\r\n        self.contraseña = contraseña\r\n\r\n    def set_cargo(self, cargo):\r\n        self.cargo = cargo\r\n\r\n    def set_nombre(self, nombre):\r\n        self.nombre = nombre\r\n\r\n    def set_apellido(self, apellido):\r\n        self.apellido = apellido\r\n\r\n    def set_telefono(self, telefono):\r\n        self.telefono = telefono\r\n\r\n    def set_direccion(self, direccion):\r\n        self.direccion = direccion\r\n\r\n    def set_sueldo(self, sueldo):\r\n        self.sueldo = sueldo
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Usuario.py b/Usuario.py
+--- a/Usuario.py	
++++ b/Usuario.py	
+@@ -24,7 +24,7 @@
+         return self.cargo
+ 
+     def get_nombre(self):
+-        return self.getNombre
++        return self.nombre
+ 
+     def get_apellido(self):
+         return self.apellido
+Index: GUIAdministrador.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ****** Librerias Usadas ****** #\r\n\r\nfrom tkinter import *\r\nfrom tkinter import ttk\r\nfrom PIL import Image, ImageTk\r\nfrom tkinter.simpledialog import askstring\r\nfrom tkinter.messagebox import showinfo\r\nfrom Usuario import *\r\nusuario=Usuario(\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\")\r\n\r\n# ****** Metodos de otros archivos ******#\r\n\r\n# ******Ventanas de dialogo ******#\r\n\r\nfrom tkinter.simpledialog import askstring\r\nfrom tkinter.messagebox import showinfo\r\n\r\n\r\n# ****** Clase GUIAdministrador ****** #\r\n\r\nclass GUIAdministrador:\r\n    def __init__(self, rootGUIAdministrador):\r\n        self.rootGUIAdministrador = rootGUIAdministrador\r\n        self.rootGUIAdministrador.title(\"Sistema de Inventario y Ventas MotoSocios\")\r\n        self.rootGUIAdministrador.geometry(\"1360x768+560+312\")\r\n        self.rootGUIAdministrador.resizable(1, 1)\r\n        self.rootGUIAdministrador.iconbitmap(\"Imagenes\\iconoInterfaz.ico\")\r\n\r\n        # ******logo de Fondo****** #\r\n\r\n        self.bg = ImageTk.PhotoImage(file=\"Imagenes\\FondoInterfaz2.png\")\r\n        Label(self.rootGUIAdministrador, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)\r\n\r\n        # ****** Frame inicio Productos Side Der ****** #\r\n\r\n        frameDerechoAdmin = Frame(self.rootGUIAdministrador, bg=\"#18344A\")\r\n        frameDerechoAdmin.place(x=600, y=85, width=700, height=530)\r\n\r\n        # ******* Titulo Frame Bienvenido ****** #\r\n\r\n        Label(frameDerechoAdmin, text=\"Bienvenido\", font=(\"comic sans MS\", 20, \"bold\"), bg=\"#18344A\",fg=\"white\").place(x=320, y=20)\r\n\r\n        # ****** Datos del perfil ****** #\r\n\r\n        Label(frameDerechoAdmin, text=\"Identificador: \", font=(\"comic sans MS\", 20,), bg=\"#18344A\", fg=\"white\").place(x=80, y=60)\r\n        Label(frameDerechoAdmin, text=\"Nombre: \", font=(\"comic sans MS\", 20), bg=\"#18344A\", fg=\"white\").place(x=80, y=100)\r\n        Label(frameDerechoAdmin,text=\"Apellido: \", font=(\"comic sans MS\", 20,), bg=\"#18344A\", fg=\"white\").place(x=80, y=140)\r\n        Label(frameDerechoAdmin, text=\"Telefono:\", font=(\"comic sans MS\", 20,), bg=\"#18344A\", fg=\"white\").place(x=80, y=180)\r\n        Label(frameDerechoAdmin, text=\"Direccion:\", font=(\"comic sans MS\", 20,), bg=\"#18344A\", fg=\"white\").place(x=80,y=220)\r\n        Label(frameDerechoAdmin, text=\"Cargo:\", font=(\"comic sans MS\", 20,), bg=\"#18344A\", fg=\"white\").place(x=80,y=260)\r\n\r\n        self.CargarInfoUsuarioEnLabels()\r\n        # INFORMACIO CARGADA QUE NO SE MODIFICA\r\n        Label(frameAdministrador, text=self.iid, font=(\"comic sans MS\", 20,), bg=\"#18344A\", fg=\"white\").place(x=270, y=60)\r\n        Label(frameAdministrador, text=self.nnn, font=(\"comic sans MS\", 20,), bg=\"#18344A\", fg=\"white\").place(x=270, y=100)\r\n        #Label(frameAdministrador, text=self.ape, font=(\"times new roman\", 13), bg=\"khaki3\", fg=\"black\").place(x=150, y=140)\r\n        #Label(frameAdministrador, text=self.carg, font=(\"times new roman\", 13), bg=\"khaki3\", fg=\"black\").place(x=150, y=180)\r\n        # ****** Botones Perfil Propio ****** #\r\n\r\n        BotonModificarDatos = Button(frameDerechoAdmin, text=\"Modificar datos\", font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonModificarDatos.place(x=80, y=400, width=240)\r\n\r\n        BotonCambiarContraseña = Button(frameDerechoAdmin, text=\"Cambiar Contraseña\", font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonCambiarContraseña.place(x=380,y=400, width=240)\r\n\r\n        # ******Frame Botones Opciones Side Izq ****** #\r\n\r\n        frameIzquierdoAdmin = Frame(self.rootGUIAdministrador, bg=\"#18344A\")\r\n        frameIzquierdoAdmin.place(x=85, y=85, width=480, height=530)\r\n        Label(frameIzquierdoAdmin, text=\"Inicio Administrador\", font=(\"comic sans MS\", 23, \"bold\"), bg=\"#18344A\", fg=\"white\").place(x=100, y=30)\r\n\r\n        # ****** Boton Gestiones Empleados ****** #\r\n\r\n        BotonGestionarEmpleados = Button(frameIzquierdoAdmin, text=\"Gestionar Empleados\", font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonGestionarEmpleados.place(x=120, y=120, width=240)\r\n\r\n        # ****** Boton Gestionar Clientes ******#\r\n\r\n        BotonGestionarClientes = Button(frameIzquierdoAdmin, text=\"Gestionar Clientes\", font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonGestionarClientes.place(x=120, y=180, width=240)\r\n\r\n        # ******Boton Gestionar Inventario****** #\r\n\r\n        BotonConsultarProducto = Button(frameIzquierdoAdmin, text=\"Gestionar Inventario\",font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonConsultarProducto.place(x=120, y=240, width=240)\r\n\r\n        # ******Boton Gestionar Proveedores ****** #\r\n\r\n        BotonListarProductos = Button(frameIzquierdoAdmin, text=\"Gestionar Proveedores\",font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonListarProductos.place(x=120, y=300, width=240)\r\n\r\n        # ******Boton Consultar Historicos ****** #\r\n\r\n        BotonEliminarProducto = Button(frameIzquierdoAdmin, text=\"Consultar Historicos\", font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonEliminarProducto.place(x=120, y=360, width=240)\r\n\r\n        # ******Boton Salir ****** #\r\n\r\n        BotonSalir = Button(frameIzquierdoAdmin, text=\"Cerrar Sesión\", command=self.rootGUIAdministrador.quit, font=(\"comic sans MS\", 15), bg=\"gray\", fg=\"white\", bd=5, cursor=\"hand2\")\r\n        BotonSalir.place(x=120, y=420, width=240)\r\n\r\n    #****** Cargar Información en la Base de Datos ******#\r\n\r\n    def CargarInfoUsuarioEnLabels(self):\r\n        #print(usuario.get_nombre())\r\n\r\n        self.iid = usuario.get_id_usu()\r\n        #self.nnn = usuario.get_nombre()\r\n\r\n\r\n    # ****** Metodo para iniciar la interfaz desde otra ****** #\r\ndef iniciar():\r\n     rootGUIAdministrador = Tk()\r\n     obj = GUIAdministrador(rootGUIAdministrador)\r\n     rootGUIAdministrador.mainloop()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GUIAdministrador.py b/GUIAdministrador.py
+--- a/GUIAdministrador.py	
++++ b/GUIAdministrador.py	
+@@ -5,8 +5,11 @@
+ from PIL import Image, ImageTk
+ from tkinter.simpledialog import askstring
+ from tkinter.messagebox import showinfo
+-from Usuario import *
+-usuario=Usuario("","","","","","","","")
++from Usuario import Usuario
++import Usuario as us
++from gestionUsuario import *
++import gestionUsuario as gu
++usuario=us.Usuario("","","","","","","","")
+ 
+ # ****** Metodos de otros archivos ******#
+ 
+@@ -45,19 +48,28 @@
+         Label(frameDerechoAdmin, text="Identificador: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=60)
+         Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80, y=100)
+         Label(frameDerechoAdmin,text="Apellido: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=140)
+-        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=180)
++        Label(frameDerechoAdmin, text="Telefono:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80, y=260)
+         Label(frameDerechoAdmin, text="Direccion:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=220)
+-        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=260)
++        Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=180)
+ 
+         self.CargarInfoUsuarioEnLabels()
+         # INFORMACIO CARGADA QUE NO SE MODIFICA
+-        Label(frameAdministrador, text=self.iid, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
+-        Label(frameAdministrador, text=self.nnn, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
+-        #Label(frameAdministrador, text=self.ape, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=140)
+-        #Label(frameAdministrador, text=self.carg, font=("times new roman", 13), bg="khaki3", fg="black").place(x=150, y=180)
++        Label(frameDerechoAdmin, text=self.id_us, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=60)
++        Label(frameDerechoAdmin, text=self.nnn, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=100)
++        Label(frameDerechoAdmin, text=self.ape, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=140)
++        Label(frameDerechoAdmin, text=self.carg, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=180)
++
++        #Lisbox que muestra la informacion del usuario
++        self.listboxUsuario = Listbox(frameDerechoAdmin, width=20, heigh=2, bg="#18344A", bd=0, fg="white", font=("comic sans MS", 20))
++
++        self.listboxUsuario.insert(0, self.dir)
++        self.listboxUsuario.insert(1, self.tel)
++
++        self.listboxUsuario.place(x=270, y=220)
++
+         # ****** Botones Perfil Propio ****** #
+ 
+-        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
++        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos",command = self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+         BotonModificarDatos.place(x=80, y=400, width=240)
+ 
+         BotonCambiarContraseña = Button(frameDerechoAdmin, text="Cambiar Contraseña", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+@@ -102,10 +114,44 @@
+     #****** Cargar Información en la Base de Datos ******#
+ 
+     def CargarInfoUsuarioEnLabels(self):
+-        #print(usuario.get_nombre())
++        print(usuario.get_nombre())
++        self.id_us = usuario.get_id_usu()
++        self.nnn = usuario.get_nombre()
++        self.ape = usuario.get_apellido()
++        self.carg = usuario.get_cargo()
++        self.dir = usuario.get_direccion()
++        self.tel = usuario.get_telefono()
++        print(usuario.get_cargo())
++
++#------------- OBTENER LOS DATOS DE LA SELECT BOX
+ 
+-        self.iid = usuario.get_id_usu()
+-        #self.nnn = usuario.get_nombre()
++    def retornarSelecListBoxUsuario(self):
++        gestionUsuarios = gestionUsuario()
++        aux = self.listboxUsuario.curselection()
++        if (self.listboxUsuario.selection_includes(0)):
++            print(aux)
++            aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre de usuario')
++
++            if (aux2 == None):
++                showinfo('Modificación de información', 'No se realizó ningun cambio')
++            else:
++                showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
++
++                gestionUsuarios.modificar_direccion(aux2, self.id_us)
++                # usuario2=gestionUsuarios.login_usuario(self.email,self.contraseña)
++                # usuario=usuario2
++                print(aux2)
++
++        if (self.listboxUsuario.selection_includes(1)):
++            print(aux)
++            aux2 = askstring('Modificación de información', 'Ingrese el/los nuevo/s apellido/s')
++            if (aux2 == None):
++                showinfo('Modificación de información', 'No se realizó ningun cambio')
++            else:
++                showinfo('Modificación de información', 'Tus apellidos quedaron: {}'.format(aux2))
++                gestionUsuarios.modificar_apellido(aux2, usuario.get_id_usu())
++            print(aux2)
++
+ 
+ 
+     # ****** Metodo para iniciar la interfaz desde otra ****** #
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.10 (ProyectoDSI_BDD)\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (ProyectoDSI_BDD)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (venv)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file

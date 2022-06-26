@@ -11,7 +11,7 @@ class gestionProducto:
 
     def registrar_producto(self, codigo_pro, nombre_pro, categoria_pro, cantidad_pro):
         try:
-            act = true
+            act = True
             self.base = BaseDatos()
             self.query = "insert    into    producto    VALUES    (%s,%s,%s,%s,%s)"
             self.base.crear_cursor(self.query, (codigo_pro, nombre_pro, categoria_pro, cantidad_pro, act))

@@ -94,8 +94,8 @@ class resgistroProducto:
             messagebox.showinfo("Consultar", "El usuario está registrado")
 
     def validacion(self):
-        return (len(self.codigo.get()) == 0 or len(self.categoria.get()) == 0
-                or len(self.nit_prov.get()) == 0)
+        return (len(self.codigo.get()) == 0 or len(self.categoria.get()) == 0)
+
 
     def registrar(self):
         if self.validacion():

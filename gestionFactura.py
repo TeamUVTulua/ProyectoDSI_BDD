@@ -8,7 +8,7 @@ from PIL.ImageTk import PhotoImage
 from BaseDatos import *
 from Factura import *
 
-factura = Factura("", "", "", "", "", "", "", "")
+factura = Factura("", "", "", "", "", "", "", "","")
 
 
 # ****** Clase gestionCliente ******#
@@ -17,12 +17,39 @@ class gestionFactura:
 
     # ****** Metodo para registrar clientes en la base de datos ******#
 
-    def registrar_factura(self, num_fac, fecha_fac, des_fac, pago_fac, valor_fac, cambio_fac, emp_fac, cli_fac):
-        act = true
+    def registrar_factura(self, num_fac, fecha_fac, des_fac, pago_fac, valor_fac, cambio_fac, emp_fac, cli_fac, monto_fac):
         self.base = BaseDatos()
-        self.query = "insert    into    factura    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)"
+        self.query = "insert    into    factura    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s, %s)"
         self.base.crear_cursor(self.query,
-                               (num_fac, fecha_fac, des_fac, pago_fac, valor_fac, cambio_fac, emp_fac, cli_fac))
+                               (num_fac, fecha_fac, des_fac, pago_fac, valor_fac, cambio_fac, emp_fac, cli_fac, monto_fac))
+        self.base.cerrar_conexion()
+
+    def registrar(self, fecha_fac, pago_fac, valor_fac, cambio_fac, emp_fac, cli_fac, monto_fac, num_fac):
+        print("aquí")
+        self.base = BaseDatos()
+
+        fecha = str(fecha_fac)
+        pago = str(pago_fac)
+        valor = str(valor_fac)
+        cambio = str(cambio_fac)
+        emp = str(emp_fac)
+        cli = str(cli_fac)
+        monto = str(monto_fac)
+        num = str(num_fac)
+        self.query = "update factura set fecha  = '" + fecha + "' , descuento = 10, tipopago = '"+ pago + "', valorfinal = " + valor + ", cambio = "+ cambio +", empleado = "+ emp + ", cliente = "+ cli + ", monto = "+ monto +"  where numerofactura = " + num + ""
+        print(self.query)
+        self.base.crear_cursor2(self.query)
+        self.base.cerrar_conexion()
+        messagebox.showinfo("modificado", "El numerofactura ha sido modificado con exito")
+
+    def registrar_codigo(self, num_fac):
+
+        print(num_fac)
+        self.base = BaseDatos()
+        num = str(num_fac)
+        self.query = "INSERT INTO factura (numerofactura) VALUES (" + num_fac + ")"
+        print(self.query)
+        self.base.crear_cursor2(self.query)
         self.base.cerrar_conexion()
 
     # ****** Metodo para obtener los datos de los clientes de la base de datos ******#
@@ -59,6 +86,7 @@ class gestionFactura:
         bus = self.cur.fetchone()
         return bus
 
+
     # ****** Metodos para la obtencion de datos ******#
 
     def obtener_num(self, numerofactura):
@@ -71,7 +99,7 @@ class gestionFactura:
 
     def obtenerTodosId(self):
         self.base = BaseDatos()
-        self.query = "SELECT codigo FROM producto "
+        self.query = "SELECT producto FROM surtido "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 
