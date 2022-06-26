@@ -29,7 +29,6 @@ class GUIVendedor:
         self.rootGUIVendedor.geometry("1366x768")
         self.rootGUIVendedor.resizable(1, 1)
         self.rootGUIVendedor.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGUIVendedor.attributes('-fullscreen',True)
 
         # ******logo de Fondo****** #
 

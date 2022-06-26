@@ -22,7 +22,6 @@ class GUIProveedor:
         self.rootGUIProveedor.geometry("1366x768")
         self.rootGUIProveedor.resizable(1, 1)
         self.rootGUIProveedor.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGUIProveedor.attributes('-fullscreen', True)
 
         # ******logo de Fondo****** #
 

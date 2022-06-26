@@ -24,7 +24,6 @@ class loginUsuario:
         self.rootLogin.geometry("1366x768")
         self.rootLogin.resizable(1, 1)
         self.rootLogin.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootLogin.attributes('-fullscreen',True)
 
         # ****** Imagen de fondo ****** #
         self.bg = ImageTk.PhotoImage(file="Imagenes/FondoInterfaz2.png")

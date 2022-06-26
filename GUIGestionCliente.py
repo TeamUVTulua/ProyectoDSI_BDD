@@ -27,7 +27,7 @@ class GUIGestCli:
         self.rootGestCli.geometry("1366x768")
         self.rootGestCli.resizable(1, 1)
         self.rootGestCli.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGestCli.attributes('-fullscreen', True)
+
 
         # ****** Logo de Fondo ****** #
 

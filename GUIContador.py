@@ -31,7 +31,6 @@ class GUIContador:
         self.rootGUIContador.geometry("1366x768")
         self.rootGUIContador.resizable(1, 1)
         self.rootGUIContador.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGUIContador.attributes('-fullscreen', True)
 
 
         # ******logo de Fondo****** #

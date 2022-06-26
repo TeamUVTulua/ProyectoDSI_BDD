@@ -25,7 +25,6 @@ class GUIGestionPedido:
         self.rooGUIRegPed.geometry("1366x768")
         self.rooGUIRegPed.resizable(1, 1)
         self.rooGUIRegPed.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rooGUIRegPed.attributes('-fullscreen', True)
 
         # ******logo de Fondo****** #
 

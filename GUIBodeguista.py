@@ -28,7 +28,6 @@ class GUIBodeguista:
         self.rootGUIBodeguista.geometry("1366x768")
         self.rootGUIBodeguista.resizable(1, 1)
         self.rootGUIBodeguista.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGUIBodeguista.attributes('-fullscreen', True)
 
 
         # ******logo de Fondo****** #

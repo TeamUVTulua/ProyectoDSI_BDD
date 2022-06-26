@@ -26,7 +26,6 @@ class GUIAdministrador:
         self.rootGUIAdministrador.geometry("1366x768")
         self.rootGUIAdministrador.resizable(1, 1)
         self.rootGUIAdministrador.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGUIAdministrador.attributes('-fullscreen', True)
 
         # ******logo de Fondo****** #
 
@@ -52,7 +51,7 @@ class GUIAdministrador:
         Label(frameDerechoAdmin, text="Cargo:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,y=190)
 
         self.CargarInfoUsuarioEnLabels()
-        # INFORMACIO CARGADA QUE NO SE MODIFICA
+        # ******  Imformacion cargada que no se modifica ******#
         Label(frameDerechoAdmin, text=self.id_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=70)
         Label(frameDerechoAdmin, text=self.nombre_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=110)
         Label(frameDerechoAdmin, text=self.apellido_usu, font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=270, y=150)
@@ -137,7 +136,7 @@ class GUIAdministrador:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
+                showinfo('Modificación de información', 'Tu telefono quedo: {}'.format(aux2))
                 gestionUsuarios.modificar_telefono(aux2, usuario.get_id_usu())
             print(aux2)
 
@@ -169,7 +168,6 @@ class GUIAdministrador:
         import LoginUsuario
 
     def CargarInfoUsuarioEnLabels(self):
-        #print(usuario.get_nombre())
 
         self.id_usu = usuario.get_id_usu()
         self.nombre_usu = usuario.get_nombre()

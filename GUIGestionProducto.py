@@ -23,7 +23,6 @@ class GUIGestionProducto:
         self.rootGUIRegProd.geometry("1366x768")
         self.rootGUIRegProd.resizable(1, 1)
         self.rootGUIRegProd.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGUIRegProd.attributes('-fullscreen', True)
 
         # ******logo de Fondo****** #
 
@@ -89,25 +88,25 @@ class GUIGestionProducto:
 
     def mostrarProd(self):
         frameDerechoGestProd = Frame(self.rootGUIRegProd, bg="#18344A")
-        frameDerechoGestProd.place(x=600, y=20, width=700, height=530)
+        frameDerechoGestProd.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoGestProd, text=" Modificar", font=("comic sans MS", 24, "bold"), bg="#18344A",
-              fg="white").place(x=320, y=20)
+              fg="white").place(x=220, y=40)
 
         # ****** Datos del perfil ****** #
 
         Label(frameDerechoGestProd, text="Codigo: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
-            x=80, y=60)
+            x=80, y=100)
         Label(frameDerechoGestProd, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
-                                                                                                              y=100)
+                                                                                                              y=140)
         Label(frameDerechoGestProd, text="Categoria: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
-                                                                                                                 y=140)
+                                                                                                                 y=180)
         Label(frameDerechoGestProd, text="Cantidad:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
-                                                                                                                y=180)
+                                                                                                                y=220)
 
-        self.CargarInfoProductoEnLabels2()
+        self.CargarInfoUsuarioEnLabels2()
 
         self.listboxProducto = Listbox(frameDerechoGestProd, width=25, height=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20,))
@@ -117,12 +116,12 @@ class GUIGestionProducto:
         self.listboxProducto.insert(2, self.categoria)
         self.listboxProducto.insert(3, self.cantidad)
 
-        self.listboxProducto.place(x=270, y=60)
+        self.listboxProducto.place(x=270, y=90)
 
         BotonModificarDatos = Button(frameDerechoGestProd, text="Modificar datos",
                                      command=self.retornarSeleclistboxProducto, font=("comic sans MS", 15), bg="gray",
                                      fg="white", bd=5, cursor="hand2")
-        BotonModificarDatos.place(x=80, y=400, width=240)
+        BotonModificarDatos.place(x=230, y=400, width=240)
 
     def retornarSeleclistboxProducto(self):
         gestionUsuarios = gestionProducto()
@@ -152,7 +151,7 @@ class GUIGestionProducto:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'la categoria quedaro en: {}'.format(aux3))
+                showinfo('Modificación de información', 'la categoria quedo en: {}'.format(aux3))
                 gestionUsuarios.modificar_categoria(aux3, self.codigo)
             print(aux3)
 

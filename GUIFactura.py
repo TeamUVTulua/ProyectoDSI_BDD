@@ -24,7 +24,6 @@ class GUIFactura:
         self.rootGUIFactura.geometry("1366x768")
         self.rootGUIFactura.resizable(1, 1)
         self.rootGUIFactura.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGUIFactura.attributes('-fullscreen', True)
 
 
         self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")

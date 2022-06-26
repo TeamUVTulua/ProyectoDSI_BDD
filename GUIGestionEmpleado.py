@@ -24,7 +24,6 @@ class GUIMenuInicial:
         self.rootGestEmp.geometry("1366x768")
         self.rootGestEmp.resizable(1, 1)
         self.rootGestEmp.iconbitmap("Imagenes\iconoInterfaz.ico")
-        self.rootGestEmp.attributes('-fullscreen', True)
 
         # ******logo de Fondo****** #
 
@@ -217,21 +216,21 @@ class GUIMenuInicial:
         if (auxId.isidentifier() or not auxId.isnumeric()):
             showinfo('Error', 'Ingrese un identificador valido')
         else:
-            auxNombre = askstring('Modificación de información', 'Ingrese el nuevo nombre del restaurante')
+            auxNombre = askstring('Modificación de información', 'Ingrese el nuevo nombre del empleado')
             gestionUsuario.modificar_nombre(self, auxNombre, auxId)
-            auxApellido = askstring('Modificación de información', 'Ingrese el nuevo apellido del restaurante')
+            auxApellido = askstring('Modificación de información', 'Ingrese el nuevo apellido del empleado')
             gestionUsuario.modificar_apellido(self, auxApellido, auxId)
 
-            auxTel = askstring('Modificación de información', 'Ingrese el nuevo telefono del restaurante')
+            auxTel = askstring('Modificación de información', 'Ingrese el nuevo telefono del empleado')
             gestionUsuario.modificar_telefono(self, auxTel, auxId)
 
-            auxDir = askstring('Modificación de información', 'Ingrese el nuevo direccion del restaurante')
+            auxDir = askstring('Modificación de información', 'Ingrese el nuevo direccion del empleado')
             gestionUsuario.modificar_direccion(self, auxDir, auxId)
 
-            auxSueldo = askstring('Modificación de información', 'Ingrese el nuevo sueldo del restaurante')
+            auxSueldo = askstring('Modificación de información', 'Ingrese el nuevo sueldo del empleado')
             gestionUsuario.modificar_sueldo(self, auxSueldo, auxId)
 
-            auxCargo = askstring('Modificación de información', 'Ingrese el nuevo sueldo del restaurante')
+            auxCargo = askstring('Modificación de información', 'Ingrese el nuevo sueldo del empleado')
             gestionUsuario.modificar_cargo(self, auxCargo, auxId)
 
             self.rootGestEmp.destroy()
