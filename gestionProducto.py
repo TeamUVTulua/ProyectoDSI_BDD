@@ -10,15 +10,15 @@ class gestionProducto:
     # ****** Metodos para registrar productos en la base de datos ******#
 
     def registrar_producto(self, codigo_pro, nombre_pro, categoria_pro, cantidad_pro):
-        #try:
+        try:
             act = True
             self.base = BaseDatos()
             self.query = "insert    into    producto    VALUES    (%s,%s,%s,%s,%s)"
             self.base.crear_cursor(self.query, (codigo_pro, nombre_pro, categoria_pro, cantidad_pro, act))
             messagebox.showinfo("Registrado", "El    producto    ha    sido    registrado    con    exito")
             self.base.cerrar_conexion()
-        #except:
-         #   messagebox.showinfo("Aviso", "Producto ya registrado.")
+        except:
+            messagebox.showinfo("Aviso", "Producto ya registrado.")
 
     # ****** Metodo para obtener los datos ******#
 
