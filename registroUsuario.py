@@ -88,8 +88,6 @@ class registroUsuario:
 
         Label(frameCrearUsuario, text="Buscar por Identificador ", font=("comic sans MS", 16, "bold"), bg="#18344A", fg="white").place(
             x=50, y=390)
-        #self.buscar = Entry(frameCrearUsuario, font=("comic sans MS", 10))
-        #self.buscar.place(x=120, y=430)
 
         #****** Boton Buscar
         photo = PhotoImage(file = "Imagenes/lupa.png")

@@ -16,7 +16,7 @@ class resgistroProducto:
         self.cargo = cargo
         self.rootRegistroProducto = rootRegistroProducto
         self.rootRegistroProducto.title("Registro Usuario")
-        self.rootRegistroProducto.geometry("1360x768+560+312")
+        self.rootRegistroProducto.geometry("1366x768")
         self.rootRegistroProducto.resizable(1, 1)
 
         # ******logo de Fondo****** #

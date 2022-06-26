@@ -21,7 +21,7 @@ class GUIMenuInicial:
     def __init__(self, rootGestEmp):
         self.rootGestEmp = rootGestEmp
         self.rootGestEmp.title("Sistema de Inventario y Ventas MotoSocios")
-        self.rootGestEmp.geometry("1360x768+560+312")
+        self.rootGestEmp.geometry("1366x768")
         self.rootGestEmp.resizable(1, 1)
         self.rootGestEmp.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGestEmp.attributes('-fullscreen', True)
@@ -68,7 +68,7 @@ class GUIMenuInicial:
         Label(self.frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, heigh=9, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, height=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
         self.listboxUsuario.get
 
@@ -107,7 +107,7 @@ class GUIMenuInicial:
 
         self.CargarInfoUsuarioEnLabels2()
 
-        self.listboxUsuario = Listbox(frameDerechoEmp, width=25, heigh=6, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(frameDerechoEmp, width=25, height=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20,))
 
         self.listboxUsuario.insert(0, self.id_emp)
@@ -145,7 +145,7 @@ class GUIMenuInicial:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
+                showinfo('Modificación de información', 'Tu nombre quedo: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.id_emp)
             print(aux2)
 
@@ -155,7 +155,7 @@ class GUIMenuInicial:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux3))
+                showinfo('Modificación de información', 'Tu apellido quedo: {}'.format(aux3))
                 gestionUsuarios.modificar_apellido(aux3, self.id_emp)
             print(aux3)
 
@@ -165,7 +165,7 @@ class GUIMenuInicial:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux4))
+                showinfo('Modificación de información', 'Tu cargo quedo: {}'.format(aux4))
                 gestionUsuarios.modificar_cargo(aux4, self.id_emp)
             print(aux4)
 
@@ -175,7 +175,7 @@ class GUIMenuInicial:
             if (aux5 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux5))
+                showinfo('Modificación de información', 'Tu direccion quedo: {}'.format(aux5))
                 gestionUsuarios.modificar_telefono(aux5, self.id_emp)
             print(aux5)
 
@@ -185,7 +185,7 @@ class GUIMenuInicial:
             if (aux6 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux6))
+                showinfo('Modificación de información', 'Informacion de telefono: {}'.format(aux6))
                 gestionUsuarios.modificar_telefono(aux6, self.id_emp)
             print(aux6)
 
@@ -218,7 +218,6 @@ class GUIMenuInicial:
         else:
             auxNombre = askstring('Modificación de información', 'Ingrese el nuevo nombre del restaurante')
             gestionUsuario.modificar_nombre(self, auxNombre, auxId)
-            # self.frameDerechoEmp.place(x=600, y=85, width=700, height=530)
             auxApellido = askstring('Modificación de información', 'Ingrese el nuevo apellido del restaurante')
             gestionUsuario.modificar_apellido(self, auxApellido, auxId)
 
@@ -234,7 +233,7 @@ class GUIMenuInicial:
             auxCargo = askstring('Modificación de información', 'Ingrese el nuevo sueldo del restaurante')
             gestionUsuario.modificar_cargo(self, auxCargo, auxId)
 
-            self.rootGestEmp.destroy() ## <------------ REVISAR
+            self.rootGestEmp.destroy()
             iniciar()
 
     def CargarInfoUsuarioEnLabels(self, listboxUsuario):
