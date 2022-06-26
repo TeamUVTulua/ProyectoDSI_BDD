@@ -71,16 +71,16 @@ class GUIGestionProducto:
         self.scrollbar =Scrollbar(self.frameDerechoProd)
         self.scrollbar.pack(side=RIGHT, fill=Y)
 
-        self.listboxUsuario = Listbox(self.frameDerechoProd, width=33, height=9, bg="#18344A", fg="white",
+        self.listboxProducto = Listbox(self.frameDerechoProd, width=33, height=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
-        self.listboxUsuario.pack()
+        self.listboxProducto.pack()
 
-        self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+        self.CargarInfoProductoEnLabels(self.listboxProducto)
 
-        self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
-        self.scrollbar.config(command=self.listboxUsuario.yview)
+        self.listboxProducto.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxProducto.yview)
 
-        self.listboxUsuario.place(x=50, y=86)
+        self.listboxProducto.place(x=50, y=86)
 
     def consultarProd(self):
         self.auxId = askstring('Modificación de información', 'Ingrese el codigo de un producto')
@@ -88,86 +88,81 @@ class GUIGestionProducto:
         self.mostrarProd()
 
     def mostrarProd(self):
-        frameDerechoAdmin = Frame(self.rootGUIRegProd, bg="#18344A")
-        frameDerechoAdmin.place(x=600, y=85, width=700, height=530)
+        frameDerechoGestProd = Frame(self.rootGUIRegProd, bg="#18344A")
+        frameDerechoGestProd.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Bienvenido ****** #
 
-        Label(frameDerechoAdmin, text=" Modificar", font=("comic sans MS", 24, "bold"), bg="#18344A",
+        Label(frameDerechoGestProd, text=" Modificar", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=320, y=20)
 
         # ****** Datos del perfil ****** #
 
-        Label(frameDerechoAdmin, text="Codigo: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
+        Label(frameDerechoGestProd, text="Codigo: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(
             x=80, y=60)
-        Label(frameDerechoAdmin, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoGestProd, text="Nombre: ", font=("comic sans MS", 20), bg="#18344A", fg="white").place(x=80,
                                                                                                               y=100)
-        Label(frameDerechoAdmin, text="Categoria: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoGestProd, text="Categoria: ", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
                                                                                                                  y=140)
-        Label(frameDerechoAdmin, text="Cantidad:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
+        Label(frameDerechoGestProd, text="Cantidad:", font=("comic sans MS", 20,), bg="#18344A", fg="white").place(x=80,
                                                                                                                 y=180)
 
-        self.CargarInfoUsuarioEnLabels2()
+        self.CargarInfoProductoEnLabels2()
 
-        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, height=6, bg="#18344A", fg="white",
+        self.listboxProducto = Listbox(frameDerechoGestProd, width=25, height=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20,))
 
-        self.listboxUsuario.insert(0, self.codigo)
-        self.listboxUsuario.insert(1, self.nombre)
-        self.listboxUsuario.insert(2, self.categoria)
-        self.listboxUsuario.insert(3, self.cantidad)
+        self.listboxProducto.insert(0, self.codigo)
+        self.listboxProducto.insert(1, self.nombre)
+        self.listboxProducto.insert(2, self.categoria)
+        self.listboxProducto.insert(3, self.cantidad)
 
-        self.listboxUsuario.place(x=270, y=60)
+        self.listboxProducto.place(x=270, y=60)
 
-        BotonModificarDatos = Button(frameDerechoAdmin, text="Modificar datos",
-                                     command=self.retornarSelecListBoxUsuario, font=("comic sans MS", 15), bg="gray",
+        BotonModificarDatos = Button(frameDerechoGestProd, text="Modificar datos",
+                                     command=self.retornarSeleclistboxProducto, font=("comic sans MS", 15), bg="gray",
                                      fg="white", bd=5, cursor="hand2")
         BotonModificarDatos.place(x=80, y=400, width=240)
 
-    def retornarSelecListBoxUsuario(self):
+    def retornarSeleclistboxProducto(self):
         gestionUsuarios = gestionProducto()
-        aux = self.listboxUsuario.curselection()
-        if (self.listboxUsuario.selection_includes(0)):
+        aux = self.listboxProducto.curselection()
+        if (self.listboxProducto.selection_includes(0)):
             print(aux)
-            aux2 = askstring('Modificación de información', 'Ingrese el Codigo de usuario')
+            aux2 = askstring('Modificación de información', 'Ingrese el Codigo del producto')
 
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu nombre quedó:  {}'.format(aux2))
+                showinfo('Modificación de información', 'El codigo quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_codigo(aux2, self.codigo)
                 print(aux2)
 
-        if (self.listboxUsuario.selection_includes(1)):
-            print(aux)
-            aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre de usuario')
+        if (self.listboxProducto.selection_includes(1)):
+            aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre de producto')
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
+                showinfo('Modificación de información', 'El nombre del producto es: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.codigo)
-            print(aux2)
 
-        if (self.listboxUsuario.selection_includes(2)):
-            print(aux)
-            aux3 = askstring('Modificación de información', 'Ingrese la nueva categoria de usuario')
+        if (self.listboxProducto.selection_includes(2)):
+            aux3 = askstring('Modificación de información', 'Ingrese la nueva categoria de producto')
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux3))
+                showinfo('Modificación de información', 'la categoria quedaro en: {}'.format(aux3))
                 gestionUsuarios.modificar_categoria(aux3, self.codigo)
             print(aux3)
 
-        if (self.listboxUsuario.selection_includes(3)):
-            print(aux)
-            aux4 = askstring('Modificación de información', 'Ingrese la nueva cantidad de usuario')
+        if (self.listboxProducto.selection_includes(3)):
+            aux4 = askstring('Modificación de información', 'Ingrese la nueva cantidad del producto')
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefonos quedaron: {}'.format(aux4))
+                showinfo('Modificación de información', 'La nueva cantidad es: {}'.format(aux4))
                 gestionUsuarios.modificar_cantidad( self.codigo)
-            print(aux4)
 
     def CargarInfoUsuarioEnLabels2(self):
         gestionUsuarios = gestionProducto()
@@ -181,12 +176,12 @@ class GUIGestionProducto:
         import registroProducto as reg
         reg.iniciar(self.cargo)
 
-    def CargarInfoUsuarioEnLabels(self, listboxUsuario):
+    def CargarInfoUsuarioEnLabels(self, listboxProducto):
         gestionUsuarios = gestionProducto()
         listaDatos = gestionUsuarios.obtenerTodos()
 
         for x in listaDatos:
-            listboxUsuario.insert(END, x)
+            listboxProducto.insert(END, x)
 
     def login_window(self):
         self.rootGUIRegProd.destroy()
@@ -258,8 +253,6 @@ def ventanaConsultarProd(self):
             
 
     #****** Ventana Registro Producto ******#
-
-
 
 def ventanaRegistroProducto(self):
 

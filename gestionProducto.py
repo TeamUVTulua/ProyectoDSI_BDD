@@ -104,7 +104,7 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update producto set codigo  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, codigo))
-        messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
+        messagebox.showinfo("modificado", "El codigo ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 

@@ -34,7 +34,7 @@ class loginUsuario:
         frameLogin = Frame(self.rootLogin, bg="#18344A")
         frameLogin.place(x=500, y=110, width=345, height=450)
         Label(frameLogin, text="INICIO SESIÓN", font=("comic sass MS", 25, "bold"), bg="#18344A",fg="white").place(x=50, y=20)
-        print(datetime.today())
+
         # ****** Label ID ****** #
         Label(frameLogin, text="Identificación: ", font=("comic sass MS", 16, "bold"), bg="#18344A", fg="white").place( x=50, y=80)
         self.cuadroID = Entry(frameLogin, font=("comic sass MS", 16),width=22)
@@ -64,16 +64,13 @@ class loginUsuario:
             user2 = gestionUsuarios.login_usuario(self.cuadroID.get(), self.cuadroPass.get())
 
             user = user2
-            print (user.get_cargo() )
             if (user2.get_cargo() == 'administrador'):
-                print("ventana adminCC")
                 self.rootLogin.destroy()
                 import GUIAdministrador as cc
                 cc.usuario = user2
                 cc.iniciar()
 
             elif (user2.get_cargo() == 'vendedor'):
-                print("ventana adminRR")
                 self.rootLogin.destroy()
                 import GUIVendedor as cc
                 cc.usuario = user2
@@ -81,14 +78,12 @@ class loginUsuario:
 
 
             elif (user2.get_cargo() == 'bodega'):
-                print("ventana OperarioRR")
                 self.rootLogin.destroy()
                 import GUIBodeguista as cc
                 cc.usuario = user2
                 cc.iniciar()
 
             elif (user2.get_cargo() == 'contador'):
-                print("ventana OperarioRR")
                 self.rootLogin.destroy()
                 import GUIContador as cc
                 cc.usuario = user2

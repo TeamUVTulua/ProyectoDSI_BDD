@@ -89,9 +89,9 @@ class resgistroProducto:
         cons = gestionProductos.buscar_info(self.auxId)
         print (cons)
         if (cons == None):
-            messagebox.showinfo("Consultar", "El usuario no está registrado")
+            messagebox.showinfo("Consultar", "El producto no está registrado")
         else:
-            messagebox.showinfo("Consultar", "El usuario está registrado")
+            messagebox.showinfo("Consultar", "El producto está registrado")
 
     def validacion(self):
         return (len(self.codigo.get()) == 0 or len(self.categoria.get()) == 0)

@@ -19,7 +19,6 @@ class BaseDatos:
         # ****** Comandos ejecutados en la base de datos ******#
 
         self.cursor = self.conexion.cursor()
-        print("conexion exitosa")
 
     def ObtenerDatos(self, dato):
         self.cursor.execute(dato)
