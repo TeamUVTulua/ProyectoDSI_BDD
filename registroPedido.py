@@ -51,7 +51,7 @@ class resgistroPedido:
 
         # ****** Label Contactoido Crear Usuario ****** #
 
-        Label(self.framePedidos, text="Precio: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+        Label(self.framePedidos, text="Valor compra: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=350, y=280)
         self.Contacto = Entry(self.framePedidos, font=("comic sans MS", 16))
         self.Contacto.place(x=350, y=320)

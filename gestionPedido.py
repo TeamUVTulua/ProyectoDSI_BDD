@@ -28,18 +28,21 @@ class gestionPedido:
         self.base = BaseDatos()
         self.query = "SELECT * FROM surtido "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        print(self.cur)
         return self.cur
 
     def obtenerTodosId(self):
         self.base = BaseDatos()
         self.query = "SELECT codigo FROM producto "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        print(self.cur)
         return self.cur
 
     def obtenerTodosNit(self):
         self.base = BaseDatos()
         self.query = "SELECT nit FROM proveedor "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        print(self.cur)
         return self.cur
 
     # ****** Metodo para consulta de datos ******#
@@ -48,6 +51,7 @@ class gestionPedido:
         self.base = BaseDatos()
         self.query = query
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        print(self.cur)
         return self.cur
 
 
@@ -66,6 +70,7 @@ class gestionPedido:
         self.base = BaseDatos()
         self.query = "SELECT * FROM surtido WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
         bus = self.cur.fetchone()
         return bus
 
