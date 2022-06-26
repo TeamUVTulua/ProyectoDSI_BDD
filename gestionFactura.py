@@ -8,12 +8,12 @@ from PIL.ImageTk import PhotoImage
 from BaseDatos import *
 from Factura import *
 
-cliente = Cliente("", "", "", "", "", "", "", "")
+factura = Factura("", "", "", "", "", "", "", "")
 
 
 # ****** Clase gestionCliente ******#
 
-class gestionCliente:
+class gestionFactura:
 
     # ****** Metodo para registrar clientes en la base de datos ******#
 
@@ -68,6 +68,13 @@ class gestionCliente:
         for (numerofactura_cli) in self.cur:
             print(numerofactura_cli)
         return numerofactura_cli
+
+    def obtenerTodosId(self):
+        self.base = BaseDatos()
+        self.query = "SELECT codigo FROM producto "
+        self.cur = self.base.ObtenerTodosLosdatos(self.query)
+        return self.cur
+
 
     def obtener_fecha(self, numerofactura):
         self.base = BaseDatos()

@@ -1,11 +1,17 @@
+import tkinter
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 
+from gestionFactura import *
+from gestionProducto import *
+from gestionPedido import *
+
 class GUIFacturacion:
-    def __init__(self, rootGUIFacturacion):
+    def __init__(self, rootGUIFacturacion, codFac):
+        self.codFac = codFac
         self.rootGUIFacturacion = rootGUIFacturacion
         self.rootGUIFacturacion.title("Sistema de Inventario y Ventas MotoSocios")
         self.rootGUIFacturacion.geometry("1360x768+560+312")
@@ -23,7 +29,7 @@ class GUIFacturacion:
         frameCrearFactura = Frame(self.rootGUIFacturacion,bg="#18344A")
         frameCrearFactura.place(x=350, y=75, width=650, height=600)
 
-        Label(frameCrearFactura, text="CREAR FACTURA", font=("comic sans MS", 25, "bold"), bg="#18344A",
+        Label(frameCrearFactura, text="CREAR VENTA", font=("comic sans MS", 25, "bold"), bg="#18344A",
               fg="white").place(x=190, y=20)
 
         # ****** Label ID Crear Usuario ****** #
@@ -34,47 +40,50 @@ class GUIFacturacion:
 
         # ****** Label Nombre Crear Usuario ****** #
 
-        Label(frameCrearFactura, text="Nombre: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+        Label(frameCrearFactura, text="Producto: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=350, y=70)
-        self.nombre = Entry(frameCrearFactura, font=("comic sans MS", 16))
-        self.nombre.place(x=350, y=110)
+
+        self.rolPass = ttk.Combobox(frameCrearFactura, font=("comic sans MS", 13), state="readonly", justify=CENTER)
+
+        self.rolPass["values"]
+        self.CargarInfoUsuarioEnLabels(self.rolPass)
+
+        self.rolPass.place(x=350, y=110)
 
         # ****** Label  Crear Usuario ****** #
 
-        Label(frameCrearFactura, text="Categoria: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+        Label(frameCrearFactura, text="Codigo de factura: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=150)
-        self.rolPass = ttk.Combobox(frameCrearFactura, font=("comic sans MS", 13), state="readonly", justify=CENTER)
-        self.rolPass["values"] = ["electrica", "mecanica", "estetica", "varias"]
-        self.rolPass.place(x=50, y=190)
+        codi = tkinter.StringVar()
+        codi.set(self.codFac)
+
+
+
+        Label(frameCrearFactura, text=codi.get(), font=("comic sans MS", 16, ), bg="white",
+              fg="black").place(x=50, y=190)
+
+        Label(frameCrearFactura, text="Precio Unidad:" , font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=270)
+
+        gesPed = gestionPedido()
+        #self.precio = gesPed.obtener_precioCompra(self.rolPass.get())
+        print (self.rolPass.get())
+
+        prec = tkinter.StringVar()
+        #prec.set(self.precio)
+
+        Label(frameCrearFactura, text=prec.get(), font=("comic sans MS", 16,), bg="white",
+              fg="black").place(x=50, y=310)
 
         self.categoria = self.rolPass
 
         # ****** Label Crear Factura ****** #
 
-        Label(frameCrearFactura, text="Cantidad Total: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+        Label(frameCrearFactura, text="Cantidad Venta: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=350, y=150)
         self.cantidad = Entry(frameCrearFactura, font=("comic sans MS", 16))
         self.cantidad.place(x=350, y=190)
 
-        Label(frameCrearFactura, text="NIT Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=50, y=230)
-        self.nit_prov = Entry(frameCrearFactura, font=("comic sans MS", 16))
-        self.nit_prov.place(x=50, y=270)
-
-        Label(frameCrearFactura, text="Nombre Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=350, y=230)
-        self.nom_prov = Entry(frameCrearFactura, font=("comic sans MS", 16))
-        self.nom_prov.place(x=350, y=270)
-
-        Label(frameCrearFactura, text="Contacto Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=50, y=310)
-        self.cont_prov = Entry(frameCrearFactura, font=("comic sans MS", 16))
-        self.cont_prov.place(x=50, y=350)
-
-        Label(frameCrearFactura, text="Direccion Proveedor: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
-              fg="white").place(x=350, y=310)
-        self.dir_prov = Entry(frameCrearFactura, font=("comic sans MS", 16))
-        self.dir_prov.place(x=350, y=350)
 
 
 
@@ -88,8 +97,14 @@ class GUIFacturacion:
         BotonLogin = Button(frameCrearFactura, text="Cancelar", font=("comic sans MS", 15) ,bd=0, cursor="hand2")
         BotonLogin.place(x=350, y=500, width=200)
 
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    def CargarInfoUsuarioEnLabels(self, lista):
+        gestionFac = gestionFactura()
+        listaDatos = gestionFac.obtenerTodosId()
+        self.rolPass["values"] = listaDatos
 
-rootGUIFacturacion = Tk()
-obj = GUIFacturacion(rootGUIFacturacion)
-rootGUIFacturacion.mainloop()
+def iniciar(codFac):
+    rootGUIFacturacion = Tk()
+    obj = GUIFacturacion(rootGUIFacturacion, codFac)
+    rootGUIFacturacion.mainloop()
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------

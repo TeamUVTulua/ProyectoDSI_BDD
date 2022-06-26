@@ -1,41 +1,29 @@
 from tkinter import messagebox
 from BaseDatos import *
-from Pedido import *
+from Venta import *
 
-pedido = Pedido("", "", "", "","")
+venta = venta("", "", "", "","")
 
 
-class gestionPedido:
+class gestionVenta:
 
-    # ****** Metodos para registrar productos en la base de datos ******#
+    # ****** Metodos para registrar ventas en la base de datos ******#
 
-    def registrar_pedido(self, codigo_ped, producto_ped, proveedor_ped, precio_ped, cantidad_ped):
+    def registrar_venta(self, codigo_ven, prod_ven, fac_ven, cant_ven, precio_ven):
         try:
             self.base = BaseDatos()
-            self.query = "insert    into    surtido    VALUES    (%s,%s,%s,%s,%s)"
-            self.base.crear_cursor(self.query, (codigo_ped, producto_ped, proveedor_ped, precio_ped, cantidad_ped))
-            messagebox.showinfo("Registrado", "El pedido    ha    sido    registrado    con    exito")
+            self.query = "insert    into    venta    VALUES    (%s,%s,%s,%s,%s)"
+            self.base.crear_cursor(self.query, (codigo_ven, prod_ven, fac_ven, cant_ven, precio_ven))
+            messagebox.showinfo("Registrado", "La   venta    ha    sido    registrada    con    exito")
             self.base.cerrar_conexion()
         except:
-            messagebox.showinfo("Aviso", "pedido ya registrado.")
+            messagebox.showinfo("Aviso", "venta ya registrada.")
 
     # ****** Metodo para obtener los datos ******#
 
     def obtenerTodos(self):
         self.base = BaseDatos()
-        self.query = "SELECT * FROM surtido "
-        self.cur = self.base.ObtenerTodosLosdatos(self.query)
-        return self.cur
-
-    def obtenerTodosId(self):
-        self.base = BaseDatos()
-        self.query = "SELECT codigo FROM producto "
-        self.cur = self.base.ObtenerTodosLosdatos(self.query)
-        return self.cur
-
-    def obtenerTodosNit(self):
-        self.base = BaseDatos()
-        self.query = "SELECT nit FROM proveedor "
+        self.query = "SELECT codigo, producto, factura, cantidadventa, precioventa FROM venta "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 
@@ -50,20 +38,21 @@ class gestionPedido:
 
     def consultar_info(self, codigo):
         self.base = BaseDatos()
-        self.query = "SELECT * FROM surtido WHERE codigo='" + codigo + "'"
+        self.query = "SELECT codigo, producto, factura, cantidadventa, precioventa FROM venta WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
-        for (cod_ped, prod_ped, prov_ped, precio_ped, cant_ped) in self.cur:
-            self.auxUser=Pedido(cod_ped,prod_ped,prov_ped,precio_ped,cant_ped)
+        for (cod_ven, prod_ven, fact_ven, cantVen_ven, preVen_ven) in self.cur:
+            self.auxUser=venta(cod_ven,prod_ven,fact_ven,cantVen_ven, preVen_ven )
             user = self.auxUser
 
         return user
 
     def buscar_info(self, codigo):
         self.base = BaseDatos()
-        self.query = "SELECT * FROM surtido WHERE codigo='" + codigo + "'"
+        self.query = "SELECT codigo, producto, factura, cantidadventa, precioventa FROM venta WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         bus = self.cur.fetchone()
+
         return bus
 
 
@@ -71,7 +60,7 @@ class gestionPedido:
 
     def obtener_codigo (self, cod):
         self.base = BaseDatos()
-        self.query = "SELECT codigo FROM surtido WHERE codigo ='" + cod + "'"
+        self.query = "SELECT codigo FROM venta WHERE codigo ='" + cod + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
 
@@ -81,47 +70,38 @@ class gestionPedido:
 
     def obtener_producto (self, codigo):
         self.base = BaseDatos()
-        self.query = "SELECT producto FROM surtido WHERE codigo='" + codigo + "'"
+        self.query = "SELECT producto FROM venta WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
 
-        for (prod_ped) in self.cur:
-            print(prod_ped)
-        return prod_ped
+        for (nom_prod) in self.cur:
+            print(nom_prod)
+        return nom_prod
 
-    def obtener_proveedor (self, codigo):
+    def obtener_factura (self, codigo):
         self.base = BaseDatos()
-        self.query = "SELECT proveedor FROM surtido WHERE codigo='" + codigo + "'"
+        self.query = "SELECT factura FROM venta WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
 
-        for (prov_ped) in self.cur:
-            print(prov_ped)
-        return prov_ped
+        for (cat_prod) in self.cur:
+            print(cat_prod)
+        return cat_prod
 
-    def obtener_precioCompra (self, codigo):
+    def obtener_cantidadTotal (self, codigo):
         self.base = BaseDatos()
-        self.query = "SELECT preciocompra FROM surtido WHERE codigo='" + codigo + "'"
-        self.cur = self.base.ObtenerDatos(self.query)
-        print(self.cur)
-        for (precioCompra_ped) in self.cur:
-            print(precioCompra_ped)
-        return precioCompra_ped
-
-    def obtener_cantidadCompra (self, codigo):
-        self.base = BaseDatos()
-        self.query = "SELECT cantidadcompra FROM surtido WHERE codigo='" + codigo + "'"
+        self.query = "SELECT cantidadtotal FROM venta WHERE codigo='" + codigo + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
 
-        for (cantidadCompra_ped) in self.cur:
-            print(cantidadCompra_ped)
-        return cantidadCompra_ped
-    #-------------------------------------------------------------
+        for (cantidadTotal_prod) in self.cur:
+            print(cantidadTotal_prod)
+        return cantidadTotal_prod
+
     def modificar_codigo(self, cod, codigo):
         print("aquí")
         self.base = BaseDatos()
-        self.query = "update surtido set codigo  = %s where codigo = %s" # <----
+        self.query = "update venta set codigo  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cod, codigo))
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
@@ -132,7 +112,7 @@ class gestionPedido:
     def modificar_nombre(self, nombre, codigo):
         print("aquí")
         self.base = BaseDatos()
-        self.query = "update producto set nombre  = %s where codigo = %s" # <----
+        self.query = "update venta set nombre  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (nombre, codigo))
         messagebox.showinfo("modificado", "El nombre ha sido modificado con exito")
 
@@ -141,7 +121,7 @@ class gestionPedido:
     def modificar_categoria(self, categoria, codigo):
         print("aquí")
         self.base = BaseDatos()
-        self.query = "update producto set categoria  = %s where codigo = %s"  # <----
+        self.query = "update venta set categoria  = %s where codigo = %s"  # <----
         self.cur = self.base.crear_cursor(self.query, (categoria, codigo))
         messagebox.showinfo("modificado", "La categoria se ha sido modificado con exito")
 
@@ -149,27 +129,27 @@ class gestionPedido:
     def modificar_cantidad(self, cantidad, codigo):
         print("aquí")
         self.base = BaseDatos()
-        self.query = "update producto set cantidad  = %s where codigo = %s" # <----
+        self.query = "update venta set cantidad  = %s where codigo = %s" # <----
         self.cur = self.base.crear_cursor(self.query, (cantidad, codigo))
         messagebox.showinfo("modificado", "La cantidad ha sido modificado con exito")
 
         self.base.cerrar_conexion()
 
-    # ****** Metodo para habilitar productos ******#
+    # ****** Metodo para habilitar ventas ******#
 
     def deshabilitar_usuario(self, codigo):
         self.base = BaseDatos()
-        self.query = "update producto set estado  = false where codigo = '"+ codigo + "'"
+        self.query = "update venta set estado  = false where codigo = '"+ codigo + "'"
         self.cur = self.base.crear_cursor(self.query, (codigo))
-        messagebox.showinfo("deshabilitado", "El producto ha sido eliminado con exito")
+        messagebox.showinfo("deshabilitado", "El venta ha sido eliminado con exito")
         self.base.cerrar_conexion()
 
-    # ****** Metodo para deshabilitar productos ******#
+    # ****** Metodo para deshabilitar ventas ******#
 
     def habilitar_usuario(self, email):
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
-        mensajeHabilitar = messagebox.showinfo("habilitado", "El producto ha sido habilitado con exito")
+        mensajeHabilitar = messagebox.showinfo("habilitado", "El venta ha sido habilitado con exito")
         mensajeHabilitar.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.base.cerrar_conexion()

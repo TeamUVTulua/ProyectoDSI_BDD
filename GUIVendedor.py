@@ -10,6 +10,7 @@ from PIL import Image, ImageTk
 
 from gestionUsuario import *
 from gestionProducto import *
+from gestionFactura import *
 import gestionUsuario as gu
 usuario=Usuario("","","","","","","","", "")
 
@@ -125,13 +126,16 @@ class GUIVendedor:
     def hacerFactura(self):
         self.auxId = askstring('Consulta', 'Ingrese el codigo de un pedido')
 
-        gestionClientes = gestionCliente()
-        cons = gestionClientes.buscar_info(self.auxId)
+        gestionFacturas = gestionFactura()
+        fact= self.auxId
+        cons=gestionFacturas.buscar_info(self.auxId)
         print(cons)
         if (cons == None):
-            messagebox.showinfo("Consultar", "El usuario no está registrado")
+            self.rootGUIVendedor.destroy()
+            import GUIFacturacion as emp
+            emp.iniciar(fact)
         else:
-            messagebox.showinfo("Consultar", "El usuario está registrado")
+            messagebox.showinfo("Consultar", "La factura está registrado")
 
     def  mostrarProd(self):
         self.frameDerechoEmp = Frame(self.rootGUIVendedor, bg="#18344A")
