@@ -74,6 +74,7 @@ class gestionFactura:
         self.base = BaseDatos()
         self.query = "SELECT numerofactura, fecha, descuento, tipopago, valorfinal, cambio, empleado, cliente FROM factura WHERE numerofactura='" + numerofactura + "'"
         self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
         for (num_fac, fecha_fac, des_fac, tipo_fac, val_fac, cambio_fac, emp_fac, cli_fac) in self.cur:
             self.auxUser = Factura(num_fac, fecha_fac, des_fac, tipo_fac, val_fac, cambio_fac, emp_fac,cli_fac )
             user = self.auxUser
