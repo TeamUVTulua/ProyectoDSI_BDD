@@ -240,3 +240,10 @@ class gestionUsuario:
         messagebox.showinfo("deshabilitado", "El usuario ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
 
+    def habilitar_usuario(self, identificacion):
+        self.base = BaseDatos()
+        self.query = "update empleado set estado  = true where id_usu = '" + identificacion + "'"
+        self.cur = self.base.crear_cursor(self.query, (identificacion))
+        messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
+        self.base.cerrar_conexion()
+

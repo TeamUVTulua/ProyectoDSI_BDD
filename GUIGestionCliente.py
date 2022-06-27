@@ -63,7 +63,7 @@ class GUIGestCli:
 
         # ******Boton Habilitar Cliente ****** #
 
-        BotonHabilitarCliente = Button(frameIzquierdoCli, text="Habilitar Cliente",  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonHabilitarCliente = Button(frameIzquierdoCli, text="Habilitar Cliente", command=self.habilitar ,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarCliente.place(x=120, y=250, width=240)
 
 
@@ -279,6 +279,13 @@ class GUIGestCli:
         self.auxId = askstring('Eliminar Cliente', 'Ingrese el nit de un cliente')
         gestionClientes = gestionCliente()
         gestionClientes.deshabilitar_usuario(self.auxId )
+        self.rootGestCli.destroy()
+        iniciar()
+
+    def habilitar(self):
+        self.auxId = askstring('Habilitar Cliente', 'Ingrese el nit de un cliente')
+        gestionClientes = gestionCliente()
+        gestionClientes.habilitar_usuario(self.auxId )
         self.rootGestCli.destroy()
         iniciar()
 

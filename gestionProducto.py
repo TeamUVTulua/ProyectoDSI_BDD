@@ -144,9 +144,9 @@ class gestionProducto:
 
     # ****** Metodo para habilitar productos ******#
 
-    def habilitar_usuario(self, email):
+    def habilitar_usuario(self, codigo):
         self.base = BaseDatos()
-        self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
-        self.cur = self.base.crear_cursor(self.query, (email))
+        self.query = "update producto set estado  = true where codigo = '" + codigo + "'"
+        self.cur = self.base.crear_cursor(self.query, (codigo))
         messagebox.showinfo("habilitado", "El producto ha sido habilitado con exito")
         self.base.cerrar_conexion()

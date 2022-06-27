@@ -3,7 +3,7 @@
 from BaseDatos import *
 from Pedido import *
 
-pedido = Pedido("", "", "", "","")
+pedido = Pedido("", "", "", "","", "")
 
 # ****** clase gestionPedido ******#
 
@@ -11,11 +11,11 @@ class gestionPedido:
 
     # ****** Metodos para registrar productos en la base de datos ******#
 
-    def registrar_pedido(self, codigo_ped, producto_ped, proveedor_ped, precio_ped, cantidad_ped):
+    def registrar_pedido(self, codigo_ped, producto_ped, proveedor_ped, precio_ped, cantidad_ped, total_ped):
         try:
             self.base = BaseDatos()
-            self.query = "insert    into    surtido    VALUES    (%s,%s,%s,%s,%s)"
-            self.base.crear_cursor(self.query, (codigo_ped, producto_ped, proveedor_ped, precio_ped, cantidad_ped))
+            self.query = "insert    into    surtido    VALUES    (%s,%s,%s,%s,%s, %s)"
+            self.base.crear_cursor(self.query, (codigo_ped, producto_ped, proveedor_ped, precio_ped, cantidad_ped, total_ped))
             messagebox.showinfo("Registrado", "El pedido ha sido registrado con exito")
             self.base.cerrar_conexion()
         except:
@@ -76,9 +76,29 @@ class gestionPedido:
 
     # ****** Metodo para la obtencion de datos ******#
 
+    def obtener_PrecioTotal (self, cod):
+        self.base = BaseDatos()
+        self.query = "SELECT preciototal FROM surtido WHERE codigo ='" + cod + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (cod_prod) in self.cur:
+            print(cod_prod)
+        return cod_prod
+
     def obtener_codigo (self, cod):
         self.base = BaseDatos()
         self.query = "SELECT codigo FROM surtido WHERE codigo ='" + cod + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (cod_prod) in self.cur:
+            print(cod_prod)
+        return cod_prod
+
+    def obtener_total (self):
+        self.base = BaseDatos()
+        self.query = "SELECT SUM(preciototal) FROM surtido "
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
 

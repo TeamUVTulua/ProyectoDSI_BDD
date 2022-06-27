@@ -108,7 +108,10 @@ class resgistroPedido:
             messagebox.showinfo("error!", "Los datos son obligatorios")
         else:
             self.gestionPed = gestionPedido()
-            self.gestionPed.registrar_pedido(self.nit.get(), self.rolPass.get(), self.rolPassProv.get(), self.Contacto.get(), self.Direccion.get())
+            cantidad = int(self.Contacto.get())
+            precio = int(self.Direccion.get())
+            precioTotal = cantidad * precio
+            self.gestionPed.registrar_pedido(self.nit.get(), self.rolPass.get(), self.rolPassProv.get(), self.Contacto.get(), self.Direccion.get(), precioTotal)
             self.volver()
 
     def busc(self):

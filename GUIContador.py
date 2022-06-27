@@ -131,16 +131,16 @@ class GUIContador:
         else:
             showinfo('Pagos', 'No se pagó salario a empleados')
 
-    def pagoPrv(self):
-        ges = gestionUsuario()
-        total =  ges.obtener_salarioTotal()
-        total1 = int('.'.join(str(ele) for ele in total))
-        tota = str(total1)
-        res = messagebox.askyesno(message="¿Desea Pagar el salario de los empleado? \n Salario = " + tota, title="Salario Total")
+    def pagoProv(self):
+        ges = gestionPedido()
+        total =  ges.obtener_total()
+        res = int('.'.join(str(ele) for ele in total))
+        mostrar = str(res)
+        res = messagebox.askyesno(message="¿Desea Pagar a los proveedores? \n Pago Total = " + mostrar, title="Pago Total")
         if res:
-            showinfo('Pagos', 'Salario a Empleados Pagado')
+            showinfo('Pagos', 'Pago a Proveedores Pagado')
         else:
-            showinfo('Pagos', 'No se pagó salario a empleados')
+            showinfo('Pagos', 'No se pagó a Proveedores')
 
     def consEmp(self):
         self.auxId = askstring('Consulta', 'Ingrese el codigo de una venta')

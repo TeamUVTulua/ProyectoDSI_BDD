@@ -172,3 +172,10 @@ class gestionCliente:
         self.cur = self.base.crear_cursor(self.query, (nit))
         messagebox.showinfo("deshabilitado", "El Cliente ha sido deshabilitado con exito")
         self.base.cerrar_conexion()
+
+    def habilitar_usuario(self, nit):
+        self.base = BaseDatos()
+        self.query = "update cliente set estado  = true where nit = '"+ nit + "'"
+        self.cur = self.base.crear_cursor(self.query, (nit))
+        messagebox.showinfo("habilitado", "El Cliente ha sido habilitado con exito")
+        self.base.cerrar_conexion()

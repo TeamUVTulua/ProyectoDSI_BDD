@@ -54,7 +54,7 @@ class GUIMenuInicial:
 
         # ******Boton Habilitar Empleado ****** #
 
-        BotonHabilitarEmpleados = Button(frameIzquierdoEmp, text="Habilitar Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonHabilitarEmpleados = Button(frameIzquierdoEmp, text="Habilitar Empleado", command = self.habilitar,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonHabilitarEmpleados.place(x=120, y=310, width=240)
 
         # ****** Frame Productos Side Der ****** #
@@ -271,6 +271,13 @@ class GUIMenuInicial:
         self.auxId = askstring('Eliminar Usuario', 'Ingrese el identificador de un empleado')
         gestionUsuarios = gestionUsuario()
         gestionUsuarios.deshabilitar_usuario(self.auxId )
+        self.rootGestEmp.destroy()
+        iniciar()
+
+    def habilitar(self):
+        self.auxId = askstring('Habilitar Usuario', 'Ingrese el identificador de un empleado')
+        gestionUsuarios = gestionUsuario()
+        gestionUsuarios.habilitar_usuario(self.auxId )
         self.rootGestEmp.destroy()
         iniciar()
 

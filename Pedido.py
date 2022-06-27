@@ -1,12 +1,13 @@
 
 class Pedido:
 
-    def __init__(self,codigo,producto,proveedor,precioCompra,cantidadCompra):
+    def __init__(self,codigo,producto,proveedor,precioCompra,cantidadCompra, precioTotal):
         self.codgo = codigo
         self.producto = producto
         self.proveedor = proveedor
         self.precioCompra = precioCompra
         self.cantidadCompra = cantidadCompra
+        self.precioTotal = precioTotal
 
     def get_codigo(self):
         return self.codigo

@@ -59,7 +59,7 @@ class GUIGestionProducto:
 
         # ******Boton Habilitar producto ****** #
 
-        BotonHabilitarProducto = Button(frameIzquierdoProd, text="Habilitar Producto",  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonHabilitarProducto = Button(frameIzquierdoProd, text="Habilitar Producto", command=self.habilitar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonHabilitarProducto.place(x=120, y=280, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
@@ -221,6 +221,13 @@ class GUIGestionProducto:
         self.auxId = askstring('Eliminar Producto', 'Ingrese el codigo de un producto')
         gestionProductos = gestionProducto()
         gestionProductos.deshabilitar_usuario(self.auxId )
+        self.rootGUIRegProd.destroy()
+        iniciar(self.cargo)
+
+    def habilitar(self):
+        self.auxId = askstring('Habilitar Producto', 'Ingrese el codigo de un producto')
+        gestionProductos = gestionProducto()
+        gestionProductos.habilitar_usuario(self.auxId )
         self.rootGUIRegProd.destroy()
         iniciar(self.cargo)
 
