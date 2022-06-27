@@ -105,9 +105,15 @@ class GUIMenuInicial:
                                                                                                              y=180)
 
         self.CargarInfoUsuarioEnLabels2()
+        
+        self.scrollbar = Scrollbar(self.frameDerechoEmp)
+        self.scrollbar.pack(side=BOTTOM, fill=X)
 
         self.listboxUsuario = Listbox(frameDerechoEmp, width=25, height=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 16))
+
+        self.listboxUsuario.config(xscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxUsuario.yview, orient='horizontal')
 
         self.listboxUsuario.insert(0, self.id_emp)
         self.listboxUsuario.insert(1, self.nom_emp)
