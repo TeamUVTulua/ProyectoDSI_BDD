@@ -9,7 +9,8 @@ from gestionPedido import *
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
-pedido = us.Pedido("", "", "", "", "")
+pedido = us.\
+    Pedido("", "", "", "", "")
 
 # ****** Clase GUIGestionProducto ****** #
 

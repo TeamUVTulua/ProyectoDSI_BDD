@@ -138,19 +138,23 @@ class GUIGestCli:
     def retornarSelecListBoxUsuario(self):
         gestionUsuarios = gestionCliente()
         aux = self.listboxUsuario.curselection()
-        if (self.listboxUsuario.selection_includes(0)):
-            print(aux)
+        try:
+            if (self.listboxUsuario.selection_includes(0)):
+                print(aux)
 
-            aux2 = askstring('Modificación de información', 'Ingrese el NIT de cliente')
-            aux2.iconbitmap("Imagenes\iconoInterfaz.ico")
+                aux2 = askstring('Modificación de información', 'Ingrese el NIT de cliente')
+                aux2.iconbitmap("Imagenes\iconoInterfaz.ico")
 
-            if (aux2 == None):
-                showinfo('Modificación de información', 'No se realizó ningun cambio')
-            else:
-                showinfo('Modificación de información', 'El nit del cliente quedó: {}'.format(aux2))
-
-                gestionUsuarios.modificar_nit(aux2, self.nit_cli)
-                print(aux2)
+                if (aux2 == None):
+                    showinfo('Modificación de información', 'No se realizó ningun cambio')
+                else:
+                    gestionUsuarios.modificar_nit(aux2, self.nit_cli)
+                    showinfo('Modificación de información', 'El nit del cliente quedó: {}'.format(aux2))
+                    print(aux2)
+                    self.rootGestCli.destroy()
+                    iniciar(self.cargo)
+        except:
+            showinfo('Error', 'El NIT ya está registrado')
 
         if (self.listboxUsuario.selection_includes(1)):
             print(aux)
@@ -160,7 +164,8 @@ class GUIGestCli:
             else:
                 showinfo('Modificación de información', 'El nombre del cliente es: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.nit_cli)
-            print(aux2)
+                self.rootGestCli.destroy()
+                iniciar(self.cargo)
 
         if (self.listboxUsuario.selection_includes(2)):
             print(aux)
@@ -170,7 +175,8 @@ class GUIGestCli:
             else:
                 showinfo('Modificación de información', 'El apellido paterno es : {}'.format(aux3))
                 gestionUsuarios.modificar_apellido1(aux3, self.nit_cli)
-            print(aux3)
+                self.rootGestCli.destroy()
+                iniciar(self.cargo)
 
         if (self.listboxUsuario.selection_includes(3)):
             print(aux)
@@ -180,7 +186,8 @@ class GUIGestCli:
             else:
                 showinfo('Modificación de información', 'Tu apellido materno es: {}'.format(aux4))
                 gestionUsuarios.modificar_apellido2(aux4, self.nit_cli)
-            print(aux4)
+                self.rootGestCli.destroy()
+                iniciar(self.cargo)
 
         if (self.listboxUsuario.selection_includes(4)):
             print(aux)
@@ -190,7 +197,8 @@ class GUIGestCli:
             else:
                 showinfo('Modificación de información', 'El tipo de cliente cambio a: {}'.format(aux5))
                 gestionUsuarios.modificar_telefono(aux5, self.nit_cli)
-            print(aux5)
+                self.rootGestCli.destroy()
+                iniciar(self.cargo)
 
         if (self.listboxUsuario.selection_includes(5)):
             print(aux)
@@ -200,7 +208,8 @@ class GUIGestCli:
             else:
                 showinfo('Modificación de información', 'La Direccion Calle quedo: {}'.format(aux6))
                 gestionUsuarios.modificar_dirCalle(aux6, self.nit_cli)
-            print(aux6)
+                self.rootGestCli.destroy()
+                iniciar(self.cargo)
 
         if (self.listboxUsuario.selection_includes(6)):
             print(aux)
@@ -210,7 +219,8 @@ class GUIGestCli:
             else:
                 showinfo('Modificación de información', 'La direccion Numero quedo: {}'.format(aux6))
                 gestionUsuarios.modificar_dirNum(aux6, self.nit_cli)
-            print(aux6)
+                self.rootGestCli.destroy()
+                iniciar(self.cargo)
 
     def CargarInfoUsuarioEnLabels2(self):
         gestionUsuarios = gestionCliente()

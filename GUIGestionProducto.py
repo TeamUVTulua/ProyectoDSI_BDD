@@ -125,16 +125,20 @@ class GUIGestionProducto:
     def retornarSeleclistboxProducto(self):
         gestionUsuarios = gestionProducto()
         aux = self.listboxProducto.curselection()
-        if (self.listboxProducto.selection_includes(0)):
-            aux2 = askstring('Modificación de información', 'Ingrese el Codigo del producto')
+        try:
+            if (self.listboxProducto.selection_includes(0)):
+                aux2 = askstring('Modificación de información', 'Ingrese el Codigo del producto')
 
-            if (aux2 == None):
-                showinfo('Modificación de información', 'No se realizó ningun cambio')
-            else:
-                showinfo('Modificación de información', 'El codigo quedó:  {}'.format(aux2))
-
-                gestionUsuarios.modificar_codigo(aux2, self.codigo)
-                print(aux2)
+                if (aux2 == None):
+                    showinfo('Modificación de información', 'No se realizó ningun cambio')
+                else:
+                    gestionUsuarios.modificar_codigo(aux2, self.codigo)
+                    showinfo('Modificación de información', 'El codigo quedó:  {}'.format(aux2))
+                    print(aux2)
+                    self.rootGUIRegProd.destroy()
+                    iniciar(self.cargo)
+        except:
+            showinfo('Error', 'El Codigo ya está registrado')
 
         if (self.listboxProducto.selection_includes(1)):
             aux2 = askstring('Modificación de información', 'Ingrese el nuevo nombre de producto')
@@ -143,6 +147,8 @@ class GUIGestionProducto:
             else:
                 showinfo('Modificación de información', 'El nombre del producto es: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.codigo)
+                self.rootGUIRegProd.destroy()
+                iniciar(self.cargo)
 
         if (self.listboxProducto.selection_includes(2)):
             aux3 = askstring('Modificación de información', 'Ingrese la nueva categoria de producto')
@@ -151,7 +157,8 @@ class GUIGestionProducto:
             else:
                 showinfo('Modificación de información', 'la categoria quedo en: {}'.format(aux3))
                 gestionUsuarios.modificar_categoria(aux3, self.codigo)
-            print(aux3)
+                self.rootGUIRegProd.destroy()
+                iniciar(self.cargo)
 
         if (self.listboxProducto.selection_includes(3)):
             aux4 = askstring('Modificación de información', 'Ingrese la nueva cantidad del producto')
@@ -159,7 +166,9 @@ class GUIGestionProducto:
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
                 showinfo('Modificación de información', 'La nueva cantidad es: {}'.format(aux4))
-                gestionUsuarios.modificar_cantidad( self.codigo)
+                gestionUsuarios.modificar_cantidad( aux4, self.codigo)
+                self.rootGUIRegProd.destroy()
+                iniciar(self.cargo)
 
     def CargarInfoUsuarioEnLabels2(self):
         gestionUsuarios = gestionProducto()

@@ -120,19 +120,25 @@ class GUIMenuInicial:
         BotonModificarDatos.place(x=80, y=400, width=240)
 
     def retornarSelecListBoxUsuario(self):
+
         gestionUsuarios = gestionUsuario()
         aux = self.listboxUsuario.curselection()
-        if (self.listboxUsuario.selection_includes(0)):
-            print(aux)
-            aux2 = askstring('Modificación de información', 'Ingrese el identificador de usuario')
+        try:
+            if (self.listboxUsuario.selection_includes(0)):
+                print(aux)
+                aux2 = askstring('Modificación de información', 'Ingrese el identificador de usuario')
 
-            if (aux2 == None):
-                showinfo('Modificación de información', 'No se realizó ningun cambio')
-            else:
-                showinfo('Modificación de información', 'El nuevo identificador de ususario es: {}'.format(aux2))
+                if (aux2 == None):
+                    showinfo('Modificación de información', 'No se realizó ningun cambio')
+                else:
+                    gestionUsuarios.modificar_identificacion(aux2, self.id_emp)
+                    showinfo('Modificación de información', 'El nuevo identificador de ususario es: {}'.format(aux2))
+                    print(aux2)
+                    self.rootGestEmp.destroy()
+                    iniciar()
 
-                gestionUsuarios.modificar_identificacion(aux2, self.id_emp)
-                print(aux2)
+        except:
+            showinfo('Error', 'El Identificador ya está registrado')
 
         if (self.listboxUsuario.selection_includes(1)):
             print(aux)
@@ -142,7 +148,10 @@ class GUIMenuInicial:
             else:
                 showinfo('Modificación de información', 'El nuevo nombre quedo: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.id_emp)
-            print(aux2)
+                print(aux2)
+                self.rootGestEmp.destroy()
+                iniciar()
+
 
         if (self.listboxUsuario.selection_includes(2)):
             print(aux)
@@ -152,7 +161,9 @@ class GUIMenuInicial:
             else:
                 showinfo('Modificación de información', 'El nuevo apellido de usuario es: {}'.format(aux3))
                 gestionUsuarios.modificar_apellido(aux3, self.id_emp)
-            print(aux3)
+                print(aux3)
+                self.rootGestEmp.destroy()
+                iniciar()
 
         if (self.listboxUsuario.selection_includes(3)):
             print(aux)
@@ -162,7 +173,9 @@ class GUIMenuInicial:
             else:
                 showinfo('Modificación de información', 'El nuevo cargo del usuario es: {}'.format(aux4))
                 gestionUsuarios.modificar_cargo(aux4, self.id_emp)
-            print(aux4)
+                print(aux4)
+                self.rootGestEmp.destroy()
+                iniciar()
 
         if (self.listboxUsuario.selection_includes(4)):
             print(aux)
@@ -172,7 +185,9 @@ class GUIMenuInicial:
             else:
                 showinfo('Modificación de información', 'La nueva direccion del usuario quedo: {}'.format(aux5))
                 gestionUsuarios.modificar_telefono(aux5, self.id_emp)
-            print(aux5)
+                print(aux5)
+                self.rootGestEmp.destroy()
+                iniciar()
 
         if (self.listboxUsuario.selection_includes(5)):
             print(aux)
@@ -182,7 +197,9 @@ class GUIMenuInicial:
             else:
                 showinfo('Modificación de información', 'La nueva informacion de telefono: {}'.format(aux6))
                 gestionUsuarios.modificar_telefono(aux6, self.id_emp)
-            print(aux6)
+                print(aux6)
+                self.rootGestEmp.destroy()
+                iniciar()
 
 
     def CargarInfoUsuarioEnLabels2(self):

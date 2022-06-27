@@ -86,7 +86,7 @@ class gestionFactura:
 
     def obtener_num(self, numerofactura):
         self.base = BaseDatos()
-        self.query = "SELECT numerofactura FROM factura WHERE numerofactura='" + nnumerofacturait + "'"
+        self.query = "SELECT numerofactura FROM factura WHERE numerofactura='" + numerofactura + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         for (numerofactura_cli) in self.cur:
             print(numerofactura_cli)
@@ -150,6 +150,14 @@ class gestionFactura:
     def obtener_cliente(self, numerofactura):
         self.base = BaseDatos()
         self.query = "SELECT cliente FROM factura WHERE numerofactura='" + numerofactura + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        for (dirNum_cli) in self.cur:
+            print(dirNum_cli)
+        return dirNum_cli
+
+    def obtener_monto(self, numerofactura):
+        self.base = BaseDatos()
+        self.query = "SELECT monto FROM factura WHERE numerofactura='" + numerofactura + "'"
         self.cur = self.base.ObtenerDatos(self.query)
         for (dirNum_cli) in self.cur:
             print(dirNum_cli)

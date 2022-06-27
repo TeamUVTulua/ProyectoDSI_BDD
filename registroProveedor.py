@@ -81,8 +81,8 @@ class registroProveedor:
         if self.validacion():
             messagebox.showinfo("error!", "Los datos son obligatorios")
         else:
-            self.gestionUsuario = gestionProducto()
-            self.gestionUsuario.registrar_producto(self.nit.get(), self.nombre.get(),self.Contacto.get(),self.Direccion.get())
+            self.gestionUsuario = gestionProveedor()
+            self.gestionUsuario.registrar_proveedor(self.nit.get(), self.nombre.get(),self.Contacto.get(),self.Direccion.get())
             self.volver()
 
     def busc(self):

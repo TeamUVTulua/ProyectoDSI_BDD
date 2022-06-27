@@ -127,7 +127,7 @@ class gestionProducto:
         self.base.cerrar_conexion()
     def modificar_cantidad(self, cantidad, codigo):
         self.base = BaseDatos()
-        self.query = "update producto set cantidad  = %s where codigo = %s"
+        self.query = "update producto set cantidadtotal   = %s where codigo = %s"
         self.cur = self.base.crear_cursor(self.query, (cantidad, codigo))
         messagebox.showinfo("modificado", "La cantidad ha sido modificado con exito")
 
