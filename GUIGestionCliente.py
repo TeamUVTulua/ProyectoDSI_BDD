@@ -61,6 +61,11 @@ class GUIGestCli:
         BotonEliminarCliente = Button(frameIzquierdoCli, text="Eliminar Cliente", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarCliente.place(x=120, y=240, width=240)
 
+        # ******Boton Eliminar Empleado ****** #
+
+        BotonHabilitarCliente = Button(frameIzquierdoCli, text="Eliminar Empleado",  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarCliente.place(x=120, y=250, width=240)
+
 
 
         # ****** Frame inicio Productos Side Der ****** #
@@ -80,7 +85,7 @@ class GUIGestCli:
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
-        self.listboxUsuario.place(x=50, y=86)
+        self.listboxUsuario.place(x=35, y=86)
 
         # ****** Boton Modificar Datos ****** #
 

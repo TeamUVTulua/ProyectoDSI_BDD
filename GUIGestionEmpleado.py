@@ -49,9 +49,13 @@ class GUIMenuInicial:
 
         # ******Boton Eliminar Empleado ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoEmp, text="Eliminar Empleado", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarProducto.place(x=120, y=250, width=240)
+        BotonEliminarEmpleados = Button(frameIzquierdoEmp, text="Eliminar Empleado", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarEmpleados.place(x=120, y=250, width=240)
 
+        # ******Boton Habilitar Empleado ****** #
+
+        BotonHabilitarEmpleados = Button(frameIzquierdoEmp, text="Habilitar Empleado", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonHabilitarEmpleados.place(x=120, y=310, width=240)
 
         # ****** Frame Productos Side Der ****** #
 
