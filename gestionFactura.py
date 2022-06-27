@@ -94,7 +94,7 @@ class gestionFactura:
 
     def obtenerTodosId(self):
         self.base = BaseDatos()
-        self.query = "SELECT codigo FROM producto "
+        self.query = "SELECT producto FROM surtido "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 

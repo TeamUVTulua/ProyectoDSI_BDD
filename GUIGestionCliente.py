@@ -280,7 +280,7 @@ class GUIGestCli:
         gestionClientes = gestionCliente()
         gestionClientes.deshabilitar_usuario(self.auxId )
         self.rootGestCli.destroy()
-        iniciar()
+        iniciar(self.cargo)
 
     def habilitar(self):
         self.auxId = askstring('Habilitar Cliente', 'Ingrese el nit de un cliente')
