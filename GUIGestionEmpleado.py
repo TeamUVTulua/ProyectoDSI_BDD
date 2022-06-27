@@ -67,10 +67,12 @@ class GUIMenuInicial:
               fg="white").place(x=280, y=20)
 
         self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, height=9, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 16))
+                                      font=("comic sans MS", 20))
 
         self.listboxUsuario.get
+
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+
         self.listboxUsuario.place(x=50, y=86)
 
     def consultarEmp(self):

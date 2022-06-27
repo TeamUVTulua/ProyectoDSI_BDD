@@ -67,6 +67,9 @@ class GUIGestionPedido:
         Label(self.frameDerechoPed, text="Pedidos", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
+        self.scrollbarPed = Scrollbar(self.frameDerechoPed)
+        self.scrollbarPed.pack(side=RIGHT, fill=Y)
+
         self.scrollbar = Scrollbar(self.frameDerechoPed)
         self.scrollbar.pack(side=RIGHT, fill=Y)
 
@@ -78,6 +81,9 @@ class GUIGestionPedido:
 
         self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listboxUsuario.yview)
+
+        self.listboxUsuario.config(yscrollcommand=self.scrollbarPed.set)
+        self.scrollbarPed.config(command=self.listboxUsuario.yview)
 
         self.listboxUsuario.place(x=50, y=86)
 

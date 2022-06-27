@@ -71,6 +71,9 @@ class GUIProveedor:
         Label(self.frameDerechoEmp, text="Proveedor", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
+        self.scrollbarProv = Scrollbar(self.frameDerechoEmp)
+        self.scrollbarProv.pack(side=RIGHT, fill=Y)
+
         self.scrollbar =Scrollbar(self.frameDerechoEmp)
         self.scrollbar.pack(side=RIGHT, fill=Y)
 
@@ -85,6 +88,8 @@ class GUIProveedor:
         self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listboxUsuario.yview)
 
+        self.listboxUsuario.config(yscrollcommand=self.scrollbarProv.set)
+        self.scrollbarProv.config(command=self.listboxUsuario.yview)
 
         self.listboxUsuario.place(x=50, y=86)
 
