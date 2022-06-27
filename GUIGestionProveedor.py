@@ -139,15 +139,19 @@ class GUIProveedor:
     def retornarSelecListBoxUsuario(self):
         gestionUsuarios = gestionProveedor()
         aux = self.listboxUsuario.curselection()
-        if (self.listboxUsuario.selection_includes(0)):
-            aux2 = askstring('Modificación de información', 'Ingrese el NIT del Proveedor')
+        try:
+            if (self.listboxUsuario.selection_includes(0)):
+                aux2 = askstring('Modificación de información', 'Ingrese el NIT del Proveedor')
 
-            if (aux2 == None):
-                showinfo('Modificación de información', 'No se realizó ningun cambio')
-            else:
-                showinfo('Modificación de información', 'El nuevo NIT quedó:  {}'.format(aux2))
-
-                gestionUsuarios.modificar_nit(aux2, self.nit)
+                if (aux2 == None):
+                    showinfo('Modificación de información', 'No se realizó ningun cambio')
+                else:
+                    showinfo('Modificación de información', 'El nuevo NIT quedó:  {}'.format(aux2))
+                    gestionUsuarios.modificar_nit(aux2, self.nit)
+                    self.rootGUIProveedor.destroy()
+                    iniciar()
+        except:
+            showinfo('Error', 'El NIT ya está registrado')
 
         if (self.listboxUsuario.selection_includes(1)):
             print(aux)
@@ -157,6 +161,8 @@ class GUIProveedor:
             else:
                 showinfo('Modificación de información', 'El nuevo Nombre del proveedor quedo: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.nit)
+                self.rootGUIProveedor.destroy()
+                iniciar()
 
         if (self.listboxUsuario.selection_includes(2)):
             print(aux)
@@ -166,6 +172,8 @@ class GUIProveedor:
             else:
                 showinfo('Modificación de información', 'El nuevo  contacto del proveedor quedó: {}'.format(aux3))
                 gestionUsuarios.modificar_contacto(aux3, self.nit)
+                self.rootGUIProveedor.destroy()
+                iniciar()
 
         if (self.listboxUsuario.selection_includes(3)):
             print(aux)
@@ -175,6 +183,8 @@ class GUIProveedor:
             else:
                 showinfo('Modificación de información', 'La nueva direccion del proveedor es: {}'.format(aux4))
                 gestionUsuarios.modificar_direccion( self.nit)
+                self.rootGUIProveedor.destroy()
+                iniciar()
 
     def CargarInfoUsuarioEnLabels2(self):
         gestionUsuarios = gestionProveedor()

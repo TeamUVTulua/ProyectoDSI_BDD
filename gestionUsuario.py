@@ -120,6 +120,57 @@ class gestionUsuario:
             print(tel_usu)
         return tel_usu
 
+    def obtener_salarioTotal (self):
+        self.base = BaseDatos()
+        self.query = "SELECT SUM(sueldo) FROM empleado WHERE estado = true"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (tel_usu) in self.cur:
+            print(tel_usu)
+        return tel_usu
+
+    def obtener_prov (self):
+        self.base = BaseDatos()
+        self.query = "SELECT SUM(preciocompra) FROM surtido WHERE estado = true"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (tel_usu) in self.cur:
+            print(tel_usu)
+        return tel_usu
+
+    def obtener_cant (self):
+        self.base = BaseDatos()
+        self.query = "SELECT SUM(sueldo) FROM empleado WHERE estado = true"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (tel_usu) in self.cur:
+            print(tel_usu)
+        return tel_usu
+
+    def obtener_sueldo (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT sueldo FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (tel_usu) in self.cur:
+            print(tel_usu)
+        return tel_usu
+
+    def obtener_estado (self, identificador):
+        self.base = BaseDatos()
+        self.query = "SELECT estado FROM empleado WHERE id_usu='" + identificador + "'"
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+
+        for (tel_usu) in self.cur:
+            print(tel_usu)
+
+        return tel_usu
+
     def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):
         self.base = BaseDatos()
         self.query = "update empleado set contra  = %s where contra = %s and id_usu = %s" #<----
