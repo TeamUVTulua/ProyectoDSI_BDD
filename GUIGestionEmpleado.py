@@ -66,14 +66,14 @@ class GUIMenuInicial:
         Label(self.frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, height=12, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=50, height=12, bg="#18344A", fg="white",
                                       font=("comic sans MS", 16))
 
         self.listboxUsuario.get
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
-        self.listboxUsuario.place(x=40, y=86)
+        self.listboxUsuario.place(x=25, y=86)
 
     def consultarEmp(self):
         self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un empleado')
