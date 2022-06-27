@@ -95,12 +95,12 @@ class GUIContador:
 
         # ****** Boton Consultar Historico de Compras ******#
 
-        BotonConsultarHC = Button(frameIzquierdoContador, text="Consultar Pedido",  command = self.consCompra,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHC = Button(frameIzquierdoContador, text="Consultar Pedido",  command = self.mostrarPed,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarHC.place(x=80, y=180, width=320)
 
         # ****** Boton Consultar Datos Empleados ****** #
 
-        BotonConsultarDatosEmp = Button(frameIzquierdoContador, text="Consultar Empleados",command = self.consEmp ,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarDatosEmp = Button(frameIzquierdoContador, text="Consultar Empleados",command = self.mostrarEmpleado ,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarDatosEmp.place(x=80, y=240, width=320)
 
         # ******Boton Crear Pago a Empleados ****** #
@@ -153,6 +153,27 @@ class GUIContador:
         self.frameDerechoContador.place_forget()
         self.mostrarVenta()
 
+    def mostrarPed(self):
+        frameDerechoContador = Frame(self.rootGUIContador, bg="#18344A")
+        frameDerechoContador.place(x=600, y=85, width=700, height=530)
+
+        self.listboxUsuario = Listbox(frameDerechoContador, width=50, height=12, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16))
+
+        self.listboxUsuario.get
+
+        self.CargarInfoUsuarioEnLabelsPed(self.listboxUsuario)
+
+        self.listboxUsuario.place(x=25, y=86)
+        # ******* Titulo Frame Bienvenido ****** #
+
+        Label(frameDerechoContador, text="Pedidos", font=("comic sans MS", 24, "bold"), bg="#18344A",
+              fg="white").place(x=220, y=40)
+
+        BotonConsultarHV = Button(frameDerechoContador, text="Buscar Pedido", command=self.consCompra,
+                                  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHV.place(x=380,y=450, width=240)
+
     def mostrarVen(self):
         frameDerechoContador = Frame(self.rootGUIContador, bg="#18344A")
         frameDerechoContador.place(x=600, y=85, width=700, height=530)
@@ -172,12 +193,48 @@ class GUIContador:
 
         BotonConsultarHV = Button(frameDerechoContador, text="Buscar Venta", command=self.consVenta,
                                   font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarHV.place(x=380,y=450, width=240)
+        BotonConsultarHV.place(x=380,y=45
+        , width=240)
 
-        # ****** Datos del perfil ****** #
+    def mostrarEmpleado(self):
+        frameDerechoContador = Frame(self.rootGUIContador, bg="#18344A")
+        frameDerechoContador.place(x=600, y=85, width=700, height=530)
+
+        self.listboxUsuario = Listbox(frameDerechoContador, width=50, height=12, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16))
+
+        self.listboxUsuario.get
+
+        self.CargarInfoUsuarioEnLabelsEmp(self.listboxUsuario)
+
+        self.listboxUsuario.place(x=25, y=86)
+        # ******* Titulo Frame Bienvenido ****** #
+
+        Label(frameDerechoContador, text="Empleado", font=("comic sans MS", 24, "bold"), bg="#18344A",
+              fg="white").place(x=220, y=40)
+
+        BotonConsultarHV = Button(frameDerechoContador, text="Buscar Empleado", command=self.consEmp,
+                                  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHV.place(x=380,y=450
+        , width=240)
+       # ****** Datos del perfil ****** #
 
     def CargarInfoUsuarioEnLabelsFac(self, listboxUsuario):
         gestionUsuarios =gestionFactura()
+        listaDatos = gestionUsuarios.obtenerTodos()
+
+        for x in listaDatos:
+            listboxUsuario.insert(END, x)
+
+    def CargarInfoUsuarioEnLabelsPed(self, listboxUsuario):
+        gestionUsuarios =gestionPedido()
+        listaDatos = gestionUsuarios.obtenerTodos()
+
+        for x in listaDatos:
+            listboxUsuario.insert(END, x)
+
+    def CargarInfoUsuarioEnLabelsEmp(self, listboxUsuario):
+        gestionUsuarios =gestionUsuario()
         listaDatos = gestionUsuarios.obtenerTodos()
 
         for x in listaDatos:
@@ -196,7 +253,6 @@ class GUIContador:
 
         Label(frameDerechoContador, text="Factura", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=220, y=40)
-
         # ****** Datos del perfil ****** #
 
         Label(frameDerechoContador, text="Numero Factura: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
@@ -263,7 +319,7 @@ class GUIContador:
 
         self.CargarInfoUsuarioEnLabels3()
 
-        self.listboxProducto2 = Listbox(frameDerechoContador, width=25, height=5, bg="#18344A", fg="white",
+        self.listboxProducto2 = Listbox(frameDerechoContador, width=25, height=6, bg="#18344A", fg="white",
                                        font=("comic sans MS", 16))
 
         self.listboxProducto2.insert(0, self.cod)
@@ -271,8 +327,11 @@ class GUIContador:
         self.listboxProducto2.insert(2, self.prov)
         self.listboxProducto2.insert(3, self.com)
         self.listboxProducto2.insert(4, self.cant)
+        self.listboxProducto2.insert(5,self.total)
 
         self.listboxProducto2.place(x=270, y=90)
+
+
 
     def mostrarEmp(self):
         print("****__")
@@ -389,6 +448,7 @@ class GUIContador:
         self.prov = gestionUsuarios.obtener_proveedor(self.auxId)
         self.com = gestionUsuarios.obtener_precioCompra(self.auxId)
         self.cant = gestionUsuarios.obtener_cantidadCompra(self.auxId)
+        self.total = gestionUsuarios.obtener_PrecioTotal(self.auxId)
 
     def modContraseña(self):
         gestionUsuarios=gestionUsuario()

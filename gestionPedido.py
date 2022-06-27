@@ -129,8 +129,18 @@ class gestionPedido:
     def obtener_precioCompra (self, codigo):
         self.base = BaseDatos()
         print ("aquii")
-        self.query = "SELECT preciocompra FROM surtido WHERE producto ='" + codigo + "'"
         self.query = "SELECT preciocompra FROM surtido WHERE codigo ='" + codigo + "'"
+        print(self.query)
+        self.cur = self.base.ObtenerDatos(self.query)
+        print(self.cur)
+        for (precio) in self.cur:
+            print(precio)
+        return precio
+
+    def obtener_total (self, codigo):
+        self.base = BaseDatos()
+        print ("aquii")
+        self.query = "SELECT preciototal FROM surtido WHERE codigo ='" + codigo + "'"
         print(self.query)
         self.cur = self.base.ObtenerDatos(self.query)
         print(self.cur)
