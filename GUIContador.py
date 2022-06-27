@@ -143,7 +143,7 @@ class GUIContador:
             showinfo('Pagos', 'No se pagó a Proveedores')
 
     def consEmp(self):
-        self.auxId = askstring('Consulta', 'Ingrese el codigo de una venta')
+        self.auxId = askstring('Consulta', 'Ingrese el codigo del empelado')
         self.frameDerechoContador.place_forget()
         self.mostrarEmp()
     
