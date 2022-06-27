@@ -1,4 +1,4 @@
-
+# ****** Class venta ****** #
 class Venta:
 
     def __init__(self,codigo,producto,factura,cantidadVenta,precioVenta, precioTotal):
@@ -9,6 +9,7 @@ class Venta:
         self.precioVenta = precioVenta
         self.precioTotal = precioTotal
 
+    # ****** Gets venta***** #
     def get_codigo(self):
         return self.codigo
 
@@ -27,7 +28,7 @@ class Venta:
     def get_precioTotal(self):
         return self.precioTotal
 
-    # -------------------------------------
+    # ****** Sets Ventas ****** #
 
     def set_codigo(self, codigo):
         self.codigo = codigo

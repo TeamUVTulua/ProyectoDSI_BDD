@@ -1,6 +1,6 @@
 # ****** Librerias Usadas ****** #
 from tkinter import *
-from PIL import  ImageTk
+from PIL import ImageTk
 
 # ****** Metodos de otros archivos ******#
 import Proveedor as us
@@ -73,8 +73,6 @@ class GUIProveedor:
         self.listboxUsuario = Listbox(self.frameDerechoEmp, width=33, heigh=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
         self.listboxUsuario.pack()
-        #for i in range(100):
-         #   self.listboxUsuario.insert(END,i)
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
@@ -123,7 +121,7 @@ class GUIProveedor:
 
         self.CargarInfoUsuarioEnLabels2()
 
-        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
+        self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, height=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 16))
 
         self.listboxUsuario.insert(0, self.nit)
@@ -147,7 +145,7 @@ class GUIProveedor:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nuevo NIT quedó:  '.format(aux2))
+                showinfo('Modificación de información', 'El nuevo NIT quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_nit(aux2, self.nit)
 
@@ -157,7 +155,7 @@ class GUIProveedor:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nuevo Nombre del proveedor quedo: '.format(aux2))
+                showinfo('Modificación de información', 'El nuevo Nombre del proveedor quedo: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.nit)
 
         if (self.listboxUsuario.selection_includes(2)):
@@ -166,7 +164,7 @@ class GUIProveedor:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nuevo  contacto del proveedor quedó: '.format(aux3))
+                showinfo('Modificación de información', 'El nuevo  contacto del proveedor quedó: {}'.format(aux3))
                 gestionUsuarios.modificar_contacto(aux3, self.nit)
 
         if (self.listboxUsuario.selection_includes(3)):
@@ -175,7 +173,7 @@ class GUIProveedor:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'La nueva direccion del proveedor es: '.format(aux4))
+                showinfo('Modificación de información', 'La nueva direccion del proveedor es: {}'.format(aux4))
                 gestionUsuarios.modificar_direccion( self.nit)
 
     def CargarInfoUsuarioEnLabels2(self):
@@ -195,7 +193,6 @@ class GUIProveedor:
     def login_window(self):
 
         self.rootGUIProveedor.destroy()
-        import LoginUsuario
 
     def volver(self):
         self.rootGUIProveedor.destroy()

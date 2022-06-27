@@ -103,16 +103,6 @@ class GUIVendedor:
                                     bg="gray", fg="white", bd=5, cursor="hand2")
         BotonFactura.place(x=120, y=300, width=240)
 
-        # ******Boton Listar Ventas ****** #
-
-        #BotonListarVentas = Button(frameIzquierdoVendedor, text="Listar Ventas",font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        #BotonListarVentas.place(x=120, y=300, width=240)
-
-        # ******Boton Modificar Cliente ****** #
-
-        #BotonModificarClientes = Button(frameIzquierdoVendedor, text="Modificar Cliente", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        #BotonModificarClientes.place(x=120, y=360, width=240)
-
         # ******Boton Salir ****** #
 
         BotonSalir = Button(frameIzquierdoVendedor, text="Cerrar Sesión", command=self.login2, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -172,7 +162,6 @@ class GUIVendedor:
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
     def CargarInfoUsuarioEnLabels(self):
-        #print(usuario.get_nombre())
 
         self.id_usu = usuario.get_id_usu()
         self.nombre_usu = usuario.get_nombre()
@@ -186,7 +175,6 @@ class GUIVendedor:
         gestionUsuarios = gestionUsuario()
         aux = self.listboxUsuario.curselection()
         if (self.listboxUsuario.selection_includes(0)):
-            print(aux)
             aux2 = askstring('Modificación de información', 'Ingrese la nueva direccion de usuario')
 
             if (aux2 == None):
@@ -195,17 +183,14 @@ class GUIVendedor:
                 showinfo('Modificación de información', 'Tu nombre quedó:  '.format(aux2))
 
                 gestionUsuarios.modificar_direccion(aux2, self.id_usu)
-                print(aux2)
 
         if (self.listboxUsuario.selection_includes(1)):
-            print(aux)
             aux2 = askstring('Modificación de información', 'Ingrese la nueva telefono de usuario')
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
                 showinfo('Modificación de información', 'Tus telefono quedaron: '.format(aux2))
                 gestionUsuarios.modificar_telefono(aux2, usuario.get_id_usu())
-            print(aux2)
 
     def modContraseña(self):
         gestionUsuarios=gestionUsuario()
@@ -231,7 +216,6 @@ class GUIVendedor:
 
     def login2(self):
         self.rootGUIVendedor.destroy()
-        import LoginUsuario
 
 
 def iniciar():

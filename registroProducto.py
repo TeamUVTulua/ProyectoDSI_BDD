@@ -1,11 +1,10 @@
 
 from tkinter import *
 from tkinter import ttk
-from PIL import Image, ImageTk
+from PIL import  ImageTk
 
 # ****** Metodos de otros archivos ****** #
 
-from Producto import *
 from gestionProducto import *
 from gestionProveedor import *
 from tkinter.simpledialog import askstring
@@ -102,9 +101,7 @@ class resgistroProducto:
             messagebox.showinfo("error!", "Los datos son obligatorios")
         else:
             self.gestionUsuario = gestionProducto()
-            #self.gestionProveedor = gestionProveedor()
             self.gestionUsuario.registrar_producto(self.codigo.get(), self.nombre.get(),self.categoria.get(),self.cantidad.get())
-            #self.gestionProveedor.registrar_proveedor(self.nit_prov.get(), self.nom_prov.get(), self.cont_prov.get(), self.dir_prov.get())
             self.volver()
 
         # ****** Para volver al login desde Crear Usuario ****** #

@@ -1,7 +1,4 @@
-from tkinter import messagebox
-from BaseDatos import *
-
-
+# ****** Clase Usuario ****** #
 class Usuario:
 
     def __init__(self,id_usu,nombre,sueldo,telefono,direccion,contraseña,cargo,apellido, estado):
@@ -15,6 +12,7 @@ class Usuario:
         self.apellido = apellido
         self.estado = estado
 
+    # ****** Gest de Usuario ****** #
     def get_id_usu(self):
         return self.id_usu
 
@@ -42,8 +40,7 @@ class Usuario:
     def get_estado(self):
         return self.estado
 
-    # -------------------------------------
-
+    # ****** Sets de usuario ****** #
     def set_id_usu(self, id_usu):
         self.id_usu = id_usu
 

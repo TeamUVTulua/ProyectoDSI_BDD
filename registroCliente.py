@@ -2,11 +2,10 @@
 
 from tkinter import *
 from tkinter import ttk
-from PIL import Image, ImageTk
+from PIL import  ImageTk
 
 # ****** Metodos de otros archivos ****** #
 
-from Usuario import *
 from gestionCliente import *
 from tkinter.simpledialog import askstring
 class registroCliente:

@@ -1,20 +1,14 @@
 # ****** Librerias Usadas ****** #
-from datetime import datetime
 from tkinter import *
-from tkinter import ttk, messagebox
-from PIL import Image, ImageTk
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
+from PIL import  ImageTk
 
 # ****** Metodos de otros archivos ******#
 
 from gestionUsuario import *
-from BaseDatos import *
 from Usuario import *
 
 user = Usuario("", "", "", "", "", "", "", "", "")
 
-#asd
 # ****** Clase loginUsuario ****** #
 
 class loginUsuario:
