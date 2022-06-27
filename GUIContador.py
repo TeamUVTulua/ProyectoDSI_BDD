@@ -90,7 +90,7 @@ class GUIContador:
 
         # ****** Boton Consultar Historico de Ventas ****** #
 
-        BotonConsultarHV = Button(frameIzquierdoContador, text="Consultar Venta", command = self.consVenta,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHV = Button(frameIzquierdoContador, text="Consultar Venta", command = self.mostrarVen,font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarHV.place(x=80, y=120, width=320)
 
         # ****** Boton Consultar Historico de Compras ******#
@@ -149,8 +149,39 @@ class GUIContador:
     
     def consVenta(self):
         self.auxId = askstring('Consulta', 'Ingrese el codigo de una venta')
+
         self.frameDerechoContador.place_forget()
         self.mostrarVenta()
+
+    def mostrarVen(self):
+        frameDerechoContador = Frame(self.rootGUIContador, bg="#18344A")
+        frameDerechoContador.place(x=600, y=85, width=700, height=530)
+
+        self.listboxUsuario = Listbox(frameDerechoContador, width=50, height=12, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16))
+
+        self.listboxUsuario.get
+
+        self.CargarInfoUsuarioEnLabelsFac(self.listboxUsuario)
+
+        self.listboxUsuario.place(x=25, y=86)
+        # ******* Titulo Frame Bienvenido ****** #
+
+        Label(frameDerechoContador, text="Facturas", font=("comic sans MS", 24, "bold"), bg="#18344A",
+              fg="white").place(x=220, y=40)
+
+        BotonConsultarHV = Button(frameDerechoContador, text="Buscar Venta", command=self.consVenta,
+                                  font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonConsultarHV.place(x=380,y=450, width=240)
+
+        # ****** Datos del perfil ****** #
+
+    def CargarInfoUsuarioEnLabelsFac(self, listboxUsuario):
+        gestionUsuarios =gestionFactura()
+        listaDatos = gestionUsuarios.obtenerTodos()
+
+        for x in listaDatos:
+            listboxUsuario.insert(END, x)
 
     def consCompra(self):
         self.auxId = askstring('Consulta', 'Ingrese el codigo de un pedido')

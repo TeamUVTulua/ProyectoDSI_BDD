@@ -105,7 +105,7 @@ class GUIFacturacion:
         gesPed = gestionPedido()
         precio = gesPed.obtener_precioCompra(self.rolPass.get())
         print(self.rolPass.get())
-
+        res = float('.'.join(str(ele) for ele in precio))
         self.precio2 = res * 1.15
         Label(self.frameCrearFactura, text= self.precio2, font=("comic sans MS", 16,), bg="white",
               fg="black").place(x=50, y=310)
