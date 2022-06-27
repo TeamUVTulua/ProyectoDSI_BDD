@@ -1,7 +1,7 @@
 # ****** Librerias Usadas ****** #
 from tkinter import *
-from tkinter import ttk, messagebox
-from PIL import Image, ImageTk
+from tkinter import ttk
+from PIL import  ImageTk
 
 # ****** Metodos de otros archivos ******#
 import Producto as us
@@ -11,7 +11,6 @@ producto=us.Producto("","","","", "")
 
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
-
 
 # ****** Clase GUIGestionProducto ****** #
 
@@ -132,7 +131,7 @@ class GUIGestionProducto:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El codigo quedó:  '.format(aux2))
+                showinfo('Modificación de información', 'El codigo quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_codigo(aux2, self.codigo)
                 print(aux2)
@@ -142,7 +141,7 @@ class GUIGestionProducto:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nombre del producto es: '.format(aux2))
+                showinfo('Modificación de información', 'El nombre del producto es: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.codigo)
 
         if (self.listboxProducto.selection_includes(2)):
@@ -159,7 +158,7 @@ class GUIGestionProducto:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'La nueva cantidad es: '.format(aux4))
+                showinfo('Modificación de información', 'La nueva cantidad es: {}'.format(aux4))
                 gestionUsuarios.modificar_cantidad( self.codigo)
 
     def CargarInfoUsuarioEnLabels2(self):
@@ -217,6 +216,7 @@ def ventanaConsultarProd(self):
             self.rootGUIRegProd2=Tk()
             self.rootGUIRegProd2.title("Sistema de inventario y Ventas MotoSocios")
             self.rootGUIRegProd2.geometry("1366x768")
+            self.rootGUIRegProd2.iconbitmap("Imagenes\iconoInterfaz.ico")
             self.rootGUIRegProd2.resizable(1, 1)
 
             frameIzquierdoProd2 = Frame(self.rootGUIRegProd2,bg="#18344A")
@@ -257,6 +257,7 @@ def ventanaRegistroProducto(self):
         self.rootGUIRegProd2=Tk()
         self.rootGUIRegProd2.title("Sistema de Inventario y Ventas MotoSocios")
         self.rootGUIRegProd2.geometry("1366x768")
+        self.rootGUIRegProd2.iconbitmap("Imagenes\iconoInterfaz.ico")
         self.rootGUIRegProd2.resizable(1,1)
 
             # ******Frame Derecho******#

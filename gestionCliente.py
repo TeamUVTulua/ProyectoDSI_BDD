@@ -1,8 +1,3 @@
-# ****** Librerias importadas ******#
-
-from tkinter import messagebox
-from PIL.ImageTk import PhotoImage
-
 # ****** Metodos importados de otros archivos ******#
 
 from BaseDatos import *
@@ -22,6 +17,7 @@ class gestionCliente:
         self.base = BaseDatos()
         self.query = "insert    into    cliente    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s)"
         self.base.crear_cursor(self.query, (nit, nombre_cli, apellidoPa_cli, apellidoMa_cli, tipo_cli, dirCa_cli, dirNu_cli,act))
+        messagebox.showinfo("Registrado", "El cliente ha sido registrado con exito")
         self.base.cerrar_conexion()
 
     # ****** Metodo para obtener los datos de los clientes de la base de datos ******#

@@ -2,17 +2,13 @@
 import tkinter
 from tkinter import *
 from tkinter import ttk
-from PIL import Image, ImageTk
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
+from PIL import ImageTk
 from datetime import datetime
 
 from gestionFactura import *
-from gestionProducto import *
 from gestionPedido import *
 from gestionVenta import *
 from gestionCliente import *
-from Usuario import *
 
 
 class GUIFactura:
@@ -38,13 +34,8 @@ class GUIFactura:
         Label(self.frameCrearFactura, text="Factura", font=("comic sans MS", 25, "bold"), bg="#18344A",
               fg="white").place(x=190, y=20)
 
-        # ****** Label ID Crear Usuario ****** #
 
-        #Label(self.frameCrearFactura, text="Codigo: ", font=("comic sans MS", 16, "bold"), bg="#18344A", fg="white").place(x=50, y=70)
-        #self.codigo = Entry(self.frameCrearFactura, font=("comic sans MS", 16))
-        #self.codigo.place(x=50, y=110)
-
-        # ****** Label Nombre Crear Usuario ****** #
+        # ****** Label Crear Factura ****** #
 
         Label(self.frameCrearFactura, text="Fecha: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=320, y=70)
@@ -54,15 +45,7 @@ class GUIFactura:
         Label(self.frameCrearFactura, text=self.fecha, font=("comic sans MS", 16,), bg="white",
               fg="black").place(x=320, y=110)
 
-        #self.rolPass = ttk.Combobox(self.frameCrearFactura, font=("comic sans MS", 13), state="readonly", justify=CENTER)
-
-        #self.rolPass["values"]
-        #self.CargarInfoUsuarioEnLabels(self.rolPass)
-
-        #self.rolPass.place(x=350, y=110)
-
-
-        # ****** Label  Crear Usuario ****** #
+        # ****** Label  Crear Factura ****** #
 
         Label(self.frameCrearFactura, text="Codigo de factura: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(x=50, y=70)
@@ -74,8 +57,6 @@ class GUIFactura:
               fg="black").place(x=50, y=110)
 
         prec = tkinter.StringVar()
-        #prec.set(self.precio)
-        #self.categoria = self.rolPass
 
         # ****** Label Crear Factura ****** #
 
@@ -211,5 +192,3 @@ def iniciar(codFac, emp):
     rootGUIFactura = Tk()
     obj = GUIFactura(rootGUIFactura, codFac, emp)
     rootGUIFactura.mainloop()
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------

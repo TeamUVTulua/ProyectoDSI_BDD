@@ -13,8 +13,7 @@ class gestionUsuario:
         self.base = BaseDatos()
         self.query = "insert    into    empleado    VALUES    (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         self.base.crear_cursor(self.query, (identificacion, nombre_usu, sueldo, telefono_usu, direccion_usu, contraseña, cargo, apellido_usu, act))
-        #messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
-        messagebox.showinfo("Registrado", "El    usuario    ha    sido    registrado    con    exito")
+        messagebox.showinfo("Registrado", "El usuario ha sido registrado con exito")
         self.base.cerrar_conexion()
 
     def login_usuario(self, identificacion, contraseña):
@@ -120,8 +119,6 @@ class gestionUsuario:
         for (tel_usu) in self.cur:
             print(tel_usu)
         return tel_usu
-
-
 
     def cambiar_contraseña(self, contraseña, contraseñaActual, identificacion):
         self.base = BaseDatos()

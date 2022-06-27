@@ -1,19 +1,14 @@
 # ****** Librerias Usadas ****** #
 
 from tkinter import *
-from tkinter import ttk
-from PIL import Image, ImageTk
-from Usuario import *
+from PIL import  ImageTk
 import Usuario as us
 from gestionUsuario import *
 usuario=us.Usuario("","","","","","","","", "")
-# ****** Metodos de otros archivos ******#
-
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
-
 
 # ****** Clase GUIMenuInicial ****** #
 
@@ -134,7 +129,7 @@ class GUIMenuInicial:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nuevo identificador de ususario es: '.format(aux2))
+                showinfo('Modificación de información', 'El nuevo identificador de ususario es: {}'.format(aux2))
 
                 gestionUsuarios.modificar_identificacion(aux2, self.id_emp)
                 print(aux2)
@@ -145,7 +140,7 @@ class GUIMenuInicial:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nuevo nombre quedo: '.format(aux2))
+                showinfo('Modificación de información', 'El nuevo nombre quedo: {}'.format(aux2))
                 gestionUsuarios.modificar_nombre(aux2, self.id_emp)
             print(aux2)
 
@@ -155,7 +150,7 @@ class GUIMenuInicial:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nuevo apellido de usuario es: '.format(aux3))
+                showinfo('Modificación de información', 'El nuevo apellido de usuario es: {}'.format(aux3))
                 gestionUsuarios.modificar_apellido(aux3, self.id_emp)
             print(aux3)
 
@@ -165,7 +160,7 @@ class GUIMenuInicial:
             if (aux4 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'El nuevo cargo del usuario es: '.format(aux4))
+                showinfo('Modificación de información', 'El nuevo cargo del usuario es: {}'.format(aux4))
                 gestionUsuarios.modificar_cargo(aux4, self.id_emp)
             print(aux4)
 
@@ -175,7 +170,7 @@ class GUIMenuInicial:
             if (aux5 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'La nueva direccion del usuario quedo: '.format(aux5))
+                showinfo('Modificación de información', 'La nueva direccion del usuario quedo: {}'.format(aux5))
                 gestionUsuarios.modificar_telefono(aux5, self.id_emp)
             print(aux5)
 
@@ -185,7 +180,7 @@ class GUIMenuInicial:
             if (aux6 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'La nueva informacion de telefono: '.format(aux6))
+                showinfo('Modificación de información', 'La nueva informacion de telefono: {}'.format(aux6))
                 gestionUsuarios.modificar_telefono(aux6, self.id_emp)
             print(aux6)
 
@@ -198,7 +193,6 @@ class GUIMenuInicial:
         self.cargo_emp = gestionUsuarios.obtener_cargo(self.auxId)
         self.dir_emp = gestionUsuarios.obtener_direccion(self.auxId)
         self.tel_emp = gestionUsuarios.obtener_telefono(self.auxId)
-        #self.contraseña_usu = usuario.get_contraseña()
 
     def login_window(self):
         self.rootGestEmp.destroy()
@@ -210,8 +204,6 @@ class GUIMenuInicial:
         adm.iniciar()
 
     def modificarEmpleado(self):
-        #self.frameDerechoEmp.place_forget()
-        #aux = self.listboxUsuario.curselection()
         auxId =askstring('Modificación de información','Ingrese el identificador de un empleado')
         if (auxId.isidentifier() or not auxId.isnumeric()):
             showinfo('Error', 'Ingrese un identificador valido')

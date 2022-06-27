@@ -1,14 +1,9 @@
-# ****** Librerias usadas ******#
-from tkinter import Image
-from tkinter import messagebox
-
 # ****** Metodos usados de otros archivos ******#
 
 from BaseDatos import *
 from Proveedor import *
 
 proveedor = Proveedor("", "", "", "", "")
-
 
 # ****** Clase gestionProveedor ******#
 
@@ -21,8 +16,7 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "insert    into    proveedor    VALUES    (%s,%s,%s,%s, %s)"
         self.base.crear_cursor(self.query, (nit_prov, nombre_prov, contacto_prov, direccion_prov, act))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
-        messagebox.showinfo("Registrado", "El    proveedor    ha    sido    registrado    con    exito")
+        messagebox.showinfo("Registrado", "El proveedor ha sido registrado con exito")
         self.base.cerrar_conexion()
 
     # ****** Conexion con la base de datos ******#
@@ -146,6 +140,5 @@ class gestionProveedor:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
-        messagebox.iconbitmap("Imagenes\iconoInterfaz.ico")
         messagebox.showinfo("habilitado", "El usuario ha sido habilitado con exito")
         self.base.cerrar_conexion()

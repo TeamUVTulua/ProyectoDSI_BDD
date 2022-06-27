@@ -1,21 +1,14 @@
 # ****** Librerias Usadas ****** #
 
 from tkinter import *
-from tkinter import ttk
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
-from PIL import Image,ImageTk
+from PIL import ImageTk
 
 # ****** Metodos de otros archivos ******#
 
 from gestionUsuario import *
-import gestionUsuario as gu
 usuario=Usuario("","","","","","","","","")
 
 # ******Ventanas de dialogo ******#
-
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
 
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
@@ -56,9 +49,9 @@ class GUIContador:
         Label(frameDerechoContador, text="Direccion:", font=("comic sans MS", 16,), bg="#18344A", fg="white").place(x=80,y=260)
         Label(frameDerechoContador, text="Cargo:", font=("comic sans MS", 16,), bg="#18344A", fg="white").place(x=80,y=220)
 
-        # -------- CARGAR DATOS DEL VENDEDOR EN EL FRAME
+        # ****** Cargar datos del vendedor en el frame ****** #
         self.CargarInfoUsuarioEnLabels()
-        # INFORMACIO CARGADA QUE NO SE MODIFICA
+        # ****** Informacion que no se modifica ****** #
         Label(frameDerechoContador, text=self.id_usu, font=("comic sans MS", 16,), bg="#18344A", fg="white").place(
             x=270, y=100)
         Label(frameDerechoContador, text=self.nombre_usu, font=("comic sans MS", 16), bg="#18344A",
@@ -93,13 +86,6 @@ class GUIContador:
         frameIzquierdoContador.place(x=85, y=85, width=480, height=530)
         Label(frameIzquierdoContador, text="Contador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
 
-        # DESCOMENTAR
-
-        #Home = ImageTk.PhotoImage(file='Imagenes\iconoInterfazinicio.png')
-        #HomeTamaño = P.subsample(3,3)
-        #BotonHome = Button(frameIzquierdoContador, text="inicio" , image=HomeTamaño)
-        #BotonHome.place(x=40, y=40)
-
         # ****** Boton Consultar Historico de Ventas ****** #
 
         BotonConsultarHV = Button(frameIzquierdoContador, text="Consultar Historico de Venta", font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
@@ -132,7 +118,6 @@ class GUIContador:
 
     # ****** Metodo para iniciar la interfaz desde otra ****** #
     def CargarInfoUsuarioEnLabels(self):
-        # print(usuario.get_nombre())
 
         self.id_usu = usuario.get_id_usu()
         self.nombre_usu = usuario.get_nombre()
@@ -152,7 +137,7 @@ class GUIContador:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu direccion quedó:  '.format(aux2))
+                showinfo('Modificación de información', 'Tu direccion quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_direccion(aux2, self.id_usu)
                 print(aux2)
@@ -163,7 +148,7 @@ class GUIContador:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: '.format(aux2))
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
                 gestionUsuarios.modificar_telefono(aux2, usuario.get_id_usu())
             print(aux2)
 
@@ -188,6 +173,7 @@ class GUIContador:
                 showinfo('Modificación de información','No se realizó ningun cambio')
         else:
             showinfo('Cambiar contraseña','Contraseña incorrecta')
+
     # ****** Metodo para iniciar la interfaz desde otra ****** #
 
     def login(self):

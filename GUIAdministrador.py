@@ -1,21 +1,17 @@
 # ****** Librerias Usadas ****** #
 
 from tkinter import *
-from tkinter import ttk
-from PIL import Image, ImageTk
+from PIL import  ImageTk
 
 # ****** Metodos de otros archivos ******#
 
-from Usuario import *
 from gestionUsuario import *
-import gestionUsuario as gu
 usuario=Usuario("","","","","","","","", "")
 
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
-
 
 # ****** Clase GUIAdministrador ****** #
 
@@ -125,7 +121,7 @@ class GUIAdministrador:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu direccion quedó:  '.format(aux2))
+                showinfo('Modificación de información', 'Tu direccion quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_direccion(aux2, self.id_usu)
                 print(aux2)
@@ -136,7 +132,7 @@ class GUIAdministrador:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu telefono quedo: '.format(aux2))
+                showinfo('Modificación de información', 'Tu telefono quedo: {}'.format(aux2))
                 gestionUsuarios.modificar_telefono(aux2, usuario.get_id_usu())
             print(aux2)
 

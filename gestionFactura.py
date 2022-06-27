@@ -1,8 +1,3 @@
-# ****** Librerias importadas ******#
-
-from tkinter import messagebox
-from PIL.ImageTk import PhotoImage
-
 # ****** Metodos importados de otros archivos ******#
 
 from BaseDatos import *
@@ -25,7 +20,6 @@ class gestionFactura:
         self.base.cerrar_conexion()
 
     def registrar(self, fecha_fac, pago_fac, valor_fac, cambio_fac, emp_fac, cli_fac, monto_fac, num_fac):
-        print("aquí")
         self.base = BaseDatos()
 
         fecha = str(fecha_fac)

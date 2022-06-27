@@ -1,9 +1,7 @@
 import tkinter
 from tkinter import *
 from tkinter import ttk
-from PIL import Image, ImageTk
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
+from PIL import ImageTk
 
 from gestionFactura import *
 from gestionProducto import *
@@ -23,7 +21,6 @@ class GUIFacturacion:
 
         self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
         Label(self.rootGUIFacturacion, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
  # ****** Frame Crear Usuario ****** #
 
@@ -70,7 +67,6 @@ class GUIFacturacion:
               fg="white").place(x=350, y=270)
 
         prec = tkinter.StringVar()
-        #prec.set(self.precio)
 
         botonAgregar = Button(self.frameCrearFactura, text="+", command=self.agr, font=("comic sans MS", 10, "bold"),
                               bd=0, cursor="hand2")
@@ -90,7 +86,7 @@ class GUIFacturacion:
 
 
 
-        # ****** Boton Guardar Crear Usuario ****** #
+        # ****** Boton Guardar Crear factura ****** #
 
         BotonGuardar = Button(self.frameCrearFactura, text="Facturar", command = self.facturar, font=("comic sans MS", 15), bd=0,cursor="hand2")
         BotonGuardar.place(x=50, y=500, width=200)
@@ -148,5 +144,3 @@ def iniciar(codFac,emp):
     rootGUIFacturacion = Tk()
     obj = GUIFacturacion(rootGUIFacturacion, codFac, emp)
     rootGUIFacturacion.mainloop()
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------

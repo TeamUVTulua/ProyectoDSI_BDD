@@ -1,7 +1,7 @@
 # ****** Librerias Usadas ****** #
 from tkinter import *
-from tkinter import ttk, messagebox
-from PIL import Image, ImageTk
+from tkinter import ttk
+from PIL import ImageTk
 
 # ****** Metodos de otros archivos ******#
 import Pedido as us
@@ -9,7 +9,6 @@ from gestionPedido import *
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
 pedido = us.Pedido("", "", "", "", "")
 
 # ****** Clase GUIGestionProducto ****** #
@@ -179,6 +178,7 @@ def ventanaConsultarProd(self):
     self.rooGUIRegPed2 = Tk()
     self.rooGUIRegPed2.title("Sistema de inventario y Ventas MotoSocios")
     self.rooGUIRegPed2.geometry("1366x768")
+    self.rootGUIRegPed2.iconbitmap("Imagenes\iconoInterfaz.ico")
     self.rooGUIRegPed2.resizable(1, 1)
 
     frameIzquierdoProd2 = Frame(self.rooGUIRegPed2, bg="#18344A")
@@ -221,6 +221,7 @@ def ventanaRegistroProducto(self):
     self.rooGUIRegPed2 = Tk()
     self.rooGUIRegPed2.title("Sistema de Inventario y Ventas MotoSocios")
     self.rooGUIRegPed2.geometry("1366x768")
+    self.rootGUIRedPed2.iconbitmap("Imagenes\iconoInterfaz.ico")
     self.rooGUIRegPed2.resizable(1, 1)
 
     # ******Frame Derecho******#
@@ -281,8 +282,7 @@ def ventanaRegistroProducto(self):
 
     self.listboxinsumo.place(x=465, y=206)
 
-    # ----final---
-
+    # ******  Final ****** #
     BotonRegistrar = Button(frameIzquierdoProd3, text="Finalizar Registro", command=self.registrarPP,
                             font=("comic sans MS", 15), bg="gray", fg="#18344A", bd=0, cursor="hand2")
     BotonRegistrar.place(x=225, y=340, width=300)

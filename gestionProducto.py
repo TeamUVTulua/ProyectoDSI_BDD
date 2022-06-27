@@ -1,4 +1,3 @@
-from tkinter import messagebox
 from BaseDatos import *
 from Producto import *
 
@@ -149,6 +148,5 @@ class gestionProducto:
         self.base = BaseDatos()
         self.query = "update Usuario set activo  = true usuario.email_usuario = %s"
         self.cur = self.base.crear_cursor(self.query, (email))
-        mensajeHabilitar = messagebox.showinfo("habilitado", "El producto ha sido habilitado con exito")
-        mensajeHabilitar.iconbitmap("Imagenes\iconoInterfaz.ico")
+        messagebox.showinfo("habilitado", "El producto ha sido habilitado con exito")
         self.base.cerrar_conexion()

@@ -1,15 +1,11 @@
 # ****** Librerias Usadas ****** #
 
 from tkinter import *
-from tkinter import ttk
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showinfo
-from PIL import Image,ImageTk
+from PIL import ImageTk
 
 # ****** Metodos de otros archivos ******#
 
 from gestionUsuario import *
-import gestionUsuario as gu
 usuario=Usuario("","","","","","","","", "")
 
 # ******Ventanas de dialogo ******#
@@ -53,9 +49,9 @@ class GUIBodeguista:
         Label(frameDerechoBodeguista, text="Direccion:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,y=260)
         Label(frameDerechoBodeguista, text="Cargo:", font=("comic sans MS", 16), bg="#18344A", fg="white").place(x=80,y=220)
 
-        # -------- CARGAR DATOS DEL VENDEDOR EN EL FRAME
+        # ****** Cargar datos del vendedor en el frame ****** #
         self.CargarInfoUsuarioEnLabels()
-        # INFORMACIO CARGADA QUE NO SE MODIFICA
+        # ****** Informacion cargada que no se modifica ****** #
         Label(frameDerechoBodeguista, text=self.id_usu, font=("comic sans MS", 16), bg="#18344A", fg="white").place(
             x=270, y=100)
         Label(frameDerechoBodeguista, text=self.nombre_usu, font=("comic sans MS", 16), bg="#18344A", fg="white").place(
@@ -129,7 +125,7 @@ class GUIBodeguista:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tu direccion quedó:  '.format(aux2))
+                showinfo('Modificación de información', 'Tu direccion quedó:  {}'.format(aux2))
 
                 gestionUsuarios.modificar_direccion(aux2, self.id_usu)
                 print(aux2)
@@ -140,7 +136,7 @@ class GUIBodeguista:
             if (aux2 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'Tus telefono quedaron: '.format(aux2))
+                showinfo('Modificación de información', 'Tus telefono quedaron: {}'.format(aux2))
                 gestionUsuarios.modificar_telefono(aux2, usuario.get_id_usu())
             print(aux2)
 
@@ -165,6 +161,7 @@ class GUIBodeguista:
                 showinfo('Modificación de información','No se realizó ningun cambio')
         else:
             showinfo('Cambiar contraseña','Contraseña incorrecta')
+
     # ****** Metodo para iniciar la interfaz desde otra ****** #
     def login(self):
         self.rootGUIBodeguista.destroy()

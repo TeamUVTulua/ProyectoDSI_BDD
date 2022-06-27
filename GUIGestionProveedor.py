@@ -1,7 +1,6 @@
 # ****** Librerias Usadas ****** #
 from tkinter import *
-from tkinter import ttk, messagebox
-from PIL import Image, ImageTk
+from PIL import  ImageTk
 
 # ****** Metodos de otros archivos ******#
 import Proveedor as us
