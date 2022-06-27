@@ -1,16 +1,17 @@
-
+# ****** Librerias Usadas ****** #
 import tkinter
 from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk
 from datetime import datetime
 
+# ****** Metodos de Otros Archivos ****** #
 from gestionFactura import *
 from gestionPedido import *
 from gestionVenta import *
 from gestionCliente import *
 
-
+# ****** Clase GUIFactura ****** #
 class GUIFactura:
     def __init__(self, rootGUIFactura, codFac, emp):
         self.emp = emp
@@ -24,7 +25,6 @@ class GUIFactura:
 
         self.bg = ImageTk.PhotoImage(file="Imagenes\FondoInterfaz2.png")
         Label(self.rootGUIFactura, image=self.bg).place(x=0, y=0, relwidth=1, relheight=1)
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
  # ****** Frame Crear Usuario ****** #
 

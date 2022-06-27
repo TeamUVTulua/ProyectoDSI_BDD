@@ -1,14 +1,15 @@
+# ****** Librerias Usadas ****** #
 import tkinter
 from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk
 
+# ****** Metodos de otros archivos ****** #
 from gestionFactura import *
-from gestionProducto import *
 from gestionPedido import *
 from gestionVenta import *
 
-
+# ****** Clase GUIFacturacion ****** #
 class GUIFacturacion:
     def __init__(self, rootGUIFacturacion, codFac, emp):
         self.emp =emp
@@ -84,8 +85,6 @@ class GUIFacturacion:
         self.cantidad.place(x=350, y=190)
 
 
-
-
         # ****** Boton Guardar Crear factura ****** #
 
         BotonGuardar = Button(self.frameCrearFactura, text="Facturar", command = self.facturar, font=("comic sans MS", 15), bd=0,cursor="hand2")
@@ -105,7 +104,6 @@ class GUIFacturacion:
     def agr(self):
         gesPed = gestionPedido()
         precio = gesPed.obtener_precioCompra(self.rolPass.get())
-        print("**")
         print(self.rolPass.get())
 
         self.precio2 = res * 1.15
@@ -117,7 +115,6 @@ class GUIFacturacion:
         botonAgregar2.place(x=620, y=190, width=25)
 
     def agr2(self):
-        print("aqui")
         print(self.cantidad.get())
         cant=float(self.cantidad.get())
         self.precioT= self.precio2 * cant
@@ -125,7 +122,6 @@ class GUIFacturacion:
 
     def facturar(self):
         gestVen = gestionVenta()
-        print("---")
         print(self.codigo.get())
         print(self.rolPass.get())
         print(self.codFac)

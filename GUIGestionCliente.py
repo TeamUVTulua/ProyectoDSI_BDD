@@ -79,17 +79,17 @@ class GUIGestCli:
               fg="white").place(x=280, y=20)
 
         self.scrollbar = Scrollbar(self.frameDerechoCli)
-        self.scrollbar.pack(side=RIGHT, fill=Y)
+        self.scrollbar.pack(side=BOTTOM, fill=X)
 
         # ****** Datos del perfil ****** #
 
-        self.listboxUsuario = Listbox(self.frameDerechoCli, width=40, heigh=9, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20))
+        self.listboxUsuario = Listbox(self.frameDerechoCli, width=45, height=9, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16))
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
-        self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
-        self.scrollbar.config(command=self.listboxUsuario.yview)
+        self.listboxUsuario.config(xscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxUsuario.yview, orient='horizontal')
 
         self.listboxUsuario.place(x=35, y=86)
 

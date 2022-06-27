@@ -66,20 +66,14 @@ class GUIMenuInicial:
         Label(self.frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
-        self.scrollbarEmp = Scrollbar(self.frameDerechoEmp)
-        self.scrollbarEmp.pack(side=RIGHT, fill=Y)
-
-        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, height=9, bg="#18344A", fg="white",
-                                      font=("comic sans MS", 20))
+        self.listboxUsuario = Listbox(self.frameDerechoEmp, width=50, height=12, bg="#18344A", fg="white",
+                                      font=("comic sans MS", 16))
 
         self.listboxUsuario.get
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
 
-        self.listboxUsuario.config(yscrollcommand=self.scrollbarEmp.set)
-        self.scrollbarEmp.config(command=self.listboxUsuario.yview)
-
-        self.listboxUsuario.place(x=50, y=86)
+        self.listboxUsuario.place(x=25, y=86)
 
     def consultarEmp(self):
         self.auxId = askstring('Modificación de información', 'Ingrese el identificador de un empleado')
@@ -111,9 +105,15 @@ class GUIMenuInicial:
                                                                                                              y=180)
 
         self.CargarInfoUsuarioEnLabels2()
+        
+        self.scrollbar = Scrollbar(self.frameDerechoEmp)
+        self.scrollbar.pack(side=BOTTOM, fill=X)
 
         self.listboxUsuario = Listbox(frameDerechoEmp, width=25, height=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 16))
+
+        self.listboxUsuario.config(xscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxUsuario.yview, orient='horizontal')
 
         self.listboxUsuario.insert(0, self.id_emp)
         self.listboxUsuario.insert(1, self.nom_emp)
