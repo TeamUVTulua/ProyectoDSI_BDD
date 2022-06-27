@@ -46,15 +46,21 @@ class GUIProveedor:
         BotonConsultarProveedor = Button(frameIzquierdoProv, text="Consultar Proveedor",command=self.consultarEmp, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarProveedor.place(x=120, y=120, width=240)
 
-        BotonCrearCliente = Button(frameIzquierdoProv, text="Crear Proveedor", command=self.crear,
-                                   font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonCrearCliente.place(x=120, y=180, width=240)
+        # ******Boton Crear Proveedor****** #
+        BotonCrearProveedor = Button(frameIzquierdoProv, text="Crear Proveedor", command=self.crear, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonCrearProveedor.place(x=120, y=180, width=240)
 
-        # ******Boton Eliminar Cliente ****** #
+        # ******Boton Eliminar Proveedor ****** #
 
-        BotonEliminarCliente = Button(frameIzquierdoProv, text="Eliminar Cliente", command=self.eliminar,
-                                      font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarCliente.place(x=120, y=240, width=240)
+        BotonEliminarProveedor = Button(frameIzquierdoProv, text="Eliminar Cliente", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProveedor.place(x=120, y=240, width=240)
+
+
+        # ******Boton Habilitar Proveedor****** #
+
+        BotonHabilitarProveedor = Button(frameIzquierdoProv, text="Eliminar Cliente", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonHabilitarProveedor.place(x=120, y=240, width=240)
+
 
         # ****** Frame inicio Proveedor Side Der ****** #
         self.frameDerechoEmp = Frame(self.rootGUIProveedor, bg="#18344A")
