@@ -6,15 +6,11 @@ from PIL import Image, ImageTk
 # ****** Metodos de otros archivos ******#
 import Pedido as us
 from gestionPedido import *
-
-gestionPed = gestionPedido()
-
-pedido = us.Pedido("", "", "", "", "") 
 # ******Ventanas de dialogo ******#
 
 from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
-
+pedido = us.Pedido("", "", "", "", "")
 
 # ****** Clase GUIGestionProducto ****** #
 
@@ -115,20 +111,21 @@ class GUIGestionPedido:
         self.listboxUsuario = Listbox(frameDerechoAdmin, width=25, heigh=6, bg="#18344A", fg="white",
                                       font=("comic sans MS", 16))
 
-        self.listboxUsuario.insert(0, gestionPed.obtener_codigo())
-        self.listboxUsuario.insert(1, gestionPed.obtener_producto())
-        self.listboxUsuario.insert(2, gestionPed.obtener_proveedor())
-        self.listboxUsuario.insert(3, gestionPed.obtener_cantidadCompra())
-
+        self.listboxUsuario.insert(0, self.codigo )
+        self.listboxUsuario.insert(1, self.prod)
+        self.listboxUsuario.insert(2, self.prov)
+        self.listboxUsuario.insert(3, self.precio)
+        self.listboxUsuario.insert(3, self.cant)
         self.listboxUsuario.place(x=270, y=60)
 
 
     def CargarInfoUsuarioEnLabels2(self):
-        gestionUsuarios = gestionProducto()
-        self.codigo = gestionUsuarios.obtener_codigo(self.auxId)
-        self.nombre = gestionUsuarios.obtener_nombre(self.auxId)
-        self.categoria = gestionUsuarios.obtener_categoria(self.auxId)
-        self.cantidad = gestionUsuarios.obtener_cantidadTotal(self.auxId)
+        ges=gestionPedido()
+        self.codigo = ges.obtener_codigo(self.auxId)
+        self.prod = ges.obtener_producto(self.auxId)
+        self.prov = ges.obtener_proveedor(self.auxId)
+        self.precio = ges.obtener_precioCompra(self.auxId)
+        self.cant = ges.obtener_cantidadCompra(self.auxId)
 
     def crear(self):
         self.rooGUIRegPed.destroy()

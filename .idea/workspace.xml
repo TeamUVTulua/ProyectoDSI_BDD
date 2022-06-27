@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="be0b63af-bd65-4f9e-9a0a-988fa4bded0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIGestionPedido.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUIGestionPedido.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionFactura.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestionFactura.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestionPedido.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestionPedido.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +67,7 @@
       <workItem from="1656256822756" duration="391000" />
       <workItem from="1656257249147" duration="634000" />
       <workItem from="1656262624255" duration="260000" />
-      <workItem from="1656287293790" duration="790000" />
+      <workItem from="1656287293790" duration="2804000" />
     </task>
     <servers />
   </component>
@@ -83,6 +86,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ProyectoDSI_BDD$LoginUsuario.coverage" NAME="LoginUsuario Coverage Results" MODIFIED="1656287545614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ProyectoDSI_BDD$LoginUsuario.coverage" NAME="LoginUsuario Coverage Results" MODIFIED="1656292289432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
