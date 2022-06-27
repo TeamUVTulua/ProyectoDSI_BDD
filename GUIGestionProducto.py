@@ -150,7 +150,7 @@ class GUIGestionProducto:
             if (aux3 == None):
                 showinfo('Modificación de información', 'No se realizó ningun cambio')
             else:
-                showinfo('Modificación de información', 'la categoria quedo en: '.format(aux3))
+                showinfo('Modificación de información', 'la categoria quedo en: {}'.format(aux3))
                 gestionUsuarios.modificar_categoria(aux3, self.codigo)
             print(aux3)
 
