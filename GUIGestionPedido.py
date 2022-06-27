@@ -173,9 +173,9 @@ class GUIGestionPedido:
             adm.iniciar()
 
     def eliminar(self):
-        self.auxId = askstring('Eliminar Producto', 'Ingrese el codigo de un producto')
-        gestionProductos = gestionProducto()
-        gestionProductos.deshabilitar_usuario(self.auxId)
+        self.auxId = askstring('Eliminar Pedido', 'Ingrese el codigo del pedido')
+        gestionProductos = gestionPedido()
+        gestionProductos.deshabilitar_pedido(self.auxId)
         self.rooGUIRegPed.destroy()
         iniciar()
 

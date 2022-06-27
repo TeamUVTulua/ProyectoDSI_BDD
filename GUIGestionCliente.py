@@ -287,7 +287,7 @@ class GUIGestCli:
         gestionClientes = gestionCliente()
         gestionClientes.habilitar_usuario(self.auxId )
         self.rootGestCli.destroy()
-        iniciar()
+        iniciar(self.cargo)
 
 def gestionProducto(self):
     self.rootGestCli.destroy()

@@ -184,11 +184,11 @@ class gestionPedido:
 
     # ****** Metodo para deshabilitar productos ******#
 
-    def deshabilitar_producto(self, codigo):
+    def deshabilitar_pedido(self, codigo):
         self.base = BaseDatos()
-        self.query = "update producto set estado  = false where codigo = '"+ codigo + "'"
+        self.query = "update surtido set estado  = false where codigo = '"+ codigo + "'"
         self.cur = self.base.crear_cursor(self.query, (codigo))
-        messagebox.showinfo("deshabilitado", "El producto ha sido eliminado con exito")
+        messagebox.showinfo("deshabilitado", "El pedido ha sido eliminado con exito")
         self.base.cerrar_conexion()
 
     # ****** Metodo para habilitar productos ******#
