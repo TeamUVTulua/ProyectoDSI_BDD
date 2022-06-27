@@ -55,12 +55,12 @@ class GUIGestionProducto:
         # ******Boton Eliminar Producto ****** #
 
         BotonEliminarProducto = Button(frameIzquierdoProd, text="Eliminar Producto", command=self.eliminar, font=("comic sans MS", 15),bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarProducto.place(x=120, y=220, width=240)
+        BotonEliminarProducto.place(x=120, y=240, width=240)
 
         # ******Boton Habilitar producto ****** #
 
         BotonHabilitarProducto = Button(frameIzquierdoProd, text="Habilitar Producto", command=self.habilitar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonHabilitarProducto.place(x=120, y=280, width=240)
+        BotonHabilitarProducto.place(x=120, y=300, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
         self.frameDerechoProd = Frame(self.rootGUIRegProd, bg="#18344A")
