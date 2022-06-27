@@ -54,9 +54,13 @@ class GUIGestionPedido:
 
         # ******Boton Eliminar Producto ****** #
 
-        BotonEliminarProducto = Button(frameIzquierdoProd, text="Eliminar Producto", command=self.eliminar,
+        BotonEliminarProducto = Button(frameIzquierdoProd, text="Eliminar Pedido", command=self.eliminar,
                                        font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProducto.place(x=120, y=260, width=240)
+
+        BotonRecuperarPedido = Button(frameIzquierdoProd, text="Recuperar Pedido", command=self.eliminar,
+                                       font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonRecuperarPedido.place(x=120, y=320, width=240)
 
         # ****** Frame inicio Productos Side Der ****** #
         self.frameDerechoPed = Frame(self.rooGUIRegPed, bg="#18344A")
@@ -173,7 +177,7 @@ class GUIGestionPedido:
             adm.iniciar()
 
     def eliminar(self):
-        self.auxId = askstring('Eliminar Producto', 'Ingrese el codigo de un producto')
+        self.auxId = askstring('Eliminar Producto', 'Ingrese el codigo del pedido')
         gestionProductos = gestionProducto()
         gestionProductos.deshabilitar_usuario(self.auxId)
         self.rooGUIRegPed.destroy()
