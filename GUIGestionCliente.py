@@ -78,12 +78,18 @@ class GUIGestCli:
         Label(self.frameDerechoCli, text="Clientes", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
+        self.scrollbar = Scrollbar(self.frameDerechoCli)
+        self.scrollbar.pack(side=RIGHT, fill=Y)
+
         # ****** Datos del perfil ****** #
 
         self.listboxUsuario = Listbox(self.frameDerechoCli, width=40, heigh=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+
+        self.listboxUsuario.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listboxUsuario.yview)
 
         self.listboxUsuario.place(x=35, y=86)
 

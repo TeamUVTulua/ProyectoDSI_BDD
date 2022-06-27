@@ -66,12 +66,18 @@ class GUIMenuInicial:
         Label(self.frameDerechoEmp, text="Empleados", font=("comic sans MS", 24, "bold"), bg="#18344A",
               fg="white").place(x=280, y=20)
 
+        self.scrollbarEmp = Scrollbar(self.frameDerechoEmp)
+        self.scrollbarEmp.pack(side=RIGHT, fill=Y)
+
         self.listboxUsuario = Listbox(self.frameDerechoEmp, width=40, height=9, bg="#18344A", fg="white",
                                       font=("comic sans MS", 20))
 
         self.listboxUsuario.get
 
         self.CargarInfoUsuarioEnLabels(self.listboxUsuario)
+
+        self.listboxUsuario.config(yscrollcommand=self.scrollbarEmp.set)
+        self.scrollbarEmp.config(command=self.listboxUsuario.yview)
 
         self.listboxUsuario.place(x=50, y=86)
 
