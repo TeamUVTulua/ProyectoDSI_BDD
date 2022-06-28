@@ -138,7 +138,7 @@ class gestionProveedor:
 
     def habilitar_usuario(self, email):
         self.base = BaseDatos()
-        self.query = "update proveedor set estdo  = true where nit = '" + email + "'"
+        self.query = "update proveedor set estado  = true where nit = '" + email + "'"
         self.cur = self.base.crear_cursor(self.query, (email))
         messagebox.showinfo("habilitado", "El proveedor ha sido habilitado con exito")
         self.base.cerrar_conexion()

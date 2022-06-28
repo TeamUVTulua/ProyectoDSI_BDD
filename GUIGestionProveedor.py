@@ -58,7 +58,7 @@ class GUIProveedor:
 
         # ******Boton Habilitar Proveedor****** #
 
-        BotonHabilitarProveedor = Button(frameIzquierdoProv, text="Habilitar Proveedor", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonHabilitarProveedor = Button(frameIzquierdoProv, text="Habilitar Proveedor", command=self.habilitar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonHabilitarProveedor.place(x=120, y=300, width=240)
 
 
@@ -106,7 +106,7 @@ class GUIProveedor:
         iniciar()
 
     def habilitar(self):
-        self.auxId = askstring('Eliminar proveedor', 'Ingrese el nit de un proveedor: ')
+        self.auxId = askstring('Habilitar proveedor', 'Ingrese el nit de un proveedor: ')
         gestionProv = gestionProveedor()
         gestionProv.habilitar_usuario(self.auxId )
         self.rootGUIProveedor.destroy()
