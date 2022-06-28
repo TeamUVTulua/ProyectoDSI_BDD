@@ -59,7 +59,7 @@ class GUIProveedor:
         # ******Boton Habilitar Proveedor****** #
 
         BotonHabilitarProveedor = Button(frameIzquierdoProv, text="Habilitar Proveedor", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonHabilitarProveedor.place(x=120, y=240, width=240)
+        BotonHabilitarProveedor.place(x=120, y=300, width=240)
 
 
         # ****** Frame inicio Proveedor Side Der ****** #
