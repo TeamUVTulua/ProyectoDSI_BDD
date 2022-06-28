@@ -47,10 +47,6 @@ class loginUsuario:
         BotonSalir = Button(frameLogin, text="Salir", command=self.rootLogin.destroy,font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonSalir.place(x=75, y=330, width=200)
 
-        # ****** Boton Olvide mi contraseña ****** #
-
-        BotonOlvidePass = Button(frameLogin, text="Olvide mi contraseña", font=("comic sass MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonOlvidePass.place(x=75, y=380, width=200)
 
     def abrirUsuarioSegunRol(self):
             gestionUsuarios = gestionUsuario()
