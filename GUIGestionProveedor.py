@@ -105,6 +105,13 @@ class GUIProveedor:
         self.rootGUIProveedor.destroy()
         iniciar()
 
+    def habilitar(self):
+        self.auxId = askstring('Eliminar proveedor', 'Ingrese el nit de un proveedor: ')
+        gestionProv = gestionProveedor()
+        gestionProv.habilitar_usuario(self.auxId )
+        self.rootGUIProveedor.destroy()
+        iniciar()
+
     def consultarEmp(self):
         self.auxId = askstring('Modificación de información', 'Ingrese el NIT del proveedor')
         self.frameDerechoEmp.place_forget()
