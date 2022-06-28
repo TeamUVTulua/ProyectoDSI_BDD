@@ -86,7 +86,7 @@ class GUIContador:
 
         frameIzquierdoContador = Frame(self.rootGUIContador, bg="#18344A")
         frameIzquierdoContador.place(x=85, y=85, width=480, height=530)
-        Label(frameIzquierdoContador, text="Contador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=170, y=30)
+        Label(frameIzquierdoContador, text="Bienvenido, Contador", font=("comic sans MS", 23, "bold"), bg="#18344A", fg="white").place(x=80, y=30)
 
         # ****** Boton Consultar Historico de Ventas ****** #
 
@@ -168,11 +168,11 @@ class GUIContador:
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoContador, text="Pedidos", font=("comic sans MS", 24, "bold"), bg="#18344A",
-              fg="white").place(x=220, y=40)
+              fg="white").place(x=280, y=30)
 
         BotonConsultarHV = Button(frameDerechoContador, text="Buscar Pedido", command=self.consCompra,
                                   font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarHV.place(x=380,y=450, width=240)
+        BotonConsultarHV.place(x=260,y=460, width=200)
 
     def mostrarVen(self):
         frameDerechoContador = Frame(self.rootGUIContador, bg="#18344A")
@@ -189,12 +189,11 @@ class GUIContador:
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoContador, text="Facturas", font=("comic sans MS", 24, "bold"), bg="#18344A",
-              fg="white").place(x=220, y=40)
+              fg="white").place(x=280, y=30)
 
         BotonConsultarHV = Button(frameDerechoContador, text="Buscar Venta", command=self.consVenta,
                                   font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarHV.place(x=380,y=45
-        , width=240)
+        BotonConsultarHV.place(x=260,y=460 , width=200)
 
     def mostrarEmpleado(self):
         frameDerechoContador = Frame(self.rootGUIContador, bg="#18344A")
@@ -211,12 +210,12 @@ class GUIContador:
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoContador, text="Empleado", font=("comic sans MS", 24, "bold"), bg="#18344A",
-              fg="white").place(x=220, y=40)
+              fg="white").place(x=280, y=30)
 
         BotonConsultarHV = Button(frameDerechoContador, text="Buscar Empleado", command=self.consEmp,
                                   font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonConsultarHV.place(x=380,y=450
-        , width=240)
+        BotonConsultarHV.place(x=260,y=460
+        , width=200)
        # ****** Datos del perfil ****** #
 
     def CargarInfoUsuarioEnLabelsFac(self, listboxUsuario):
@@ -252,7 +251,7 @@ class GUIContador:
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoContador, text="Factura", font=("comic sans MS", 24, "bold"), bg="#18344A",
-              fg="white").place(x=220, y=40)
+              fg="white").place(x=280, y=30)
         # ****** Datos del perfil ****** #
 
         Label(frameDerechoContador, text="Numero Factura: ", font=("comic sans MS", 16), bg="#18344A", fg="white").place(
@@ -300,7 +299,7 @@ class GUIContador:
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoContador, text="Pedido", font=("comic sans MS", 24, "bold"), bg="#18344A",
-              fg="white").place(x=220, y=40)
+              fg="white").place(x=280, y=30)
 
         # ****** Datos del perfil ****** #
 
@@ -334,14 +333,13 @@ class GUIContador:
 
 
     def mostrarEmp(self):
-        print("****__")
         frameDerechoContador = Frame(self.rootGUIContador, bg="#18344A")
         frameDerechoContador.place(x=600, y=85, width=700, height=530)
 
         # ******* Titulo Frame Bienvenido ****** #
 
         Label(frameDerechoContador, text="Empleado", font=("comic sans MS", 24, "bold"), bg="#18344A",
-              fg="white").place(x=220, y=40)
+              fg="white").place(x=280, y=30)
 
         # ****** Datos del perfil ****** #
 
