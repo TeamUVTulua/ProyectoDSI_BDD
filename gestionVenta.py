@@ -14,7 +14,7 @@ class gestionVenta:
             self.base = BaseDatos()
             self.query = "insert    into    venta    VALUES    (%s,%s,%s,%s,%s,%s)"
             self.base.crear_cursor(self.query, (codigo_ven, prod_ven, fac_ven, cant_ven, precio_ven, total_ven))
-            messagebox.showinfo("Registrado", "La   venta    ha    sido    registrada    con    exito")
+            messagebox.showinfo("Registrado", "La venta ha sido registrada con exito")
 
             self.base.cerrar_conexion()
         except:

@@ -33,7 +33,7 @@ class GUIFactura:
         self.frameCrearFactura.place(x=350, y=75, width=650, height=600)
 
         Label(self.frameCrearFactura, text="Factura", font=("comic sans MS", 25, "bold"), bg="#18344A",
-              fg="white").place(x=190, y=20)
+              fg="white").place(x=190, y=18)
 
 
         # ****** Label Crear Factura ****** #
@@ -140,7 +140,6 @@ class GUIFactura:
     def agr(self):
         gesPed = gestionPedido()
         precio = gesPed.obtener_precioCompra(self.rolPass.get())
-        print("**")
         print(self.rolPass.get())
         res = float('.'.join(str(ele) for ele in precio))
         self.precio2 = res * 1.15
@@ -152,7 +151,6 @@ class GUIFactura:
         botonAgregar2.place(x=620, y=190, width=25)
 
     def agr2(self):
-        print("aqui")
         print(self.cantidad.get())
         cant=float(self.cantidad.get())
         precioT= self.precio2 * cant
