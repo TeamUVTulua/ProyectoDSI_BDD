@@ -10,6 +10,7 @@ from gestionFactura import *
 from gestionPedido import *
 from gestionVenta import *
 from gestionCliente import *
+from gestionUsuario import *
 
 # ****** Clase GUIFactura ****** #
 class GUIFactura:
@@ -116,8 +117,7 @@ class GUIFactura:
 
         # ****** Boton Guardar Crear Usuario ****** #
 
-        BotonGuardar = Button(self.frameCrearFactura, text="Facturar", command = self.facturar, font=("comic sans MS", 15), bd=0,cursor="hand2")
-        BotonGuardar.place(x=50, y=500, width=200)
+
 
         # ****** Label Volver Crear Usuario ****** #
 
@@ -130,10 +130,11 @@ class GUIFactura:
     def cambio(self):
         print(self.monto.get())
         mont = float(self.monto.get())
-
-
         self.cambio2 = mont - self.total
-        Label(self.frameCrearFactura, text=self.cambio2, font=("comic sans MS", 16,), bg="white", fg="black").place(x=320,
+        if (self.cambio2 < 0):
+            messagebox.showinfo("Aviso", "El monto de pago debe ser mayor a 0")
+        else:
+            Label(self.frameCrearFactura, text=self.cambio2, font=("comic sans MS", 16,), bg="white", fg="black").place(x=320,
                                                                                                               y=350)
 
     def agr(self):
@@ -163,25 +164,115 @@ class GUIFactura:
         isCli = gest.buscar_info(self.clie.get())
 
         if (isCli == None):
-            self.rootGUIVendedor.destroy()
-            import GUIFacturacion as emp
-            emp.iniciar(fact, usuario.get_id_usu())
+            ges = gestionUsuario()
+            cargo = ges.obtener_cargo(str(self.emp))
+            res = str('.'.join(str(ele) for ele in cargo))
+            print(res)
+            self.frameCrearFactura.place_forget()
+            self.crearCliente()
+
         else:
-            gestionFac = gestionFactura()
-            gestionFac.registrar(self.fecha, self.rolPass.get(), self.total, self.cambio2, self.emp, self.clie.get(), self.monto.get(), self.codFac)
+            BotonGuardar = Button(self.frameCrearFactura, text="Facturar", command=self.facturar,
+                                  font=("comic sans MS", 15), bd=0, cursor="hand2")
+            BotonGuardar.place(x=50, y=500, width=200)
+
+    def crearCliente(self):
+        self.crearCli = Frame(self.rootGUIFactura, bg="#18344A")
+        self.crearCli.place(x=160, y=0, width=650, height=600)
+
+        Label(self.crearCli, text="REGISTRAR CLIENTE", font=("comic sans MS", 25, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=20)
+
+        # ****** Label ID Crear Usuario ****** #
+
+        Label(self.crearCli, text="NIT: ", font=("comic sans MS", 16, "bold"), bg="#18344A", fg="white").place(x=50,
+                                                                                                                   y=70)
+        self.ident = Entry(self.crearCli, font=("comic sans MS", 16))
+        self.ident.place(x=50, y=110)
+
+        # ****** Label Nombre Crear Usuario ****** #
+
+        Label(self.crearCli, text="Nombre: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=350, y=70)
+        self.nombre = Entry(self.crearCli, font=("comic sans MS", 16))
+        self.nombre.place(x=350, y=110)
+
+        # ****** Label Apellido Crear Usuario ****** #
+
+        Label(self.crearCli, text="Apellido 1: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=150)
+        self.apell = Entry(self.crearCli, font=("comic sans MS", 16))
+        self.apell.place(x=50, y=190)
+
+        # ****** Label Telefono Crear Usuario ****** #
+
+        Label(self.crearCli, text="Apellido 2: ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=350, y=150)
+        self.tel = Entry(self.crearCli, font=("comic sans MS", 16))
+        self.tel.place(x=350, y=190)
+
+        # ****** Label Direccion Crear Usuario ****** #
+
+        Label(self.crearCli, text="Direccion Numero ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(
+            x=350, y=230)
+        self.rolPass = ttk.Combobox(self.crearCli, font=("comic sans MS", 13), state="readonly", justify=CENTER)
+        self.rolPass["values"] = ["Esporadico", "Habitual"]
+        self.rolPass.place(x=50, y=270)
+
+        # ****** Label Cargo Crear Usuario ****** #
+
+        Label(self.crearCli, text="Tipo Cliente ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(
+            x=50, y=230)
+        self.dir = Entry(self.crearCli, font=("comic sans MS", 16))
+        self.dir.place(x=350, y=270)
+
+        self.carg = self.rolPass
+
+        # ****** Label Sueldo Crear Usuario ****** #
+
+        Label(self.crearCli, text="Direccion Calle ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+              fg="white").place(x=50, y=310)
+        self.sueld = Entry(self.crearCli, font=("comic sans MS", 16))
+        self.sueld.place(x=50, y=350)
 
 
+        # ****** Boton Buscar
+        # ****** Boton Guardar Crear Usuario ****** #
+
+        BotonGuardar = Button(self.crearCli, text="Registrar", command=self.registrar, font=("comic sans MS", 15),
+                              bd=0, cursor="hand2")
+        BotonGuardar.place(x=50, y=500, width=200)
+
+        # ****** Label Volver Crear Usuario ****** #
+
+    def volver(self):
+
+        self.crearCli.place_forget()
+        self.frameCrearFactura.place(x=350, y=75, width=650, height=600)
+        BotonGuardar = Button(self.frameCrearFactura, text="Facturar", command=self.facturar,
+                              font=("comic sans MS", 15), bd=0, cursor="hand2")
+        BotonGuardar.place(x=50, y=500, width=200)
+
+    def validacion(self):
+        return (len(self.ident.get()) == 0 or len(self.carg.get()) == 0)
+
+    def registrar(self):
+        if self.validacion():
+            messagebox.showinfo("error!", "Los datos son obligatorios")
+        else:
+            self.gestionUsuario = gestionCliente()
+            self.gestionUsuario.registrar_cliente(self.ident.get(), self.nombre.get(), self.apell.get(),self.tel.get(),self.rolPass.get(), self.dir.get(),self.sueld.get())
+            self.volver()
+        
     def facturar(self):
-        gestVen = gestionVenta()
-        print("---")
-        print(self.codigo.get())
-        print(self.rolPass.get())
-        print(self.codFac)
-        print(self.cantidad.get())
-        print(self.precio2)
-        gestVen.registrar_venta(self.codigo.get(), self.rolPass.get(), self.codFac, self.cantidad.get(), self.precio2)
+        gestionFac = gestionFactura()
+        gestionFac.registrar(self.fecha, self.rolPass.get(), self.total, self.cambio2, self.emp, self.clie.get(),
+                             self.monto.get(), self.codFac)
         self.rootGUIFactura.destroy()
-        iniciar(self.codFac)
+        import GUIVendedor as ven
+        ven.iniciar()
 
     def CargarInfoUsuarioEnLabels(self, lista):
         gestionFac = gestionFactura()
