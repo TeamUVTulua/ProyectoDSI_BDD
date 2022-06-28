@@ -52,13 +52,13 @@ class GUIProveedor:
 
         # ******Boton Eliminar Proveedor ****** #
 
-        BotonEliminarProveedor = Button(frameIzquierdoProv, text="Eliminar Cliente", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonEliminarProveedor = Button(frameIzquierdoProv, text="Eliminar Proveedor", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonEliminarProveedor.place(x=120, y=240, width=240)
 
 
         # ******Boton Habilitar Proveedor****** #
 
-        BotonHabilitarProveedor = Button(frameIzquierdoProv, text="Eliminar Cliente", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
+        BotonHabilitarProveedor = Button(frameIzquierdoProv, text="Habilitar Proveedor", command=self.eliminar, font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonHabilitarProveedor.place(x=120, y=240, width=240)
 
 
@@ -99,7 +99,7 @@ class GUIProveedor:
         reg.iniciar()
 
     def eliminar(self):
-        self.auxId = askstring('Eliminar Cliente', 'Ingrese el nit de un cliente')
+        self.auxId = askstring('Eliminar proveedor', 'Ingrese el nit de un proveedor: ')
         gestionProv = gestionProveedor()
         gestionProv.deshabilitar_usuario(self.auxId )
         self.rootGUIProveedor.destroy()

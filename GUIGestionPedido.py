@@ -52,16 +52,6 @@ class GUIGestionPedido:
                                         font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
         BotonConsultarProducto.place(x=120, y=180, width=240)
 
-        # ******Boton Eliminar Producto ****** #
-
-        BotonEliminarProducto = Button(frameIzquierdoProd, text="Eliminar Pedido", command=self.eliminar,
-                                       font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonEliminarProducto.place(x=120, y=260, width=240)
-
-        BotonRecuperarPedido = Button(frameIzquierdoProd, text="Recuperar Pedido", command=self.eliminar,
-                                       font=("comic sans MS", 15), bg="gray", fg="white", bd=5, cursor="hand2")
-        BotonRecuperarPedido.place(x=120, y=320, width=240)
-
         # ****** Frame inicio Productos Side Der ****** #
         self.frameDerechoPed = Frame(self.rooGUIRegPed, bg="#18344A")
         self.frameDerechoPed.place(x=600, y=85, width=700, height=530)
