@@ -32,14 +32,14 @@ class gestionPedido:
 
     def obtenerTodosId(self):
         self.base = BaseDatos()
-        self.query = "SELECT codigo FROM producto "
+        self.query = "SELECT codigo , nombre FROM producto "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         print(self.cur)
         return self.cur
 
     def obtenerTodosNit(self):
         self.base = BaseDatos()
-        self.query = "SELECT nit FROM proveedor "
+        self.query = "SELECT nit , nombre FROM proveedor "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         print(self.cur)
         return self.cur

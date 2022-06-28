@@ -121,9 +121,6 @@ class GUIFactura:
 
         # ****** Label Volver Crear Usuario ****** #
 
-        BotonLogin = Button(self.frameCrearFactura, text="Terminar", command = self.terminar, font=("comic sans MS", 15) ,bd=0, cursor="hand2")
-        BotonLogin.place(x=350, y=500, width=200)
-
     def terminar(self):
         self.rootGUIFactura.destroy()
 

@@ -72,7 +72,7 @@ class resgistroPedido:
         self.rolPassProv.place(x=50, y=220)
         #-----------------
 
-        Label(self.framePedidos, text="Buscar Proveedor ", font=("comic sans MS", 16, "bold"), bg="#18344A",
+        Label(self.framePedidos, text="Buscar Pedido ", font=("comic sans MS", 16, "bold"), bg="#18344A",
               fg="white").place(
             x=50, y=280)
 
@@ -111,7 +111,10 @@ class resgistroPedido:
             cantidad = int(self.Contacto.get())
             precio = int(self.Direccion.get())
             precioTotal = cantidad * precio
-            self.gestionPed.registrar_pedido(self.nit.get(), self.rolPass.get(), self.rolPassProv.get(), self.Contacto.get(), self.Direccion.get(), precioTotal)
+            self.prod = self.rolPass.get().split()
+            self.prove = self.rolPassProv.get().split()
+
+            self.gestionPed.registrar_pedido(self.nit.get(), str(self.prod[0]), str(self.prove[0]), self.Contacto.get(), self.Direccion.get(), precioTotal)
             self.volver()
 
     def busc(self):

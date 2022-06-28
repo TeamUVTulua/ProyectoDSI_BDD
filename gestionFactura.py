@@ -94,7 +94,7 @@ class gestionFactura:
 
     def obtenerTodosId(self):
         self.base = BaseDatos()
-        self.query = "SELECT producto FROM surtido "
+        self.query = "SELECT DISTINCT (s.producto), p.nombre FROM surtido s inner join producto p on s.producto = p.codigo "
         self.cur = self.base.ObtenerTodosLosdatos(self.query)
         return self.cur
 

@@ -18,7 +18,7 @@ class gestionVenta:
 
             self.base.cerrar_conexion()
         except:
-           messagebox.showinfo("Aviso", "venta ya registrada.")
+            messagebox.showinfo("Aviso", "venta ya registrada.")
 
     # ****** Metodo para obtener los datos ******#
 

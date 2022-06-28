@@ -92,7 +92,7 @@ class GUIFacturacion:
 
         # ****** Label Volver Crear Usuario ****** #
 
-        BotonLogin = Button(self.frameCrearFactura, text="Terminar", command = self.terminar, font=("comic sans MS", 15) ,bd=0, cursor="hand2")
+        BotonLogin = Button(self.frameCrearFactura, text="Siguiente", command = self.terminar, font=("comic sans MS", 15) ,bd=0, cursor="hand2")
         BotonLogin.place(x=350, y=500, width=200)
 
     def terminar(self):
@@ -103,8 +103,11 @@ class GUIFacturacion:
 
     def agr(self):
         gesPed = gestionPedido()
-        precio = gesPed.obtener_precioCompra(self.rolPass.get())
         print(self.rolPass.get())
+        self.buscar = self.rolPass.get().split()
+        precio = gesPed.obtener_precioCompra(str(self.buscar[0]))
+
+
         res = float('.'.join(str(ele) for ele in precio))
         self.precio2 = res * 1.15
         Label(self.frameCrearFactura, text= self.precio2, font=("comic sans MS", 16,), bg="white",
@@ -127,7 +130,7 @@ class GUIFacturacion:
         print(self.codFac)
         print(self.cantidad.get())
         print(self.precio2)
-        gestVen.registrar_venta(self.codigo.get(), self.rolPass.get(), self.codFac, self.cantidad.get(), self.precio2, self.precioT)
+        gestVen.registrar_venta(self.codigo.get(), str(self.buscar[0]), self.codFac, self.cantidad.get(), self.precio2, self.precioT)
         self.rootGUIFacturacion.destroy()
         iniciar(self.codFac, self.emp)
 
